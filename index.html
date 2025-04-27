@@ -1,322 +1,408 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wine & Dine Events</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+  </head>
+
+  <body>
+    <!--HERO-->
     <div class="orange-bubble">
-        <img src="Images/Hero/Dineysos_Logo_black.png" alt="Dineysos logo" />
+      <img src="Images/Hero/Dineysos_Logo_black.png" alt="Dineysos logo" />
     </div>
 
     <header>
-        <img src="Images/Hero/Dineysos_Logo_color.png" alt="Wine & Dine Logo" class="logo" />
-        <nav>
-            <a href="#about">ÜBER UNS</a>
-            <a href="#concepts">KONZEPTE</a>
-            <a href="#prices">PREISE</a>
-            <a href="#contact">KONTAKT</a>
-        </nav>
+      <a href="#hero">
+        <img
+          src="Images/Hero/Dineysos_Logo_color.png"
+          alt="Wine & Dine Logo"
+          class="logo"
+          href="#hero"
+        />
+      </a>
+      <nav>
+        <a href="#about">ÜBER UNS</a>
+        <a href="#concepts">KONZEPTE</a>
+        <a href="#pricing">PREISE</a>
+        <a href="#contact">KONTAKT</a>
+      </nav>
     </header>
-        <section class="hero">
-            <div class="bubble-wrapper">
-                <div class="blue-bubble"></div>
-            </div>
-            <div class="hero-content">
-                <h2>WINE, GAMES, EVENTS</h2>
-                <p>Wine for the enjoyers,
-                    games for the spirited,
-                    knowledge for the wise</p>
-                <button onclick="location.href='#concepts'">KONZEPTE</button>
-            </div>
-        
-            <img src="Images/Hero/Dineysos_Weinglas_blau.png" alt="Wine Glass" class="hero-img wine-glass" />
-            <img src="Images/Hero/Dineysos_Würfel_dünn_blau.png" alt="Dice" class="hero-img dice" />
-            <img src="Images/Hero/Pricing.png" alt="Clint" class="hero-img clint" />
-            <img src="Images/Hero/Köpf Laughing.png" alt="Marina" class="hero-img marina" />
-        </section>
+    <section class="hero" id="hero">
+      <div class="bubble-wrapper">
+        <div class="blue-bubble"></div>
+      </div>
+      <div class="hero-content">
+        <h2>WINE, GAMES, EVENTS</h2>
+        <p>
+          Wine for the enjoyers, games for the spirited, knowledge for the wise
+        </p>
+        <button onclick="location.href='#concepts'">KONZEPTE</button>
+      </div>
 
-        <section class="gallery">
-            <button class="prev" onclick="moveGallery(-1)">&#10094;</button>
-            <div class="gallery-viewport">
-                <div class="gallery-track" id="gallery-track">
-                    <img src="Images/Gallery/images.jpeg" alt="Event 6">
-                    <img src="Images/Gallery/download (1).jpeg" alt="Wine 1">
-                    <img src="Images/Gallery/download (2).jpeg" alt="Dinner 2">
-                    <img src="Images/Gallery/download (3).jpeg" alt="Cheese 3">
-                    <img src="Images/Gallery/download (4).jpeg" alt="Party 4">
-                    <img src="Images/Gallery/download.jpeg" alt="Game 5">
-                    <img src="Images/Gallery/images.jpeg" alt="Event 6">
-                    <img src="Images/Gallery/download (1).jpeg" alt="Wine 1">
-                    <img src="Images/Gallery/download (2).jpeg" alt="Dinner 2">
-                    <img src="Images/Gallery/download (3).jpeg" alt="Cheese 3">
-                    <img src="Images/Gallery/download (4).jpeg" alt="Party 4">
-                </div>
-            </div>
-            <button class="next" onclick="moveGallery(1)">&#10095;</button>
-        </section>
+      <img
+        src="Images/Hero/Dineysos_Weinglas_blau.png"
+        alt="Wine Glass"
+        class="hero-img wine-glass"
+      />
+      <img
+        src="Images/Hero/Dineysos_Würfel_dünn_blau.png"
+        alt="Dice"
+        class="hero-img dice"
+      />
+      <img src="Images/Hero/Pricing.png" alt="Clint" class="hero-img clint" />
+      <img
+        src="Images/Hero/Köpf Laughing.png"
+        alt="Marina"
+        class="hero-img marina"
+      />
+    </section>
 
-        <section class="about" id="about">
-            <div class="about-container">
-                <div class="about-text">
-                    <h2>Wir sind Clint und Marina - hi!</h2>
-                    <p>
-                        Durch unseren Wunsch, verschiedene Arten des Zusammenkommens zu “wein- und spassifizieren”, gründeten wir Dineysos:<br />
-                        Einen innovativen und neuartigen Anbieter von Wein-Spiele-Konzepten, die euren Event auf unkonventionelle Weise zum Gesprächsthema machen.<br />
-                        <br />
-                        Unsere Geschichte beginnt wie viele: Nach der dritten Flasche Wein kam uns die Erkenntnis, dass eine Mehrheit der Events heutzutage sehr generisch sind
-                        und die Welt auf etwas Neues gewartet hat. Kombiniert man etwas Langeweile mit dem erwähnten Wein, war eine Lösung schnell gefunden: Dineysos!<br />
-                        <br />
-                        Unsere Eventkonzepte sind lehrreich, lustig sowie flexibel anpassbar und lassen sich bestens in Afterworks, Mitarbeiterevents, Dinnerparties 
-                        sowie alle Arten von Happening integrieren. <br />
-                        <br />
-                        Von “Wir kommen nur mit unserem Spiel und einem Koffer voller Wein” bis zu einem Komplettevent mit passender Location und Kulinarik, ist alles möglich.
-                    </p>
+    <!--Gallery-->
+    <section class="gallery">
+      <button class="prev" onclick="moveGallery(-1)">&#10094;</button>
+      <div class="gallery-viewport">
+        <div class="gallery-track" id="gallery-track">
+          <img src="Images/Gallery/images.jpeg" alt="Event 6" />
+          <img src="Images/Gallery/download (1).jpeg" alt="Wine 1" />
+          <img src="Images/Gallery/download (2).jpeg" alt="Dinner 2" />
+          <img src="Images/Gallery/download (3).jpeg" alt="Cheese 3" />
+          <img src="Images/Gallery/download (4).jpeg" alt="Party 4" />
+          <img src="Images/Gallery/download.jpeg" alt="Game 5" />
+          <img src="Images/Gallery/images.jpeg" alt="Event 6" />
+          <img src="Images/Gallery/download (1).jpeg" alt="Wine 1" />
+          <img src="Images/Gallery/download (2).jpeg" alt="Dinner 2" />
+          <img src="Images/Gallery/download (3).jpeg" alt="Cheese 3" />
+          <img src="Images/Gallery/download (4).jpeg" alt="Party 4" />
+        </div>
+      </div>
+      <button class="next" onclick="moveGallery(1)">&#10095;</button>
+    </section>
+
+    <!--About-->
+    <section class="about" id="about">
+      <div class="about-container">
+        <div class="about-text">
+          <h2>Wir sind Clint und Marina - hi!</h2>
+          <p>
+            Durch unseren Wunsch, verschiedene Arten des Zusammenkommens zu
+            “wein- und spassifizieren”, gründeten wir Dineysos:<br />
+            Einen innovativen und neuartigen Anbieter von Wein-Spiele-Konzepten,
+            die euren Event auf unkonventionelle Weise zum Gesprächsthema
+            machen.<br />
+            <br />
+            Unsere Geschichte beginnt wie viele: Nach der dritten Flasche Wein
+            kam uns die Erkenntnis, dass eine Mehrheit der Events heutzutage
+            sehr generisch sind und die Welt auf etwas Neues gewartet hat.
+            Kombiniert man etwas Langeweile mit dem erwähnten Wein, war eine
+            Lösung schnell gefunden: Dineysos!<br />
+            <br />
+            Unsere Eventkonzepte sind lehrreich, lustig sowie flexibel anpassbar
+            und lassen sich bestens in Afterworks, Mitarbeiterevents,
+            Dinnerparties sowie alle Arten von Happening integrieren. <br />
+            <br />
+            Von “Wir kommen nur mit unserem Spiel und einem Koffer voller Wein”
+            bis zu einem Komplettevent mit passender Location und Kulinarik, ist
+            alles möglich.
+          </p>
+        </div>
+        <div class="about-images">
+          <div class="about-person">
+            <img
+              src="Images/About/Clint&Marina.png"
+              alt="Clint&Marina"
+              class="about-img"
+            />
+            <span class="marina-label"
+              >Marina<br />
+              Eine Hobbykünstlerin mit einem Flair für Excel-Tabellen sowie
+              einer Leidenschaft für gutes Essen und Trinken.<br
+            /></span>
+            <span class="clint-label"
+              >Clint<br />
+              Ein Brunch-Liebhaber, der nie ohne Hut <br />anzutreffen ist und
+              eine nicht zu leugnende Leidenschaft für Wein besitzt - viel
+              Wein.<br
+            /></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Concepts-->
+    <section class="concepts" id="concepts">
+      <div class="concepts-header">
+        <h2>Unsere Konzepte</h2>
+      </div>
+      <div class="grid">
+        <div class="concept-card">
+          <div class="concept-image">
+            <img src="Images/Concepts/Trophy.png" alt="Trophy" />
+          </div>
+          <div class="concept-description">
+            <h2>Trophy</h2>
+            <p>
+              Euch erwarten mehrere Challenges über die Weinauswahl, bei denen
+              Weinwissen eher bescheiden nützlich ist. Unterhaltsam, mehr oder
+              weniger informativ und mit einem glorreichen Sieger* am Ende.
+            </p>
+            <button class="concept-button" onclick="openModal('Trophy')">
+              Mehr erfahren
+            </button>
+          </div>
+          <div class="concept-classification">
+            <p>Spielelement:<strong> Quiz</strong></p>
+            <div class="rating-row">
+              <span>Spass</span>
+              <div class="glasses">
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
               </div>
-              <div class="about-images">
-                    <div class="about-person">
-                        <img src="Images/About/Clint&Marina.png" alt="Clint&Marina" class="about-img" />
-                        <span class="marina-label">Marina<br /> Eine Hobbykünstlerin mit einem Flair für Excel-Tabellen sowie einer Leidenschaft für gutes Essen und Trinken.<br /></span>
-                        <span class="clint-label">Clint<br /> Ein Brunch-Liebhaber, der nie ohne Hut <br />anzutreffen ist und eine nicht zu leugnende Leidenschaft für Wein besitzt - viel Wein.<br /></span>
-                    </div>
+            </div>
+            <div class="rating-row">
+              <span>Lernlevel</span>
+              <div class="glasses">
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
               </div>
             </div>
-        </section>
-
-        <section class="concepts" id="concepts">
-            <div class="concepts-header">
-                <h2>Unsere Konzepte</h2>
-            </div>
-            <div class="grid">
-                <div class="concept-card">
-                    <div class="concept-image">
-                        <img src="Images/Concepts/Trophy.png" alt="Trophy" />
-                    </div>
-                    <div class="concept-description">
-                        <h2>Trophy</h2>
-                        <p>Euch erwarten mehrere Challenges über die Weinauswahl, bei denen Weinwissen eher bescheiden nützlich ist. Unterhaltsam, mehr oder weniger informativ und mit einem glorreichen Sieger* am Ende.</p>
-                        <button class="concept-button" onclick="openModal('Trophy')">Mehr erfahren</button>
-                    </div>
-                    <div class="concept-classification">
-                        <p>Spielelement:<strong> Quiz</strong></p>
-                        <div class="rating-row">
-                            <span>Spass</span>
-                            <div class="glasses">
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                            </div>
-                        </div>
-                        <div class="rating-row">
-                            <span>Lernlevel</span>
-                            <div class="glasses">
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                            </div>
-                        </div>
-                        <div class="rating-row">
-                            <span>Austausch</span>
-                            <div class="glasses">
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        
-                <div class="concept-card">
-                    <div class="concept-image">
-                        <img src="Images/Concepts/Classroom duo colour.png" alt="Classroom" />
-                    </div>
-                    <div class="concept-description">
-                        <h2>Classroom</h2>
-                        <p>Hier kommen die Teilnehmer weinbezogen schlauer nach Hause, als sie es ohnehin schon sind. Weinwissen wird nicht benötigt oder kann in den Schwierigkeits- und Informationslevel eingerechnet werden.</p>
-                        <button class="concept-button" onclick="openModal('Classroom')">Mehr erfahren</button>
-                    </div>
-                    <div class="concept-classification">
-                        <p>Spielelement:<strong> Kreuzworträtsel</strong></p>
-                        <div class="rating-row">
-                            <span>Spass</span>
-                            <div class="glasses">
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                            </div>
-                        </div>
-                        <div class="rating-row">
-                            <span>Lernlevel</span>
-                            <div class="glasses">
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                            </div>
-                        </div>
-                        <div class="rating-row">
-                            <span>Austausch</span>
-                            <div class="glasses">
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        
-                <div class="concept-card">
-                    <div class="concept-image">
-                        <img src="Images/Concepts/Olympics duo colour.png" alt="Olympics" />
-                    </div>
-                    <div class="concept-description">
-                        <h2>Olympics</h2>
-                        <p>Was wertet jedes Konzept auf? Richtig, mehr Wein. Olympic setzt eine Serie von Weinen in Konkurrenz zu einer zweiten Serie. Olympische Spiele mit Weinen sozusagen. Eignet sich neben den üblichen Formaten auch bestens um euer Weinsortiment gegen ein anderes antreten zu lassen.</p>
-                        <button class="concept-button" onclick="openModal('Olympics')">Mehr erfahren</button>
-                    </div>
-                    <div class="concept-classification">
-                        <p>Spielelement:<strong> Quartett</strong></p>
-                        <div class="rating-row">
-                            <span>Spass</span>
-                            <div class="glasses">
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                            </div>
-                        </div>
-                        <div class="rating-row">
-                            <span>Lernlevel</span>
-                            <div class="glasses">
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                            </div>
-                        </div>
-                        <div class="rating-row">
-                            <span>Austausch</span>
-                            <div class="glasses">
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="modal" id="ConceptModal" onclick="handleBackdropClick(event)">
-            <div class="modal-content" id="modalContent">
-              <span class="close" onclick="closeModal()">&times;</span>
-          
-              <div class="carousel-wrapper">
-                <div class="carousel-track" id="carouselTrack">
-                  <div class="slide">
-                    <img class="modal-image" id="img1" />
-                  </div>
-                  <div class="slide">
-                    <img class="modal-image" id="img2" />
-                  </div>
-                </div>
-          
-                <button class="carousel-arrow left" onclick="slideModal(-1)">&#10094;</button>
-                <button class="carousel-arrow right" onclick="slideModal(1)">&#10095;</button>
+            <div class="rating-row">
+              <span>Austausch</span>
+              <div class="glasses">
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
               </div>
             </div>
           </div>
+        </div>
 
+        <div class="concept-card">
+          <div class="concept-image">
+            <img
+              src="Images/Concepts/Classroom duo colour.png"
+              alt="Classroom"
+            />
+          </div>
+          <div class="concept-description">
+            <h2>Classroom</h2>
+            <p>
+              Hier kommen die Teilnehmer weinbezogen schlauer nach Hause, als
+              sie es ohnehin schon sind. Weinwissen wird nicht benötigt oder
+              kann in den Schwierigkeits- und Informationslevel eingerechnet
+              werden.
+            </p>
+            <button class="concept-button" onclick="openModal('Classroom')">
+              Mehr erfahren
+            </button>
+          </div>
+          <div class="concept-classification">
+            <p>Spielelement:<strong> Kreuzworträtsel</strong></p>
+            <div class="rating-row">
+              <span>Spass</span>
+              <div class="glasses">
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+              </div>
+            </div>
+            <div class="rating-row">
+              <span>Lernlevel</span>
+              <div class="glasses">
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+              </div>
+            </div>
+            <div class="rating-row">
+              <span>Austausch</span>
+              <div class="glasses">
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <script>
-            const track = document.getElementById("gallery-track");
-            const totalImages = track.children.length;
-            const imageWidthPercent = 25; // image + margin
-            const visible = 4;
-            let index = 1;
-          
-            function moveGallery(direction) {
-                index += direction;
+        <div class="concept-card">
+          <div class="concept-image">
+            <img src="Images/Concepts/Olympics duo colour.png" alt="Olympics" />
+          </div>
+          <div class="concept-description">
+            <h2>Olympics</h2>
+            <p>
+              Was wertet jedes Konzept auf? Richtig, mehr Wein. Olympic setzt
+              eine Serie von Weinen in Konkurrenz zu einer zweiten Serie.
+              Olympische Spiele mit Weinen sozusagen. Eignet sich neben den
+              üblichen Formaten auch bestens um euer Weinsortiment gegen ein
+              anderes antreten zu lassen.
+            </p>
+            <button class="concept-button" onclick="openModal('Olympics')">
+              Mehr erfahren
+            </button>
+          </div>
+          <div class="concept-classification">
+            <p>Spielelement:<strong> Quartett</strong></p>
+            <div class="rating-row">
+              <span>Spass</span>
+              <div class="glasses">
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+              </div>
+            </div>
+            <div class="rating-row">
+              <span>Lernlevel</span>
+              <div class="glasses">
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+              </div>
+            </div>
+            <div class="rating-row">
+              <span>Austausch</span>
+              <div class="glasses">
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+                <img src="Images/Concepts/Glass.png" alt="Glass" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                // jump to end if needed
-                if (index >= totalImages - visible) {
-                    track.style.transition = 'none';
-                    index = 1;
-                    track.style.transform = `translateX(-${index * imageWidthPercent}%)`;
-                    void track.offsetWidth;
-                    track.style.transition = 'transform 0.5s ease';
-                    index += direction;
-                }
+    <div class="modal" id="ConceptModal" onclick="handleBackdropClick(event)">
+      <div class="modal-content" id="modalContent">
+        <span class="close" onclick="closeModal()">&times;</span>
 
-                // jump to beginning if needed
-                if (index <= 0) {
-                    track.style.transition = 'none';
-                    index = totalImages - visible - 1;
-                    track.style.transform = `translateX(-${index * imageWidthPercent}%)`;
-                    void track.offsetWidth;
-                    track.style.transition = 'transform 0.5s ease';
-                    index -= 1;
-                }
+        <div class="carousel-wrapper">
+          <div class="carousel-track" id="carouselTrack">
+            <div class="slide">
+              <img class="modal-image" id="img1" />
+            </div>
+            <div class="slide">
+              <img class="modal-image" id="img2" />
+            </div>
+          </div>
 
-                track.style.transform = `translateX(-${index * imageWidthPercent}%)`;
-                }
+          <button
+            class="carousel-arrow left"
+            id="leftArrow"
+            onclick="slideModal(-1)"
+          >
+            &#10094;
+          </button>
+          <button
+            class="carousel-arrow right"
+            id="rightArrow"
+            onclick="slideModal(1)"
+          >
+            &#10095;
+          </button>
 
-                // Initial position
-                track.style.transform = `translateX(-${index * imageWidthPercent}%)`;
-          
-            // Auto scroll
-            setInterval(() => moveGallery(1), 4000);
-        </script>
-        <script>
-            let currentSlide = 0;
+          <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+      </div>
+    </div>
 
-            function openModal(baseName) {
-            currentSlide = 0;
+    <!--Pricing-->
+    <section class="pricing" id="pricing">
+      <h2>Preise</h2>
+      <div class="pricing-content">
+        <p>
+          Mit den nachfolgend aufgeführten Richtpreisen können die Kosten für
+          eine Veranstaltung in etwa abgeschätzt werden. Bei der Preisgestaltung
+          kommt es auf viele Faktoren an (Weinauswahl, eventueller externer
+          Veranstaltungsort und Essen etc.). Gerne erstellen wir auf Anfrage
+          oder nach einer persönlichen Besprechung ein individuelles Angebot:
+        </p>
+        <table class="pricing-table">
+          <thead>
+            <tr>
+              <th></th>
+              <!-- Empty top-left corner -->
+              <th>4–7 Teilnehmer</th>
+              <th>8–15 Teilnehmer</th>
+              <th>16–30 Teilnehmer</th>
+              <th>ab 31 Teilnehmer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <strong>Basispreis</strong><br /><small
+                  >inkl. Unterlagen, Moderation,<br />Spielkonzept (2
+                  Stunden)</small
+                >
+              </td>
+              <td>CHF 70.-<br /><small>pro Person</small></td>
+              <td>CHF 50.-<br /><small>pro Person</small></td>
+              <td>CHF 35.-<br /><small>pro Person</small></td>
+              <td>auf Anfrage</td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Weinbegleitung mit 5 Weinen (5×1dl)</strong><br /><small
+                  >notwendig zur Durchführung</small
+                >
+              </td>
+              <td>ab CHF 35.-<br /><small>pro Person</small></td>
+              <td>ab CHF 35.-<br /><small>pro Person</small></td>
+              <td>ab CHF 35.-<br /><small>pro Person</small></td>
+              <td>ab CHF 35.-<br /><small>pro Person</small></td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Essensbegleitung oder Snacks</strong><br /><small
+                  >Service in Gängen verlängert die Veranstaltungsdauer</small
+                >
+              </td>
+              <td>auf Anfrage</td>
+              <td>auf Anfrage</td>
+              <td>auf Anfrage</td>
+              <td>auf Anfrage</td>
+            </tr>
+            <tr>
+              <td><strong>Veranstaltungsort</strong></td>
+              <td>auf Anfrage</td>
+              <td>auf Anfrage</td>
+              <td>auf Anfrage</td>
+              <td>auf Anfrage</td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Verlängerung der Veranstaltung</strong><br /><small
+                  >Aufgrund von Essen oder auf Kundenwunsch</small
+                >
+              </td>
+              <td>CHF 90.-<br /><small>pro angefangene Stunde</small></td>
+              <td>CHF 90.-<br /><small>pro angefangene Stunde</small></td>
+              <td>CHF 90.-<br /><small>pro angefangene Stunde</small></td>
+              <td>CHF 90.-<br /><small>pro angefangene Stunde</small></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-            document.getElementById('img1').src = `Images/Concepts/Modals/${baseName}.png`;
-            document.getElementById('img2').src = `Images/Concepts/Modals/${baseName}2.png`;
-
-            document.getElementById('carouselTrack').style.transform = `translateX(0%)`;
-            document.getElementById('ConceptModal').classList.add('show');
-            }
-
-            function slideModal(direction) {
-            const track = document.getElementById('carouselTrack');
-            const maxSlide = 1;
-
-            currentSlide = Math.min(Math.max(currentSlide + direction, 0), maxSlide);
-            track.style.transform = `translateX(-${currentSlide * 100}%)`;
-            }
-
-            function closeModal() {
-            const modal = document.getElementById("ConceptModal");
-            const content = document.getElementById("modalContent");
-
-            modal.classList.add("hide");
-            content.classList.add("hide");
-
-            setTimeout(() => {
-                modal.classList.remove("show", "hide");
-                content.classList.remove("hide");
-                document.getElementById('img1').src = '';
-                document.getElementById('img2').src = '';
-            }, 300);
-            }
-
-            function handleBackdropClick(event) {
-            const modalContent = document.getElementById('modalContent');
-            if (!modalContent.contains(event.target)) {
-                closeModal();
-            }
-            }
-        </script>
-    </body>
-    </html>
+ 
+    <script src="js/main.js"></script>
+  </body>
+</html>
