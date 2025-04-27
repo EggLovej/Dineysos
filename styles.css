@@ -15,9 +15,16 @@ html {
   width: 8rem;
   transition: width 0.3s ease;
 }
-
+#about {
+  padding-top: 5rem; /* space for the navbar */
+  margin-top: -5rem; /* offset to keep layout same */
+}
 .logo.shrink {
   width: 5rem;
+}
+nav a.active {
+  color: #ef7215; /* your orange */
+  font-weight: bold;
 }
 .orange-bubble {
   position: absolute;
@@ -186,18 +193,25 @@ nav a {
 .gallery-track img {
   flex-shrink: 0;
   width: 23%;
-  margin-right: 2%; /* gap between images */
+  margin-right: 0.3%;
   height: 200px;
   object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-track img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .gallery button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 0.2);
   border: none;
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 2rem;
   cursor: pointer;
   padding: 0.5rem;
@@ -211,15 +225,37 @@ nav a {
 .gallery .next {
   right: 0;
 }
+.lightbox {
+  display: none; /* hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* dark overlay */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
 .about-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 2rem 10rem;
+  padding: 2rem auto;
   gap: 1rem;
   color: #0957a2;
   font-size: 19px;
+  margin: 2rem 10rem;
 }
 
 .about-text {
@@ -266,6 +302,7 @@ nav a {
 .about h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
+  color: #ef7215;
 }
 
 .about p {
@@ -527,6 +564,112 @@ nav a {
   }
 }
 
+.formats {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.formats h2 {
+  margin-bottom: 2rem;
+  font-size: 3rem;
+  color: #ef7215;
+}
+.formats-description {
+  max-width: 1000px;
+  margin: 0 auto 2rem auto;
+  color: #0957a2;
+  font-size: 1.1rem;
+}
+
+.formats-table-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 2rem;
+  gap: 2rem; /* optional space between table and legend */
+  flex-wrap: wrap; /* mobile friendliness */
+}
+
+.formats-space {
+  flex: 1;
+}
+
+.formats-table {
+  flex: 5;
+}
+
+.formats-legend {
+  flex: 2;
+  text-align: left;
+  font-size: 1rem;
+  color: #0957a2;
+  min-width: 200px;
+}
+.legend-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.legend-symbol {
+  min-width: 110px;
+  text-align: right;
+}
+
+.legend-text {
+  text-align: left;
+}
+
+.formats-table th, .formats-table td {
+  border: 1px solid #0957a2;
+  padding: 0.8rem;
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+.formats-table table {
+  width: 100%;
+  border-collapse: collapse; /* 🔥 important! */
+}
+
+
+.formats-extra {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.formats-extra-text {
+  max-width: 500px;
+  font-size: 1.1rem;
+  color: #0957a2;
+  text-align: left;
+}
+
+.formats-extra-characters img {
+  width: 150px;
+  height: auto;
+}
+
+.flower-container {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex-wrap: nowrap; /* never wrap flowers */
+  gap: 2px;
+}
+
+.flower { 
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  vertical-align: middle;
+}
+
 .pricing {
   text-align: center;
   padding: 4rem 1rem;
@@ -559,14 +702,13 @@ nav a {
 
 .pricing-table th,
 .pricing-table td {
-  border: 1px solid #ddd;
+  border: 0px solid #ddd;
   padding: 1rem;
-  text-align: center;
+  text-align: left;
   vertical-align: center;
 }
 
 .pricing-table thead th {
-  background-color: #fff5e1;
   color: #ef7215;
   font-weight: bold;
 }
@@ -581,4 +723,214 @@ nav a {
   font-size: 0.85rem;
   color: #0957a2;
   margin-top: 0.3rem;
+}
+
+.contact {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.contact h2 {
+  margin-bottom: 2rem;
+  font-size: 3rem;
+  color: #ef7215;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.contact-left,
+.contact-right {
+  flex: 1 1 300px;
+  max-width: 500px;
+}
+
+.contact-left a {
+  color: #0957a2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-left a:hover {
+  text-decoration: underline;
+}
+
+.contact-cards {
+  display: flex;
+  flex-direction: row; /* (default for flexbox) */
+  justify-content: center; /* center the row */
+  align-items: flex-start;
+  gap: 2rem; /* space between cards */
+  flex-wrap: nowrap; /* allow wrapping on very small screens */
+  margin-top: 2rem;
+}
+
+.contact-card {
+  background-color: #fff5e1;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: visible;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.contact-image {
+  width: 8rem;
+  height: 8rem;
+  object-fit: contain;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+.contact-card:hover .contact-image {
+  transform: scale(1.2);
+}
+
+.contact-info p {
+  margin: 0.3rem 0;
+}
+
+.contact-info a {
+  color: #0957a2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-person {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-direction: column;
+}
+
+.contact-message {
+  margin-top: 3rem;
+  text-align: center;
+  color: #0957a2;
+}
+
+.contact-email {
+  color: #ef7215 !important;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.contact-email:hover {
+  text-decoration: underline;
+  color: #d55d02 !important; /* force purple on hover */
+}
+.contact-email:visited {
+  color: #ef7215; /* force orange even if visited */
+}
+
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.contact-right p {
+  margin: 0.5rem 0;
+  text-align: left;
+  color: #ef7215;
+}
+
+.contact-right ul {
+  padding: 0;
+  margin: 1rem 0;
+  text-align: left;
+  color: #0957a2;
+}
+
+.contact-right li {
+  margin-bottom: 0.1rem;
+}
+
+.contact-logo img {
+  width: 200px;
+  margin: 2rem 0;
+}
+
+.contact-qr-codes {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.contact-qr-codes img {
+  width: 100px;
+  height: auto;
+}
+
+.qr-code {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.qr-code:hover {
+  transform: scale(1.1);
+}
+.site-footer {
+  background-color: #d4d4d4;
+  color: #000000;
+  padding: 2rem 2rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 20rem; /* or 1000px, depending on your design */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem; /* small padding inside */
+  flex-wrap: wrap;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.footer-logo {
+  width: 80px;
+  height: auto;
+}
+
+.footer-left p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.footer-right {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
 }

@@ -1,14 +1,16 @@
+const logo = document.querySelector(".logo");
+
+window.addEventListener("scroll", () => {
+  logo.classList.toggle("shrink", window.scrollY > 50);
+});
+
 const track = document.getElementById("gallery-track");
 const totalImages = track.children.length;
 const imageWidthPercent = 25; // image + margin
 const visible = 4;
 let index = 1;
-
-const logo = document.querySelector('.logo');
-
-window.addEventListener('scroll', () => {
-    logo.classList.toggle('shrink', window.scrollY > 50);
-});
+let isHovering = false;
+let isLightboxOpen = false;
 
 function moveGallery(direction) {
   index += direction;
@@ -39,8 +41,56 @@ function moveGallery(direction) {
 // Initial position
 track.style.transform = `translateX(-${index * imageWidthPercent}%)`;
 
+const images = document.querySelectorAll("#gallery-track img");
+
+images.forEach((img) => {
+  img.addEventListener("mouseenter", () => {
+    isHovering = true;
+  });
+  img.addEventListener("mouseleave", () => {
+    isHovering = false;
+  });
+});
 // Auto scroll
-setInterval(() => moveGallery(1), 4000);
+setInterval(() => {
+  if (!isHovering && !isLightboxOpen) {
+    moveGallery(1);
+  }
+}, 4000);
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const galleryImages = document.querySelectorAll("#gallery-track img");
+
+// Open lightbox when clicking an image
+galleryImages.forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightbox.style.display = 'flex';
+      setTimeout(() => {
+        lightbox.style.opacity = '1';
+      }, 10);
+  
+      isLightboxOpen = true;
+      const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+      document.body.style.overflow = 'hidden';
+      document.body.style.paddingRight = `${scrollBarWidth}px`; // compensate for missing scrollbar
+    });
+  });
+
+// Close lightbox when clicking outside the image
+lightbox.addEventListener('click', (e) => {
+    if (e.target !== lightboxImg) {
+      lightbox.style.opacity = '0';
+      setTimeout(() => {
+        lightbox.style.display = 'none';
+      }, 300);
+  
+      isLightboxOpen = false;
+      document.body.style.overflow = 'auto';
+      document.body.style.paddingRight = '0'; // remove the compensation
+    }
+  });
 
 let currentSlide = 0;
 
@@ -59,6 +109,7 @@ function openModal(baseName) {
 
   updateArrows();
   createDots();
+  document.body.style.overflow = 'hidden';
 }
 
 function slideModal(direction) {
@@ -107,6 +158,7 @@ function closeModal() {
     document.getElementById("img1").src = "";
     document.getElementById("img2").src = "";
   }, 300);
+    document.body.style.overflow = 'auto'; // allow scrolling again
 }
 
 function handleBackdropClick(event) {
@@ -141,3 +193,49 @@ document.getElementById("carouselTrack").addEventListener(
   },
   false
 );
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+    if (scrollY >= sectionTop - sectionHeight / 3) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === `#${current}`) {
+      link.classList.add("active");
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Auto-generate flowers
+    const flowerCells = document.querySelectorAll('td[data-flowers]');
+  
+    flowerCells.forEach(cell => {
+      const flowerCount = parseInt(cell.getAttribute('data-flowers'));
+  
+      // Create a container div
+      const container = document.createElement('div');
+      container.className = 'flower-container';
+  
+      // Generate and append flowers to the container
+      for (let i = 0; i < flowerCount; i++) {
+        const img = document.createElement('img');
+        img.src = 'Images/Format/blume.png';
+        img.alt = 'Flower';
+        img.className = 'flower';
+        container.appendChild(img);
+      }
+  
+      // Append the container to the cell
+      cell.appendChild(container);
+    });
+  });
