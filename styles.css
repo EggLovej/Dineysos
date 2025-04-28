@@ -281,6 +281,7 @@ nav a {
 
 .about-text {
   flex: 2;
+  text-align: justify;
 }
 
 .about-images {
@@ -326,13 +327,13 @@ nav a {
 /* Marina label positioning */
 .marina-label {
   top: 10%;
-  left: 50%;
+  left: 40%;
 }
 
 /* Clint label positioning */
 .clint-label {
   bottom: 12%;
-  right: 30%;
+  right: 40%;
 }
 
 .about h2 {
@@ -356,7 +357,7 @@ nav a {
 
 .concepts-header h2 {
   font-size: 3rem;
-  color: #0957a2;
+  color: #ef7215;
 }
 
 .grid {
@@ -624,6 +625,7 @@ nav a {
   margin-top: 2rem;
   gap: 2rem; /* optional space between table and legend */
   flex-wrap: wrap; /* mobile friendliness */
+  color: #0957a2;
 }
 
 .formats-space {
@@ -1047,4 +1049,41 @@ nav a {
 
 .social-icon:hover {
   transform: scale(1.2);
+}
+
+.flower-list {
+  list-style: none; /* 🔥 remove default dots */
+  padding: 0;
+  margin: 0;
+}
+
+.flower-list li {
+  position: relative;
+  padding-left: 1.5rem; /* 🔥 space for flower */
+  margin-bottom: 0.5rem;
+}
+
+.flower-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.2rem;
+  width: 16px;
+  height: 16px;
+  background-image: url('Images/Format/blume.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+  }
+
+  .about-images {
+    margin-top: 2rem;
+  }
 }
