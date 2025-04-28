@@ -64,37 +64,6 @@
       />
     </section>
 
-    <!--Gallery-->
-    <section class="gallery">
-      <button class="prev" onclick="moveGallery(-1)">&#10094;</button>
-      <div class="gallery-viewport">
-        <div class="gallery-track" id="gallery-track">
-          <img src="Images/Gallery/12.webp" alt="Image 12" />
-          <img src="Images/Gallery/01.webp" alt="Image 1" />
-          <img src="Images/Gallery/02.webp" alt="Image 2" />
-          <img src="Images/Gallery/03.webp" alt="Image 3" />
-          <img src="Images/Gallery/04.webp" alt="Image 4" />
-          <img src="Images/Gallery/05.webp" alt="Image 5" />
-          <img src="Images/Gallery/06.webp" alt="Image 6" />
-          <img src="Images/Gallery/07.webp" alt="Image 7" />
-          <img src="Images/Gallery/08.webp" alt="Image 8" />
-          <img src="Images/Gallery/09.webp" alt="Image 9" />
-          <img src="Images/Gallery/10.webp" alt="Image 10" />
-          <img src="Images/Gallery/11.webp" alt="Image 11" />
-          <img src="Images/Gallery/12.webp" alt="Image 12" />
-          <img src="Images/Gallery/01.webp" alt="Image 1" />
-          <img src="Images/Gallery/02.webp" alt="Image 2" />
-          <img src="Images/Gallery/03.webp" alt="Image 3" />
-        </div>
-      </div>
-      <button class="next" onclick="moveGallery(1)">&#10095;</button>
-    </section>
-
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-      <img id="lightbox-img" src="" alt="Large Image" />
-    </div>
-
     <!--About-->
     <section class="about" id="about">
       <div class="about-container">
@@ -126,25 +95,65 @@
           <div class="about-person">
             <img
               src="Images/About/Clint&Marina.png"
-              alt="Clint&Marina"
+              alt="Clint & Marina"
               class="about-img"
             />
-            <span class="marina-label"
-              >Marina<br />
-              Eine Hobbykünstlerin mit einem Flair für Excel-Tabellen sowie
-              einer Leidenschaft für gutes Essen und Trinken.<br
-            /></span>
-            <span class="clint-label"
-              >Clint<br />
-              Ein Brunch-Liebhaber, der nie ohne Hut <br />anzutreffen ist und
-              eine nicht zu leugnende Leidenschaft für Wein besitzt - viel
-              Wein.<br
-            /></span>
+            <div class="label marina-label">
+              <p>
+                <span class="name">Marina</span><br />Eine Hobbykünstlerin mit
+                einem Flair für Excel-Tabellen sowie einer Leidenschaft für
+                gutes Essen und Trinken.
+              </p>
+            </div>
+            <div class="label clint-label">
+              <p>
+                <span class="name">Clint</span><br />Ein Brunch-Liebhaber, der
+                nie ohne Hut anzutreffen ist und eine nicht zu leugnende
+                Leidenschaft für Wein besitzt - viel Wein.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!--Gallery-->
+    <section class="gallery">
+      <button class="prev" onclick="moveGallery(-1); resetAutoScroll();">
+        &#10094;
+      </button>
+      <div class="gallery-viewport">
+        <div class="fade-left"></div>
+        <div class="fade-right"></div>
+        <div class="gallery-track" id="gallery-track">
+          <img src="Images/Gallery/12.webp" alt="Image 12" />
+          <img src="Images/Gallery/01.webp" alt="Image 1" />
+          <img src="Images/Gallery/02.webp" alt="Image 2" />
+          <img src="Images/Gallery/03.webp" alt="Image 3" />
+          <img src="Images/Gallery/04.webp" alt="Image 4" />
+          <img src="Images/Gallery/05.webp" alt="Image 5" />
+          <img src="Images/Gallery/06.webp" alt="Image 6" />
+          <img src="Images/Gallery/07.webp" alt="Image 7" />
+          <img src="Images/Gallery/08.webp" alt="Image 8" />
+          <img src="Images/Gallery/09.webp" alt="Image 9" />
+          <img src="Images/Gallery/10.webp" alt="Image 10" />
+          <img src="Images/Gallery/11.webp" alt="Image 11" />
+          <img src="Images/Gallery/12.webp" alt="Image 12" />
+          <img src="Images/Gallery/01.webp" alt="Image 1" />
+          <img src="Images/Gallery/02.webp" alt="Image 2" />
+          <img src="Images/Gallery/03.webp" alt="Image 3" />
+        </div>
+      </div>
+      <button class="next" onclick="moveGallery(1); resetAutoScroll();">
+        &#10095;
+      </button>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+      <img id="lightbox-img" src="" alt="Large Image" />
+    </div>
+    
     <!--Concepts-->
     <section class="concepts" id="concepts">
       <div class="concepts-header">
@@ -432,7 +441,7 @@
           <img src="Images/Format/Food.png" alt="Food" class="extra-image" />
           <img src="Images/Format/snacks.png" alt="Food" class="extra-image" />
         </div>
-      
+
         <!-- Center text -->
         <div class="formats-extra-text">
           <p>
@@ -442,23 +451,34 @@
             Location ebenfalls schnell zur Hand.
           </p>
         </div>
-      
+
         <!-- Right heads + speech bubbles -->
         <div class="formats-characters">
           <div class="character-wrapper">
-            <img src="Images/Format/Clint Anxious.png" alt="Clint Anxious" class="character-image" />
+            <img
+              src="Images/Format/Clint Anxious.png"
+              alt="Clint Anxious"
+              class="character-image"
+            />
             <div class="speech-bubble-1">
-              <p><br />Also der Wein ist <br />
-                sicher vegan...
-                Spass! Es ist natürlich
-                alles machbar.</p>
+              <p>
+                <br />Also der Wein ist <br />
+                sicher vegan... Spass! Es ist natürlich alles machbar.
+              </p>
             </div>
           </div>
           <div class="character-wrapper">
-            <img src="Images/Format/Marina anxious.png" alt="Marina Anxious" class="character-image" />
+            <img
+              src="Images/Format/Marina anxious.png"
+              alt="Marina Anxious"
+              class="character-image"
+            />
             <div class="speech-bubble-2">
-                <p>Kein veganes <br /> Essen?!</p>
-              </div>
+              <p>
+                Kein veganes <br />
+                Essen?!
+              </p>
+            </div>
           </div>
         </div>
       </div>

@@ -2,9 +2,9 @@
     - [x] Make images clickable
     - [x] Add a lightbox
     - [x] Make images stop moving when hovering
-    - [ ] Timeout after clicking arrow
-    - [ ] Fade out images on the side
-    - [ ] Image size - more square?
+    - [x] Timeout after clicking arrow
+    - [x] Fade out images on the side
+    - [x] Image size - more square?
 
 2. Contact:
     - [x] Add contact section
@@ -12,7 +12,7 @@
     - [ ] Flowers instead of bullet points
 
 3. Format: 
-    - [ ] Add a format section
+    - [x] Add a format section
 
 4. General:
     - [ ] Ensure same font size across all pages

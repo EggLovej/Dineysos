@@ -11,6 +11,7 @@ const visible = 4;
 let index = 1;
 let isHovering = false;
 let isLightboxOpen = false;
+let autoScrollTimer;
 
 function moveGallery(direction) {
   index += direction;
@@ -52,11 +53,21 @@ images.forEach((img) => {
   });
 });
 // Auto scroll
-setInterval(() => {
-  if (!isHovering && !isLightboxOpen) {
-    moveGallery(1);
+function startAutoScroll() {
+    autoScrollTimer = setTimeout(() => {
+      if (!isHovering && !isLightboxOpen) {
+        moveGallery(1);
+      }
+      startAutoScroll(); // 🔥 set up next auto-scroll
+    }, 4000);
   }
-}, 4000);
+
+  function resetAutoScroll() {
+    clearTimeout(autoScrollTimer);
+    startAutoScroll();
+  }
+
+  startAutoScroll();
 
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");

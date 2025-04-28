@@ -182,7 +182,27 @@ nav a {
 }
 
 .gallery-viewport {
+  position: relative; /* 🔥 very important so fades position correctly */
   overflow: hidden;
+}
+
+.fade-left, .fade-right {
+  position: absolute;
+  top: 0;
+  width: 20%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none; /* don't block clicks */
+}
+
+.fade-left {
+  left: 0;
+  background: linear-gradient(to right, #fff6e6 0%, rgba(255,255,255,0) 100%);
+}
+
+.fade-right {
+  right: 0;
+  background: linear-gradient(to left, rgb(255, 246, 230) 0%, rgba(255,255,255,0) 100%);
 }
 
 .gallery-track {
@@ -194,7 +214,7 @@ nav a {
   flex-shrink: 0;
   width: 23%;
   margin-right: 0.3%;
-  height: 200px;
+  height: 300px;
   object-fit: cover;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
@@ -209,13 +229,13 @@ nav a {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 246, 230, 0);
   border: none;
   color: rgb(0, 0, 0);
   font-size: 2rem;
   cursor: pointer;
   padding: 0.5rem;
-  z-index: 2;
+  z-index: 3;
 }
 
 .gallery .prev {
@@ -255,7 +275,8 @@ nav a {
   gap: 1rem;
   color: #0957a2;
   font-size: 19px;
-  margin: 2rem 10rem;
+  margin-left: clamp(1rem, 5vw, 8rem);
+  margin-right: clamp(1rem, 5vw, 8rem);
 }
 
 .about-text {
@@ -271,32 +292,47 @@ nav a {
 }
 .about-person {
   position: relative;
-  display: inline-block;
+  width: 100%;
+  max-width: 800px; /* Optional: control max size */
+  margin: 0 auto;
 }
 
-.marina-label {
-  position: absolute;
-  top: 95px; /* Adjust to place the label */
-  left: 250px;
-  color: #ef7215;
-  padding: 0.3rem 0.6rem;
-  border-radius: 5px;
-  font-size: 0.9rem;
-}
-.clint-label {
-  position: absolute;
-  bottom: 100px; /* Adjust to place the label */
-  left: 30px;
-  color: #ef7215;
-  padding: 0.3rem 0.6rem;
-  border-radius: 5px;
-  font-size: 0.9rem;
-}
 .about-img {
-  width: 100%;
-  max-width: 3000px;
+  width: 400px; /* Optional: control size */
   height: auto;
+  display: block;
+  border-radius: 12px; /* Optional: rounded corners */
+}
+
+.label {
+  position: absolute;
+  padding: 0.5rem 1rem;
   border-radius: 10px;
+  font-size: 0.9rem;
+  color: #0957a2;
+  max-width: 200px;
+  text-align: left;
+}
+
+.about-images .label p {
+  line-height: 1.2;
+  color: #ef7215;
+}
+.about-images .label .name {
+  font-weight: bold;
+  color: #0957a2;
+}
+
+/* Marina label positioning */
+.marina-label {
+  top: 10%;
+  left: 50%;
+}
+
+/* Clint label positioning */
+.clint-label {
+  bottom: 12%;
+  right: 30%;
 }
 
 .about h2 {
