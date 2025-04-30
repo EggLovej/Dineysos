@@ -9,7 +9,12 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/gallery.css" />
+    <link rel="stylesheet" href="css/sections.css" />
+    <link rel="stylesheet" href="css/footer.css" />
   </head>
 
   <body>
@@ -27,7 +32,8 @@
           href="#hero"
         />
       </a>
-      <nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+      <nav class="nav-links">
         <a href="#about" class="nav-link">ÜBER UNS</a>
         <a href="#concepts" class="nav-link">KONZEPTE</a>
         <a href="#pricing" class="nav-link">PREISE</a>
@@ -39,7 +45,7 @@
         <div class="blue-bubble"></div>
       </div>
       <div class="hero-content">
-        <h2>WINE, GAMES, EVENTS</h2>
+        <h1>WINE, GAMES, EVENTS</h1>
         <p>
           Wine for the enjoyers, games for the spirited, knowledge for the wise
         </p>
@@ -91,27 +97,25 @@
             alles möglich.
           </p>
         </div>
-        <div class="about-images">
-          <div class="about-person">
-            <img
-              src="Images/About/Clint&Marina.png"
-              alt="Clint & Marina"
-              class="about-img"
-            />
-            <div class="label marina-label">
-              <p>
-                <span class="name">Marina</span><br />Eine Hobbykünstlerin mit
-                einem Flair für Excel-Tabellen sowie einer Leidenschaft für
-                gutes Essen und Trinken.
-              </p>
-            </div>
-            <div class="label clint-label">
-              <p>
-                <span class="name">Clint</span><br />Ein Brunch-Liebhaber, der
-                nie ohne Hut anzutreffen ist und eine nicht zu leugnende
-                Leidenschaft für Wein besitzt - viel Wein.
-              </p>
-            </div>
+        <div class="about-image">
+          <img
+            src="Images/About/Clint&Marina.png"
+            alt="Clint & Marina"
+            class="about-img"
+          />
+          <div class="label marina-label">
+            <p>
+              <span class="name">Marina</span><br />Eine Hobbykünstlerin mit
+              einem Flair für Excel-Tabellen sowie einer Leidenschaft für gutes
+              Essen und Trinken.
+            </p>
+          </div>
+          <div class="label clint-label">
+            <p>
+              <span class="name">Clint</span><br />Ein Brunch-Liebhaber, der nie
+              ohne Hut anzutreffen ist und eine nicht zu leugnende Leidenschaft
+              für Wein besitzt - viel Wein.
+            </p>
           </div>
         </div>
       </div>
@@ -126,7 +130,7 @@
         <div class="fade-left"></div>
         <div class="fade-right"></div>
         <div class="gallery-track" id="gallery-track">
-          <img src="Images/Gallery/12.webp" alt="Image 12" />
+          <img src="Images/Gallery/13.webp" alt="Image 13" />
           <img src="Images/Gallery/01.webp" alt="Image 1" />
           <img src="Images/Gallery/02.webp" alt="Image 2" />
           <img src="Images/Gallery/03.webp" alt="Image 3" />
@@ -139,6 +143,7 @@
           <img src="Images/Gallery/10.webp" alt="Image 10" />
           <img src="Images/Gallery/11.webp" alt="Image 11" />
           <img src="Images/Gallery/12.webp" alt="Image 12" />
+          <img src="Images/Gallery/13.webp" alt="Image 13" />
           <img src="Images/Gallery/01.webp" alt="Image 1" />
           <img src="Images/Gallery/02.webp" alt="Image 2" />
           <img src="Images/Gallery/03.webp" alt="Image 3" />
@@ -165,7 +170,7 @@
             <img src="Images/Concepts/Trophy.png" alt="Trophy" />
           </div>
           <div class="concept-description">
-            <h2>Trophy</h2>
+            <h3>Trophy</h3>
             <p>
               Euch erwarten mehrere Challenges über die Weinauswahl, bei denen
               Weinwissen eher bescheiden nützlich ist. Unterhaltsam, mehr oder
@@ -214,7 +219,7 @@
             />
           </div>
           <div class="concept-description">
-            <h2>Classroom</h2>
+            <h3>Classroom</h3>
             <p>
               Hier kommen die Teilnehmer weinbezogen schlauer nach Hause, als
               sie es ohnehin schon sind. Weinwissen wird nicht benötigt oder
@@ -262,7 +267,7 @@
             <img src="Images/Concepts/Olympics duo colour.png" alt="Olympics" />
           </div>
           <div class="concept-description">
-            <h2>Olympics</h2>
+            <h3>Olympics</h3>
             <p>
               Was wertet jedes Konzept auf? Richtig, mehr Wein. Olympic setzt
               eine Serie von Weinen in Konkurrenz zu einer zweiten Serie.
@@ -608,14 +613,14 @@
 
         <!-- Right side: Text info, QR codes -->
         <div class="contact-right">
-  <p><strong>Wir können auch:</strong></p>
-  <ul class="flower-list">
-    <li>Design und Konzipierung von Weinetiketten</li>
-    <li>Erstellung und Gestaltung von Weinkarten</li>
-    <li>Service- und Verkaufsschulungen für Gastro und Handel</li>
-    <li>Vorträge und Referate</li>
-    <li>Sortimentsberatung</li>
-  </ul>
+          <p><strong>Wir können auch:</strong></p>
+          <ul class="flower-list">
+            <li>Design und Konzipierung von Weinetiketten</li>
+            <li>Erstellung und Gestaltung von Weinkarten</li>
+            <li>Service- und Verkaufsschulungen für Gastro und Handel</li>
+            <li>Vorträge und Referate</li>
+            <li>Sortimentsberatung</li>
+          </ul>
           <div class="contact-logo">
             <img src="Images/Logo/logo_color.png" alt="Dineysos Logo" />
           </div>

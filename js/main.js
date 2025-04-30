@@ -4,6 +4,15 @@ window.addEventListener("scroll", () => {
   logo.classList.toggle("shrink", window.scrollY > 50);
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.querySelector(".nav-toggle");
+    const nav = document.querySelector(".nav-links");
+
+    toggle.addEventListener("click", () => {
+      nav.classList.toggle("active");
+    });
+  });
+
 const track = document.getElementById("gallery-track");
 const totalImages = track.children.length;
 const imageWidthPercent = 25; // image + margin

@@ -9,7 +9,7 @@
 2. Contact:
     - [x] Add contact section
     - [x] QR codes with links
-    - [ ] Flowers instead of bullet points
+    - [x] Flowers instead of bullet points
 
 3. Format: 
     - [x] Add a format section

@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    font-family: Cormorant, serif;
+    background-color: var(--cream);
+    color: #0a2c40;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  body p {
+    color: var(--blue);
+  }
+
+  body h1 {
+    color: var(--blue);
+    font-size: 3rem;
+    font-weight: bold;
+  }
+
+  body h2 {
+    color: var(--orange);
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  body h3 {
+    color: var(--orange);
+    font-size: 2rem;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
