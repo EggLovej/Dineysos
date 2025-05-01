@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/gallery.css" />
     <link rel="stylesheet" href="css/sections.css" />
     <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
   </head>
 
   <body>
@@ -121,44 +122,6 @@
       </div>
     </section>
 
-    <!--Gallery-->
-    <section class="gallery">
-      <button class="prev" onclick="moveGallery(-1); resetAutoScroll();">
-        &#10094;
-      </button>
-      <div class="gallery-viewport">
-        <div class="fade-left"></div>
-        <div class="fade-right"></div>
-        <div class="gallery-track" id="gallery-track">
-          <img src="Images/Gallery/13.webp" alt="Image 13" />
-          <img src="Images/Gallery/01.webp" alt="Image 1" />
-          <img src="Images/Gallery/02.webp" alt="Image 2" />
-          <img src="Images/Gallery/03.webp" alt="Image 3" />
-          <img src="Images/Gallery/04.webp" alt="Image 4" />
-          <img src="Images/Gallery/05.webp" alt="Image 5" />
-          <img src="Images/Gallery/06.webp" alt="Image 6" />
-          <img src="Images/Gallery/07.webp" alt="Image 7" />
-          <img src="Images/Gallery/08.webp" alt="Image 8" />
-          <img src="Images/Gallery/09.webp" alt="Image 9" />
-          <img src="Images/Gallery/10.webp" alt="Image 10" />
-          <img src="Images/Gallery/11.webp" alt="Image 11" />
-          <img src="Images/Gallery/12.webp" alt="Image 12" />
-          <img src="Images/Gallery/13.webp" alt="Image 13" />
-          <img src="Images/Gallery/01.webp" alt="Image 1" />
-          <img src="Images/Gallery/02.webp" alt="Image 2" />
-          <img src="Images/Gallery/03.webp" alt="Image 3" />
-        </div>
-      </div>
-      <button class="next" onclick="moveGallery(1); resetAutoScroll();">
-        &#10095;
-      </button>
-    </section>
-
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-      <img id="lightbox-img" src="" alt="Large Image" />
-    </div>
-
     <!--Concepts-->
     <section class="concepts" id="concepts">
       <div class="concepts-header">
@@ -184,29 +147,15 @@
             <p>Spielelement:<strong> Quiz</strong></p>
             <div class="rating-row">
               <span>Spass</span>
-              <div class="glasses">
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-              </div>
+              <div class="glasses" data-glasses="5"></div>
             </div>
             <div class="rating-row">
               <span>Lernlevel</span>
-              <div class="glasses">
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-              </div>
+              <div class="glasses" data-glasses="2"></div>
             </div>
             <div class="rating-row">
               <span>Austausch</span>
-              <div class="glasses">
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-              </div>
+              <div class="glasses" data-glasses="4"></div>
             </div>
           </div>
         </div>
@@ -234,30 +183,15 @@
             <p>Spielelement:<strong> Kreuzworträtsel</strong></p>
             <div class="rating-row">
               <span>Spass</span>
-              <div class="glasses">
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-              </div>
+              <div class="glasses" data-glasses="4"></div>
             </div>
             <div class="rating-row">
               <span>Lernlevel</span>
-              <div class="glasses">
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-              </div>
+              <div class="glasses" data-glasses="5"></div>
             </div>
             <div class="rating-row">
               <span>Austausch</span>
-              <div class="glasses">
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-              </div>
+              <div class="glasses" data-glasses="3"></div>
             </div>
           </div>
         </div>
@@ -283,30 +217,15 @@
             <p>Spielelement:<strong> Quartett</strong></p>
             <div class="rating-row">
               <span>Spass</span>
-              <div class="glasses">
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-              </div>
+              <div class="glasses" data-glasses="4"></div>
             </div>
             <div class="rating-row">
               <span>Lernlevel</span>
-              <div class="glasses">
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-              </div>
+              <div class="glasses" data-glasses="3"></div>
             </div>
             <div class="rating-row">
               <span>Austausch</span>
-              <div class="glasses">
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-                <img src="Images/Concepts/Glass.png" alt="Glass" />
-              </div>
+              <div class="glasses" data-glasses="5"></div>
             </div>
           </div>
         </div>
@@ -360,7 +279,7 @@
         Obwohl jede Veranstaltung einzigartig ist, wollen wir euch unsere
         Kombinationsempfehlungen nicht vorenthalten:
       </p>
-      <div class="formats-table-wrapper">
+      <div class="formats-table-wrapper desktop-only">
         <div class="formats-space"></div>
 
         <!-- Only the table -->
@@ -406,6 +325,101 @@
         </div>
 
         <!-- Only the legend -->
+        <div class="formats-legend">
+          <div class="legend-row">
+            <span class="legend-symbol">
+              <img src="Images/Format/blume.png" class="flower" alt="Flower" />
+            </span>
+            <span class="legend-text">= machbar</span>
+          </div>
+          <div class="legend-row">
+            <span class="legend-symbol">
+              <img src="Images/Format/blume.png" class="flower" alt="Flower" />
+              <img src="Images/Format/blume.png" class="flower" alt="Flower" />
+            </span>
+            <span class="legend-text">= passend</span>
+          </div>
+          <div class="legend-row">
+            <span class="legend-symbol">
+              <img src="Images/Format/blume.png" class="flower" alt="Flower" />
+              <img src="Images/Format/blume.png" class="flower" alt="Flower" />
+              <img src="Images/Format/blume.png" class="flower" alt="Flower" />
+            </span>
+            <span class="legend-text">= sehr passend</span>
+          </div>
+          <div class="legend-row">
+            <span class="legend-symbol">
+              <img src="Images/Format/blume.png" class="flower" alt="Flower" />
+              <img src="Images/Format/blume.png" class="flower" alt="Flower" />
+              <img src="Images/Format/blume.png" class="flower" alt="Flower" />
+              <img src="Images/Format/blume.png" class="flower" alt="Flower" />
+            </span>
+            <span class="legend-text">= perfect match</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="formats-accordion mobile-only">
+        <!-- Trophy -->
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <img
+              src="Images/Concepts/Trophy.png"
+              class="accordion-icon"
+              alt="Trophy"
+            />
+            <span class="accordion-title">Trophy</span>
+            <span class="accordion-arrow">&#9660;</span>
+          </button>
+          <div class="accordion-content">
+            <p data-label="Wine & Dine" data-flowers="4"></p>
+            <p data-label="Flying Dinner" data-flowers="4"></p>
+            <p data-label="Afterwork Chill" data-flowers="3"></p>
+            <p data-label="Steh-Apéro" data-flowers="2"></p>
+            <p data-label="Degustation / Workshop" data-flowers="1"></p>
+          </div>
+        </div>
+
+        <!-- Classroom -->
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <img
+              src="Images/Concepts/Classroom duo colour.png"
+              class="accordion-icon"
+              alt="Classroom"
+            />
+            <span class="accordion-title">Classroom</span>
+            <span class="accordion-arrow">&#9660;</span>
+          </button>
+          <div class="accordion-content">
+            <p data-label="Wine & Dine" data-flowers="2"></p>
+            <p data-label="Flying Dinner" data-flowers="2"></p>
+            <p data-label="Afterwork Chill" data-flowers="4"></p>
+            <p data-label="Steh-Apéro" data-flowers="4"></p>
+            <p data-label="Degustation / Workshop" data-flowers="3"></p>
+          </div>
+        </div>
+
+        <!-- Olympics -->
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <img
+              src="Images/Concepts/Olympics duo colour.png"
+              class="accordion-icon"
+              alt="Olympics"
+            />
+            <span class="accordion-title">Olympics</span>
+            <span class="accordion-arrow">&#9660;</span>
+          </button>
+          <div class="accordion-content">
+            <p data-label="Wine & Dine" data-flowers="3"></p>
+            <p data-label="Flying Dinner" data-flowers="2"></p>
+            <p data-label="Afterwork Chill" data-flowers="3"></p>
+            <p data-label="Steh-Apéro" data-flowers="3"></p>
+            <p data-label="Degustation / Workshop" data-flowers="4"></p>
+          </div>
+        </div>
+
         <div class="formats-legend">
           <div class="legend-row">
             <span class="legend-symbol">
@@ -488,6 +502,47 @@
         </div>
       </div>
     </section>
+
+    <!--Gallery-->
+    <section class="gallery">
+      <button class="prev" onclick="moveGallery(-1); resetAutoScroll();">
+        &#10094;
+      </button>
+      <div class="gallery-viewport">
+        <div class="fade-left"></div>
+        <div class="fade-right"></div>
+        <div class="gallery-track" id="gallery-track">
+          <img src="Images/Gallery/13.webp" alt="Image 13" />
+          <img src="Images/Gallery/01.webp" alt="Image 1" />
+          <img src="Images/Gallery/02.webp" alt="Image 2" />
+          <img src="Images/Gallery/03.webp" alt="Image 3" />
+          <img src="Images/Gallery/04.webp" alt="Image 4" />
+          <img src="Images/Gallery/05.webp" alt="Image 5" />
+          <img src="Images/Gallery/06.webp" alt="Image 6" />
+          <img src="Images/Gallery/07.webp" alt="Image 7" />
+          <img src="Images/Gallery/08.webp" alt="Image 8" />
+          <img src="Images/Gallery/09.webp" alt="Image 9" />
+          <img src="Images/Gallery/10.webp" alt="Image 10" />
+          <img src="Images/Gallery/11.webp" alt="Image 11" />
+          <img src="Images/Gallery/12.webp" alt="Image 12" />
+          <img src="Images/Gallery/13.webp" alt="Image 13" />
+          <img src="Images/Gallery/01.webp" alt="Image 1" />
+          <img src="Images/Gallery/02.webp" alt="Image 2" />
+          <img src="Images/Gallery/03.webp" alt="Image 3" />
+          <img src="Images/Gallery/04.webp" alt="Image 4" />
+          <img src="Images/Gallery/05.webp" alt="Image 5" />
+          <img src="Images/Gallery/06.webp" alt="Image 6" />
+        </div>
+      </div>
+      <button class="next" onclick="moveGallery(1); resetAutoScroll();">
+        &#10095;
+      </button>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+      <img id="lightbox-img" src="" alt="Large Image" />
+    </div>
 
     <!--Pricing-->
     <section class="pricing" id="pricing">

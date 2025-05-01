@@ -1,8 +1,12 @@
+// Navbar logo shrink effect
+
 const logo = document.querySelector(".logo");
 
 window.addEventListener("scroll", () => {
   logo.classList.toggle("shrink", window.scrollY > 50);
 });
+
+// Change navbar to hamburger menu on mobile
 
 document.addEventListener("DOMContentLoaded", function () {
     const toggle = document.querySelector(".nav-toggle");
@@ -13,43 +17,73 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-const track = document.getElementById("gallery-track");
-const totalImages = track.children.length;
-const imageWidthPercent = 25; // image + margin
-const visible = 4;
-let index = 1;
-let isHovering = false;
-let isLightboxOpen = false;
-let autoScrollTimer;
+  // Gallery
 
-function moveGallery(direction) {
-  index += direction;
+  const track = document.getElementById("gallery-track");
+  const totalImages = track.children.length;
+  let index = 1;
+  let isHovering = false;
+  let isLightboxOpen = false;
+  let autoScrollTimer;
 
-  // jump to end if needed
-  if (index >= totalImages - visible) {
-    track.style.transition = "none";
-    index = 1;
-    track.style.transform = `translateX(-${index * imageWidthPercent}%)`;
-    void track.offsetWidth;
-    track.style.transition = "transform 0.5s ease";
+  function getImageBuffer() {
+    return getVisibleCount() + 2; // add a couple extra for safety
+  }
+
+  function updateGalleryAlignment() {
+    track.style.justifyContent = "flex-start"; // always
+  }
+  
+  // Call this on load and on resize:
+  updateGalleryAlignment();
+  window.addEventListener("resize", updateGalleryAlignment);
+  
+  // Determine how many images to show based on screen width
+  function getVisibleCount() {
+    if (window.innerWidth < 768) return 1;
+    if (window.innerWidth < 1200) return 2;
+    return 4;
+  }
+  
+  function getImageWidthPercent() {
+    return 100 / getVisibleCount();
+  }
+
+  function getImageWidthPx() {
+    const firstImage = track.querySelector("img");
+    return firstImage?.getBoundingClientRect().width || 300; // fallback
+  }
+  
+  function moveGallery(direction) {
+    const imageWidth = getImageWidthPx();
+    const visible = getVisibleCount();
+    const buffer = getImageBuffer();
+  
     index += direction;
+  
+    if (index >= totalImages - getVisibleCount() - getImageBuffer() + 5) {
+      track.style.transition = "none";
+      index = 1;
+      track.style.transform = `translateX(-${index * imageWidth}px)`;
+      void track.offsetWidth;
+      track.style.transition = "transform 0.5s ease";
+      index += direction;
+    }
+  
+    if (index <= 0) {
+      track.style.transition = "none";
+      index = totalImages - visible - buffer;
+      track.style.transform = `translateX(-${index * imageWidth}px)`;
+      void track.offsetWidth;
+      track.style.transition = "transform 0.5s ease";
+      index -= 1;
+    }
+  
+    track.style.transform = `translateX(-${index * imageWidth}px)`;
   }
-
-  // jump to beginning if needed
-  if (index <= 0) {
-    track.style.transition = "none";
-    index = totalImages - visible - 1;
-    track.style.transform = `translateX(-${index * imageWidthPercent}%)`;
-    void track.offsetWidth;
-    track.style.transition = "transform 0.5s ease";
-    index -= 1;
-  }
-
-  track.style.transform = `translateX(-${index * imageWidthPercent}%)`;
-}
-
-// Initial position
-track.style.transform = `translateX(-${index * imageWidthPercent}%)`;
+  
+  // Initial position
+  track.style.transform = `translateX(-${index * getImageWidthPercent()}%)`;
 
 const images = document.querySelectorAll("#gallery-track img");
 
@@ -61,6 +95,7 @@ images.forEach((img) => {
     isHovering = false;
   });
 });
+
 // Auto scroll
 function startAutoScroll() {
     autoScrollTimer = setTimeout(() => {
@@ -111,6 +146,8 @@ lightbox.addEventListener('click', (e) => {
       document.body.style.paddingRight = '0'; // remove the compensation
     }
   });
+
+  // Modal 
 
 let currentSlide = 0;
 
@@ -259,3 +296,48 @@ document.addEventListener("DOMContentLoaded", function() {
       cell.appendChild(container);
     });
   });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const glassContainers = document.querySelectorAll(".glasses[data-glasses]");
+  
+    glassContainers.forEach(container => {
+      const count = parseInt(container.getAttribute("data-glasses"));
+  
+      for (let i = 0; i < count; i++) {
+        const img = document.createElement("img");
+        img.src = "Images/Concepts/Glass.png";
+        img.alt = "Glass";
+        img.className = "glass-icon";
+        container.appendChild(img);
+      }
+    });
+  });
+
+// Accordion toggle + arrow
+document.querySelectorAll(".accordion-header").forEach(button => {
+  button.addEventListener("click", () => {
+    const item = button.parentElement;
+    item.classList.toggle("active");
+  });
+});
+
+// Generate flowers
+document.querySelectorAll(".accordion-content p").forEach(p => {
+  const count = parseInt(p.getAttribute("data-flowers"));
+  const label = p.getAttribute("data-label");
+
+  // Create and append label span
+  const labelSpan = document.createElement("span");
+  labelSpan.className = "label-text";
+  labelSpan.textContent = label + ":";
+  p.appendChild(labelSpan);
+
+  // Generate and append flower icons
+  for (let i = 0; i < count; i++) {
+    const img = document.createElement("img");
+    img.src = "Images/Format/blume.png";
+    img.alt = "Flower";
+    img.className = "flower";
+    p.appendChild(img);
+  }
+});

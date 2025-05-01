@@ -36,10 +36,10 @@
   
   .gallery-track img {
     flex-shrink: 0;
-    width: 23%;
-    margin-right: 0.3%;
+    width: clamp(150px, 25vw, 300px);
     height: 300px;
     object-fit: cover;
+    margin-right: 0.5%;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
   }
