@@ -21,7 +21,6 @@
     display: none;
   }
 
-
   .nav-links {
     display: none;
     flex-direction: column;
@@ -129,6 +128,30 @@
 
   .mobile-only {
     display: block;
+  }
+
+  .scalable {
+    font-size: clamp(0.6rem, 3vw, 0.9rem);
+  }
+
+  .scalable * {
+    font-size: inherit;
+  }
+
+  .character-image {
+    width: 8em; /* based on font-size */
+    max-width: 100px;
+  }
+
+  .speech-bubble-1,
+  .speech-bubble-2 {
+    width: 10em;
+    height: auto;
+    max-width: 150px;
+  }
+
+  .contact-cards {
+    gap: 0.5rem;
   }
 
 }
