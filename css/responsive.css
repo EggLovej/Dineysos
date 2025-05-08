@@ -1,20 +1,22 @@
+@media (width <= 1024px) {
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: left;
+        padding: 0 1rem;
+      }
+    
+      .about-image {
+        margin-top: 2rem;
+      }
+    
+      .about-img {
+        width: clamp(200px, 60vw, 400px);
+        margin: 0 auto;
+      }
+}
+
 @media (width <= 768px) {
-  .about-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: left;
-    padding: 0 1rem;
-  }
-
-  .about-images {
-    margin-top: 2rem;
-  }
-
-  .about-img {
-    min-width: 80vw;
-    margin: 0 auto;
-  }
-
   .label {
     display: none;
   }
