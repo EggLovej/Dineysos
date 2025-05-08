@@ -429,7 +429,7 @@
 
 /* Header bar with icon, title, and arrow */
 .accordion-header {
-  height: 70px; /* or use min-height: 70px for flexible text */
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -575,7 +575,6 @@
   gap: 2rem;
   min-width: 400px;
   justify-content: center;
-  transform: translateX(-20px);
 }
 
 .character-wrapper {
@@ -613,8 +612,8 @@
 
 .speech-bubble-2 {
   position: absolute;
-  top: -20%; /* adjust */
-  left: -20%;
+  top: -20%;
+  left: -75%;
   margin-left: 10px;
   width: 140px;
   height: 80px;
@@ -634,7 +633,7 @@
 }
 
 .character-wrapper:nth-child(2) .character-image {
-  transform: translate3d(80%, 60%, 0);
+  transform: translate(35px, 40px);
 }
 
 .character-wrapper:nth-child(1) .speech-bubble {
