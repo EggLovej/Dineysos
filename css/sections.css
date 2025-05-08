@@ -193,6 +193,7 @@
   padding: 1rem;
   border-radius: 8px;
   width: 70%;
+  max-width: 800px;
   text-align: center;
   position: relative;
   animation: scaleUp 0.3s ease forwards;
@@ -444,6 +445,26 @@
   cursor: pointer;
 }
 
+.accordion-header.with-subtitle {
+  flex-direction: row;
+  align-items: flex-start;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.accordion-header-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.accordion-subtitle {
+  font-size: 0.75rem;
+  color: var(--orange);
+  margin-top: 0.2rem;
+  line-height: 1.3;
+}
+
 .accordion-icon {
   height: 36px;
   width: 36px;
@@ -474,6 +495,28 @@
   font-size: 1rem;
 }
 
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 1rem;
+}
+
+.price-label {
+  font-weight: bold;
+}
+
+.price-value small {
+  font-size: 0.8rem;
+}
+
+.price-dots {
+  flex-grow: 1;
+  border-bottom: 1px dotted #aaa;
+  height: 1rem;
+  position: relative;
+}
+
 .accordion-item.active .accordion-content {
   display: block;
 }
@@ -481,8 +524,9 @@
 /* Label and flowers per row */
 .accordion-content p {
   display: flex;
-  align-items: center;
   gap: 0.2rem;
+  align-items: center;
+  text-align: left;
 }
 
 .label-text {
@@ -706,7 +750,7 @@
   background-color: #fff5e1;
   border-radius: 12px;
   padding: 2rem;
-  width: 200px;
+  width: clamp(100px, 25vw, 200px);
   text-align: center;
   box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
   display: flex;
@@ -722,10 +766,11 @@
 }
 
 .contact-image {
-  width: 8rem;
-  height: 8rem;
+  width: 80%;
+  height: auto;
+  max-width: 8rem;
+  aspect-ratio: 1;
   object-fit: contain;
-  border-radius: 50%;
   margin-bottom: 1rem;
   position: relative;
   transition: transform 0.3s ease;

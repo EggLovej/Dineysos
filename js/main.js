@@ -322,7 +322,7 @@ document.querySelectorAll(".accordion-header").forEach(button => {
 });
 
 // Generate flowers
-document.querySelectorAll(".accordion-content p").forEach(p => {
+document.querySelectorAll(".formats-accordion .accordion-content p").forEach(p => {
   const count = parseInt(p.getAttribute("data-flowers"));
   const label = p.getAttribute("data-label");
 

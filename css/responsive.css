@@ -16,11 +16,9 @@
   }
 
   .label {
-    position: static;
-    margin-top: 1rem;
-    text-align: center;
-    max-width: 90%;
+    display: none;
   }
+
 
   .nav-links {
     display: none;
