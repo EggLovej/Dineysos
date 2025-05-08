@@ -748,7 +748,7 @@
   background-color: #fff5e1;
   border-radius: 12px;
   padding: 2rem;
-  width: clamp(100px, 25vw, 200px);
+  width: clamp(50px, 25vw, 200px);
   text-align: center;
   box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
   display: flex;
