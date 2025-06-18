@@ -9,81 +9,123 @@ window.addEventListener("scroll", () => {
 // Change navbar to hamburger menu on mobile
 
 document.addEventListener("DOMContentLoaded", function () {
-    const toggle = document.querySelector(".nav-toggle");
-    const nav = document.querySelector(".nav-links");
+  const toggle = document.querySelector(".nav-toggle");
+  const nav = document.querySelector(".nav-links");
 
-    toggle.addEventListener("click", () => {
-      nav.classList.toggle("active");
-    });
+  toggle.addEventListener("click", (event) => {
+    nav.classList.toggle("active");
+    event.stopPropagation(); // prevent the click from bubbling to document
   });
 
-  // Gallery
+  document.addEventListener("click", (event) => {
+    const isClickInsideToggle = toggle.contains(event.target);
+    const isClickInsideNav = nav.contains(event.target);
 
-  const track = document.getElementById("gallery-track");
-  const totalImages = track.children.length;
-  let index = 1;
-  let isHovering = false;
-  let isLightboxOpen = false;
-  let autoScrollTimer;
-
-  function getImageBuffer() {
-    return getVisibleCount() + 2; // add a couple extra for safety
-  }
-
-  function updateGalleryAlignment() {
-    track.style.justifyContent = "flex-start"; // always
-  }
-  
-  // Call this on load and on resize:
-  updateGalleryAlignment();
-  window.addEventListener("resize", updateGalleryAlignment);
-  
-  // Determine how many images to show based on screen width
-  function getVisibleCount() {
-    if (window.innerWidth < 768) return 1;
-    if (window.innerWidth < 1200) return 2;
-    return 4;
-  }
-  
-  function getImageWidthPercent() {
-    return 100 / getVisibleCount();
-  }
-
-  function getImageWidthPx() {
-    const firstImage = track.querySelector("img");
-    return firstImage?.getBoundingClientRect().width || 300; // fallback
-  }
-  
-  function moveGallery(direction) {
-    const imageWidth = getImageWidthPx();
-    const visible = getVisibleCount();
-    const buffer = getImageBuffer();
-  
-    index += direction;
-  
-    if (index >= totalImages - getVisibleCount() - getImageBuffer() + 5) {
-      track.style.transition = "none";
-      index = 1;
-      track.style.transform = `translateX(-${index * imageWidth}px)`;
-      void track.offsetWidth;
-      track.style.transition = "transform 0.5s ease";
-      index += direction;
+    if (!isClickInsideToggle && !isClickInsideNav) {
+      nav.classList.remove("active");
     }
-  
-    if (index <= 0) {
-      track.style.transition = "none";
-      index = totalImages - visible - buffer;
-      track.style.transform = `translateX(-${index * imageWidth}px)`;
-      void track.offsetWidth;
-      track.style.transition = "transform 0.5s ease";
-      index -= 1;
+  });
+});
+
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+    if (scrollY >= sectionTop - sectionHeight / 3) {
+      current = section.getAttribute("id");
     }
-  
+  });
+
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === `#${current}`) {
+      link.classList.add("active");
+    }
+  });
+});
+
+// turn navlinks orange on hover
+document.querySelectorAll("nav a").forEach((link) => {
+  link.addEventListener("mouseover", () => {
+    link.classList.add("hover");
+  });
+  link.addEventListener("mouseout", () => {
+    link.classList.remove("hover");
+  });
+});
+
+// Gallery
+
+const track = document.getElementById("gallery-track");
+const totalImages = track.children.length;
+let index = 1;
+let isHovering = false;
+let isLightboxOpen = false;
+let autoScrollTimer;
+
+function getImageBuffer() {
+  return getVisibleCount() + 2; // add a couple extra for safety
+}
+
+function updateGalleryAlignment() {
+  track.style.justifyContent = "flex-start"; // always
+}
+
+// Call this on load and on resize:
+updateGalleryAlignment();
+window.addEventListener("resize", updateGalleryAlignment);
+
+// Determine how many images to show based on screen width
+function getVisibleCount() {
+  if (window.innerWidth < 768) return 1;
+  if (window.innerWidth < 1200) return 2;
+  return 4;
+}
+
+function getImageWidthPercent() {
+  return 100 / getVisibleCount();
+}
+
+function getImageWidthPx() {
+  const firstImage = track.querySelector("img");
+  return firstImage?.getBoundingClientRect().width || 300; // fallback
+}
+
+function moveGallery(direction) {
+  const imageWidth = getImageWidthPx();
+  const visible = getVisibleCount();
+  const buffer = getImageBuffer();
+
+  index += direction;
+
+  if (index >= totalImages - getVisibleCount() - getImageBuffer() + 5) {
+    track.style.transition = "none";
+    index = 1;
     track.style.transform = `translateX(-${index * imageWidth}px)`;
+    void track.offsetWidth;
+    track.style.transition = "transform 0.5s ease";
+    index += direction;
   }
-  
-  // Initial position
-  track.style.transform = `translateX(-${index * getImageWidthPercent()}%)`;
+
+  if (index <= 0) {
+    track.style.transition = "none";
+    index = totalImages - visible - buffer;
+    track.style.transform = `translateX(-${index * imageWidth}px)`;
+    void track.offsetWidth;
+    track.style.transition = "transform 0.5s ease";
+    index -= 1;
+  }
+
+  track.style.transform = `translateX(-${index * imageWidth}px)`;
+}
+
+// Initial position
+track.style.transform = `translateX(-${index * getImageWidthPercent()}%)`;
 
 const images = document.querySelectorAll("#gallery-track img");
 
@@ -98,56 +140,57 @@ images.forEach((img) => {
 
 // Auto scroll
 function startAutoScroll() {
-    autoScrollTimer = setTimeout(() => {
-      if (!isHovering && !isLightboxOpen) {
-        moveGallery(1);
-      }
-      startAutoScroll(); // 🔥 set up next auto-scroll
-    }, 4000);
-  }
+  autoScrollTimer = setTimeout(() => {
+    if (!isHovering && !isLightboxOpen) {
+      moveGallery(1);
+    }
+    startAutoScroll(); // 🔥 set up next auto-scroll
+  }, 4000);
+}
 
-  function resetAutoScroll() {
-    clearTimeout(autoScrollTimer);
-    startAutoScroll();
-  }
-
+function resetAutoScroll() {
+  clearTimeout(autoScrollTimer);
   startAutoScroll();
+}
+
+startAutoScroll();
 
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
 const galleryImages = document.querySelectorAll("#gallery-track img");
 
 // Open lightbox when clicking an image
-galleryImages.forEach(img => {
-    img.addEventListener('click', () => {
-      lightboxImg.src = img.src;
-      lightbox.style.display = 'flex';
-      setTimeout(() => {
-        lightbox.style.opacity = '1';
-      }, 10);
-  
-      isLightboxOpen = true;
-      const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
-      document.body.style.overflow = 'hidden';
-      document.body.style.paddingRight = `${scrollBarWidth}px`; // compensate for missing scrollbar
-    });
+galleryImages.forEach((img) => {
+  img.addEventListener("click", () => {
+    lightboxImg.src = img.src;
+    lightbox.style.display = "flex";
+    setTimeout(() => {
+      lightbox.style.opacity = "1";
+    }, 10);
+
+    isLightboxOpen = true;
+    const scrollBarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.overflow = "hidden";
+    document.body.style.paddingRight = `${scrollBarWidth}px`; // compensate for missing scrollbar
   });
+});
 
 // Close lightbox when clicking outside the image
-lightbox.addEventListener('click', (e) => {
-    if (e.target !== lightboxImg) {
-      lightbox.style.opacity = '0';
-      setTimeout(() => {
-        lightbox.style.display = 'none';
-      }, 300);
-  
-      isLightboxOpen = false;
-      document.body.style.overflow = 'auto';
-      document.body.style.paddingRight = '0'; // remove the compensation
-    }
-  });
+lightbox.addEventListener("click", (e) => {
+  if (e.target !== lightboxImg) {
+    lightbox.style.opacity = "0";
+    setTimeout(() => {
+      lightbox.style.display = "none";
+    }, 300);
 
-  // Modal 
+    isLightboxOpen = false;
+    document.body.style.overflow = "auto";
+    document.body.style.paddingRight = "0"; // remove the compensation
+  }
+});
+
+// Modal
 
 let currentSlide = 0;
 
@@ -166,7 +209,7 @@ function openModal(baseName) {
 
   updateArrows();
   createDots();
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow = "hidden";
 }
 
 function slideModal(direction) {
@@ -215,7 +258,7 @@ function closeModal() {
     document.getElementById("img1").src = "";
     document.getElementById("img2").src = "";
   }, 300);
-    document.body.style.overflow = 'auto'; // allow scrolling again
+  document.body.style.overflow = "auto"; // allow scrolling again
 }
 
 function handleBackdropClick(event) {
@@ -250,71 +293,50 @@ document.getElementById("carouselTrack").addEventListener(
   },
   false
 );
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav a");
 
-window.addEventListener("scroll", () => {
-  let current = "";
+document.addEventListener("DOMContentLoaded", function () {
+  // Auto-generate flowers
+  const flowerCells = document.querySelectorAll("td[data-flowers]");
 
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.offsetHeight;
-    if (scrollY >= sectionTop - sectionHeight / 3) {
-      current = section.getAttribute("id");
+  flowerCells.forEach((cell) => {
+    const flowerCount = parseInt(cell.getAttribute("data-flowers"));
+
+    // Create a container div
+    const container = document.createElement("div");
+    container.className = "flower-container";
+
+    // Generate and append flowers to the container
+    for (let i = 0; i < flowerCount; i++) {
+      const img = document.createElement("img");
+      img.src = "Images/Format/blume.png";
+      img.alt = "Flower";
+      img.className = "flower";
+      container.appendChild(img);
     }
-  });
 
-  navLinks.forEach((link) => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === `#${current}`) {
-      link.classList.add("active");
+    // Append the container to the cell
+    cell.appendChild(container);
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const glassContainers = document.querySelectorAll(".glasses[data-glasses]");
+
+  glassContainers.forEach((container) => {
+    const count = parseInt(container.getAttribute("data-glasses"));
+
+    for (let i = 0; i < count; i++) {
+      const img = document.createElement("img");
+      img.src = "Images/Concepts/Glass.png";
+      img.alt = "Glass";
+      img.className = "glass-icon";
+      container.appendChild(img);
     }
   });
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Auto-generate flowers
-    const flowerCells = document.querySelectorAll('td[data-flowers]');
-  
-    flowerCells.forEach(cell => {
-      const flowerCount = parseInt(cell.getAttribute('data-flowers'));
-  
-      // Create a container div
-      const container = document.createElement('div');
-      container.className = 'flower-container';
-  
-      // Generate and append flowers to the container
-      for (let i = 0; i < flowerCount; i++) {
-        const img = document.createElement('img');
-        img.src = 'Images/Format/blume.png';
-        img.alt = 'Flower';
-        img.className = 'flower';
-        container.appendChild(img);
-      }
-  
-      // Append the container to the cell
-      cell.appendChild(container);
-    });
-  });
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const glassContainers = document.querySelectorAll(".glasses[data-glasses]");
-  
-    glassContainers.forEach(container => {
-      const count = parseInt(container.getAttribute("data-glasses"));
-  
-      for (let i = 0; i < count; i++) {
-        const img = document.createElement("img");
-        img.src = "Images/Concepts/Glass.png";
-        img.alt = "Glass";
-        img.className = "glass-icon";
-        container.appendChild(img);
-      }
-    });
-  });
-
 // Accordion toggle + arrow
-document.querySelectorAll(".accordion-header").forEach(button => {
+document.querySelectorAll(".accordion-header").forEach((button) => {
   button.addEventListener("click", () => {
     const item = button.parentElement;
     item.classList.toggle("active");
@@ -322,22 +344,24 @@ document.querySelectorAll(".accordion-header").forEach(button => {
 });
 
 // Generate flowers
-document.querySelectorAll(".formats-accordion .accordion-content p").forEach(p => {
-  const count = parseInt(p.getAttribute("data-flowers"));
-  const label = p.getAttribute("data-label");
+document
+  .querySelectorAll(".formats-accordion .accordion-content p")
+  .forEach((p) => {
+    const count = parseInt(p.getAttribute("data-flowers"));
+    const label = p.getAttribute("data-label");
 
-  // Create and append label span
-  const labelSpan = document.createElement("span");
-  labelSpan.className = "label-text";
-  labelSpan.textContent = label + ":";
-  p.appendChild(labelSpan);
+    // Create and append label span
+    const labelSpan = document.createElement("span");
+    labelSpan.className = "label-text";
+    labelSpan.textContent = label + ":";
+    p.appendChild(labelSpan);
 
-  // Generate and append flower icons
-  for (let i = 0; i < count; i++) {
-    const img = document.createElement("img");
-    img.src = "Images/Format/blume.png";
-    img.alt = "Flower";
-    img.className = "flower";
-    p.appendChild(img);
-  }
-});
+    // Generate and append flower icons
+    for (let i = 0; i < count; i++) {
+      const img = document.createElement("img");
+      img.src = "Images/Format/blume.png";
+      img.alt = "Flower";
+      img.className = "flower";
+      p.appendChild(img);
+    }
+  });

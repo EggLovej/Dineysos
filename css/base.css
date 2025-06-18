@@ -9,6 +9,8 @@ body {
 
   body p {
     color: var(--blue);
+    font-size: 1.2rem;
+    line-height: 1.6;
   }
 
   body h1 {
@@ -30,4 +32,11 @@ body {
   
   html {
     scroll-behavior: smooth;
+  }
+
+  .base_container {
+    max-width: 1200px;
+    margin: 0 auto; /* centers the container */
+    padding: 2rem;
+    gap: 1rem;
   }

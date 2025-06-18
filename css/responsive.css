@@ -1,19 +1,19 @@
 @media (width <= 1024px) {
-    .about-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: left;
-        padding: 0 1rem;
-      }
-    
-      .about-image {
-        margin-top: 2rem;
-      }
-    
-      .about-img {
-        width: clamp(200px, 60vw, 400px);
-        margin: 0 auto;
-      }
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    padding: 0 1rem;
+  }
+
+  .about-image {
+    margin-top: 2rem;
+  }
+
+  .about-img {
+    width: clamp(200px, 60vw, 400px);
+    margin: 0 auto;
+  }
 }
 
 @media (width <= 768px) {
@@ -24,7 +24,7 @@
   .nav-links {
     display: none;
     flex-direction: column;
-    background-color: rgb(255 255 255 / 50%);
+    background-color: var(--cream);
     position: absolute;
     top: 100%;
     right: 0.1rem;
@@ -153,5 +153,4 @@
   .contact-cards {
     gap: 0.5rem;
   }
-
 }
