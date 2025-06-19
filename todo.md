@@ -4,7 +4,7 @@
 - [ ] Hero image: Change to vertical image (from brochure)
 - [ ] Change images that open in concepts based on language
 - [ ] Button animation? Concepts + Download
-- [ ] Concepts: Center images on mobile
+- [x] Concepts: Center images on mobile
 - [ ] Concepts: Flowers are cut off
 - [ ] Download button: () on new line when button too small
 - [ ] Add new images to gallery

@@ -20,7 +20,7 @@
 
 .about-text {
   flex: 2;
-  text-align: justify;
+  text-align: left;
 }
 
 .about-image {

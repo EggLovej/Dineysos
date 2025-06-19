@@ -81,7 +81,13 @@
           />
 
           <div class="hero-image">
-            <img src="Images/Hero/heroimage.png" alt="Hero Visual" />
+            <picture>
+              <source
+                srcset="Images/Hero/heroimagevertical.png"
+                media="(max-width: 768px)"
+              />
+              <img src="Images/Hero/heroimage.png" alt="Hero Visual" />
+            </picture>
           </div>
 
           <h1>WINES, GAMES, EVENTS</h1>
@@ -167,7 +173,7 @@
               <p data-i18n="concepts.trophy.description">
                 Euch erwarten mehrere Challenges über die Weinauswahl, bei denen
                 Weinwissen eher bescheiden nützlich ist. Unterhaltsam, mehr oder
-                weniger informativ und mit einem glorreichen Sieger* am Ende.
+                weniger informativ und mit einem glorreichen Sieger (oder Siegergruppe, unsere Konzepte sind auch als Team spielbar) am Ende.
               </p>
               <button class="concept-button" data-i18n="concepts.button" onclick="openModal('Trophy')">
                 Mehr erfahren
