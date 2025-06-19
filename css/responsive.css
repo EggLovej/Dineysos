@@ -54,6 +54,16 @@
     gap: 0.5rem;
   }
 
+  .lang-menu {
+    min-width: 80px;
+  }
+
+  .lang-menu .lang-option {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    text-align: center;
+  }
+
   .hero-logo {
     width: 8em;
     height: auto;
@@ -102,6 +112,10 @@
     align-items: center;
     text-align: center;
     padding: 1rem;
+  }
+
+  .concept-image {
+    justify-content: center;
   }
 
   .concept-image img {
