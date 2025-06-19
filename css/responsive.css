@@ -48,6 +48,18 @@
     display: block;
   }
 
+  .right-nav {
+    justify-content: flex-end;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .hero-logo {
+    width: 8em;
+    height: auto;
+  }
+
+
   .gallery-viewport {
     padding: 0 10vw; /* creates space left & right */
     overflow-x: auto;
