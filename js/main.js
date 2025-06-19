@@ -59,6 +59,100 @@ document.querySelectorAll("nav a").forEach((link) => {
   });
 });
 
+async function loadLanguage(lang) {
+  let translations = {};
+
+  try {
+    const res = await fetch(`lang/${lang}.json`);
+    translations = await res.json();
+
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const keys = el.getAttribute("data-i18n").split(".");
+      let text = translations;
+      for (const key of keys) {
+        text = text?.[key];
+      }
+      if (text) el.textContent = text;
+    });
+
+    localStorage.setItem("language", lang);
+  } catch (err) {
+    console.error("Translation load error:", err);
+    return;
+  }
+  await updateBrochureLink(lang);
+
+  document.querySelectorAll("[data-i18n-label]").forEach((el) => {
+    const keys = el.getAttribute("data-i18n-label").split(".");
+    let labelText = translations;
+    for (const key of keys) {
+      labelText = labelText?.[key];
+    }
+    if (labelText) el.setAttribute("data-label", labelText);
+  });
+  renderFormatFlowers();
+}
+
+const langToggle = document.getElementById("current-lang");
+const langMenu = document.getElementById("lang-menu");
+
+langToggle.addEventListener("click", (e) => {
+  e.stopPropagation();
+  langMenu.style.display =
+    langMenu.style.display === "block" ? "none" : "block";
+});
+
+// Click outside closes menu
+document.addEventListener("click", () => {
+  langMenu.style.display = "none";
+});
+
+// Language switch
+document.querySelectorAll(".lang-option").forEach((btn) => {
+  btn.addEventListener("click", async () => {
+    const lang = btn.getAttribute("data-lang");
+    await loadLanguage(lang);
+    langMenu.style.display = "none";
+    document.getElementById("current-lang").textContent = lang.toUpperCase();
+  });
+});
+
+// Update current language button on load
+document.addEventListener("DOMContentLoaded", async () => {
+  const savedLang = localStorage.getItem("language") || "de";
+  await loadLanguage(savedLang);
+  document.getElementById("current-lang").textContent = savedLang.toUpperCase();
+});
+
+async function updateBrochureLink(lang) {
+  const brochureLink = document.getElementById("brochure-link");
+  const brochureSize = document.getElementById("brochure-size");
+
+  if (!brochureLink || !brochureSize) return;
+
+  const href =
+    lang === "en"
+      ? "docs/DineysosBrochureEN.pdf"
+      : "docs/DineysosBroschüreDE.pdf";
+
+  brochureLink.href = href;
+
+  try {
+    const res = await fetch(href, { method: "HEAD" });
+    const size = res.headers.get("Content-Length");
+
+    if (size) {
+      const mb = (parseInt(size) / (1024 * 1024)).toFixed(1);
+      brochureSize.textContent = `(PDF, ${mb} MB)`;
+    } else {
+      brochureSize.textContent = `(PDF)`;
+    }
+  } catch (err) {
+    console.warn("Could not fetch brochure size:", err);
+    brochureSize.textContent = `(PDF)`;
+  }
+}
+
 // Gallery
 
 const track = document.getElementById("gallery-track");
@@ -344,24 +438,29 @@ document.querySelectorAll(".accordion-header").forEach((button) => {
 });
 
 // Generate flowers
-document
-  .querySelectorAll(".formats-accordion .accordion-content p")
-  .forEach((p) => {
-    const count = parseInt(p.getAttribute("data-flowers"));
-    const label = p.getAttribute("data-label");
+function renderFormatFlowers() {
+  // Clear old content first to avoid duplicates
+  document
+    .querySelectorAll(".formats-accordion .accordion-content p")
+    .forEach((p) => {
+      p.innerHTML = ""; // clear children (label + flowers)
 
-    // Create and append label span
-    const labelSpan = document.createElement("span");
-    labelSpan.className = "label-text";
-    labelSpan.textContent = label + ":";
-    p.appendChild(labelSpan);
+      const count = parseInt(p.getAttribute("data-flowers"));
+      const label = p.getAttribute("data-label");
 
-    // Generate and append flower icons
-    for (let i = 0; i < count; i++) {
-      const img = document.createElement("img");
-      img.src = "Images/Format/blume.png";
-      img.alt = "Flower";
-      img.className = "flower";
-      p.appendChild(img);
-    }
-  });
+      // Create and append label span
+      const labelSpan = document.createElement("span");
+      labelSpan.className = "label-text";
+      labelSpan.textContent = label + ":";
+      p.appendChild(labelSpan);
+
+      // Generate and append flower icons
+      for (let i = 0; i < count; i++) {
+        const img = document.createElement("img");
+        img.src = "Images/Format/blume.png";
+        img.alt = "Flower";
+        img.className = "flower";
+        p.appendChild(img);
+      }
+    });
+}

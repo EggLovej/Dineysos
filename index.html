@@ -40,16 +40,33 @@
           src="Images/Logo/logo_color.png"
           alt="Wine & Dine Logo"
           class="logo"
-          href="#hero"
         />
       </a>
+
       <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
-      <nav class="nav-links">
-        <a href="#about" class="nav-link">ÜBER UNS</a>
-        <a href="#concepts" class="nav-link">KONZEPTE</a>
-        <a href="#pricing" class="nav-link">PREISE</a>
-        <a href="#contact" class="nav-link">KONTAKT</a>
-      </nav>
+
+      <!-- Right side -->
+      <div class="right-nav">
+        <nav class="nav-links">
+          <a href="#about" class="nav-link" data-i18n="nav.about">ÜBER UNS</a>
+          <a href="#concepts" class="nav-link" data-i18n="nav.concepts"
+            >KONZEPTE</a
+          >
+          <a href="#pricing" class="nav-link" data-i18n="nav.pricing">PREISE</a>
+          <a href="#contact" class="nav-link" data-i18n="nav.contact"
+            >KONTAKT</a
+          >
+        </nav>
+
+        <!-- Language Switcher -->
+        <div class="lang-dropdown">
+          <button class="lang-toggle" id="current-lang">DE</button>
+          <div class="lang-menu" id="lang-menu">
+            <button class="lang-option" data-lang="en">EN</button>
+            <button class="lang-option" data-lang="de">DE</button>
+          </div>
+        </div>
+      </div>
     </header>
 
     <!--Hero-->
@@ -75,25 +92,30 @@
       <div class="base_container">
         <div class="about-container">
           <div class="about-text">
-            <h2>Wir sind Clint und Marina - hallo!</h2>
-            <p>
+            <h2 data-i18n="about.heading">
+              Wir sind Clint und Marina - hallo!
+            </h2>
+            <p data-i18n="about.paragraph1">
               Durch unseren Wunsch, verschiedene Arten des Zusammenkommens zu
               “wein- und spassifizieren”, gründeten wir Dineysos:<br />
               Einen innovativen und neuartigen Anbieter von
               Wein-Spiele-Konzepten, die euren Event auf unkonventionelle Weise
-              zum Gesprächsthema machen.<br />
-              <br />
+              zum Gesprächsthema machen.
+            </p>
+            <p data-i18n="about.paragraph2">
               Unsere Geschichte beginnt wie viele: Nach der dritten Flasche Wein
               kam uns die Erkenntnis, dass eine Mehrheit der Events heutzutage
               sehr generisch sind und die Welt auf etwas Neues gewartet hat.
               Kombiniert man etwas Langeweile mit dem erwähnten Wein, war eine
-              Lösung schnell gefunden: Dineysos!<br />
-              <br />
+              Lösung schnell gefunden: Dineysos!
+            </p>
+            <p data-i18n="about.paragraph3">
               Unsere Eventkonzepte sind lehrreich, lustig sowie flexibel
               anpassbar und lassen sich bestens in Afterworks,
               Mitarbeiterevents, Dinnerparties sowie alle Arten von Happening
-              integrieren. <br />
-              <br />
+              integrieren.
+            </p>
+            <p data-i18n="about.paragraph4">
               Von “Wir kommen nur mit unserem Spiel und einem Koffer voller
               Wein” bis zu einem Komplettevent mit passender Location und
               Kulinarik, ist alles möglich.
@@ -107,16 +129,20 @@
             />
             <div class="label marina-label">
               <p>
-                <span class="name">Marina</span><br />Eine Hobbykünstlerin mit
+                <span class="name">Marina</span> </br>
+                <span data-i18n="about.marina">Eine Hobbykünstlerin mit
                 einem Flair für Excel-Tabellen sowie einer Leidenschaft für
                 gutes Essen und Trinken.
+              </span>
               </p>
             </div>
             <div class="label clint-label">
               <p>
-                <span class="name">Clint</span><br />Ein Brunch-Liebhaber, der
+                <span class="name">Clint</span> </br>
+                <span data-i18n="about.clint">Ein Brunch-Liebhaber, der
                 nie ohne Hut anzutreffen ist und eine nicht zu leugnende
                 Leidenschaft für Wein besitzt - viel Wein.
+              </span>
               </p>
             </div>
           </div>
@@ -128,7 +154,7 @@
     <section class="concepts" id="concepts">
       <div class="base_container">
         <div class="concepts-header">
-          <h2>Unsere Konzepte</h2>
+          <h2 data-i18n="concepts.heading">Unsere Konzepte</h2>
         </div>
         <div class="grid">
           <div class="concept-card">
@@ -136,28 +162,30 @@
               <img src="Images/Concepts/Trophy.png" alt="Trophy" />
             </div>
             <div class="concept-description">
-              <h3>Trophy</h3>
-              <p>
+              <h3 data-i18n="concepts.trophy.title">Trophy</h3>
+              <p data-i18n="concepts.trophy.description">
                 Euch erwarten mehrere Challenges über die Weinauswahl, bei denen
                 Weinwissen eher bescheiden nützlich ist. Unterhaltsam, mehr oder
                 weniger informativ und mit einem glorreichen Sieger* am Ende.
               </p>
-              <button class="concept-button" onclick="openModal('Trophy')">
+              <button class="concept-button" data-i18n="concepts.button" onclick="openModal('Trophy')">
                 Mehr erfahren
               </button>
             </div>
             <div class="concept-classification">
-              <p>Spielelement:<strong> Quiz</strong></p>
+              <p>
+                <span data-i18n="concepts.gameType">Spielelement:</span>
+                <strong data-i18n="concepts.trophy.element"> Quiz</strong></p>
               <div class="rating-row">
-                <span>Spass</span>
+                <span data-i18n="concepts.fun">Spass</span>
                 <div class="glasses" data-glasses="5"></div>
               </div>
               <div class="rating-row">
-                <span>Lernlevel</span>
+                <span data-i18n="concepts.learning">Lernlevel</span>
                 <div class="glasses" data-glasses="2"></div>
               </div>
               <div class="rating-row">
-                <span>Austausch</span>
+                <span data-i18n="concepts.exchange">Austausch</span>
                 <div class="glasses" data-glasses="4"></div>
               </div>
             </div>
@@ -171,29 +199,31 @@
               />
             </div>
             <div class="concept-description">
-              <h3>Classroom</h3>
-              <p>
+              <h3 data-i18n="concepts.classroom.title">Classroom</h3>
+              <p data-i18n="concepts.classroom.description">
                 Hier kommen die Teilnehmer weinbezogen schlauer nach Hause, als
                 sie es ohnehin schon sind. Weinwissen wird nicht benötigt oder
                 kann in den Schwierigkeits- und Informationslevel eingerechnet
                 werden.
               </p>
-              <button class="concept-button" onclick="openModal('Classroom')">
+              <button class="concept-button" data-i18n="concepts.button" onclick="openModal('Classroom')">
                 Mehr erfahren
               </button>
             </div>
             <div class="concept-classification">
-              <p>Spielelement:<strong> Kreuzworträtsel</strong></p>
+              <p>
+                <span data-i18n="concepts.gameType">Spielelement:</span>
+                <strong data-i18n="concepts.classroom.element">Kreuzworträtsel</strong>
               <div class="rating-row">
-                <span>Spass</span>
+                <span data-i18n="concepts.fun">Spass</span>
                 <div class="glasses" data-glasses="4"></div>
               </div>
               <div class="rating-row">
-                <span>Lernlevel</span>
+                <span data-i18n="concepts.learning">Lernlevel</span>
                 <div class="glasses" data-glasses="5"></div>
               </div>
               <div class="rating-row">
-                <span>Austausch</span>
+                <span data-i18n="concepts.exchange">Austausch</span>
                 <div class="glasses" data-glasses="3"></div>
               </div>
             </div>
@@ -207,30 +237,32 @@
               />
             </div>
             <div class="concept-description">
-              <h3>Olympics</h3>
-              <p>
+              <h3 data-i18n="concepts.olympics.title">Olympics</h3>
+              <p data-i18n="concepts.olympics.description">
                 Was wertet jedes Konzept auf? Richtig, mehr Wein. Olympic setzt
                 eine Serie von Weinen in Konkurrenz zu einer zweiten Serie.
                 Olympische Spiele mit Weinen sozusagen. Eignet sich neben den
                 üblichen Formaten auch bestens um euer Weinsortiment gegen ein
                 anderes antreten zu lassen.
               </p>
-              <button class="concept-button" onclick="openModal('Olympics')">
+              <button class="concept-button" data-i18n="concepts.button" onclick="openModal('Olympics')">
                 Mehr erfahren
               </button>
             </div>
             <div class="concept-classification">
-              <p>Spielelement:<strong> Quartett</strong></p>
+              <p>
+                <span data-i18n="concepts.gameType">Spielelement:</span>
+                <strong data-i18n="concepts.olympics.element">Quartett</strong>
               <div class="rating-row">
-                <span>Spass</span>
+                <span data-i18n="concepts.fun">Spass</span>
                 <div class="glasses" data-glasses="4"></div>
               </div>
               <div class="rating-row">
-                <span>Lernlevel</span>
+                <span data-i18n="concepts.learning">Lernlevel</span>
                 <div class="glasses" data-glasses="3"></div>
               </div>
               <div class="rating-row">
-                <span>Austausch</span>
+                <span data-i18n="concepts.exchange">Austausch</span>
                 <div class="glasses" data-glasses="5"></div>
               </div>
             </div>
@@ -275,19 +307,20 @@
 
     <section class="formats" id="formats">
       <div class="base_container">
-        <h2>Formate</h2>
-        <p class="formats-description">
+        <h2 data-i18n="formats.title">Formate</h2>
+        <span class="formats-description">
+          <p data-i18n="formats.description1">
           Jedem Konzept von Dineysos wird erst durch euren Event Leben
           eingehaucht, die Möglichkeiten und Kombinationen sind endlos. Der
           urchige Gastronom um die Ecke, der sich ans Abenteuer Wine&Dine machen
           möchte, erhält von uns einen genau so passenden Vorschlag, wie die
           fancy Tech-Company, die ihren 500 Personen Mitarbeiterevent
           organisiert oder die Privatperson, die zum Happening bei sich zu Hause
-          einlädt.<br />
-          <br />
+          einlädt. </p>
+          <p data-i18n="formats.description2">
           Obwohl jede Veranstaltung einzigartig ist, wollen wir euch unsere
-          Kombinationsempfehlungen nicht vorenthalten:
-        </p>
+          Kombinationsempfehlungen nicht vorenthalten:</p>
+        </span>
         <div class="formats-table-wrapper desktop-only">
           <div class="formats-space"></div>
 
@@ -297,16 +330,16 @@
               <thead>
                 <tr>
                   <th></th>
-                  <th>Wine & Dine</th>
-                  <th>Flying Dinner</th>
-                  <th>Afterwork Chill</th>
-                  <th>Steh-Apéro</th>
-                  <th>Degustation / Workshop</th>
+                  <th data-i18n="formats.table.col1">Wine & Dine</th>
+                  <th data-i18n="formats.table.col2">Flying Dinner</th>
+                  <th data-i18n="formats.table.col3">Afterwork Chill</th>
+                  <th data-i18n="formats.table.col4">Steh-Apéro</th>
+                  <th data-i18n="formats.table.col5">Degustation / Workshop</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Trophy</td>
+                  <td data-i18n="concepts.trophy.title">Trophy</td>
                   <td data-flowers="4"></td>
                   <td data-flowers="4"></td>
                   <td data-flowers="3"></td>
@@ -314,7 +347,7 @@
                   <td data-flowers="1"></td>
                 </tr>
                 <tr>
-                  <td>Classroom</td>
+                  <td data-i18n="concepts.classroom.title">Classroom</td>
                   <td data-flowers="2"></td>
                   <td data-flowers="2"></td>
                   <td data-flowers="4"></td>
@@ -322,7 +355,7 @@
                   <td data-flowers="3"></td>
                 </tr>
                 <tr>
-                  <td>Olympics</td>
+                  <td data-i18n="concepts.olympics.title">Olympics</td>
                   <td data-flowers="3"></td>
                   <td data-flowers="2"></td>
                   <td data-flowers="3"></td>
@@ -343,7 +376,7 @@
                   alt="Flower"
                 />
               </span>
-              <span class="legend-text">= machbar</span>
+              <span data-i18n="formats.legend.one" class="legend-text">= machbar</span>
             </div>
             <div class="legend-row">
               <span class="legend-symbol">
@@ -358,27 +391,7 @@
                   alt="Flower"
                 />
               </span>
-              <span class="legend-text">= passend</span>
-            </div>
-            <div class="legend-row">
-              <span class="legend-symbol">
-                <img
-                  src="Images/Format/blume.png"
-                  class="flower"
-                  alt="Flower"
-                />
-                <img
-                  src="Images/Format/blume.png"
-                  class="flower"
-                  alt="Flower"
-                />
-                <img
-                  src="Images/Format/blume.png"
-                  class="flower"
-                  alt="Flower"
-                />
-              </span>
-              <span class="legend-text">= sehr passend</span>
+              <span data-i18n="formats.legend.two" class="legend-text">= passend</span>
             </div>
             <div class="legend-row">
               <span class="legend-symbol">
@@ -397,13 +410,33 @@
                   class="flower"
                   alt="Flower"
                 />
+              </span>
+              <span data-i18n="formats.legend.three" class="legend-text">= sehr passend</span>
+            </div>
+            <div class="legend-row">
+              <span class="legend-symbol">
+                <img
+                  src="Images/Format/blume.png"
+                  class="flower"
+                  alt="Flower"
+                />
+                <img
+                  src="Images/Format/blume.png"
+                  class="flower"
+                  alt="Flower"
+                />
+                <img
+                  src="Images/Format/blume.png"
+                  class="flower"
+                  alt="Flower"
+                />
                 <img
                   src="Images/Format/blume.png"
                   class="flower"
                   alt="Flower"
                 />
               </span>
-              <span class="legend-text">= perfect match</span>
+              <span data-i18n="formats.legend.four" class="legend-text">= perfect match</span>
             </div>
           </div>
         </div>
@@ -417,15 +450,15 @@
                 class="accordion-icon"
                 alt="Trophy"
               />
-              <span class="accordion-title">Trophy</span>
+              <span data-i18n="concepts.trophy.title" class="accordion-title">Trophy</span>
               <span class="accordion-arrow">&#9660;</span>
             </button>
             <div class="accordion-content">
-              <p data-label="Wine & Dine" data-flowers="4"></p>
-              <p data-label="Flying Dinner" data-flowers="4"></p>
-              <p data-label="Afterwork Chill" data-flowers="3"></p>
-              <p data-label="Steh-Apéro" data-flowers="2"></p>
-              <p data-label="Degustation / Workshop" data-flowers="1"></p>
+              <p data-i18n-label="formats.table.col1" data-label="Wine & Dine" data-flowers="4"></p>
+              <p data-i18n-label="formats.table.col2" data-label="Flying Dinner" data-flowers="4"></p>
+              <p data-i18n-label="formats.table.col3" data-label="Afterwork Chill" data-flowers="3"></p>
+              <p data-i18n-label="formats.table.col4" data-label="Steh-Apéro" data-flowers="2"></p>
+              <p data-i18n-label="formats.table.col5" data-label="Degustation / Workshop" data-flowers="1"></p>
             </div>
           </div>
 
@@ -437,15 +470,15 @@
                 class="accordion-icon"
                 alt="Classroom"
               />
-              <span class="accordion-title">Classroom</span>
+              <span data-i18n="concepts.classroom.title" class="accordion-title">Classroom</span>
               <span class="accordion-arrow">&#9660;</span>
             </button>
             <div class="accordion-content">
-              <p data-label="Wine & Dine" data-flowers="2"></p>
-              <p data-label="Flying Dinner" data-flowers="2"></p>
-              <p data-label="Afterwork Chill" data-flowers="4"></p>
-              <p data-label="Steh-Apéro" data-flowers="4"></p>
-              <p data-label="Degustation / Workshop" data-flowers="3"></p>
+              <p data-i18n-label="formats.table.col1" data-label="Wine & Dine" data-flowers="2"></p>
+              <p data-i18n-label="formats.table.col2" data-label="Flying Dinner" data-flowers="2"></p>
+              <p data-i18n-label="formats.table.col3" data-label="Afterwork Chill" data-flowers="4"></p>
+              <p data-i18n-label="formats.table.col4" data-label="Steh-Apéro" data-flowers="4"></p>
+              <p data-i18n-label="formats.table.col5" data-label="Degustation / Workshop" data-flowers="3"></p>
             </div>
           </div>
 
@@ -457,15 +490,15 @@
                 class="accordion-icon"
                 alt="Olympics"
               />
-              <span class="accordion-title">Olympics</span>
+              <span data-i18n="concepts.olympics.title" class="accordion-title">Olympics</span>
               <span class="accordion-arrow">&#9660;</span>
             </button>
             <div class="accordion-content">
-              <p data-label="Wine & Dine" data-flowers="3"></p>
-              <p data-label="Flying Dinner" data-flowers="2"></p>
-              <p data-label="Afterwork Chill" data-flowers="3"></p>
-              <p data-label="Steh-Apéro" data-flowers="3"></p>
-              <p data-label="Degustation / Workshop" data-flowers="4"></p>
+              <p data-i18n-label="formats.table.col1" data-label="Wine & Dine" data-flowers="3"></p>
+              <p data-i18n-label="formats.table.col2" data-label="Flying Dinner" data-flowers="2"></p>
+              <p data-i18n-label="formats.table.col3" data-label="Afterwork Chill" data-flowers="3"></p>
+              <p data-i18n-label="formats.table.col4" data-label="Steh-Apéro" data-flowers="3"></p>
+              <p data-i18n-label="formats.table.col5" data-label="Degustation / Workshop" data-flowers="4"></p>
             </div>
           </div>
 
@@ -478,7 +511,7 @@
                   alt="Flower"
                 />
               </span>
-              <span class="legend-text">= machbar</span>
+              <span data-i18n="formats.legend.one" class="legend-text">= machbar</span>
             </div>
             <div class="legend-row">
               <span class="legend-symbol">
@@ -493,27 +526,7 @@
                   alt="Flower"
                 />
               </span>
-              <span class="legend-text">= passend</span>
-            </div>
-            <div class="legend-row">
-              <span class="legend-symbol">
-                <img
-                  src="Images/Format/blume.png"
-                  class="flower"
-                  alt="Flower"
-                />
-                <img
-                  src="Images/Format/blume.png"
-                  class="flower"
-                  alt="Flower"
-                />
-                <img
-                  src="Images/Format/blume.png"
-                  class="flower"
-                  alt="Flower"
-                />
-              </span>
-              <span class="legend-text">= sehr passend</span>
+              <span data-i18n="formats.legend.two" class="legend-text">= passend</span>
             </div>
             <div class="legend-row">
               <span class="legend-symbol">
@@ -532,13 +545,33 @@
                   class="flower"
                   alt="Flower"
                 />
+              </span>
+              <span data-i18n="formats.legend.three" class="legend-text">= sehr passend</span>
+            </div>
+            <div class="legend-row">
+              <span class="legend-symbol">
+                <img
+                  src="Images/Format/blume.png"
+                  class="flower"
+                  alt="Flower"
+                />
+                <img
+                  src="Images/Format/blume.png"
+                  class="flower"
+                  alt="Flower"
+                />
+                <img
+                  src="Images/Format/blume.png"
+                  class="flower"
+                  alt="Flower"
+                />
                 <img
                   src="Images/Format/blume.png"
                   class="flower"
                   alt="Flower"
                 />
               </span>
-              <span class="legend-text">= perfect match</span>
+              <span data-i18n="formats.legend.four" class="legend-text">= perfect match</span>
             </div>
           </div>
         </div>
@@ -589,10 +622,10 @@
     <!--Pricing-->
     <section class="pricing" id="pricing">
       <div class="base_container">
-        <h2>Preise</h2>
+        <h2 data-i18n="pricing.title">Preise</h2>
 
         <div class="pricing-content desktop-only">
-          <p>
+          <p data-i18n="pricing.description">
             Mit den nachfolgend aufgeführten Richtpreisen können die Kosten für
             eine Veranstaltung in etwa abgeschätzt werden. Bei der
             Preisgestaltung kommt es auf viele Faktoren an (Weinauswahl,
@@ -605,110 +638,126 @@
               <tr>
                 <th></th>
                 <!-- Empty top-left corner -->
-                <th>4–7 Teilnehmer</th>
-                <th>8–15 Teilnehmer</th>
-                <th>16–30 Teilnehmer</th>
-                <th>ab 31 Teilnehmer</th>
+                <th data-i18n="pricing.table.sGroup">4–7 Teilnehmer</th>
+                <th data-i18n="pricing.table.mGroup">8–15 Teilnehmer</th>
+                <th data-i18n="pricing.table.lGroup">16–30 Teilnehmer</th>
+                <th data-i18n="pricing.table.xlGroup">ab 31 Teilnehmer</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>
-                  <strong>Basispreis</strong><br /><small
-                    >inkl. Unterlagen, Moderation,<br />Spielkonzept (2
-                    Stunden)</small
-                  >
+                  <strong data-i18n="pricing.table.basePrice">Basispreis</strong><br />
+                  <small data-i18n="pricing.table.basePriceDescription">
+                    inkl. Unterlagen, Moderation, Spielkonzept (2 Stunden)
+                  </small>
                 </td>
-                <td>CHF 70.-<br /><small>pro Person</small></td>
-                <td>CHF 50.-<br /><small>pro Person</small></td>
-                <td>CHF 35.-<br /><small>pro Person</small></td>
-                <td>auf Anfrage</td>
+                <td>
+                  CHF 70.-<br />
+                  <small data-i18n="pricing.table.perPerson">pro Person</small>
+                </td>
+                <td>
+                  CHF 50.-<br />
+                  <small data-i18n="pricing.table.perPerson">pro Person</small>
+                </td>
+                <td>
+                  CHF 35.-<br />
+                  <small data-i18n="pricing.table.perPerson">pro Person</small>
+                </td>
+                <td>
+                  <span data-i18n="pricing.table.onRequest">auf Anfrage</span>
+                </td>
               </tr>
               <tr>
                 <td>
-                  <strong>Weinbegleitung mit 5 Weinen (5×1dl)</strong
-                  ><br /><small>notwendig zur Durchführung</small>
+                  <strong data-i18n="pricing.table.winePairing">Weinbegleitung mit 5 Weinen (5×1dl)</strong><br />
+                  <small data-i18n="pricing.table.winePairingDescription">notwendig zur Durchführung</small>
                 </td>
-                <td>ab CHF 35.-<br /><small>pro Person</small></td>
-                <td>ab CHF 35.-<br /><small>pro Person</small></td>
-                <td>ab CHF 35.-<br /><small>pro Person</small></td>
-                <td>ab CHF 35.-<br /><small>pro Person</small></td>
+                <td><span data-i18n="pricing.table.startingFrom">ab</span> CHF 35.-<br /><small data-i18n="pricing.table.perPerson">pro Person</small></td>
+                <td><span data-i18n="pricing.table.startingFrom">ab</span> CHF 35.-<br /><small data-i18n="pricing.table.perPerson">pro Person</small></td>
+                <td><span data-i18n="pricing.table.startingFrom">ab</span> CHF 35.-<br /><small data-i18n="pricing.table.perPerson">pro Person</small></td>
+                <td><span data-i18n="pricing.table.startingFrom">ab</span> CHF 35.-<br /><small data-i18n="pricing.table.perPerson">pro Person</small></td>
               </tr>
+              
               <tr>
                 <td>
-                  <strong>Essensbegleitung oder Snacks</strong><br /><small
-                    >Service in Gängen verlängert die Veranstaltungsdauer</small
-                  >
+                  <strong data-i18n="pricing.table.food">Essensbegleitung oder Snacks</strong><br />
+                  <small data-i18n="pricing.table.foodDescription">Service in Gängen verlängert die Veranstaltungsdauer</small>
                 </td>
-                <td>auf Anfrage</td>
-                <td>auf Anfrage</td>
-                <td>auf Anfrage</td>
-                <td>auf Anfrage</td>
+                <td><span data-i18n="pricing.table.onRequest">auf Anfrage</span></td>
+                <td><span data-i18n="pricing.table.onRequest">auf Anfrage</span></td>
+                <td><span data-i18n="pricing.table.onRequest">auf Anfrage</span></td>
+                <td><span data-i18n="pricing.table.onRequest">auf Anfrage</span></td>
               </tr>
+              
               <tr>
-                <td><strong>Veranstaltungsort</strong></td>
-                <td>auf Anfrage</td>
-                <td>auf Anfrage</td>
-                <td>auf Anfrage</td>
-                <td>auf Anfrage</td>
+                <td><strong data-i18n="pricing.table.venue">Veranstaltungsort</strong></td>
+                <td><span data-i18n="pricing.table.onRequest">auf Anfrage</span></td>
+                <td><span data-i18n="pricing.table.onRequest">auf Anfrage</span></td>
+                <td><span data-i18n="pricing.table.onRequest">auf Anfrage</span></td>
+                <td><span data-i18n="pricing.table.onRequest">auf Anfrage</span></td>
               </tr>
+              
               <tr>
                 <td>
-                  <strong>Verlängerung der Veranstaltung</strong><br /><small
-                    >Aufgrund von Essen oder auf Kundenwunsch</small
-                  >
+                  <strong data-i18n="pricing.table.extension">Verlängerung der Veranstaltung</strong><br />
+                  <small data-i18n="pricing.table.extensionDescription">Aufgrund von Essen oder auf Kundenwunsch</small>
                 </td>
-                <td>CHF 90.-<br /><small>pro angefangene Stunde</small></td>
-                <td>CHF 90.-<br /><small>pro angefangene Stunde</small></td>
-                <td>CHF 90.-<br /><small>pro angefangene Stunde</small></td>
-                <td>CHF 90.-<br /><small>pro angefangene Stunde</small></td>
+                <td>CHF 90.-<br /><small data-i18n="pricing.table.perHour">pro angefangene Stunde</small></td>
+                <td>CHF 90.-<br /><small data-i18n="pricing.table.perHour">pro angefangene Stunde</small></td>
+                <td>CHF 90.-<br /><small data-i18n="pricing.table.perHour">pro angefangene Stunde</small></td>
+                <td>CHF 90.-<br /><small data-i18n="pricing.table.perHour">pro angefangene Stunde</small></td>
               </tr>
             </tbody>
           </table>
         </div>
 
         <div class="pricing-content mobile-only">
-          <p>
+          <p data-i18n="pricing.description">
             Mit den nachfolgend aufgeführten Richtpreisen können die Kosten für
-            eine Veranstaltung in etwa abgeschätzt werden. ...
+            eine Veranstaltung in etwa abgeschätzt werden. Bei der
+            Preisgestaltung kommt es auf viele Faktoren an (Weinauswahl,
+            eventueller externer Veranstaltungsort und Essen etc.). Gerne
+            erstellen wir auf Anfrage oder nach einer persönlichen Besprechung
+            ein individuelles Angebot:
           </p>
 
           <!-- Accordion for 4–7 Teilnehmer -->
           <div class="accordion-item">
             <button class="accordion-header">
-              <span class="accordion-title">4–7 Teilnehmer</span>
+              <span class="accordion-title" data-i18n="pricing.table.sGroup">4–7 Teilnehmer</span>
               <span class="accordion-arrow">&#9660;</span>
             </button>
             <div class="accordion-content">
               <div class="price-row">
-                <span class="price-label">Basispreis:</span>
+                <span class="price-label" data-i18n="pricing.mobile.basePrice">Basispreis:</span>
                 <span class="price-dots"></span>
                 <span class="price-value"
                   >CHF 70.– <small>pro Person</small></span
                 >
               </div>
               <div class="price-row">
-                <span class="price-label">Weinbegleitung:</span>
+                <span class="price-label" data-i18n="pricing.mobile.winePairing">Weinbegleitung:</span>
                 <span class="price-dots"></span>
                 <span class="price-value"
-                  >ab CHF 35.– <small>pro Person</small></span
+                  ><span data-i18n="pricing.table.startingFrom">ab </span> CHF 35.– <small data-i18n="pricing.table.perPerson">pro Person</small></span
                 >
               </div>
               <div class="price-row">
-                <span class="price-label">Essensbegleitung:</span>
+                <span class="price-label" data-i18n="pricing.mobile.food">Essensbegleitung:</span>
                 <span class="price-dots"></span>
-                <span class="price-value">auf Anfrage</span>
+                <span class="price-value" data-i18n="pricing.table.onRequest">auf Anfrage</span>
               </div>
               <div class="price-row">
-                <span class="price-label">Veranstaltungsort:</span>
+                <span class="price-label" data-i18n="pricing.mobile.venue">Veranstaltungsort:</span>
                 <span class="price-dots"></span>
-                <span class="price-value">auf Anfrage</span>
+                <span class="price-value" data-i18n="pricing.table.onRequest">auf Anfrage</span>
               </div>
               <div class="price-row">
-                <span class="price-label">Verlängerung:</span>
+                <span class="price-label" data-i18n="pricing.mobile.extension">Verlängerung:</span>
                 <span class="price-dots"></span>
                 <span class="price-value"
-                  >CHF 90.– <small>pro angefangene Stunde</small></span
+                  >CHF 90.– <small data-i18n="pricing.table.perHour">pro angefangene Stunde</small></span
                 >
               </div>
             </div>
@@ -717,39 +766,39 @@
           <!-- Accordion for 8–15 Teilnehmer -->
           <div class="accordion-item">
             <button class="accordion-header">
-              <span class="accordion-title">8–15 Teilnehmer</span>
+              <span class="accordion-title" data-i18n="pricing.table.mGroup">8–15 Teilnehmer</span>
               <span class="accordion-arrow">&#9660;</span>
             </button>
             <div class="accordion-content">
               <div class="price-row">
-                <span class="price-label">Basispreis:</span>
+                <span class="price-label" data-i18n="pricing.mobile.basePrice">Basispreis:</span>
                 <span class="price-dots"></span>
                 <span class="price-value"
-                  >CHF 50.– <small>pro Person</small></span
+                  >CHF 50.– <small data-i18n="pricing.table.perPerson">pro Person</small></span
                 >
               </div>
               <div class="price-row">
-                <span class="price-label">Weinbegleitung:</span>
+                <span class="price-label" data-i18n="pricing.mobile.winePairing">Weinbegleitung:</span>
                 <span class="price-dots"></span>
                 <span class="price-value"
-                  >ab CHF 35.– <small>pro Person</small></span
+                  ><span data-i18n="pricing.table.startingFrom">ab</span> CHF 35.– <small data-i18n="pricing.table.perPerson">pro Person</small></span
                 >
               </div>
               <div class="price-row">
-                <span class="price-label">Essensbegleitung:</span>
+                <span class="price-label" data-i18n="pricing.mobile.food">Essensbegleitung:</span>
                 <span class="price-dots"></span>
-                <span class="price-value">auf Anfrage</span>
+                <span class="price-value" data-i18n="pricing.table.onRequest">auf Anfrage</span>
               </div>
               <div class="price-row">
-                <span class="price-label">Veranstaltungsort:</span>
+                <span class="price-label" data-i18n="pricing.mobile.venue">Veranstaltungsort:</span>
                 <span class="price-dots"></span>
-                <span class="price-value">auf Anfrage</span>
+                <span class="price-value" data-i18n="pricing.table.onRequest">auf Anfrage</span>
               </div>
               <div class="price-row">
-                <span class="price-label">Verlängerung:</span>
+                <span class="price-label" data-i18n="pricing.mobile.extension">Verlängerung:</span>
                 <span class="price-dots"></span>
                 <span class="price-value"
-                  >CHF 90.– <small>pro angefangene Stunde</small></span
+                  >CHF 90.– <small data-i18n="pricing.table.perHour">pro angefangene Stunde</small></span
                 >
               </div>
             </div>
@@ -758,39 +807,39 @@
           <!-- Accordion for 16–30 Teilnehmer -->
           <div class="accordion-item">
             <button class="accordion-header">
-              <span class="accordion-title">16–30 Teilnehmer</span>
+              <span class="accordion-title" data-i18n="pricing.table.lGroup">16–30 Teilnehmer</span>
               <span class="accordion-arrow">&#9660;</span>
             </button>
             <div class="accordion-content">
               <div class="price-row">
-                <span class="price-label">Basispreis:</span>
+                <span class="price-label" data-i18n="pricing.mobile.basePrice">Basispreis:</span>
                 <span class="price-dots"></span>
                 <span class="price-value"
-                  >CHF 35.– <small>pro Person</small></span
+                  >CHF 35.– <small data-i18n="pricing.table.perPerson">pro Person</small></span
                 >
               </div>
               <div class="price-row">
-                <span class="price-label">Weinbegleitung:</span>
+                <span class="price-label" data-i18n="pricing.mobile.winePairing">Weinbegleitung:</span>
                 <span class="price-dots"></span>
                 <span class="price-value"
-                  >ab CHF 35.– <small>pro Person</small></span
+                  ><span data-i18n="pricing.table.startingFrom">ab</span> CHF 35.– <small data-i18n="pricing.table.perPerson">pro Person</small></span
                 >
               </div>
               <div class="price-row">
-                <span class="price-label">Essensbegleitung:</span>
+                <span class="price-label" data-i18n="pricing.mobile.food">Essensbegleitung:</span>
                 <span class="price-dots"></span>
-                <span class="price-value">auf Anfrage</span>
+                <span class="price-value" data-i18n="pricing.table.onRequest">auf Anfrage</span>
               </div>
               <div class="price-row">
-                <span class="price-label">Veranstaltungsort:</span>
+                <span class="price-label" data-i18n="pricing.mobile.venue">Veranstaltungsort:</span>
                 <span class="price-dots"></span>
-                <span class="price-value">auf Anfrage</span>
+                <span class="price-value" data-i18n="pricing.table.onRequest">auf Anfrage</span>
               </div>
               <div class="price-row">
-                <span class="price-label">Verlängerung:</span>
+                <span class="price-label" data-i18n="pricing.mobile.extension">Verlängerung:</span>
                 <span class="price-dots"></span>
                 <span class="price-value"
-                  >CHF 90.– <small>pro angefangene Stunde</small></span
+                  >CHF 90.– <small data-i18n="pricing.table.perHour">pro angefangene Stunde</small></span
                 >
               </div>
             </div>
@@ -799,53 +848,54 @@
           <!-- Accordion for ab 31 Teilnehmer -->
           <div class="accordion-item">
             <button class="accordion-header">
-              <span class="accordion-title">ab 31 Teilnehmer</span>
+              <span class="accordion-title" data-i18n="pricing.table.xlGroup">ab 31 Teilnehmer</span>
               <span class="accordion-arrow">&#9660;</span>
             </button>
             <div class="accordion-content">
               <div class="price-row">
-                <span class="price-label">Basispreis:</span>
+                <span class="price-label" data-i18n="pricing.mobile.basePrice">Basispreis:</span>
                 <span class="price-dots"></span>
-                <span class="price-value">auf Anfrage</span>
+                <span class="price-value" data-i18n="pricing.table.onRequest">auf Anfrage</span>
               </div>
               <div class="price-row">
-                <span class="price-label">Weinbegleitung:</span>
+                <span class="price-label" data-i18n="pricing.mobile.winePairing">Weinbegleitung:</span>
                 <span class="price-dots"></span>
                 <span class="price-value"
-                  >ab CHF 35.– <small>pro Person</small></span
+                  ><span data-i18n="pricing.table.startingFrom">ab</span> CHF 35.– <small data-i18n="pricing.table.perPerson">pro Person</small></span
                 >
               </div>
               <div class="price-row">
-                <span class="price-label">Essensbegleitung:</span>
+                <span class="price-label" data-i18n="pricing.mobile.food">Essensbegleitung:</span>
                 <span class="price-dots"></span>
-                <span class="price-value">auf Anfrage</span>
+                <span class="price-value" data-i18n="pricing.table.onRequest">auf Anfrage</span>
               </div>
               <div class="price-row">
-                <span class="price-label">Veranstaltungsort:</span>
+                <span class="price-label" data-i18n="pricing.mobile.venue">Veranstaltungsort:</span>
                 <span class="price-dots"></span>
-                <span class="price-value">auf Anfrage</span>
+                <span class="price-value" data-i18n="pricing.table.onRequest">auf Anfrage</span>
               </div>
               <div class="price-row">
-                <span class="price-label">Verlängerung:</span>
+                <span class="price-label" data-i18n="pricing.mobile.extension">Verlängerung:</span>
                 <span class="price-dots"></span>
                 <span class="price-value"
-                  >CHF 90.– <small>pro angefangene Stunde</small></span
+                  >CHF 90.– <small data-i18n="pricing.table.perHour">pro angefangene Stunde</small></span
                 >
               </div>
             </div>
           </div>
         </div>
         <div class="brochure-download">
-          <p>
-            Möchtet ihr alle Informationen gesammelt? Hier könnt ihr unsere
-            <strong>Broschüre</strong> als PDF herunterladen:
+          <p data-i18n="pricing.brochure.text">
+            Möchtet ihr alle Informationen gesammelt? Hier könnt ihr unsere Broschüre als PDF herunterladen:
           </p>
           <a
+            id="brochure-link"
             href="docs/DineysosBroschüreDE.pdf"
             download
             class="brochure-button"
           >
-            Broschüre herunterladen
+          <span data-i18n="pricing.brochure.button">Broschüre herunterladen</span>
+          <small id="brochure-size">(PDF)</small>
           </a>
         </div>
       </div>
@@ -854,17 +904,18 @@
     <!--Contact-->
     <section class="contact" id="contact">
       <div class="base_container">
-        <h2>Kontakt</h2>
+        <h2 data-i18n="contact.title">Kontakt</h2>
         <div class="contact-container">
           <div class="contact-left">
             <div class="contact-message">
-              <p>Überzeugt?!<br />Wir freuen uns über eine Mail:</p>
+              <p data-i18n="contact.left.message1">Überzeugt?! </p>
+              <p data-i18n="contact.left.message2">Wir freuen uns über eine Mail:</p>
               <p>
                 <a href="mailto:info@dineysos.com" class="contact-email">
                   info@dineysos.com
                 </a>
               </p>
-              <p>...oder einen Anruf</p>
+              <p data-i18n="contact.left.message3">...oder einen Anruf</p>
             </div>
 
             <div class="contact-cards">
@@ -896,13 +947,13 @@
 
           <!-- Right side: Text info, QR codes -->
           <div class="contact-right">
-            <p><strong>Wir können auch:</strong></p>
+            <p><strong data-i18n="contact.right.title">Wir können auch:</strong></p>
             <ul class="flower-list">
-              <li>Design und Konzipierung von Weinetiketten</li>
-              <li>Erstellung und Gestaltung von Weinkarten</li>
-              <li>Service- und Verkaufsschulungen für Gastro und Handel</li>
-              <li>Vorträge und Referate</li>
-              <li>Sortimentsberatung</li>
+              <li data-i18n="contact.right.one">Design und Konzipierung von Weinetiketten</li>
+              <li data-i18n="contact.right.two">Erstellung und Gestaltung von Weinkarten</li>
+              <li data-i18n="contact.right.tree">Service- und Verkaufsschulungen für Gastro und Handel</li>
+              <li data-i18n="contact.right.four">Vorträge und Referate</li>
+              <li data-i18n="contact.right.five">Sortimentsberatung</li>
             </ul>
             <div class="contact-logo">
               <img src="Images/Logo/logo_color.png" alt="Dineysos Logo" />

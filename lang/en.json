@@ -1,0 +1,110 @@
+{
+  "nav": {
+    "about": "ABOUT US",
+    "concepts": "CONCEPTS",
+    "pricing": "PRICING",
+    "contact": "CONTACT"
+  },
+  "about": {
+    "heading": "We are Clint and Marina - hi!",
+    "paragraph1": "From our desire to creatively “winefy” all kinds of get-togethers, Dineysos was born: an innovative and unique provider of wine game concepts that will turn your event into the new hot topic in an unconventional way.",
+    "paragraph2": "Our story begins like many others: After the third bottle of wine, we came to the realisation that a majority of events these days are very generic and the people have been waiting for something new. By combining a little pastime with the aforementioned wine a solution was quickly found: Dineysos!",
+    "paragraph3": "Our concepts are educational, fun as well as flexibly adaptable and can be perfectly integrated into afterworks, employee events, dinner parties and any other kind of happening.",
+    "paragraph4": "Everything is possible, from a simple “we bring our games and a suitcase full of wine” to a complete event with a suitable location and culinary delights.",
+    "marina": "A hobby artist with a flair for Excel-Spreadsheets and a passion for all-things food.",
+    "clint": "A brunch enthusiast, who never leaves the house without a hat and has an undeniable passion for wine - lots of wine."
+  },
+  "concepts": {
+    "heading": "Our Concepts",
+    "button": "Learn more",
+    "gameType": "Game element:",
+    "quiz": "Quiz",
+    "fun": "Fun",
+    "learning": "Education",
+    "exchange": "Socializing",
+    "trophy": {
+      "title": "Trophy",
+      "description": "Several wine selection challenges await you, in which wine knowledge is rather modestly useful. Very engaging, more or less informative and with a glorious winner* at the end.",
+      "element": "Quiz"
+    },
+    "classroom": {
+      "title": "Classroom",
+      "description": "This game sends participants home wiser (at least wine-wise) than they already are. Wine knowledge is not required, but can be included in adjustment of the level of difficulty and information.",
+      "element": "Crossword"
+    },
+    "olympics": {
+      "title": "Olympics",
+      "description": "What enhances any concept? Exactly, more wine. Olympics sets one series of wines in competition with a second series. Olympic Games with wines, so to speak. This concept is especially ideal for highlighting the nuances that go into wine making.",
+      "element": "Quartets"
+    }
+  },
+  "formats": {
+    "title": "Formats",
+    "description1": "Each Dineysos concept only comes to life through your event, the possibilities and combinations are endless. The rustic gastronomer around the corner interested in embarking on a wine & dine adventure will receive just as suitable a suggestion from us as the fancy tech company organising its 500 person employee event or the individual planning a dinner party at home.",
+    "description2": "Our goal is to make every event unique, but we would like to share our recommendations for concept-format combinations:",
+    "table": {
+      "col1": "Wine & Dine",
+      "col2": "Flying Dinner",
+      "col3": "Afterwork Chill",
+      "col4": "Standing Aperitif",
+      "col5": "Degustation / Workshop"
+    },
+    "legend": {
+      "one": "= possible",
+      "two": "= suitable",
+      "three": "= very suitable",
+      "four": "= perfect match"
+    }
+  },
+  "pricing": {
+    "title": "Prices",
+    "description": "The following guide prices can be used to roughly estimate the cost of an event. The pricing depends on many factors (choice of wine, possible external venue, food, etc.). We are happy to provide you with an individual offer upon request or after a meeting:",
+    "table": {
+      "sGroup": "4-7 Participants",
+      "mGroup": "8-15 Participants",
+      "lGroup": "16-30 Participants",
+      "xlGroup": "31+ Participants",
+      "perPerson": "per person",
+      "onRequest": "upon request",
+      "perHour": "per commenced hour",
+      "startingFrom": "from",
+
+      "basePrice": "Base price",
+      "basePriceDescription": "incl. dossiers, hosting, game concepts (ca. 2 hours)",
+      "winePairing": "Wine line-up with 5 wines (5x1dl)",
+      "winePairingDescription": "essential for the execution of the event",
+      "food": "Food pairing or Snacks",
+      "foodDescription": "Service of courses extends the duration of the event",
+      "venue": "Location",
+      "extension": "Prolongation of the Event",
+      "extensionDescription": "Due to food or client’s wish"
+    },
+    "mobile": {
+      "basePrice": "Base price:",
+      "winePairing": "Wine:",
+      "food": "Food pairing:",
+      "venue": "Location:",
+      "extension": "Prolongation:"
+    },
+    "brochure": {
+      "text": "Would you like all the information in one place? You can download our brochure as a PDF here:",
+      "button": "Download brochure"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "left": {
+      "message1": "Convinced?",
+      "message2": "We look forward to your email:",
+      "message3": "..or call"
+    },
+    "right": {
+      "title": "We also offer:",
+      "one": "Design and conception of wine labels",
+      "two": "Creation and design of wine lists",
+      "three": "Service and sales training for gastronomy and retail",
+      "four": "Lectures and presentations",
+      "five": "Assortment consulting"
+    }
+  }
+}
