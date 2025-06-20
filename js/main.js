@@ -287,51 +287,68 @@ lightbox.addEventListener("click", (e) => {
 // Modal
 
 let currentSlide = 0;
+let maxSlides = 2;
 
 function openModal(baseName) {
   currentSlide = 0;
-  lang = localStorage.getItem("language") || "de";
+  let lang = localStorage.getItem("language") || "de";
   lang = lang.toUpperCase();
 
-  document.getElementById(
-    "img1"
-  ).src = `Images/Concepts/Modals/${lang}/${baseName}.png`;
-  document.getElementById(
-    "img2"
-  ).src = `Images/Concepts/Modals/${lang}/${baseName}2.png`;
+  const isMobile = window.innerWidth <= 768;
+  const deviceType = isMobile ? "Mobile" : "Desktop";
+  const imageCount = isMobile ? 4 : 2;
+  maxSlides = imageCount;
 
-  document.getElementById("carouselTrack").style.transform = `translateX(0%)`;
+  const carouselTrack = document.getElementById("carouselTrack");
+  carouselTrack.innerHTML = ""; // clear previous slides
+
+  for (let i = 1; i <= imageCount; i++) {
+    const slide = document.createElement("div");
+    slide.className = "slide";
+
+    const img = document.createElement("img");
+    img.className = "modal-image";
+    img.src = `Images/Concepts/Modals/${deviceType}/${lang}/${baseName}${i}.png`;
+
+    slide.appendChild(img);
+    carouselTrack.appendChild(slide);
+  }
+
+  carouselTrack.style.transform = `translateX(0%)`;
   document.getElementById("ConceptModal").classList.add("show");
 
-  updateArrows();
-  createDots();
+  currentSlide = 0;
+  updateArrows(imageCount);
+  createDots(imageCount);
   document.body.style.overflow = "hidden";
 }
 
 function slideModal(direction) {
   const track = document.getElementById("carouselTrack");
-  const maxSlide = 1;
 
-  currentSlide = Math.min(Math.max(currentSlide + direction, 0), maxSlide);
+  currentSlide = Math.min(Math.max(currentSlide + direction, 0), maxSlides - 1);
   track.style.transform = `translateX(-${currentSlide * 100}%)`;
 
-  updateArrows();
+  updateArrows(maxSlides);
   updateDots();
 }
 
-function updateArrows() {
+function updateArrows(maxSlide) {
   document.getElementById("leftArrow").style.display =
     currentSlide === 0 ? "none" : "block";
   document.getElementById("rightArrow").style.display =
-    currentSlide === 1 ? "none" : "block";
+    currentSlide === maxSlide - 1 ? "none" : "block";
 }
 
-function createDots() {
+function createDots(count) {
   const dotsContainer = document.getElementById("carouselDots");
-  dotsContainer.innerHTML = `
-    <span class="${currentSlide === 0 ? "active" : ""}"></span>
-    <span class="${currentSlide === 1 ? "active" : ""}"></span>
-`;
+  dotsContainer.innerHTML = "";
+
+  for (let i = 0; i < count; i++) {
+    const dot = document.createElement("span");
+    if (i === currentSlide) dot.classList.add("active");
+    dotsContainer.appendChild(dot);
+  }
 }
 
 function updateDots() {
