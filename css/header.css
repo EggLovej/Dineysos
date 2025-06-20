@@ -35,8 +35,28 @@ header {
 }
 
 #about {
-  padding-top: 5rem; /* space for the navbar */
-  margin-top: -5rem; /* offset to keep layout same */
+  padding-top: 3rem; /* space for the navbar */
+  margin-top: -3rem; /* offset to keep layout same */
+}
+
+#concepts {
+  padding-top: 3rem; /* space for the navbar */
+  margin-top: -3rem; /* offset to keep layout same */
+}
+
+#pricing {
+  padding-top: 3rem; /* space for the navbar */
+  margin-top: -3rem; /* offset to keep layout same */
+}
+
+#brochure {
+  padding-top: 3.5rem; /* space for the navbar */
+  margin-top: -3.5rem; /* offset to keep layout same */
+}
+
+#contact {
+  padding-top: 3rem; /* space for the navbar */
+  margin-top: -3rem; /* offset to keep layout same */
 }
 
 .logo.shrink {
@@ -64,6 +84,7 @@ nav a {
   border: none;
   font-size: 2rem;
   cursor: pointer;
+  color: var(--blue);
 }
 
 nav-links {
@@ -124,7 +145,7 @@ body.menu-open {
 }
 /* Hero */
 .hero {
-  padding: 4rem 1rem;
+  padding-top: 6rem;
   text-align: center;
   background-color: var(--cream);
 }
@@ -140,7 +161,7 @@ body.menu-open {
 
 .hero-logo {
   width: 60vw; /* scales with screen width */
-  max-width: 300px;
+  max-width: 500px;
   min-width: 120px;
   height: auto;
   margin-top: 2rem;

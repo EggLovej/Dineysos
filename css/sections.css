@@ -79,7 +79,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 2rem 0;
 }
 
 .grid {
@@ -148,7 +147,7 @@
   display: flex;
 }
 
-.concept-button {
+.concept-button-desktop {
   background-color: var(--orange);
   color: white;
   border: none;
@@ -159,6 +158,39 @@
   font-weight: bold;
   margin-top: 1rem;
   text-align: center;
+  display: block;
+}
+
+.concept-button {
+  background-color: var(--orange);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.2rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+  max-width: 200px;
+}
+
+/* Wrapper for mobile */
+.concept-button-mobile {
+  display: none;
+}
+
+.flower-separator {
+  display: none;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 2rem 0;
+  width: 100%;
+  text-align: center;
+}
+
+.flower-separator img {
+  width: 1.5rem;
+  height: auto;
 }
 
 /* Concept Modal */
@@ -321,7 +353,6 @@
 /* Formats */
 
 .formats {
-  padding: 4rem 2rem;
   text-align: center;
 }
 .formats p {
@@ -363,29 +394,31 @@
 .formats-legend {
   flex: 2;
   font-size: 1.2rem;
-  min-width: 200px;
+  min-width: 260px;
   color: var(--blue);
-  padding: 1rem;
+  padding-top: 3rem;
   margin: 0 auto;
 }
 
 .legend-row {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
   justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .legend-symbol {
-  min-width: 110px;
-  text-align: right;
+  width: 120px; /* fixed width to align all flower groups */
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.2rem;
 }
 
 .legend-text {
   text-align: left;
-  text-wrap: nowrap;
-  min-width: 100px;
+  white-space: nowrap;
+  width: 120px;
 }
 
 .formats-table th,
@@ -480,7 +513,17 @@
 /* Collapsible content */
 .accordion-content {
   display: none;
-  padding: 1rem;
+  padding: 0;
+  background-color: var(--cream);
+  color: var(--blue);
+}
+
+.accordion-dark {
+  background-color: #fdf0da;
+  color: var(--blue);
+}
+
+.accordion-bright {
   background-color: var(--cream);
   color: var(--blue);
 }
@@ -660,27 +703,16 @@
   vertical-align: middle;
 }
 
+.no-wrap {
+  white-space: nowrap;
+}
+
+
 /* Pricing */
 
 .pricing {
   text-align: center;
   color: #0957a2;
-}
-.brochure-download {
-  text-align: center;
-  margin-top: 3rem;
-}
-
-.brochure-button {
-  background-color: var(--orange);
-  color: white;
-  padding: 0.8rem 2rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-  border-radius: 999px;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 1rem;
 }
 
 .pricing-content {
@@ -720,8 +752,29 @@
   margin-top: 0.3rem;
 }
 
+.brochure {
+  text-align: center;
+  padding: 1rem;
+}
+
+.brochure-download {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.brochure-button {
+  background-color: var(--orange);
+  color: white;
+  padding: 0.8rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 999px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
 .contact {
-  padding: 4rem 2rem;
   text-align: center;
 }
 

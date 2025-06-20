@@ -37,6 +37,6 @@ body {
   .base_container {
     max-width: 1200px;
     margin: 0 auto; /* centers the container */
-    padding: 2rem;
+    padding: clamp(0.2rem, 1.5vw, 1rem); /* responsive padding */
     gap: 1rem;
   }

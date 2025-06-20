@@ -290,13 +290,15 @@ let currentSlide = 0;
 
 function openModal(baseName) {
   currentSlide = 0;
+  lang = localStorage.getItem("language") || "de";
+  lang = lang.toUpperCase();
 
   document.getElementById(
     "img1"
-  ).src = `Images/Concepts/Modals/${baseName}.png`;
+  ).src = `Images/Concepts/Modals/${lang}/${baseName}.png`;
   document.getElementById(
     "img2"
-  ).src = `Images/Concepts/Modals/${baseName}2.png`;
+  ).src = `Images/Concepts/Modals/${lang}/${baseName}2.png`;
 
   document.getElementById("carouselTrack").style.transform = `translateX(0%)`;
   document.getElementById("ConceptModal").classList.add("show");
@@ -439,28 +441,33 @@ document.querySelectorAll(".accordion-header").forEach((button) => {
 
 // Generate flowers
 function renderFormatFlowers() {
-  // Clear old content first to avoid duplicates
   document
     .querySelectorAll(".formats-accordion .accordion-content p")
     .forEach((p) => {
-      p.innerHTML = ""; // clear children (label + flowers)
-
       const count = parseInt(p.getAttribute("data-flowers"));
       const label = p.getAttribute("data-label");
 
-      // Create and append label span
+      // Clear previous content
+      p.innerHTML = "";
+
+      // Create label span
       const labelSpan = document.createElement("span");
       labelSpan.className = "label-text";
-      labelSpan.textContent = label + ":";
+      labelSpan.textContent = label;
       p.appendChild(labelSpan);
 
-      // Generate and append flower icons
+      // Create flower container
+      const flowerContainer = document.createElement("div");
+      flowerContainer.className = "flower-container";
+
       for (let i = 0; i < count; i++) {
         const img = document.createElement("img");
         img.src = "Images/Format/blume.png";
         img.alt = "Flower";
         img.className = "flower";
-        p.appendChild(img);
+        flowerContainer.appendChild(img);
       }
+
+      p.appendChild(flowerContainer);
     });
 }

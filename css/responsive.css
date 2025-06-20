@@ -103,7 +103,7 @@
 
   .concepts-header {
     text-align: center;
-    margin: 2rem 0;
+    margin: 0 1rem;
   }
 
   .concept-card {
@@ -135,18 +135,69 @@
     text-align: justify;
   }
 
-  .concept-button {
+  .concept-button-desktop {
+    display: none;
+  }
+
+  .concept-button-mobile {
     display: block;
-    margin: 1rem auto;
   }
 
   .concept-classification {
     text-align: center;
-    margin: 1rem auto;
+    margin:
+    1rem auto;
+  }
+
+  .concept-button-mobile {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .flower-separator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .formats {
+    margin: 0 1rem;
+    text-align: center;
   }
 
   .formats-description {
     text-align: justify;
+  }
+
+  .formats-accordion .accordion-content p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0.5rem; 
+  }
+  
+  .formats-legend {
+    padding-top: 1rem;
+  }
+
+  .label-text {
+    font-weight: bold;
+  }
+
+  .flower-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+
+  .flower {
+    width: 1.5rem;
+    height: auto;
   }
 
   .desktop-only {
@@ -177,7 +228,15 @@
     max-width: 150px;
   }
 
+  .pricing {
+    margin: 0 1rem;
+  }
+
   .contact-cards {
     gap: 0.5rem;
+  }
+
+  .contact-card {
+    padding: 0.5rem;
   }
 }
