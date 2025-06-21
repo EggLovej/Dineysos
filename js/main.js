@@ -488,3 +488,44 @@ function renderFormatFlowers() {
       p.appendChild(flowerContainer);
     });
 }
+
+function getLang() {
+  return (localStorage.getItem("language") || "de").toLowerCase();
+}
+
+function trackBrochureDownload() {
+  const lang = getLang();
+  gtag("event", "download_brochure", {
+    event_category: "Downloads",
+    event_label: `Brochure_${lang}`,
+    language: lang,
+    value: 1
+  });
+}
+
+function trackEmailClick() {
+  gtag("event", "contact_email", {
+    event_category: "Contact",
+    event_label: "Email Click",
+    language: getLang(),
+    value: 1
+  });
+}
+
+function trackPhoneClick(person) {
+  gtag("event", "contact_phone", {
+    event_category: "Contact",
+    event_label: `Phone Click - ${person}`,
+    language: getLang(),
+    value: 1
+  });
+}
+
+function trackSocialClick(platform) {
+  gtag("event", "contact_social", {
+    event_category: "Social",
+    event_label: platform,
+    language: getLang(),
+    value: 1
+  });
+}
