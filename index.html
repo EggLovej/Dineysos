@@ -153,7 +153,7 @@
               weniger informativ und mit einem glorreichen Sieger (oder Siegergruppe, unsere Konzepte sind auch als Team
               spielbar) am Ende.
             </p>
-            <button class="concept-button-desktop" data-i18n="concepts.button" onclick="openModal('Trophy')">
+            <button class="concept-button-desktop" data-concept="Trophy" data-i18n="concepts.button">
               Mehr erfahren
             </button>
           </div>
@@ -178,7 +178,7 @@
         </div>
 
         <div class="concept-button-mobile">
-          <button class="concept-button" data-i18n="concepts.button" onclick="openModal('Trophy')">
+          <button class="concept-button" data-concept="Trophy" data-i18n="concepts.button">
             Mehr erfahren
           </button>
         </div>
@@ -201,7 +201,7 @@
               kann in den Schwierigkeits- und Informationslevel eingerechnet
               werden.
             </p>
-            <button class="concept-button-desktop" data-i18n="concepts.button" onclick="openModal('Classroom')">
+            <button class="concept-button-desktop" data-concept="Classroom" data-i18n="concepts.button">
               Mehr erfahren
             </button>
           </div>
@@ -224,7 +224,7 @@
           </div>
         </div>
         <div class="concept-button-mobile">
-          <button class="concept-button" data-i18n="concepts.button" onclick="openModal('Classroom')">
+          <button class="concept-button" data-concept="Classroom" data-i18n="concepts.button">
             Mehr erfahren
           </button>
         </div>
@@ -248,7 +248,7 @@
               üblichen Formaten auch bestens um euer Weinsortiment gegen ein
               anderes antreten zu lassen.
             </p>
-            <button class="concept-button-desktop" data-i18n="concepts.button" onclick="openModal('Olympics')">
+            <button class="concept-button-desktop" data-concept="Olympics" data-i18n="concepts.button">
               Mehr erfahren
             </button>
           </div>
@@ -272,7 +272,7 @@
         </div>
 
         <div class="concept-button-mobile">
-          <button class="concept-button" data-i18n="concepts.button" onclick="openModal('Olympics')">
+          <button class="concept-button" data-concept="Olympics" data-i18n="concepts.button">
             Mehr erfahren
           </button>
         </div>
@@ -286,26 +286,14 @@
     </div>
   </section>
 
-  <div class="modal" id="ConceptModal" onclick="handleBackdropClick(event)">
+  <!-- Modal -->
+  <div class="modal" id="ConceptModal">
     <div class="modal-content" id="modalContent">
-      <span class="close" onclick="closeModal()">&times;</span>
-
       <div class="carousel-wrapper">
-        <div class="carousel-track" id="carouselTrack">
-          <div class="slide">
-            <img class="modal-image" id="img1" />
-          </div>
-          <div class="slide">
-            <img class="modal-image" id="img2" />
-          </div>
-        </div>
+        <div class="carousel-track" id="carouselTrack"></div>
 
-        <button class="carousel-arrow left" id="leftArrow" onclick="slideModal(-1)">
-          &#10094;
-        </button>
-        <button class="carousel-arrow right" id="rightArrow" onclick="slideModal(1)">
-          &#10095;
-        </button>
+        <button class="carousel-arrow left" id="leftArrow">&#10094;</button>
+        <button class="carousel-arrow right" id="rightArrow">&#10095;</button>
 
         <div class="carousel-dots" id="carouselDots"></div>
       </div>
@@ -507,9 +495,7 @@
 
   <!--Gallery-->
   <section class="gallery">
-    <button class="prev" onclick="moveGallery(-1); resetAutoScroll();">
-      &#10094;
-    </button>
+    <button class="prev">&#10094;</button>
     <div class="gallery-viewport">
       <div class="fade-left"></div>
       <div class="fade-right"></div>
@@ -536,9 +522,7 @@
         <img src="Images/Gallery/06.webp" alt="Image 6" />
       </div>
     </div>
-    <button class="next" onclick="moveGallery(1); resetAutoScroll();">
-      &#10095;
-    </button>
+    <button class="next">&#10095;</button>
   </section>
 
   <!-- Lightbox -->
@@ -811,8 +795,7 @@
       <p data-i18n="pricing.brochure.text">
         Möchtet ihr alle Informationen gesammelt? Hier könnt ihr unsere Broschüre als PDF herunterladen:
       </p>
-      <a id="brochure-link" href="docs/DineysosBroschüreDE.pdf" download class="brochure-button"
-        onclick="trackBrochureDownload()">
+      <a id="brochure-link" href="docs/DineysosBroschüreDE.pdf" download class="brochure-button" data-track="brochure">
         <span data-i18n="pricing.brochure.button">Broschüre herunterladen</span>
         <small id="brochure-size" class="no-wrap">(PDF)</small>
       </a>
@@ -829,7 +812,7 @@
             <p data-i18n="contact.left.message1">Überzeugt?! </p>
             <p data-i18n="contact.left.message2">Wir freuen uns über eine Mail:</p>
             <p>
-              <a href="mailto:info@dineysos.com" class="contact-email" onclick="trackEmailClick()">
+              <a href="mailto:info@dineysos.com" class="contact-email" data-track="email">
                 info@dineysos.com
               </a>
             </p>
@@ -841,7 +824,7 @@
               <img src="Images/Contact/clint_contact.png" alt="Clint" class="contact-image" />
               <div class="contact-info">
                 <p>Clint</p>
-                <p><a href="tel:0789449095" onclick="trackPhoneClick('Clint')">078 944 90 95</a></p>
+                <p><a href="tel:0789449095" data-track="phone" data-person="Clint">078 944 90 95</a></p>
               </div>
             </div>
 
@@ -849,7 +832,7 @@
               <img src="Images/Contact/marina_contact.png" alt="Marina" class="contact-image" />
               <div class="contact-info">
                 <p>Marina</p>
-                <p><a href="tel:0798322436" onclick="trackPhoneClick('Marina')">079 832 24 36</a></p>
+                <p><a href="tel:0798322436" data-track="phone" data-person="Marina">079 832 24 36</a></p>
               </div>
             </div>
           </div>
@@ -869,11 +852,11 @@
             <img src="Images/Logo/logo_color.png" alt="Dineysos Logo" />
           </div>
           <div class="contact-qr-codes">
-            <a href="https://www.instagram.com/dineysos/#" target="_blank" onclick="trackSocialClick('Instagram')">
+            <a href="https://www.instagram.com/dineysos/#" target="_blank" data-platform="Instagram">
               <img src="Images/Contact/qr-instagram.png" alt="Instagram QR" class="qr-code" />
             </a>
             <a href="https://www.linkedin.com/company/dineysos/posts/?feedView=all" target="_blank"
-              onclick="trackSocialClick('LinkedIn')">
+              data-platform="LinkedIn">
               <img src="Images/Contact/qr-linkedin.png" alt="LinkedIn QR" class="qr-code" />
             </a>
           </div>
@@ -890,18 +873,18 @@
       </div>
 
       <div class="footer-right">
-        <a href="https://www.instagram.com/dineysos/#" target="_blank" onclick="trackSocialClick('Instagram')">
+        <a href="https://www.instagram.com/dineysos/#" target="_blank" data-platform="Instagram">
           <img src="Images/Footer/instagram.svg" alt="Instagram" class="social-icon" />
         </a>
         <a href="https://www.linkedin.com/company/dineysos/posts/?feedView=all" target="_blank"
-          onclick="trackSocialClick('LinkedIn')">
+          data-platform="LinkedIn">
           <img src="Images/Footer/linkedin.svg" alt="LinkedIn" class="social-icon" />
         </a>
       </div>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 
 </html>

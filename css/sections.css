@@ -293,15 +293,6 @@
   background-color: #333;
 }
 
-.close {
-  position: absolute;
-  top: 0.5rem;
-  right: 1rem;
-  font-size: 2rem;
-  color: #333;
-  cursor: pointer;
-}
-
 .modal.hide {
   animation: fadeOut 0.3s ease forwards;
 }

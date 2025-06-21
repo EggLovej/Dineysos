@@ -67,8 +67,9 @@ nav a.active {
   color: var(--orange);
 }
 
-nav a.hover {
+nav a:hover {
   color: var(--orange);
+  transition: color 0.2s ease;
 }
 
 nav a {
@@ -148,10 +149,10 @@ body.menu-open {
   padding-top: 6rem;
   text-align: center;
   background-color: var(--cream);
+
 }
 
 .hero-text {
-  max-width: 1400px;
   margin: 0 auto 2rem;
   display: flex;
   flex-direction: column;
@@ -182,7 +183,6 @@ body.menu-open {
 
 .hero-image img {
   width: 100%;
-  max-width: 1200px;
   height: auto;
 }
 
