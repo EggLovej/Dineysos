@@ -33,6 +33,41 @@ export function openModal(baseName) {
   updateArrows();
   createDots();
   document.body.style.overflow = "hidden";
+
+  enableSwipeOnCarousel(carouselTrack);
+}
+
+let touchStartHandler = null;
+let touchEndHandler = null;
+
+/**
+ * Attaches swipe listeners to a carousel element.
+ * Automatically removes old listeners to prevent duplicates.
+ * @param {HTMLElement} carouselTrack - The track element to add swipe on
+ */
+function enableSwipeOnCarousel(carouselTrack) {
+  let startX = 0;
+
+  // Remove any previous listeners
+  if (touchStartHandler) carouselTrack.removeEventListener("touchstart", touchStartHandler);
+  if (touchEndHandler) carouselTrack.removeEventListener("touchend", touchEndHandler);
+
+  // Define and attach new handlers
+  touchStartHandler = (e) => {
+    startX = e.touches[0].clientX;
+  };
+
+  touchEndHandler = (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+
+    if (Math.abs(diff) > 50) {
+      slideModal(diff > 0 ? 1 : -1);
+    }
+  };
+
+  carouselTrack.addEventListener("touchstart", touchStartHandler);
+  carouselTrack.addEventListener("touchend", touchEndHandler);
 }
 
 /**
@@ -111,31 +146,3 @@ export function handleBackdropClick(event) {
   }
 }
 
-/**
- * Initializes swipe detection for modal carousel.
- * Should be called once on DOMContentLoaded.
- */
-let swipeInitialized = false;
-
-export function initModalSwipe() {
-  if (swipeInitialized) return;
-  swipeInitialized = true;
-
-  const track = document.getElementById("carouselTrack");
-  if (!track) return;
-
-  let startX = 0;
-
-  track.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
-  });
-
-  track.addEventListener("touchend", (e) => {
-    const endX = e.changedTouches[0].clientX;
-    const diff = startX - endX;
-
-    if (Math.abs(diff) > 50) {
-      slideModal(diff > 0 ? 1 : -1);
-    }
-  });
-}

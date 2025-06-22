@@ -11,7 +11,6 @@ import {
   slideModal,
   closeModal,
   handleBackdropClick,
-  initModalSwipe,
 } from "./modal.js";
 import { initAccordion } from "./accordion.js";
 import {
@@ -36,7 +35,6 @@ function initUI() {
   initNavbar();
   initAccordion();
   initGallery();
-  initModalSwipe();
 }
 
 // --- Load i18n and set language button ---
