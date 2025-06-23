@@ -2,16 +2,22 @@
 <html lang="en">
 
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VL2BDCSB0N"></script>
+  <!-- Google tag (gtag.js) injected only in production -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
+    const GA_ID = "{{GA_MEASUREMENT_ID}}"; // Placeholder to be replaced at build time
+    if (GA_ID.includes("{{") === false && GA_ID.startsWith("G-") && location.hostname === "dineysos.com") {
+      const script = document.createElement("script");
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+      document.head.appendChild(script);
 
-    gtag("config", "G-VL2BDCSB0N");
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", GA_ID);
+    }
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
