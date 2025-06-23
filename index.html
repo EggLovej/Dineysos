@@ -5,7 +5,7 @@
   <!-- Google tag (gtag.js) injected only in production -->
   <script>
     const GA_ID = "{{GA_MEASUREMENT_ID}}"; // Placeholder to be replaced at build time
-    if (GA_ID.includes("{{") === false && GA_ID.startsWith("G-") && location.hostname === "dineysos.com") {
+    if (GA_ID.includes("{{") === false && GA_ID.startsWith("G-")) {
       const script = document.createElement("script");
       script.async = true;
       script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
