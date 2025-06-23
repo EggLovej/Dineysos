@@ -1,3 +1,5 @@
 {
-    "buildCommand": "./inject-ga.sh"
+    "buildCommand": "./inject-ga.sh",
+    "outputDirectory": ".",
+    "cleanUrls": true
   }
