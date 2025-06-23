@@ -1,0 +1,14 @@
+{
+    "slug": "murder-mystery-dinner",
+    "date": "2025-08-03",
+    "location": "Basel",
+    "image": "/images/events/murder-mystery.jpg",
+    "title": {
+      "de": "Murder Mystery Dinner",
+      "en": "Murder Mystery Dinner"
+    },
+    "description": {
+      "de": "Ein spannender Abend voller Rätsel und Genuss.",
+      "en": "An evening of intrigue, wine, and role-play."
+    }
+  }

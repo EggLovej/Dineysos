@@ -1,0 +1,8 @@
+{
+    "build": {
+      "env": {
+        "GA_MEASUREMENT_ID": "@GA_MEASUREMENT_ID"
+      },
+      "command": "./inject-ga.sh"
+    }
+  }

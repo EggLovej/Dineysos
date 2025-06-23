@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-VL2BDCSB0N"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-VL2BDCSB0N");
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dineysos - Events</title>
+    <link rel="icon" href="/images/favicon.ico" type="image/png" />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Base Styles -->
+    <link rel="stylesheet" href="/css/variables.css" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/gallery.css" />
+    <link rel="stylesheet" href="/css/sections.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+
+    <!-- Events-specific styles -->
+    <link rel="stylesheet" href="/css/events.css" />
+  </head>
+  <body class="upcoming-events-page">
+    <!--Navbar-->
+    <header>
+      <a href="../#hero">
+        <img
+          src="/images/logo/logo_color.png"
+          alt="Wine & Dine Logo"
+          class="logo"
+        />
+      </a>
+
+      <!-- Right side -->
+      <div class="right-nav">
+        <nav class="nav-links">
+          <a href="/pages/upcoming-events.html" class="nav-link" data-i18n="nav.events">EVENTS</a>
+          <a href="../#about" class="nav-link" data-i18n="nav.about"
+            >ÜBER UNS</a
+          >
+          <a href="../#concepts" class="nav-link" data-i18n="nav.concepts"
+            >KONZEPTE</a
+          >
+          <a href="../#pricing" class="nav-link" data-i18n="nav.pricing"
+            >PREISE</a
+          >
+          <a href="../#brochure" class="nav-link" data-i18n="nav.brochure"
+            >BROSCHÜRE</a
+          >
+          <a href="../#contact" class="nav-link" data-i18n="nav.contact"
+            >KONTAKT</a
+          >
+        </nav>
+
+        <!-- Language Switcher -->
+        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+
+        <div class="lang-dropdown">
+          <button class="lang-toggle" id="current-lang">DE</button>
+          <div class="lang-menu" id="lang-menu">
+            <button class="lang-option" data-lang="en">EN</button>
+            <button class="lang-option" data-lang="de">DE</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="events-container" id="#events" >
+      <h1>
+        <span data-i18n="events.upcoming_title">Bevorstehende Events</span>
+      </h1>
+
+      <section id="events-grid" class="events-grid"></section>
+
+      <div class="past-events-link">
+        <a href="/pages/past-events.html">
+          <span data-i18n="events.view_past">Vergangene Events ansehen →</span>
+        </a>
+      </div>
+    </main>
+
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>
