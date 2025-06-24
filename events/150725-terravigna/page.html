@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dineysos - Events</title>
+    <link rel="icon" href="/images/favicon.ico" type="image/png" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;700&display=swap" rel="stylesheet" />
+
+    <!-- Base Styles -->
+    <link rel="stylesheet" href="/css/variables.css" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/gallery.css" />
+    <link rel="stylesheet" href="/css/sections.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+
+    <!-- Events-specific styles -->
+    <link rel="stylesheet" href="/css/events.css" />
+</head>
+
+<body class="event-detail-page">
+    <div id="navbar-placeholder"></div>
+
+    <main class="event-container">
+
+        <!-- Cover Image -->
+        <section>
+            <div class="event_base_container">
+                <img id="event-cover" src="cover.png" alt="Cover" class="event-cover centered" />
+            </div>
+        </section>
+
+        <!-- Title, Subtitle, Date, Location -->
+        <section class="event-header">
+            <div class="event_base_container">
+                <h2 id="event-title-text" class="centered">Title</h2>
+
+                <div class="event-meta">
+                    <div class="event-meta-date-time">
+                        <div class="event-meta-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-calendar1-icon lucide-calendar-1">
+                                <path d="M11 14h1v4" />
+                                <path d="M16 2v4" />
+                                <path d="M3 10h18" />
+                                <path d="M8 2v4" />
+                                <rect x="3" y="4" width="18" height="18" rx="2" />
+                            </svg>
+                        </div>
+                        <p><strong id="event-date">Di 15. Juli 2025</strong></p>
+                        <div class="event-meta-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-clock2-icon lucide-clock-2">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 10" />
+                            </svg>
+                        </div>
+                        <p><strong id="event-time">16:30 – 19:30</strong></p>
+                    </div>
+
+                    <div class="event-meta-location" id="event-location">
+                        <div class="event-meta-location-top">
+                            <div class="event-meta-icon">
+                                <!-- SVG stays here -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-map-pin-icon lucide-map-pin">
+                                    <path
+                                        d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                            </div>
+                            <p id="event-location-name">Loading…</p>
+                        </div>
+                        <p id="event-street">Loading…</p>
+                        <p id="event-zip-city">Loading…</p>
+                    </div>
+                </div>
+
+                <!-- Price -->
+                <div class="event-meta-price">
+                    <div class="event-meta-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-coins-icon lucide-coins">
+                            <circle cx="8" cy="8" r="6" />
+                            <path d="M18.09 10.37A6 6 0 1 1 10.34 18" />
+                            <path d="M7 6h1v4" />
+                            <path d="m16.71 13.88.7.71-2.82 2.82" />
+                        </svg>
+                    </div>
+                    <p>
+                        <span class="original-price nowrap">CHF 60.–</span>
+                        <span class="discounted-price nowrap">CHF 30.–</span>
+                        <span class="price-label" data-i18n="events.specialPrice">Spezialpreis</span>
+                      </p>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Description -->
+        <section class="event-page-description" id="event-description">
+            <div class="event_base_container">
+
+                <div class="event-logos">
+                    <div class="event-logo">
+                        <img src="/Images/Events/dineysos.png" alt="Dineysos Logo" />
+                    </div>
+
+                    <div class="event-logo">
+                        <img src="/Images/Events/blackx.png" alt="X" class="event-x" />
+                    </div>
+                    <div class="event-logo">
+                        <img src="terravigna-logo.png" alt="Terravigna Logo" />
+                    </div>
+                </div>
+                <p data-i18n="events.150725.p1">8 Weine in 4 Runden!</p>
+                <p data-i18n="events.150725.p2">Der 2. Dineysos Event mit Terravigna schickt 4 Weinpaare in den Ring,
+                    während ihr euch auf
+                    spielerische Art durchs Wine Battle Game schlagt.</p>
+                <p data-i18n="events.150725.p3">Euch erwartet eine Degustation mit 8 Weinen (je 5cl) und ein Spiel, das
+                    Degustieren zum Wettkampf
+                    macht.</p>
+                <p data-i18n="events.150725.p4">Das Spiel dauert ca. 60 Minuten, nachdem ihr mit der ersten Runde
+                    begonnen habt.</p>
+                <p data-i18n="events.150725.p5">Gerne könnt ihr euch über <a href="mailto:info@dineysos.com"
+                        class="contact-email" data-track="email">info@dineysos.com</a> anmelden oder einfach spontan
+                    vorbei kommen.</p>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script type="module" src="/js/main.js"></script>
+</body>
+
+</html>

@@ -69,7 +69,6 @@
       "onRequest": "upon request",
       "perHour": "per commenced hour",
       "startingFrom": "from",
-
       "basePrice": "Base price",
       "basePriceDescription": "incl. dossiers, hosting, game concepts (ca. 2 hours)",
       "winePairing": "Wine line-up with 5 wines (5x1dl)",
@@ -88,7 +87,7 @@
       "extension": "Prolongation:"
     },
     "brochure": {
-      "text": "Would you like all the information in one place? You can download our brochure as a PDF here:",
+      "text": "Would you like all the information in one place? You can download our brochure here:",
       "button": "Download brochure"
     }
   },
@@ -106,6 +105,25 @@
       "three": "Service and sales training for gastronomy and retail",
       "four": "Lectures and presentations",
       "five": "Assortment consulting"
+    }
+  },
+  "events": {
+    "upcoming": "Upcoming Events",
+    "past": "Past Events",
+    "specialPrice": "Special Price",
+    "240625": {
+      "p1": "8 wines, 4 rounds!",
+      "p2": "The first-ever Dineysos event with Terravigna throws 4 wine duos into the ring while you battle your way through the Wine Battle Game.",
+      "p3": "Look forward to a tasting of 8 wines (5cl each) and a game that turns wine tasting into a playful competition.",
+      "p4": "The game lasts around 60 minutes after you start your first round.",
+      "p5": "Feel free to sign up via <a href='mailto:info@dineysos.com' class='contact-email' data-track='email'>info@dineysos.com</a> — or just drop by spontaneously!"
+    },
+    "150725": {
+      "p1": "8 wines, 4 rounds!",
+      "p2": "The second Dineysos event with Terravigna throws 4 wine duos into the ring while you battle your way through the Wine Battle Game.",
+      "p3": "Look forward to a tasting of 8 wines (5cl each) and a game that turns wine tasting into a playful competition.",
+      "p4": "The game lasts around 60 minutes after you start your first round.",
+      "p5": "Feel free to sign up via <a href='mailto:info@dineysos.com' class='contact-email' data-track='email'>info@dineysos.com</a> — or just drop by spontaneously!"
     }
   }
 }

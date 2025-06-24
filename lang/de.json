@@ -88,7 +88,7 @@
       "extension": "Verlängerung:"
     },
     "brochure": {
-      "text": "Möchtet ihr alle Informationen gesammelt? Hier könnt ihr unsere Broschüre als PDF herunterladen:",
+      "text": "Möchtet ihr alle Informationen gesammelt? Hier könnt ihr unsere Broschüre herunterladen:",
       "button": "Broschüre herunterladen"
     }
   },
@@ -106,6 +106,25 @@
       "three": "Service- und Verkaufsschulungen für Gastro und Handel",
       "four": "Vorträge und Referate",
       "five": "Sortimentsberatung"
+    }
+  },
+  "events": {
+    "upcoming": "Bevorstehende Events",
+    "past": "Vergangene Events",
+    "specialPrice": "Spezialpreis",
+    "240625": {
+      "p1": "8 Weine in 4 Runden!",
+      "p2": "Der 1. Dineysos Event mit Terravigna schickt 4 Weinpaare in den Ring, während ihr euch auf spielerische Art durchs Wine Battle Game schlagt.",
+      "p3": "Euch erwartet eine Degustation mit 8 Weinen (je 5cl) und ein Spiel, das Degustieren zum Wettkampf macht.",
+      "p4": "Das Spiel dauert ca. 60 Minuten, nachdem ihr mit der ersten Runde begonnen habt.",
+      "p5": "Gerne könnt ihr euch über <a href='mailto:info@dineysos.com' class='contact-email' data-track='email'>info@dineysos.com</a> anmelden oder einfach spontan vorbei kommen."
+    },
+    "150725": {
+      "p1": "8 Weine in 4 Runden!",
+      "p2": "Der 2. Dineysos Event mit Terravigna schickt 4 Weinpaare in den Ring, während ihr euch auf spielerische Art durchs Wine Battle Game schlagt.",
+      "p3": "Euch erwartet eine Degustation mit 8 Weinen (je 5cl) und ein Spiel, das Degustieren zum Wettkampf macht.",
+      "p4": "Das Spiel dauert ca. 60 Minuten, nachdem ihr mit der ersten Runde begonnen habt.",
+      "p5": "Gerne könnt ihr euch über <a href='mailto:info@dineysos.com' class='contact-email' data-track='email'>info@dineysos.com</a> anmelden oder einfach spontan vorbei kommen."
     }
   }
 }

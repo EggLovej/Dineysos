@@ -1,33 +1,38 @@
-import { initNavbar } from "./navbar.js";
-import { loadLanguage, getLang } from "./lang.js";
-import { initGallery, moveGallery } from "./gallery.js";
+import { initNavbar } from "/js/navbar.js";
+import { loadLanguage, getLang } from "/js/lang.js";
+import { initGallery, moveGallery } from "/js/gallery.js";
 import {
   renderFlowers,
   renderGlasses,
   renderFormatFlowers,
-} from "./decorations.js";
+} from "/js/decorations.js";
 import {
   openModal,
   slideModal,
   closeModal,
   handleBackdropClick,
-} from "./modal.js";
-import { initAccordion } from "./accordion.js";
+} from "/js/modal.js";
+import { initAccordion } from "/js/accordion.js";
 import {
   trackBrochureDownload,
   trackEmailClick,
   trackPhoneClick,
   trackSocialClick,
-} from "./analytics.js";
+  injectGoogleAnalytics,
+} from "/js/analytics.js";
+import { loadFooter, loadNavbar } from "/js/loadComponents.js";
 
 // --- Bootstrap on DOM load ---
 document.addEventListener("DOMContentLoaded", async () => {
+  await loadFooter();
+  await loadNavbar();
   initUI();
   await initLanguage();
   initDecorations();
   initGalleryControls();
   initModalControls();
   initTracking();
+
 });
 
 // --- UI Core Components ---
@@ -87,6 +92,9 @@ function initModalControls() {
 
 // --- Attach event tracking to relevant elements ---
 function initTracking() {
+  // Inject Google Analytics
+  injectGoogleAnalytics();
+
   // Social platforms
   document.querySelectorAll("[data-platform]").forEach((el) => {
     const platform = el.getAttribute("data-platform");

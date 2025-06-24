@@ -14,7 +14,7 @@ export function renderFlowers() {
 
     for (let i = 0; i < flowerCount; i++) {
       const img = document.createElement("img");
-      img.src = "Images/Format/blume.png";
+      img.src = "/Images/Format/blume.png";
       img.alt = "Flower";
       img.className = "flower";
       container.appendChild(img);
@@ -37,7 +37,7 @@ export function renderGlasses() {
 
     for (let i = 0; i < count; i++) {
       const img = document.createElement("img");
-      img.src = "Images/Concepts/Glass.png";
+      img.src = "/Images/Concepts/Glass.png";
       img.alt = "Glass";
       img.className = "glass-icon";
       container.appendChild(img);
@@ -70,7 +70,7 @@ export function renderFormatFlowers() {
 
     for (let i = 0; i < count; i++) {
       const img = document.createElement("img");
-      img.src = "Images/Format/blume.png";
+      img.src = "/Images/Format/blume.png";
       img.alt = "Flower";
       img.className = "flower";
       flowerContainer.appendChild(img);

@@ -1,3 +1,5 @@
+import { loadUpcomingEvents, loadPastEvents, loadEventInfo } from "/js/events.js";
+
 /**
  * Gets the current language from localStorage, defaulting to 'de'.
  */
@@ -13,7 +15,7 @@ export async function loadLanguage(lang) {
   let translations = {};
 
   try {
-    const res = await fetch(`lang/${lang}.json`);
+    const res = await fetch(`/lang/${lang}.json`);
     translations = await res.json();
   } catch (err) {
     console.error("Translation load error:", err);
@@ -28,7 +30,7 @@ export async function loadLanguage(lang) {
       text = text?.[key];
     }
     if (typeof text === "string") {
-      el.textContent = text;
+      el.innerHTML = text;
     }
   });
 
@@ -49,6 +51,23 @@ export async function loadLanguage(lang) {
       el.setAttribute("data-label", labelText);
     }
   });
+
+    // If on the events page, reload content in new lang
+    if (document.body.classList.contains("upcoming-events-page")) {
+      const container = document.getElementById("events-grid");
+      if (container) container.innerHTML = ""; // Clear old cards
+      await loadUpcomingEvents(lang);
+    }
+
+  if (document.body.classList.contains("past-events-page")) {
+    const container = document.getElementById("events-grid-past");
+    if (container) container.innerHTML = ""; // Clear old cards
+    await loadPastEvents(lang);
+  }
+
+  if (document.body.classList.contains("event-detail-page")) {
+    loadEventInfo(lang);
+  }
 }
 
 /**
@@ -63,8 +82,8 @@ async function updateBrochureLink(lang) {
 
   const href =
     lang === "en"
-      ? "docs/DineysosBrochureEN.pdf"
-      : "docs/DineysosBroschüreDE.pdf";
+      ? "/docs/DineysosBrochureEN.pdf"
+      : "/docs/DineysosBroschüreDE.pdf";
 
   brochureLink.href = href;
 

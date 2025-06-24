@@ -1,0 +1,12 @@
+{
+    "title": {
+      "de": "Testevent 2",
+      "en": "Test Event 2"
+    },
+    "subtitle": {
+      "de": "Ein weiteres spannendes Event",
+      "en": "Another exciting event"
+    },
+    "date": "2026-07-07",
+    "location": "Zürich"
+  }

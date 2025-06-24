@@ -21,7 +21,7 @@ export function openModal(baseName) {
 
     const img = document.createElement("img");
     img.className = "modal-image";
-    img.src = `Images/Concepts/Modals/${deviceType}/${lang}/${baseName}${i}.png`;
+    img.src = `/Images/Concepts/Modals/${deviceType}/${lang}/${baseName}${i}.png`;
 
     slide.appendChild(img);
     carouselTrack.appendChild(slide);

@@ -1,4 +1,4 @@
-import { loadLanguage, getLang } from "./lang.js";
+import { loadLanguage, getLang } from "/js/lang.js";
 
 export function initNavbar() {
   const logo = document.querySelector(".logo");
@@ -25,10 +25,17 @@ export function initNavbar() {
         current = section.getAttribute("id");
       }
     });
-
+    const currentPath = window.location.pathname;
     navLinks.forEach((link) => {
       link.classList.remove("active");
-      if (link.getAttribute("href") === `#${current}`) {
+
+      const href = link.getAttribute("href");
+      const normalizedHref = href?.split("#")[1];
+      const sectionMatch = normalizedHref === current;
+      const pageMatch =
+        href && href.endsWith(".html") && currentPath.endsWith(href);
+
+      if (sectionMatch || pageMatch) {
         link.classList.add("active");
       }
     });
@@ -69,4 +76,6 @@ export function initNavbar() {
   // Set language on page load (optional, could be in main.js only)
   const savedLang = getLang();
   langToggle.textContent = savedLang.toUpperCase();
+  // Run once on page load (in case no scroll happens
+  window.dispatchEvent(new Event("scroll"));
 }

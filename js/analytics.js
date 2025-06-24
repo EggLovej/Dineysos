@@ -1,4 +1,4 @@
-import { getLang } from "./lang.js";
+import { getLang } from "/js/lang.js";
 
 function safeTrack(eventName, params) {
   if (typeof gtag === "function") {
@@ -43,4 +43,21 @@ export function trackSocialClick(platform) {
     language: getLang(),
     value: 1,
   });
+}
+
+export function injectGoogleAnalytics() {
+  const GA_ID = "{{GA_MEASUREMENT_ID}}"; // Replace at build time
+  if (!GA_ID.includes("{{") && GA_ID.startsWith("G-")) {
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", GA_ID);
+  }
 }
