@@ -1,0 +1,32 @@
+.hero {
+  padding-top: 8rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.logo {
+  width: 60vw;
+  max-width: 500px;
+  min-width: 120px;
+  height: auto;
+}
+
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.hero h1 {
+  text-align: center;
+}

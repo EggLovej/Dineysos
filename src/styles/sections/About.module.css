@@ -1,0 +1,86 @@
+.content {
+  display: flex;
+  flex-direction: row;
+}
+
+.right {
+  margin: 5rem auto;
+  position: relative;
+}
+
+.image {
+  width: 400px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.label {
+  position: absolute;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  max-width: 200px;
+  text-align: left;
+}
+
+.label p {
+  line-height: 1.2;
+  font-size: 0.9rem;
+}
+
+.marina {
+  top: 0;
+  left: 45%;
+}
+
+.clint {
+  bottom: -5%;
+  right: 40%;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.description {
+  color: var(--orange);
+}
+
+.block {
+  width: clamp(200px, 60vw, 400px);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 1024px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .right {
+    margin: 2rem auto;
+  }
+
+  .image {
+    width: 100%;
+  }
+
+  .label {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .marinaMobile .name {
+    margin-right: 75%;
+    text-align: right;
+    margin-block-end: 0;
+  }
+
+  .clintMobile .name {
+    margin-left: 80%;
+    margin-block-start: 0;
+  }
+}

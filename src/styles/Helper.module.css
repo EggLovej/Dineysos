@@ -1,0 +1,30 @@
+.glasses {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.glass {
+  height: clamp(16px, 2vw, 24px);
+  width: auto;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.flowersDesktop {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: left;
+}
+
+.flowersMobile {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+.flower {
+  height: clamp(16px, 2vw, 24px);
+  width: auto;
+  margin-left: 0.2rem;
+  vertical-align: middle;
+}

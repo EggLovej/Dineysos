@@ -1,0 +1,128 @@
+{
+  "nav": {
+    "events": "EVENTS",
+    "about": "ÜBER UNS",
+    "concepts": "KONZEPTE",
+    "pricing": "PREISE",
+    "brochure": "BROSCHÜRE",
+    "contact": "KONTAKT"
+  },
+  "about": {
+    "heading": "Wir sind Clint und Marina - hallo!",
+    "paragraph1": "Durch unseren Wunsch, verschiedene Arten des Zusammenkommens zu “wein- und spassifizieren”, gründeten wir Dineysos: Einen innovativen und neuartigen Anbieter von Wein-Spiele-Konzepten, die euren Event auf unkonventionelle Weise zum Gesprächsthema machen.",
+    "paragraph2": "Unsere Geschichte beginnt wie viele: Nach der dritten Flasche Wein kam uns die Erkenntnis, dass eine Mehrheit der Events heutzutage sehr generisch sind und die Welt auf etwas Neues gewartet hat. Kombiniert man etwas Langeweile mit dem erwähnten Wein, war eine Lösung schnell gefunden: Dineysos!",
+    "paragraph3": "Unsere Eventkonzepte sind lehrreich, lustig sowie flexibel anpassbar und lassen sich bestens in Afterworks, Mitarbeiterevents, Dinnerparties sowie alle Arten von Happening integrieren.",
+    "paragraph4": "Von “Wir kommen nur mit unserem Spiel und einem Koffer voller Wein” bis zu einem Komplettevent mit passender Location und Kulinarik, ist alles möglich.",
+    "marina": "Eine Hobbykünstlerin mit einem Flair für Excel-Tabellen sowie einer Leidenschaft für gutes Essen und Trinken.",
+    "clint": "Ein Brunch-Liebhaber, der nie ohne Hut anzutreffen ist und eine nicht zu leugnende Leidenschaft für Wein besitzt - viel Wein."
+  },
+  "concept": {
+    "heading": "Unsere Konzepte",
+    "button": "Mehr erfahren",
+    "gameType": "Spielelement:",
+    "quiz": "Quiz",
+    "fun": "Spass",
+    "learning": "Lernlevel",
+    "exchange": "Austausch",
+    "trophy": {
+      "title": "Trophy",
+      "description": "Euch erwarten mehrere Challenges über die Weinauswahl, bei denen Weinwissen eher bescheiden nützlich ist. Unterhaltsam, mehr oder weniger informativ und mit einem glorreichen Sieger (oder Siegergruppe, unsere Konzepte sind auch als Team spielbar) am Ende.",
+      "gameType": "Quiz"
+    },
+    "classroom": {
+      "title": "Classroom",
+      "description": "Hier kommen die Teilnehmer weinbezogen schlauer nach Hause, als sie es ohnehin schon sind. Weinwissen wird nicht benötigt oder kann in den Schwierigkeits- und Informationslevel eingerechnet werden.",
+      "gameType": "Kreuzworträtsel"
+    },
+    "olympics": {
+      "title": "Olympics",
+      "description": "Was wertet jedes Konzept auf? Richtig, mehr Wein. Olympic setzt eine Serie von Weinen in Konkurrenz zu einer zweiten Serie. Olympische Spiele mit Weinen sozusagen. Eignet sich neben den üblichen Formaten auch bestens um euer Weinsortiment gegen ein anderes antreten zu lassen.",
+      "gameType": "Quartett"
+    }
+  },
+  "format": {
+    "title": "Formate",
+    "description1": "Jedem Konzept von Dineysos wird erst durch euren Event Leben eingehaucht, die Möglichkeiten und Kombinationen sind endlos. Der urchige Gastronom um die Ecke, der sich ans Abenteuer Wine&Dine machen möchte, erhält von uns einen genau so passenden Vorschlag, wie die fancy Tech-Company, die ihren 500 Personen Mitarbeiterevent organisiert oder die Privatperson, die zum Happening bei sich zu Hause einlädt.",
+    "description2": "Obwohl jede Veranstaltung einzigartig ist, wollen wir euch unsere Kombinationsempfehlungen nicht vorenthalten:",
+    "table": {
+      "col1": "Wine & Dine",
+      "col2": "Flying Dinner",
+      "col3": "Afterwork Chill",
+      "col4": "Steh-Apéro",
+      "col5": "Degustation / Workshop"
+    },
+    "legend": {
+      "one": "= machbar",
+      "two": "= passend",
+      "three": "= sehr passend",
+      "four": "= perfect match"
+    }
+  },
+  "pricing": {
+    "title": "Preise",
+    "description": "Mit den nachfolgend aufgeführten Richtpreisen können die Kosten für eine Veranstaltung in etwa abgeschätzt werden. Bei der Preisgestaltung kommt es auf viele Faktoren an (Weinauswahl, eventueller externer Veranstaltungsort und Essen etc.). Gerne erstellen wir auf Anfrage oder nach einer persönlichen Besprechung ein individuelles Angebot:",
+    "table": {
+      "participants": "Teilnehmer",
+      "sGroup": "4-7 Teilnehmer",
+      "mGroup": "8-15 Teilnehmer",
+      "lGroup": "16-30 Teilnehmer",
+      "xlGroup": "ab 31 Teilnehmer",
+      "perPerson": "pro Person",
+      "onRequest": "auf Anfrage",
+      "perHour": "pro angefangene Stunde",
+      "startingFrom": "ab",
+
+      "basePrice": "Basispreis",
+      "basePriceDescription": "inkl. Unterlagen, Moderation, Spielkonzept (2 Stunden)",
+      "winePairing": "Weinbegleitung mit 5 Weinen (5×1dl)",
+      "winePairingDescription": "notwendig zur Durchführung",
+      "food": "Essensbegleitung oder Snacks",
+      "foodDescription": "Service in Gängen verlängert die Veranstaltungsdauer",
+      "venue": "Veranstaltungsort",
+      "extension": "Verlängerung der Veranstaltung",
+      "extensionDescription": "Aufgrund von Essen oder auf Kundenwunsch"
+    },
+    "mobile": {
+      "basePrice": "Basispreis:",
+      "winePairing": "Wein:",
+      "food": "Essensbegleitung:",
+      "venue": "Veranstaltungsort:",
+      "extension": "Verlängerung:"
+    }
+  },
+  "gallery": {
+    "heading": "Galerie",
+    "noImages": "Keine Bilder verfügbar."
+  },
+  "brochure": {
+    "heading": "Unsere Broschüre erhalten",
+    "text": "Möchtest du alle Informationen gesammelt? Hinterlass deine E-Mail Adresse hier und erhalte sofort unsere Broschüre per E-Mail.",
+    "email": "Deine Email",
+    "getBrochure": "Broschüre erhalten",
+    "updates": "Ich möchte gelegentlich Neuigkeiten erhalten.",
+    "sending": "Wird gesendet...",
+    "success": "Erfolg! Prüfen Sie Ihr Postfach für die Broschüre.",
+    "error": "Übermittlung fehlgeschlagen. Bitte versuchen Sie es erneut."
+  },
+  "contact": {
+    "title": "Kontakt",
+    "left": {
+      "message1": "Überzeugt?",
+      "message2": "Wir freuen uns über eine Mail:",
+      "message3": "..oder einen Anruf"
+    },
+    "right": {
+      "title": "Wir können auch:",
+      "one": "Design und Konzipierung von Weinetiketten",
+      "two": "Erstellung und Gestaltung von Weinkarten",
+      "three": "Service- und Verkaufsschulungen für Gastro und Handel",
+      "four": "Vorträge und Referate",
+      "five": "Sortimentsberatung"
+    }
+  },
+  "events": {
+    "upcoming": "Bevorstehende Events",
+    "past": "Vergangene Events",
+    "specialPrice": "Spezialpreis"
+  }
+}

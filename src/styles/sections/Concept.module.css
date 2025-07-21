@@ -1,0 +1,127 @@
+.concepts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.concepts h2 {
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 12px;
+}
+
+.image {
+  width: 30%;
+  display: flex;
+  justify-content: left;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-right: 1rem;
+}
+
+.image img {
+  max-width: 15rem;
+  height: auto;
+  display: block;
+}
+
+.description {
+  width: 40%;
+  text-align: left;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-right: 1rem;
+}
+
+.classifiction {
+  width: 30%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: var(--blue);
+  margin-top: 0.5rem;
+}
+
+.row span {
+  display: inline-block;
+  min-width: 80px;
+  text-align: left;
+}
+
+.button {
+  background-color: var(--orange);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 1rem;
+  text-align: center;
+  display: block;
+}
+
+.seperator {
+  gap: 0.5rem;
+  margin: 2rem 0;
+  width: 100%;
+  text-align: center;
+}
+
+.flower {
+  width: clamp(16px, 2vw, 24px);
+  height: clamp(16px, 2vw, 24px);
+  margin: 0;
+  vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .button {
+    display: none;
+  }
+
+  .image {
+    width: 50%;
+    justify-content: center;
+  }
+
+  .image img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .description {
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: justify;
+  }
+
+  .classifiction {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}

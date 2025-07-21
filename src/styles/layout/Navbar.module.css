@@ -1,0 +1,118 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--light-blue);
+  padding: 1rem 2rem;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;
+  transition: padding 0.3s ease, background 0.3s ease;
+}
+
+.logo {
+  width: 8rem;
+  transition: width 0.3s ease;
+}
+
+.navbar.scrolled .logo {
+  width: 5rem;
+}
+
+.rightControls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.langToggle {
+  background: none;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--blue);
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.langMenu {
+  position: absolute;
+  right: 0;
+  background-color: var(--cream);
+  border: 1px solid #ccc;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-width: 60px;
+  border-radius: 8px;
+}
+
+.langOption {
+  display: block;
+  width: 100%;
+  padding: 5px 0px;
+  background: none;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  color: var(--blue);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.langOption:hover {
+  color: var(--orange);
+}
+
+.menuToggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--blue);
+}
+
+.menu {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--blue);
+  font-weight: bold;
+}
+
+.link:hover {
+  color: var(--orange);
+}
+
+.activeLink {
+  color: var(--orange);
+}
+
+@media (max-width: 768px) {
+  .menuToggle {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    background-color: var(--cream);
+    position: absolute;
+    top: 100%;
+    right: 0.1rem;
+    width: 120px;
+    border: 2px solid var(--orange);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+    gap: 0.5rem;
+  }
+
+  .menu.open {
+    display: flex;
+  }
+}

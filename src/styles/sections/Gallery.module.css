@@ -1,0 +1,126 @@
+.gallery {
+  margin-top: 2rem;
+}
+
+.gallery h2 {
+  text-align: center;
+}
+
+.gallery :global(.splide__pagination__page) {
+  background: var(--blue);
+  opacity: 1;
+}
+
+.gallery :global(.splide__pagination__page.is-active) {
+  background: var(--orange);
+}
+
+.gallery :global(.splide__arrow) {
+  width: 40px;
+  height: 40px;
+  background: var(--cream);
+  border-radius: 50%;
+  border: solid 3px var(--orange);
+}
+
+/* Gallery.module.css */
+.gallery :global(.splide__pagination) {
+  position: static; /* remove absolute positioning */
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.gallery :global(.splide__arrow:hover) {
+  opacity: 1;
+}
+
+.gallery :global(.splide__arrow svg) {
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 0 1px var(--blue));
+
+  fill: var(--blue);
+}
+
+.gallery :global(.splide__arrow:hover svg) {
+  fill: var(--orange) !important;
+}
+
+.galleryWrapper {
+  position: relative;
+}
+
+.gradientLeft,
+.gradientRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  pointer-events: none; /* Don't block clicks */
+}
+
+.gradientLeft {
+  left: 0;
+  background: linear-gradient(to right, var(--cream), transparent);
+}
+
+.gradientRight {
+  right: 0;
+  background: linear-gradient(to left, var(--cream), transparent);
+}
+
+.imageContainer {
+  height: 300px; /* fixed height */
+}
+
+.imageContainer {
+  position: relative;
+}
+
+.imageContainer img {
+  transition: transform 0.3s ease;
+}
+
+.imageContainer:hover img {
+  transform: scale(1.08);
+}
+
+.slide {
+  transition: transform 0.3s ease;
+}
+
+.slide:hover {
+  transform: scale(1.08);
+}
+
+.lightboxSlide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightboxImage {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+.lightboxDescription {
+  margin-top: 1rem;
+  text-align: center;
+  background-color: white;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+  .gallery :global(.splide__arrow) {
+    display: none;
+  }
+
+  .imageContainer {
+    height: 200px;
+  }
+}

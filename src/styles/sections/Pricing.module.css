@@ -1,0 +1,111 @@
+.pricing h2 {
+  text-align: center;
+}
+
+.desktopContent {
+  display: block;
+}
+
+.table {
+  width: 100%;
+  color: var(--blue);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th {
+  color: var(--orange);
+  padding: 1rem;
+}
+
+.table td {
+  padding: 1rem;
+}
+
+.mobileContent {
+  display: none;
+}
+
+.accordionItem {
+  border: 2px solid var(--blue);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 7px auto;
+}
+
+.accordionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  gap: 0.8rem;
+  min-height: 70px;
+  background-color: var(--dark-cream);
+  color: var(--blue);
+  font-weight: bold;
+
+  text-align: left;
+  cursor: pointer;
+}
+
+.headerText {
+  font-size: clamp(1.2rem, 1.5vw, 1.4rem);
+}
+
+.accordionArrow {
+  transition: transform 0.3s ease;
+}
+
+.accordionItem[open] .accordionArrow {
+  transform: rotate(180deg);
+}
+
+.accordionContent {
+  color: var(--blue);
+}
+
+.priceRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  margin: 0 1rem;
+  border-bottom: 1px dotted var(--blue);
+}
+
+.priceRow:last-child {
+  border-bottom: none;
+}
+
+.priceLabel {
+  font-weight: bold;
+  flex: 1;
+}
+
+.priceValue {
+  text-align: right;
+  flex: 1;
+}
+
+.priceBlock {
+  display: inline;
+}
+
+.priceAmount {
+  white-space: nowrap;
+}
+
+.priceAnnotation {
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .desktopContent {
+    display: none;
+  }
+
+  .mobileContent {
+    display: block;
+  }
+}
