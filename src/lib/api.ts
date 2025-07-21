@@ -39,8 +39,11 @@ export async function fetchUpcomingEvents(): Promise<Event[]> {
   try {
     const result = await client.fetch(UpcomingQuery);
     return result;
-  } catch (err: any) {
-    throw err;
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      throw new Error(`fetchUpcomingEvents failed: ${err.message}`);
+    }
+    throw new Error('fetchUpcomingEvents failed with unknown error');
   }
 }
 
@@ -48,8 +51,11 @@ export async function fetchPastEvents(): Promise<Event[]> {
   try {
     const result = await client.fetch(PastQuery);
     return result;
-  } catch (err: any) {
-    throw err;
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      throw new Error(`fetchPastEvents failed: ${err.message}`);
+    }
+    throw new Error('fetchPastEvents failed with unknown error');
   }
 }
 

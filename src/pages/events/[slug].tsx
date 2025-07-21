@@ -1,10 +1,9 @@
-import { GetStaticPaths, GetStaticProps } from "next";
+import type { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import { fetchAllEventSlugs, fetchEventBySlug } from "@/lib/api";
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
 import { Event } from "@/types/event";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { GetStaticPropsContext } from "next";
 import {
   CalendarIcon,
   ClockIcon,
@@ -149,7 +148,11 @@ export default function EventPage({ event }: EventPageProps) {
   );
 }
 
-export async function getStaticPaths({ locales }: { locales: string[] }) {
+export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
+  if (!locales) {
+    throw new Error("Expected locales to be defined in getStaticPaths");
+  }
+
   const slugs = await fetchAllEventSlugs();
 
   const paths = slugs.flatMap((slug) =>
@@ -163,9 +166,9 @@ export async function getStaticPaths({ locales }: { locales: string[] }) {
     paths,
     fallback: false,
   };
-}
+};
 
-export async function getStaticProps(context: GetStaticPropsContext) {
+export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
   const { params, locale } = context;
 
   const event = await fetchEventBySlug(params?.slug as string);
@@ -176,7 +179,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       ...(await serverSideTranslations(locale ?? "de", ["common"])),
     },
   };
-}
+};
 
 function formatTimeRange(start: string, end: string) {
   const startTime = new Date(start).toLocaleTimeString("de-CH", {

@@ -34,10 +34,18 @@ function useIsMobile(breakpoint = 768) {
 export default function Gallery({ images }: GalleryProps) {
   const { t } = useTranslation("common");
   const { locale } = useRouter();
-  if (!images.length) return <p>{t("gallery.noImages")}</p>;
   const [index, setIndex] = useState<number>(-1);
   const isMobile = useIsMobile();
   const baseHeight = isMobile ? 200 : 300;
+  if (!images.length) {
+    return (
+      <section className={styles.gallery}>
+        <div className="base-container">
+          <p>{t("gallery.noImages")}</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className={styles.gallery}>

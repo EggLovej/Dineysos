@@ -7,7 +7,7 @@ import styles from "@/styles/layout/Navbar.module.css";
 
 export default function Navbar() {
   const { t } = useTranslation("common");
-  const { locale, pathname, asPath, query, events } = useRouter();
+  const { locale, events } = useRouter();
 
   const langRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -24,7 +24,7 @@ export default function Navbar() {
     const { pathname, query, asPath } = router;
 
     // Extract hash manually
-    const [pathWithoutHash, hash] = asPath.split("#");
+    const [hash] = asPath.split("#");
 
     void router.push({ pathname, query }, asPath, { locale }).then(() => {
       if (hash) {

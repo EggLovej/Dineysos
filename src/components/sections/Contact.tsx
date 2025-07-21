@@ -61,13 +61,11 @@ export default function Contact() {
                 href="https://www.instagram.com/dineysos/#"
                 src="/images/icons/qr/instagram.png"
                 alt="Instagram QR"
-                platform="Instagram"
               />
               <QRCodeLink
                 href="https://www.linkedin.com/company/dineysos/posts/?feedView=all"
                 src="/images/icons/qr/linkedin.png"
                 alt="LinkedIn QR"
-                platform="LinkedIn"
               />
             </div>
           </div>
@@ -105,12 +103,10 @@ function QRCodeLink({
   href,
   src,
   alt,
-  platform,
 }: {
   href: string;
   src: string;
   alt: string;
-  platform: string;
 }) {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer">
