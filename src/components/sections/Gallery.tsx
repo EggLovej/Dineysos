@@ -86,7 +86,8 @@ export default function Gallery({ images }: GalleryProps) {
                       img.description?.[locale as "de" | "en"] ??
                       "Gallery Image"
                     }
-                    fill
+                    width={(img.width / img.height) * baseHeight}
+                    height={baseHeight}
                     style={{ objectFit: "contain" }}
                   />
                 </div>
