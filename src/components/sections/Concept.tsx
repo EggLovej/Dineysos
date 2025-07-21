@@ -54,17 +54,17 @@ export default function Concepts() {
 
           <div className={`${styles.seperator} mobile`}>
             <img
-              src="/images/icons/Flower.png"
+              src="/images/icons/flower.png"
               alt="Flower"
               className={styles.flower}
             />
             <img
-              src="/images/icons/Flower.png"
+              src="/images/icons/flower.png"
               alt="Flower"
               className={styles.flower}
             />
             <img
-              src="/images/icons/Flower.png"
+              src="/images/icons/flower.png"
               alt="Flower"
               className={styles.flower}
             />
@@ -109,17 +109,17 @@ export default function Concepts() {
 
           <div className={`${styles.seperator} mobile`}>
             <img
-              src="/images/icons/Flower.png"
+              src="/images/icons/flower.png"
               alt="Flower"
               className={styles.flower}
             />
             <img
-              src="/images/icons/Flower.png"
+              src="/images/icons/flower.png"
               alt="Flower"
               className={styles.flower}
             />
             <img
-              src="/images/icons/Flower.png"
+              src="/images/icons/flower.png"
               alt="Flower"
               className={styles.flower}
             />
@@ -127,7 +127,7 @@ export default function Concepts() {
 
           <div className={styles.card}>
             <div className={styles.image}>
-              <img src="/Images/icons/olympics.png" alt="Olympics" />
+              <img src="/images/icons/olympics.png" alt="Olympics" />
             </div>
             <div className={styles.description}>
               <h3>{t("concept.olympics.title")}</h3>
@@ -164,17 +164,17 @@ export default function Concepts() {
 
           <div className={`${styles.seperator} mobile`}>
             <img
-              src="/images/icons/Flower.png"
+              src="/images/icons/flower.png"
               alt="Flower"
               className={styles.flower}
             />
             <img
-              src="/images/icons/Flower.png"
+              src="/images/icons/flower.png"
               alt="Flower"
               className={styles.flower}
             />
             <img
-              src="/images/icons/Flower.png"
+              src="/images/icons/flower.png"
               alt="Flower"
               className={styles.flower}
             />

@@ -6,7 +6,7 @@ export default function Footer() {
             <div className={styles.content}>
                 <div className={styles.left}>
                     <img
-                        src="/Images/logo/color.png"
+                        src="/images/logo/color.png"
                         alt="Dineysos Logo"
                         className={styles.logo}
                     />
