@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { Resend } from "resend";
 import { supabase } from "@/lib/supabaseClient";
 import fs from "fs";
+import path from "path";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -51,8 +52,8 @@ export default async function handler(
 
     const brochurePath =
       lang === "de"
-        ? "./public/docs/DineysosBroschüreDE.pdf"
-        : "./public/docs/DineysosBrochureEN.pdf";
+        ? path.resolve("./public/docs/DineysosBroschüreDE.pdf")
+        : path.resolve("./public/docs/DineysosBrochureEN.pdf");
 
     const brochureFile = fs.readFileSync(brochurePath);
     const brochure = brochureFile.toString("base64");
