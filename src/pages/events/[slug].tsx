@@ -1,4 +1,8 @@
-import type { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
+import type {
+  GetStaticPaths,
+  GetStaticProps,
+  GetStaticPropsContext,
+} from "next";
 import { fetchAllEventSlugs, fetchEventBySlug } from "@/lib/api";
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
@@ -12,6 +16,7 @@ import {
 } from "@/components/common/Icons";
 
 import styles from "@/styles/events/EventPage.module.css";
+import SeoHead from "@/components/layout/Head";
 
 type EventPageProps = {
   event: Event;
@@ -24,7 +29,9 @@ function formatParagraph(text: string) {
 
   return parts.map((part, idx) =>
     emailRegex.test(part) ? (
-      <a key={idx} href={`mailto:${part}`} className={styles.email}>{part}</a>
+      <a key={idx} href={`mailto:${part}`} className={styles.email}>
+        {part}
+      </a>
     ) : (
       part
     )
@@ -53,6 +60,16 @@ export default function EventPage({ event }: EventPageProps) {
 
   return (
     <main className={styles.page}>
+      <SeoHead
+        title={{
+          de: event.name ?? "Event",
+          en: event.name ?? "Event",
+        }}
+        description={{
+          de: event.descriptionParagraphs?.de?.[0] ?? "Details zum Event.",
+          en: event.descriptionParagraphs?.en?.[0] ?? "Event details.",
+        }}
+      />
       <section>
         <div className={styles.event_base_container}>
           <Image
@@ -71,7 +88,7 @@ export default function EventPage({ event }: EventPageProps) {
           <div className={styles.meta}>
             <div className={styles.dateTime}>
               <div className={styles.metaRow}>
-                <CalendarIcon className={styles.svg}/>
+                <CalendarIcon className={styles.svg} />
                 <p>
                   <strong>
                     {new Date(event.startDate).toLocaleDateString(locale)}
@@ -79,7 +96,7 @@ export default function EventPage({ event }: EventPageProps) {
                 </p>
               </div>
               <div className={styles.metaRow}>
-                <ClockIcon className={styles.svg}/>
+                <ClockIcon className={styles.svg} />
                 <p>
                   <strong>
                     {formatTimeRange(event.startDate, event.endDate)}
@@ -89,7 +106,7 @@ export default function EventPage({ event }: EventPageProps) {
             </div>
             <div className={styles.metaLocation}>
               <div className={styles.metaLocationTop}>
-                <MapPinIcon className={styles.svg}/>
+                <MapPinIcon className={styles.svg} />
                 <p>{event.locationDetails.name}</p>
               </div>
               <p id={styles.street}>{event.locationDetails.street}</p>
@@ -98,7 +115,7 @@ export default function EventPage({ event }: EventPageProps) {
               </p>
             </div>
             <div className={styles.metaPrice}>
-              <CoinsIcon className={styles.svg}/>
+              <CoinsIcon className={styles.svg} />
               <div className={styles.priceSection}>{priceSection}</div>
             </div>
           </div>
@@ -139,7 +156,6 @@ export default function EventPage({ event }: EventPageProps) {
           {event.descriptionParagraphs[locale as "de" | "en"]?.map(
             (para, idx) => (
               <p key={idx}>{formatParagraph(para)}</p>
-
             )
           )}
         </div>
@@ -168,7 +184,9 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
+export const getStaticProps: GetStaticProps = async (
+  context: GetStaticPropsContext
+) => {
   const { params, locale } = context;
 
   const event = await fetchEventBySlug(params?.slug as string);

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://dineysos.com
+
+# Sitemaps
+Sitemap: https://dineysos.com/sitemap.xml
