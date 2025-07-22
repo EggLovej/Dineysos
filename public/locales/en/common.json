@@ -5,7 +5,8 @@
     "concepts": "CONCEPTS",
     "pricing": "PRICING",
     "brochure": "BROCHURE",
-    "contact": "CONTACT"
+    "contact": "CONTACT",
+    "feedback": "FEEDBACK"
   },
   "about": {
     "heading": "We are Clint and Marina - hi!",
@@ -123,5 +124,12 @@
     "upcoming": "Upcoming Events",
     "past": "Past Events",
     "specialPrice": "Special Price"
+  },
+  "feedback": {
+    "title": "Feedback",
+    "description": "We value your feedback to improve our services. Please share your thoughts with us.",
+    "thankYou": "Thank you for your feedback!",
+    "commentPlaceholder": "Additional comments...",
+    "submitButton": "Submit"
   }
 }

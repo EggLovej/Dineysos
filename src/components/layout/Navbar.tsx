@@ -45,6 +45,7 @@ export default function Navbar() {
     { href: "/#pricing", label: t("nav.pricing") },
     { href: "/#brochure", label: t("nav.brochure") },
     { href: "/#contact", label: t("nav.contact") },
+  //  { href: "/feedback", label: t("nav.feedback") },
   ];
 
   // Combined useEffect to handle:
