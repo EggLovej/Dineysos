@@ -32,7 +32,7 @@ export default function Concepts() {
               <button
                 className={styles.button}
                 onClick={() => {
-                  setModalImageBase("Trophy");
+                  setModalImageBase("trophy");
                   setModalOpen(true);
                 }}
               >
@@ -76,7 +76,7 @@ export default function Concepts() {
               <button
                 className={styles.button}
                 onClick={() => {
-                  setModalImageBase("Classroom");
+                  setModalImageBase("classroom");
                   setModalOpen(true);
                 }}
               >
@@ -120,7 +120,7 @@ export default function Concepts() {
               <button
                 className={styles.button}
                 onClick={() => {
-                  setModalImageBase("Olympics");
+                  setModalImageBase("olympics");
                   setModalOpen(true);
                 }}
               >
