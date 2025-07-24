@@ -3,6 +3,8 @@ import { useTranslation } from "next-i18next";
 import GlassesRating from "@/components/common/Glasses";
 import { useState } from "react";
 import Modal from "@/components/ui/Modal";
+import { FlowerSeparator } from "@/components/common/Flowers";
+import Image from "next/image";
 
 export default function Concepts() {
   const { t } = useTranslation("common");
@@ -17,7 +19,12 @@ export default function Concepts() {
         <div className={styles.grid}>
           <div className={styles.card}>
             <div className={styles.image}>
-              <img src="/images/icons/trophy.png" alt="Trophy" />
+              <Image
+                src="/images/icons/trophy.webp"
+                alt="Trophy"
+                width={240}
+                height={246}
+              />
             </div>
             <div className={styles.description}>
               <h3>{t("concept.trophy.title")}</h3>
@@ -25,7 +32,7 @@ export default function Concepts() {
               <button
                 className={styles.button}
                 onClick={() => {
-                  setModalImageBase("Trophy");
+                  setModalImageBase("trophy");
                   setModalOpen(true);
                 }}
               >
@@ -52,27 +59,16 @@ export default function Concepts() {
             </div>
           </div>
 
-          <div className={`${styles.seperator} mobile`}>
-            <img
-              src="/images/icons/flower.png"
-              alt="Flower"
-              className={styles.flower}
-            />
-            <img
-              src="/images/icons/flower.png"
-              alt="Flower"
-              className={styles.flower}
-            />
-            <img
-              src="/images/icons/flower.png"
-              alt="Flower"
-              className={styles.flower}
-            />
-          </div>
+          <FlowerSeparator className="mobile" />
 
           <div className={styles.card}>
             <div className={styles.image}>
-              <img src="/images/icons/classroom.png" alt="Classroom" />
+              <Image
+                src="/images/icons/classroom.webp"
+                alt="Classroom"
+                width={240}
+                height={195}
+              />
             </div>
             <div className={styles.description}>
               <h3>{t("concept.classroom.title")}</h3>
@@ -80,7 +76,7 @@ export default function Concepts() {
               <button
                 className={styles.button}
                 onClick={() => {
-                  setModalImageBase("Classroom");
+                  setModalImageBase("classroom");
                   setModalOpen(true);
                 }}
               >
@@ -107,27 +103,16 @@ export default function Concepts() {
             </div>
           </div>
 
-          <div className={`${styles.seperator} mobile`}>
-            <img
-              src="/images/icons/flower.png"
-              alt="Flower"
-              className={styles.flower}
-            />
-            <img
-              src="/images/icons/flower.png"
-              alt="Flower"
-              className={styles.flower}
-            />
-            <img
-              src="/images/icons/flower.png"
-              alt="Flower"
-              className={styles.flower}
-            />
-          </div>
+          <FlowerSeparator className="mobile" />
 
           <div className={styles.card}>
             <div className={styles.image}>
-              <img src="/images/icons/olympics.png" alt="Olympics" />
+              <Image
+                src="/images/icons/olympics.webp"
+                alt="Trophy"
+                width={240}
+                height={180}
+              />
             </div>
             <div className={styles.description}>
               <h3>{t("concept.olympics.title")}</h3>
@@ -135,7 +120,7 @@ export default function Concepts() {
               <button
                 className={styles.button}
                 onClick={() => {
-                  setModalImageBase("Olympics");
+                  setModalImageBase("olympics");
                   setModalOpen(true);
                 }}
               >
@@ -162,23 +147,7 @@ export default function Concepts() {
             </div>
           </div>
 
-          <div className={`${styles.seperator} mobile`}>
-            <img
-              src="/images/icons/flower.png"
-              alt="Flower"
-              className={styles.flower}
-            />
-            <img
-              src="/images/icons/flower.png"
-              alt="Flower"
-              className={styles.flower}
-            />
-            <img
-              src="/images/icons/flower.png"
-              alt="Flower"
-              className={styles.flower}
-            />
-          </div>
+          <FlowerSeparator className="mobile" />
         </div>
       </div>
 

@@ -28,3 +28,10 @@
   margin-left: 0.2rem;
   vertical-align: middle;
 }
+
+.separator {
+  gap: 0.5rem;
+  margin: 2rem 0;
+  width: 100%;
+  text-align: center;
+}

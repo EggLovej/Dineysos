@@ -105,13 +105,14 @@
   top: 0.2rem;
   width: 16px;
   height: 16px;
-  background-image: url("/images/icons/flower.png");
+  background-image: url("/images/icons/flower.webp");
   background-size: contain;
   background-repeat: no-repeat;
 }
 
-.logo img {
+.logoImage {
   width: 200px;
+  height: auto;
   margin: 2rem 0;
 }
 

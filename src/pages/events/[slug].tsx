@@ -127,16 +127,16 @@ export default function EventPage({ event }: EventPageProps) {
           <div className={styles.logos}>
             <div className={styles.logoWrapper}>
               <Image
-                src="/images/logo/color.png"
+                src="/images/logo/color.webp"
                 alt="Dineysos Logo"
-                width={300}
-                height={100}
+                width={500}
+                height={179}
                 className={styles.logoImage}
               />
             </div>
             <div className={styles.logoWrapperSmall}>
               <Image
-                src="/images/icons/orangex.png"
+                src="/images/icons/orangex.webp"
                 alt="X"
                 width={120}
                 height={120}

@@ -1,15 +1,19 @@
 import styles from '@/styles/layout/Footer.module.css';
+import Image from 'next/image';
 
 export default function Footer() {
     return (
         <footer className={styles.footer}>
             <div className={styles.content}>
                 <div className={styles.left}>
-                    <img
-                        src="/images/logo/color.png"
+                    <Image
+                        src="/images/logo/color.webp"
                         alt="Dineysos Logo"
+                        width={500}
+                        height={179}
                         className={styles.logo}
                     />
+
                     <p>© 2025 Dineysos Wine & Dine Events</p>
                 </div>
 

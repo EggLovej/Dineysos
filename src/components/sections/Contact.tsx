@@ -1,5 +1,6 @@
 import styles from "@/styles/sections/Contact.module.css";
 import { useTranslation } from "next-i18next";
+import Image from "next/image";
 
 export default function Contact() {
   const { t } = useTranslation("common");
@@ -29,12 +30,12 @@ export default function Contact() {
             <div className={styles.cards}>
               <ContactCard
                 name="Clint"
-                image="/images/people/clint.png"
+                image="/images/people/clint.webp"
                 phone="078 944 90 95"
               />
               <ContactCard
                 name="Marina"
-                image="/images/people/marina.png"
+                image="/images/people/marina.webp"
                 phone="079 832 24 36"
               />
             </div>
@@ -53,18 +54,24 @@ export default function Contact() {
             </ul>
 
             <div className={styles.logo}>
-              <img src="/images/logo/color.png" alt="Dineysos Logo" />
+              <Image
+                src="/images/logo/color.webp"
+                alt="Dineysos Logo"
+                width={500}
+                height={179}
+                className={styles.logoImage}
+              />
             </div>
 
             <div className={styles.qrCodes}>
               <QRCodeLink
                 href="https://www.instagram.com/dineysos/#"
-                src="/images/icons/qr/instagram.png"
+                src="/images/icons/qr/instagram.webp"
                 alt="Instagram QR"
               />
               <QRCodeLink
                 href="https://www.linkedin.com/company/dineysos/posts/?feedView=all"
-                src="/images/icons/qr/linkedin.png"
+                src="/images/icons/qr/linkedin.webp"
                 alt="LinkedIn QR"
               />
             </div>
@@ -86,7 +93,13 @@ function ContactCard({
 }) {
   return (
     <div className={styles.card}>
-      <img src={image} alt={name} className={styles.cardImage} />
+      <Image
+        src={image}
+        alt={name}
+        width={100}
+        height={100}
+        className={styles.cardImage}
+      />
       <div className={styles.cardInfo}>
         <p>{name}</p>
         <p>
@@ -110,7 +123,13 @@ function QRCodeLink({
 }) {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer">
-      <img src={src} alt={alt} className={styles.qrCode} />
+      <Image
+        src={src}
+        alt={alt}
+        width={100}
+        height={100}
+        className={styles.qrCode}
+      />
     </a>
   );
 }

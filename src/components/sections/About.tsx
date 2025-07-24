@@ -1,5 +1,6 @@
 import styles from "@/styles/sections/About.module.css";
 import { useTranslation } from "next-i18next";
+import Image from "next/image";
 
 export default function About() {
   const { t } = useTranslation("common");
@@ -17,11 +18,13 @@ export default function About() {
           </div>
           <div className={styles.right}>
             <div className="desktop">
-              <img
-                src="/images/large/clint&marina.png"
-                alt="Clint & Marina"
-                className={styles.image}
-              />
+                <Image
+                  src="/images/large/clint&marina.webp"
+                  alt="Clint & Marina"
+                  width={400}
+                  height={258}
+                  className={styles.image}
+                />
               <div className={`${styles.label} ${styles.marina}`}>
                 <p className={styles.name}>Marina</p>
                 <p className={styles.description}>{t("about.marina")}</p>
@@ -39,9 +42,11 @@ export default function About() {
                   <p className={styles.name}>Marina</p>
                 </div>
 
-                <img
-                  src="/images/large/clint&marina.png"
+                <Image
+                  src="/images/large/clint&marina.webp"
                   alt="Clint & Marina"
+                  width={247}
+                  height={283}
                   className={styles.image}
                 />
 
