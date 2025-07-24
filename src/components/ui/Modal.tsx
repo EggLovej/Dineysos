@@ -22,7 +22,7 @@ export default function Modal({ open, onClose, baseName }: ModalProps) {
   const totalImages = 2;
   const imagePath = `/images/large/modal/desktop/${lang}/${baseName}${
     index + 1
-  }.png`;
+  }.webp`;
 
   return (
     <div className={styles.overlay} onClick={onClose}>

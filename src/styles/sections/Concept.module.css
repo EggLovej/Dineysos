@@ -77,20 +77,6 @@
   display: block;
 }
 
-.seperator {
-  gap: 0.5rem;
-  margin: 2rem 0;
-  width: 100%;
-  text-align: center;
-}
-
-.flower {
-  width: clamp(16px, 2vw, 24px);
-  height: clamp(16px, 2vw, 24px);
-  margin: 0;
-  vertical-align: middle;
-}
-
 @media (max-width: 768px) {
   .card {
     flex-direction: column;

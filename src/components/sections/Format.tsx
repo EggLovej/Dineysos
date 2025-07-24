@@ -5,21 +5,22 @@ import {
   FlowersRatingDesktop,
   FlowersRatingMobile,
 } from "@/components/common/Flowers";
+import Image from "next/image";
 
 const formatData = [
   {
     nameKey: "concept.trophy.title",
-    icon: "/images/icons/trophy.png",
+    icon: "/images/icons/trophy.webp",
     flowers: [4, 4, 3, 2, 1],
   },
   {
     nameKey: "concept.classroom.title",
-    icon: "/images/icons/classroom.png",
+    icon: "/images/icons/classroom.webp",
     flowers: [2, 2, 4, 4, 3],
   },
   {
     nameKey: "concept.olympics.title",
-    icon: "/images/icons/olympics.png",
+    icon: "/images/icons/olympics.webp",
     flowers: [3, 2, 3, 3, 4],
   },
 ];
@@ -77,11 +78,13 @@ export default function Format() {
               <div key={n} className={styles.legendRow}>
                 <span className={styles.legendSymbol}>
                   {[...Array(n)].map((_, i) => (
-                    <img
+                    <Image
                       key={i}
-                      src="/images/icons/flower.png"
+                      src="/images/icons/flower.webp"
                       className={helperstyles.flower}
                       alt="Flower"
+                      width={24}
+                      height={24}
                     />
                   ))}
                 </span>
@@ -134,11 +137,13 @@ export default function Format() {
               <div key={n} className={styles.legendRow}>
                 <span className={styles.legendSymbol}>
                   {[...Array(n)].map((_, i) => (
-                    <img
+                    <Image
                       key={i}
-                      src="/images/icons/flower.png"
+                      src="/images/icons/flower.webp"
                       className={helperstyles.flower}
                       alt="Flower"
+                      width={24}
+                      height={24}
                     />
                   ))}
                 </span>

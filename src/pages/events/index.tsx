@@ -67,7 +67,7 @@ export default function EventsPage({ events }: EventsPageProps) {
               <div className={styles.noEvents}>
                 <div className={styles.imageWrapper}>
                   <Image
-                    src="/images/large/empty_events.png"
+                    src="/images/large/empty_events.webp"
                     alt="No events available"
                     fill
                     className={styles.image}

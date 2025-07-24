@@ -2,6 +2,7 @@ import Link from "next/link";
 import router, { useRouter } from "next/router";
 import { useState, useRef, useEffect } from "react";
 import { useTranslation } from 'next-i18next';
+import Image from "next/image";
 
 import styles from "@/styles/layout/Navbar.module.css";
 
@@ -99,7 +100,13 @@ export default function Navbar() {
   return (
     <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
       <Link href="/" locale={locale}>
-        <img src="/images/logo/color.png" alt="Logo" className={styles.logo} />
+        <Image
+          src="/images/logo/color.webp"
+          alt="Logo"
+          className={styles.logo}
+          width={500}
+          height={179}
+        />
       </Link>
 
       <div className={styles.rightControls} ref={menuRef}>
