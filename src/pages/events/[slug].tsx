@@ -37,7 +37,7 @@ export default function EventPage({ event }: EventPageProps) {
   const now = new Date();
   const hasEnded = new Date(event.endDate) < now;
 
-  const schema = {
+  const schema = useMemo(() => ({
     "@context": "https://schema.org",
     "@type": "Event",
     name: event.name,
