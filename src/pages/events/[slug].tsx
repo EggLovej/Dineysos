@@ -9,6 +9,7 @@ import SeoHead from "@/components/layout/Head";
 import { fetchAllEventSlugs, fetchEventBySlug } from "@/lib/api";
 import styles from "@/styles/events/EventPage.module.css";
 import { Event } from "@/types/event";
+import { useMemo } from "react";
 
 type EventPageProps = {
   event: Event;
@@ -34,40 +35,42 @@ export default function EventPage({ event }: EventPageProps) {
   const { t, i18n } = useTranslation("common");
   const locale = i18n.language;
 
-  const now = new Date();
-  const hasEnded = new Date(event.endDate) < now;
+  const schema = useMemo(() => {
+    const now = new Date();
+    const hasEnded = new Date(event.endDate) < now;
 
-  const schema = useMemo(() => ({
-    "@context": "https://schema.org",
-    "@type": "Event",
-    name: event.name,
-    startDate: event.startDate,
-    endDate: event.endDate,
-    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-    ...(hasEnded
-      ? {}
-      : {
-          eventStatus: "https://schema.org/EventScheduled",
-        }),
-    location: {
-      "@type": "Place",
-      name: event.locationDetails.name,
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: event.locationDetails.street,
-        addressLocality: event.locationDetails.city,
-        postalCode: event.locationDetails.zip,
-        addressCountry: "CH",
+    return {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      name: event.name,
+      startDate: event.startDate,
+      endDate: event.endDate,
+      eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+      ...(hasEnded
+        ? {}
+        : {
+            eventStatus: "https://schema.org/EventScheduled",
+          }),
+      location: {
+        "@type": "Place",
+        name: event.locationDetails.name,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: event.locationDetails.street,
+          addressLocality: event.locationDetails.city,
+          postalCode: event.locationDetails.zip,
+          addressCountry: "CH",
+        },
       },
-    },
-    image: [event.coverImageUrl],
-    organizer: {
-      "@type": "Organization",
-      name: "Dineysos",
-      url: "https://dineysos.com",
-    },
-    description: event.descriptionParagraphs?.[locale as "de" | "en"]?.[0] ?? "Dineysos Event",
-  };
+      image: [event.coverImageUrl],
+      organizer: {
+        "@type": "Organization",
+        name: "Dineysos",
+        url: "https://dineysos.com",
+      },
+      description: event.descriptionParagraphs?.[locale as "de" | "en"]?.[0] ?? "Dineysos Event",
+    };
+  }, [event, locale]);
 
   const priceSection = event.priceInfo?.specialPrice ? (
     <>
