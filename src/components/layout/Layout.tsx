@@ -1,11 +1,12 @@
-import Navbar from "./Navbar";
-import Footer from "./Footer";
 import { Cormorant } from "next/font/google";
 
+import Footer from "./Footer";
+import Navbar from "./Navbar";
+
 const cormorant = Cormorant({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  display: 'swap',
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
 });
 
 export default function Layout({ children }: { children: React.ReactNode }) {

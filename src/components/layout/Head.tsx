@@ -22,43 +22,35 @@ export default function SeoHead({
   return (
     <Head>
       <title>{localizedTitle}</title>
-      <meta name="description" content={localizedDescription} />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta content={localizedDescription} name="description" />
+      <meta content="width=device-width, initial-scale=1" name="viewport" />
       <meta charSet="utf-8" />
-      <meta httpEquiv="Content-Language" content={locale} />
-      <link rel="icon" href="/favicon.ico" />
+      <meta content={locale} httpEquiv="Content-Language" />
+      <link href="/favicon.ico" rel="icon" />
 
       {/* SEO Indexing */}
-      <meta name="robots" content="index, follow" />
+      <meta content="index, follow" name="robots" />
 
       {/* Open Graph */}
-      <meta property="og:type" content="website" />
-      <meta property="og:title" content={localizedTitle} />
-      <meta property="og:description" content={localizedDescription} />
-      <meta property="og:image" content={imageUrl} />
-      <meta property="og:url" content={url} />
-      <meta property="og:site_name" content="Dineysos" />
+      <meta content="website" property="og:type" />
+      <meta content={localizedTitle} property="og:title" />
+      <meta content={localizedDescription} property="og:description" />
+      <meta content={imageUrl} property="og:image" />
+      <meta content={url} property="og:url" />
+      <meta content="Dineysos" property="og:site_name" />
 
       {/* Twitter */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={localizedTitle} />
-      <meta name="twitter:description" content={localizedDescription} />
-      <meta name="twitter:image" content={imageUrl} />
+      <meta content="summary_large_image" name="twitter:card" />
+      <meta content={localizedTitle} name="twitter:title" />
+      <meta content={localizedDescription} name="twitter:description" />
+      <meta content={imageUrl} name="twitter:image" />
 
       {/* Canonical */}
-      <link rel="canonical" href={url} />
+      <link href={url} rel="canonical" />
 
       {/* Hreflang for i18n */}
-      <link
-        rel="alternate"
-        hrefLang="de"
-        href={`https://dineysos.com/de${asPath}`}
-      />
-      <link
-        rel="alternate"
-        hrefLang="en"
-        href={`https://dineysos.com/en${asPath}`}
-      />
+      <link href={`https://dineysos.com/de${asPath}`} hrefLang="de" rel="alternate" />
+      <link href={`https://dineysos.com/en${asPath}`} hrefLang="en" rel="alternate" />
     </Head>
   );
 }

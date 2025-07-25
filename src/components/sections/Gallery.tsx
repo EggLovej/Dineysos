@@ -1,14 +1,14 @@
-import styles from "@/styles/sections/Gallery.module.css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
+import { useState, useEffect } from "react";
 import { Lightbox, SlideImage } from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
-import { useState, useEffect } from "react";
+import styles from "@/styles/sections/Gallery.module.css";
 import { GalleryImage } from "@/types/galleryImage";
-import { useTranslation } from "next-i18next";
-import { useRouter } from "next/router";
 
 type GalleryProps = {
   images: GalleryImage[];
@@ -81,14 +81,11 @@ export default function Gallery({ images }: GalleryProps) {
                   }}
                 >
                   <Image
-                    src={img.imageUrl}
-                    alt={
-                      img.description?.[locale as "de" | "en"] ??
-                      "Gallery Image"
-                    }
-                    width={(img.width / img.height) * baseHeight}
+                    alt={img.description?.[locale as "de" | "en"] ?? "Gallery Image"}
                     height={baseHeight}
+                    src={img.imageUrl}
                     style={{ objectFit: "contain" }}
+                    width={(img.width / img.height) * baseHeight}
                   />
                 </div>
               </SplideSlide>
@@ -99,29 +96,19 @@ export default function Gallery({ images }: GalleryProps) {
         </div>
 
         <Lightbox
-          open={index >= 0}
-          index={index}
           close={() => setIndex(-1)}
-          styles={{
-            container: { backgroundColor: "rgba(50, 50, 50, 0.85)" },
-          }}
           controller={{ closeOnBackdropClick: true }}
-          slides={
-            images.map((img) => ({
-              src: img.imageUrl,
-              alt: img.description?.[locale as "de" | "en"] ?? "",
-              description: img.description?.[locale as "de" | "en"] ?? "",
-            })) as CustomSlide[]
-          }
+          index={index}
+          open={index >= 0}
           render={{
             slide: ({ slide }) => {
               const customSlide = slide as CustomSlide;
               return (
                 <div className={styles.lightboxSlide}>
                   <img
-                    src={customSlide.src}
                     alt={customSlide.alt}
                     className={styles.lightboxImage}
+                    src={customSlide.src}
                   />
                   {customSlide.description && (
                     <div className={styles.lightboxDescription}>
@@ -131,6 +118,16 @@ export default function Gallery({ images }: GalleryProps) {
                 </div>
               );
             },
+          }}
+          slides={
+            images.map((img) => ({
+              src: img.imageUrl,
+              alt: img.description?.[locale as "de" | "en"] ?? "",
+              description: img.description?.[locale as "de" | "en"] ?? "",
+            })) as CustomSlide[]
+          }
+          styles={{
+            container: { backgroundColor: "rgba(50, 50, 50, 0.85)" },
           }}
         />
       </div>

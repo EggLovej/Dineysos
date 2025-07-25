@@ -1,5 +1,6 @@
-import styles from "@/styles/sections/Pricing.module.css";
 import { useTranslation } from "next-i18next";
+
+import styles from "@/styles/sections/Pricing.module.css";
 
 const participants = [
   {
@@ -85,9 +86,7 @@ export default function Pricing() {
                   <td>
                     <strong>{t(item.labelKey)}</strong>
                     <br />
-                    {item.descriptionKey && (
-                      <small>{t(item.descriptionKey)}</small>
-                    )}
+                    {item.descriptionKey && <small>{t(item.descriptionKey)}</small>}
                   </td>
                   {item.prices.map((price, i) => (
                     <td key={i}>
@@ -119,22 +118,16 @@ export default function Pricing() {
               <div className={styles.accordionContent}>
                 {pricingData.map((item, j) => (
                   <div key={j} className={styles.priceRow}>
-                    <span className={styles.priceLabel}>
-                      {t(item.labelKey)}:
-                    </span>
+                    <span className={styles.priceLabel}>{t(item.labelKey)}:</span>
                     <span className={styles.priceDots}></span>
                     <span className={styles.priceValue}>
                       {item.prices[idx] === "onRequest" ? (
                         t("pricing.table.onRequest")
                       ) : (
                         <p className={styles.priceBlock}>
-                          <span className={styles.priceAmount}>
-                            {item.prices[idx]}
-                          </span>
+                          <span className={styles.priceAmount}>{item.prices[idx]}</span>
                           {item.per && (
-                            <small className={styles.priceAnnotation}>
-                              {t(item.per)}
-                            </small>
+                            <small className={styles.priceAnnotation}>{t(item.per)}</small>
                           )}
                         </p>
                       )}

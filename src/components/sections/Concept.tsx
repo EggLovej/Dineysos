@@ -1,10 +1,11 @@
-import styles from "@/styles/sections/Concept.module.css";
-import { useTranslation } from "next-i18next";
-import GlassesRating from "@/components/common/Glasses";
-import { useState } from "react";
-import Modal from "@/components/ui/Modal";
-import { FlowerSeparator } from "@/components/common/Flowers";
 import Image from "next/image";
+import { useTranslation } from "next-i18next";
+import { useState } from "react";
+
+import { FlowerSeparator } from "@/components/common/Flowers";
+import GlassesRating from "@/components/common/Glasses";
+import Modal from "@/components/ui/Modal";
+import styles from "@/styles/sections/Concept.module.css";
 
 export default function Concepts() {
   const { t } = useTranslation("common");
@@ -19,12 +20,7 @@ export default function Concepts() {
         <div className={styles.grid}>
           <div className={styles.card}>
             <div className={styles.image}>
-              <Image
-                src="/images/icons/trophy.webp"
-                alt="Trophy"
-                width={240}
-                height={246}
-              />
+              <Image alt="Trophy" height={246} src="/images/icons/trophy.webp" width={240} />
             </div>
             <div className={styles.description}>
               <h3>{t("concept.trophy.title")}</h3>
@@ -63,12 +59,7 @@ export default function Concepts() {
 
           <div className={styles.card}>
             <div className={styles.image}>
-              <Image
-                src="/images/icons/classroom.webp"
-                alt="Classroom"
-                width={240}
-                height={195}
-              />
+              <Image alt="Classroom" height={195} src="/images/icons/classroom.webp" width={240} />
             </div>
             <div className={styles.description}>
               <h3>{t("concept.classroom.title")}</h3>
@@ -107,12 +98,7 @@ export default function Concepts() {
 
           <div className={styles.card}>
             <div className={styles.image}>
-              <Image
-                src="/images/icons/olympics.webp"
-                alt="Trophy"
-                width={240}
-                height={180}
-              />
+              <Image alt="Trophy" height={180} src="/images/icons/olympics.webp" width={240} />
             </div>
             <div className={styles.description}>
               <h3>{t("concept.olympics.title")}</h3>
@@ -151,11 +137,7 @@ export default function Concepts() {
         </div>
       </div>
 
-      <Modal
-        open={modalOpen}
-        onClose={() => setModalOpen(false)}
-        baseName={modalImageBase}
-      />
+      <Modal baseName={modalImageBase} open={modalOpen} onClose={() => setModalOpen(false)} />
     </section>
   );
 }

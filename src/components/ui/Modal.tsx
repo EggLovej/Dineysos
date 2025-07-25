@@ -1,5 +1,7 @@
-import { useState, useEffect } from "react";
+import Image from "next/image";
 import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
+
 import styles from "@/styles/ui/Modal.module.css";
 
 type ModalProps = {
@@ -20,33 +22,27 @@ export default function Modal({ open, onClose, baseName }: ModalProps) {
   if (!open) return null;
 
   const totalImages = 2;
-  const imagePath = `/images/large/modal/desktop/${lang}/${baseName}${
-    index + 1
-  }.webp`;
+  const imagePath = `/images/large/modal/desktop/${lang}/${baseName}${index + 1}.webp`;
 
   return (
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-        <img
-          src={imagePath}
+        <Image
           alt={`Modal ${baseName} ${index + 1}`}
           className={styles.image}
+          height={1414}
+          src={imagePath}
+          width={2000}
         />
 
         {/* Navigation Arrows */}
         {index > 0 && (
-          <button
-            className={`${styles.arrow} ${styles.left}`}
-            onClick={() => setIndex(index - 1)}
-          >
+          <button className={`${styles.arrow} ${styles.left}`} onClick={() => setIndex(index - 1)}>
             ◀
           </button>
         )}
         {index < totalImages - 1 && (
-          <button
-            className={`${styles.arrow} ${styles.right}`}
-            onClick={() => setIndex(index + 1)}
-          >
+          <button className={`${styles.arrow} ${styles.right}`} onClick={() => setIndex(index + 1)}>
             ▶
           </button>
         )}
@@ -54,10 +50,7 @@ export default function Modal({ open, onClose, baseName }: ModalProps) {
         {/* Dot Indicator */}
         <div className={styles.dots}>
           {Array.from({ length: totalImages }).map((_, i) => (
-            <span
-              key={i}
-              className={i === index ? styles.activeDot : styles.dot}
-            />
+            <span key={i} className={i === index ? styles.activeDot : styles.dot} />
           ))}
         </div>
       </div>

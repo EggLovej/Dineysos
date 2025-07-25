@@ -1,5 +1,6 @@
-import styles from "@/styles/Helper.module.css";
 import Image from "next/image";
+
+import styles from "@/styles/Helper.module.css";
 
 type FlowersRatingProps = {
   count: number;
@@ -11,11 +12,11 @@ export function FlowersRatingDesktop({ count }: FlowersRatingProps) {
       {Array.from({ length: count }, (_, i) => (
         <Image
           key={i}
-          src="/images/icons/flower.webp"
           alt="Flower icon"
-          width={24}
-          height={24}
           className={styles.flower}
+          height={24}
+          src="/images/icons/flower.webp"
+          width={24}
         />
       ))}
     </span>
@@ -28,11 +29,11 @@ export function FlowersRatingMobile({ count }: FlowersRatingProps) {
       {Array.from({ length: count }, (_, i) => (
         <Image
           key={i}
-          src="/images/icons/flower.webp"
           alt="Flower icon"
-          width={16}
-          height={16}
           className={styles.flower}
+          height={16}
+          src="/images/icons/flower.webp"
+          width={16}
         />
       ))}
     </span>
@@ -43,13 +44,13 @@ export function FlowerSeparator({ count = 3, className = "" }) {
   return (
     <div className={`${styles.separator} ${className}`}>
       {Array.from({ length: count }).map((_, i) => (
-        <img
+        <Image
           key={i}
-          src="/images/icons/flower.webp"
-          width={16}
-          height={16}
           alt="Flower"
           className={styles.flower}
+          height={16}
+          src="/images/icons/flower.webp"
+          width={16}
         />
       ))}
     </div>
