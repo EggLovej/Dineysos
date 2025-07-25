@@ -36,8 +36,8 @@ export default function Hero() {
               priority
               alt="Hero"
               className={styles.image}
-              height={isMobile ? 480 : 353}
-              width={isMobile ? 350 : 1148}
+              height={isMobile ? 480 : 492}
+              width={isMobile ? 350 : 1600}
               src={
                 isMobile ? "/images/large/hero_vertical.webp" : "/images/large/hero_horizontal.webp"
               }
