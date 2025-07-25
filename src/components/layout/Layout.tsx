@@ -11,9 +11,9 @@ const cormorant = Cormorant({
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className={cormorant.className}>
+    <div className={`layout ${cormorant.className}`}>
       <Navbar />
-      <main>{children}</main>
+      <main className="main-content">{children}</main>
       <Footer />
     </div>
   );
