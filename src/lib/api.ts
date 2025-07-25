@@ -43,7 +43,7 @@ export async function fetchUpcomingEvents(): Promise<Event[]> {
     if (err instanceof Error) {
       throw new Error(`fetchUpcomingEvents failed: ${err.message}`);
     }
-    throw new Error('fetchUpcomingEvents failed with unknown error');
+    throw new Error("fetchUpcomingEvents failed with unknown error");
   }
 }
 
@@ -55,12 +55,12 @@ export async function fetchPastEvents(): Promise<Event[]> {
     if (err instanceof Error) {
       throw new Error(`fetchPastEvents failed: ${err.message}`);
     }
-    throw new Error('fetchPastEvents failed with unknown error');
+    throw new Error("fetchPastEvents failed with unknown error");
   }
 }
 
 export async function fetchAllEventSlugs(): Promise<string[]> {
-  const query = `*[_type == "event"]{ "slug": slug.current }`;
+  const query = '*[_type == "event"]{ "slug": slug.current }';
   const data = await client.fetch(query);
   return data.map((e: { slug: string }) => e.slug);
 }

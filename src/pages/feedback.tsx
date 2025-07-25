@@ -1,10 +1,11 @@
-import { useState } from "react";
-import styles from "@/styles/Feedback.module.css";
+import { GetStaticPropsContext } from "next";
 import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useState } from "react";
+
 import SeoHead from "@/components/layout/Head";
 import { seoConfig } from "@/config/seo";
-import { GetStaticPropsContext } from "next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import styles from "@/styles/Feedback.module.css";
 
 export default function FeedbackPage() {
   const { t } = useTranslation("common");
@@ -27,10 +28,7 @@ export default function FeedbackPage() {
   if (submitted)
     return (
       <>
-        <SeoHead
-          title={seoConfig.feedback.title}
-          description={seoConfig.feedback.description}
-        />
+        <SeoHead description={seoConfig.feedback.description} title={seoConfig.feedback.title} />
         <div className="base-container">
           <div className={styles.page}>
             <p>Thank you for your feedback!</p>
@@ -42,39 +40,36 @@ export default function FeedbackPage() {
 
   return (
     <>
-      <SeoHead
-        title={seoConfig.feedback.title}
-        description={seoConfig.feedback.description}
-      />
+      <SeoHead description={seoConfig.feedback.description} title={seoConfig.feedback.title} />
       <div className="base-container">
         <div className={styles.page}>
           <h2>{t("feedback.title")}</h2>
           <p>{t("feedback.description")}</p>
-          <form onSubmit={handleSubmit} className={styles.form}>
+          <form className={styles.form} onSubmit={handleSubmit}>
             <div className={styles.stars}>
               {[1, 2, 3, 4, 5].map((star) => (
                 <button
-                  type="button"
                   key={star}
-                  onClick={() => setRating(star)}
-                  onMouseEnter={() => setHover(star)}
-                  onMouseLeave={() => setHover(null)}
                   className={styles.starButton}
+                  type="button"
                   style={{
                     color: (hover ?? rating) >= star ? "var(--orange)" : "var(--blue)",
                   }}
+                  onClick={() => setRating(star)}
+                  onMouseEnter={() => setHover(star)}
+                  onMouseLeave={() => setHover(null)}
                 >
                   ★
                 </button>
               ))}
             </div>
             <textarea
+              className={styles.textarea}
               placeholder={t("feedback.commentPlaceholder")}
               value={comment}
               onChange={(e) => setComment(e.target.value)}
-              className={styles.textarea}
             />
-            <button type="submit" className={styles.submitButton} disabled={rating === 0}>
+            <button className={styles.submitButton} disabled={rating === 0} type="submit">
               {t("feedback.submitButton")}
             </button>
           </form>

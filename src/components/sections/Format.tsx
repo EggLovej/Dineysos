@@ -1,11 +1,9 @@
-import styles from "@/styles/sections/Format.module.css";
-import helperstyles from "@/styles/Helper.module.css";
-import { useTranslation } from "next-i18next";
-import {
-  FlowersRatingDesktop,
-  FlowersRatingMobile,
-} from "@/components/common/Flowers";
 import Image from "next/image";
+import { useTranslation } from "next-i18next";
+
+import { FlowersRatingDesktop, FlowersRatingMobile } from "@/components/common/Flowers";
+import helperstyles from "@/styles/Helper.module.css";
+import styles from "@/styles/sections/Format.module.css";
 
 const formatData = [
   {
@@ -80,11 +78,11 @@ export default function Format() {
                   {[...Array(n)].map((_, i) => (
                     <Image
                       key={i}
-                      src="/images/icons/flower.webp"
-                      className={helperstyles.flower}
                       alt="Flower"
-                      width={24}
+                      className={helperstyles.flower}
                       height={24}
+                      src="/images/icons/flower.webp"
+                      width={24}
                     />
                   ))}
                 </span>
@@ -103,14 +101,14 @@ export default function Format() {
             <details key={i} className={styles.accordionItem}>
               <summary className={styles.accordionHeader}>
                 <div className={styles.accordionHeaderLeft}>
-                  <img
-                    src={entry.icon}
-                    className={styles.accordionIcon}
+                  <Image
                     alt={t(entry.nameKey) || "Concept icon"}
+                    className={styles.accordionIcon}
+                    height={36}
+                    src={entry.icon}
+                    width={36}
                   />
-                  <span className={styles.accordionTitle}>
-                    {t(entry.nameKey)}
-                  </span>
+                  <span className={styles.accordionTitle}>{t(entry.nameKey)}</span>
                 </div>
                 <span className={styles.accordionArrow}>&#9660;</span>
               </summary>
@@ -118,14 +116,9 @@ export default function Format() {
                 {entry.flowers.map((count, j) => (
                   <p
                     key={j}
-                    className={
-                      j % 2 === 0
-                        ? styles.accordionBright
-                        : styles.accordionDark
-                    }
+                    className={j % 2 === 0 ? styles.accordionBright : styles.accordionDark}
                   >
-                    <strong>{t(tableCols[j])}</strong>{" "}
-                    <FlowersRatingMobile count={count} />
+                    <strong>{t(tableCols[j])}</strong> <FlowersRatingMobile count={count} />
                   </p>
                 ))}
               </div>
@@ -139,17 +132,15 @@ export default function Format() {
                   {[...Array(n)].map((_, i) => (
                     <Image
                       key={i}
-                      src="/images/icons/flower.webp"
-                      className={helperstyles.flower}
                       alt="Flower"
-                      width={24}
+                      className={helperstyles.flower}
                       height={24}
+                      src="/images/icons/flower.webp"
+                      width={24}
                     />
                   ))}
                 </span>
-                <span className={styles.legendText}>
-                  {t(`format.legend.${legendKeys[n - 1]}`)}
-                </span>
+                <span className={styles.legendText}>{t(`format.legend.${legendKeys[n - 1]}`)}</span>
               </div>
             ))}
           </div>

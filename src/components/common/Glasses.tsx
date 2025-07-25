@@ -1,5 +1,6 @@
-import styles from "@/styles/Helper.module.css";
 import Image from "next/image";
+
+import styles from "@/styles/Helper.module.css";
 
 type GlassesRatingProps = {
   count: number;
@@ -11,11 +12,11 @@ export default function GlassesRating({ count }: GlassesRatingProps) {
       {Array.from({ length: count }, (_, i) => (
         <Image
           key={i}
-          src="/images/icons/glass.webp"
           alt="Glass icon"
-          width={13}
-          height={24}
           className={styles.glass}
+          height={24}
+          src="/images/icons/glass.webp"
+          width={13}
         />
       ))}
     </div>

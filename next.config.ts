@@ -1,5 +1,6 @@
-import nextI18NextConfig from './next-i18next.config.js';
-import type { NextConfig } from 'next';
+import type { NextConfig } from "next";
+
+import nextI18NextConfig from "./next-i18next.config.js";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -7,9 +8,9 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'cdn.sanity.io',
-        pathname: '/images/**',
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+        pathname: "/images/**",
       },
     ],
   },

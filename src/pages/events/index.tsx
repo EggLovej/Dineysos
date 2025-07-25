@@ -1,15 +1,15 @@
-import { fetchUpcomingEvents } from "@/lib/api";
-import { Event } from "@/types/event";
-import Image from "next/image";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticPropsContext } from "next";
-import { useTranslation } from "next-i18next";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-import styles from "@/styles/events/Events.module.css";
 import SeoHead from "@/components/layout/Head";
 import { seoConfig } from "@/config/seo";
+import { fetchUpcomingEvents } from "@/lib/api";
+import styles from "@/styles/events/Events.module.css";
+import { Event } from "@/types/event";
 
 type EventsPageProps = {
   events: Event[];
@@ -22,8 +22,8 @@ export default function EventsPage({ events }: EventsPageProps) {
   return (
     <>
       <SeoHead
-        title={seoConfig.upcomingEvents.title}
         description={seoConfig.upcomingEvents.description}
+        title={seoConfig.upcomingEvents.title}
       />
       <div className={styles.page}>
         <div className="base-container">
@@ -33,31 +33,25 @@ export default function EventsPage({ events }: EventsPageProps) {
               events.map((event) => (
                 <Link
                   key={event._id}
+                  className={styles.card}
                   href={`/events/${event.slug.current}`}
                   locale={locale}
-                  className={styles.card}
                 >
                   <Image
-                    className={styles.coverImage}
-                    src={event.coverImageUrl}
-                    alt={event.name}
-                    width={300}
-                    height={200}
                     priority
+                    alt={event.name}
+                    className={styles.coverImage}
+                    height={200}
+                    src={event.coverImageUrl}
+                    width={300}
                   />
                   <div className={styles.details}>
                     <div className={styles.title}>
                       <h4>{event.name}</h4>
-                      <p>
-                        {event.subtitle
-                          ? event.subtitle[locale as "de" | "en"]
-                          : ""}
-                      </p>
+                      <p>{event.subtitle ? event.subtitle[locale as "de" | "en"] : ""}</p>
                     </div>
                     <div className={styles.info}>
-                      <p>
-                        {new Date(event.startDate).toLocaleDateString("de-CH")}
-                      </p>
+                      <p>{new Date(event.startDate).toLocaleDateString("de-CH")}</p>
                       <p>{event.locationDetails.city}</p>
                     </div>
                   </div>
@@ -67,10 +61,10 @@ export default function EventsPage({ events }: EventsPageProps) {
               <div className={styles.noEvents}>
                 <div className={styles.imageWrapper}>
                   <Image
-                    src="/images/large/empty_events.webp"
-                    alt="No events available"
                     fill
+                    alt="No events available"
                     className={styles.image}
+                    src="/images/large/empty_events.webp"
                   />
                 </div>
               </div>

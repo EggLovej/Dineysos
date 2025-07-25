@@ -1,7 +1,7 @@
-import styles from "@/styles/sections/Hero.module.css";
 import Image from "next/image";
-
 import { useEffect, useState } from "react";
+
+import styles from "@/styles/sections/Hero.module.css";
 
 function useIsMobile(breakpoint = 768) {
   const [isMobile, setIsMobile] = useState(false);
@@ -17,32 +17,30 @@ function useIsMobile(breakpoint = 768) {
 }
 
 export default function Hero() {
-    const isMobile = useIsMobile();
+  const isMobile = useIsMobile();
 
   return (
     <section className={styles.hero} id="hero">
       <div className="base-container">
         <div className={styles.content}>
           <Image
-            src="/images/logo/color.webp"
             alt="Dineysos Logo"
-            width={500}
-            height={179}
             className={styles.logo}
+            height={179}
+            src="/images/logo/color.webp"
+            width={500}
           />
 
           <div className={styles.imageWrapper}>
             <Image
-              src={
-                isMobile
-                  ? "/images/large/hero_vertical.webp"
-                  : "/images/large/hero_horizontal.webp"
-              }
-              alt="Hero"
-              width={isMobile ? 350 : 1148}
-              height={isMobile ? 480 : 353}
-              className={styles.image}
               priority
+              alt="Hero"
+              className={styles.image}
+              height={isMobile ? 480 : 492}
+              width={isMobile ? 350 : 1600}
+              src={
+                isMobile ? "/images/large/hero_vertical.webp" : "/images/large/hero_horizontal.webp"
+              }
             />
           </div>
           <h1>WINES, GAMES, EVENTS</h1>

@@ -1,8 +1,10 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { Resend } from "resend";
-import { supabase } from "@/lib/supabaseClient";
 import fs from "fs";
 import path from "path";
+
+import { NextApiRequest, NextApiResponse } from "next";
+import { Resend } from "resend";
+
+import { supabase } from "@/lib/supabaseClient";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -29,23 +31,15 @@ const EMAIL_CONTENT = {
   },
 };
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") return res.status(405).end();
 
   const { id } = req.body;
   if (!id) return res.status(400).json({ error: "Missing id" });
 
-  const { data, error } = await supabase
-    .from("emails")
-    .select("*")
-    .eq("id", id)
-    .single();
+  const { data, error } = await supabase.from("emails").select("*").eq("id", id).single();
 
-  if (error || !data)
-    return res.status(404).json({ error: "Email record not found" });
+  if (error || !data) return res.status(404).json({ error: "Email record not found" });
 
   try {
     const lang = data.language === "de" ? "de" : "en";

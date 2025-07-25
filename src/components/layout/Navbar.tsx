@@ -1,8 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import router, { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 import { useState, useRef, useEffect } from "react";
-import { useTranslation } from 'next-i18next';
-import Image from "next/image";
 
 import styles from "@/styles/layout/Navbar.module.css";
 
@@ -46,7 +46,7 @@ export default function Navbar() {
     { href: "/#pricing", label: t("nav.pricing") },
     { href: "/#brochure", label: t("nav.brochure") },
     { href: "/#contact", label: t("nav.contact") },
-  //  { href: "/feedback", label: t("nav.feedback") },
+    //  { href: "/feedback", label: t("nav.feedback") },
   ];
 
   // Combined useEffect to handle:
@@ -72,8 +72,6 @@ export default function Navbar() {
       },
       { threshold: 0.5, rootMargin: "-65px 0px 0px 0px" }
     );
-
-    
 
     sections.forEach((section) => observer.observe(section));
 
@@ -101,20 +99,20 @@ export default function Navbar() {
     <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
       <Link href="/" locale={locale}>
         <Image
-          src="/images/logo/color.webp"
           alt="Logo"
           className={styles.logo}
-          width={500}
           height={179}
+          src="/images/logo/color.webp"
+          width={500}
         />
       </Link>
 
       <div className={styles.rightControls} ref={menuRef}>
         {/* Burger Menu Toggle */}
         <button
+          aria-label="Toggle menu"
           className={styles.menuToggle}
           onClick={() => setMenuOpen((prev) => !prev)}
-          aria-label="Toggle menu"
         >
           ☰
         </button>
@@ -124,9 +122,9 @@ export default function Navbar() {
           {navItems.map(({ href, label }) => (
             <Link
               key={href}
+              className={`${styles.link} ${activeSection === href.slice(2) ? styles.activeLink : ""}`}
               href={href}
               locale={locale}
-              className={`${styles.link} ${activeSection === href.slice(2) ? styles.activeLink : ""}`}
               onClick={() => {
                 setMenuOpen(false);
                 setLangOpen(false);
@@ -139,20 +137,13 @@ export default function Navbar() {
 
         {/* Language Switcher */}
         <div className={styles.langWrapper} ref={langRef}>
-          <button
-            className={styles.langToggle}
-            onClick={() => setLangOpen((prev) => !prev)}
-          >
+          <button className={styles.langToggle} onClick={() => setLangOpen((prev) => !prev)}>
             {locale?.toUpperCase()}
           </button>
           {langOpen && (
             <div className={styles.langMenu}>
               {["de", "en"].map((lang) => (
-                <button
-                  key={lang}
-                  className={styles.langOption}
-                  onClick={() => switchLocale(lang)}
-                >
+                <button key={lang} className={styles.langOption} onClick={() => switchLocale(lang)}>
                   {lang.toUpperCase()}
                 </button>
               ))}

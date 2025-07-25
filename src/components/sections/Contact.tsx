@@ -1,6 +1,7 @@
-import styles from "@/styles/sections/Contact.module.css";
-import { useTranslation } from "next-i18next";
 import Image from "next/image";
+import { useTranslation } from "next-i18next";
+
+import styles from "@/styles/sections/Contact.module.css";
 
 export default function Contact() {
   const { t } = useTranslation("common");
@@ -16,11 +17,7 @@ export default function Contact() {
               <p>{t("contact.left.message1")}</p>
               <p>{t("contact.left.message2")}</p>
               <p>
-                <a
-                  href="mailto:info@dineysos.com"
-                  className={styles.email}
-                  data-track="email"
-                >
+                <a className={styles.email} data-track="email" href="mailto:info@dineysos.com">
                   info@dineysos.com
                 </a>
               </p>
@@ -28,16 +25,8 @@ export default function Contact() {
             </div>
 
             <div className={styles.cards}>
-              <ContactCard
-                name="Clint"
-                image="/images/people/clint.webp"
-                phone="078 944 90 95"
-              />
-              <ContactCard
-                name="Marina"
-                image="/images/people/marina.webp"
-                phone="079 832 24 36"
-              />
+              <ContactCard image="/images/people/clint.webp" name="Clint" phone="078 944 90 95" />
+              <ContactCard image="/images/people/marina.webp" name="Marina" phone="079 832 24 36" />
             </div>
           </div>
 
@@ -55,24 +44,24 @@ export default function Contact() {
 
             <div className={styles.logo}>
               <Image
-                src="/images/logo/color.webp"
                 alt="Dineysos Logo"
-                width={500}
-                height={179}
                 className={styles.logoImage}
+                height={179}
+                src="/images/logo/color.webp"
+                width={500}
               />
             </div>
 
             <div className={styles.qrCodes}>
               <QRCodeLink
+                alt="Instagram QR"
                 href="https://www.instagram.com/dineysos/#"
                 src="/images/icons/qr/instagram.webp"
-                alt="Instagram QR"
               />
               <QRCodeLink
+                alt="LinkedIn QR"
                 href="https://www.linkedin.com/company/dineysos/posts/?feedView=all"
                 src="/images/icons/qr/linkedin.webp"
-                alt="LinkedIn QR"
               />
             </div>
           </div>
@@ -82,24 +71,10 @@ export default function Contact() {
   );
 }
 
-function ContactCard({
-  name,
-  image,
-  phone,
-}: {
-  name: string;
-  image: string;
-  phone: string;
-}) {
+function ContactCard({ name, image, phone }: { name: string; image: string; phone: string }) {
   return (
     <div className={styles.card}>
-      <Image
-        src={image}
-        alt={name}
-        width={100}
-        height={100}
-        className={styles.cardImage}
-      />
+      <Image alt={name} className={styles.cardImage} height={100} src={image} width={100} />
       <div className={styles.cardInfo}>
         <p>{name}</p>
         <p>
@@ -112,24 +87,10 @@ function ContactCard({
   );
 }
 
-function QRCodeLink({
-  href,
-  src,
-  alt,
-}: {
-  href: string;
-  src: string;
-  alt: string;
-}) {
+function QRCodeLink({ href, src, alt }: { href: string; src: string; alt: string }) {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer">
-      <Image
-        src={src}
-        alt={alt}
-        width={100}
-        height={100}
-        className={styles.qrCode}
-      />
+    <a href={href} rel="noopener noreferrer" target="_blank">
+      <Image alt={alt} className={styles.qrCode} height={100} src={src} width={100} />
     </a>
   );
 }
