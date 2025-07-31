@@ -131,5 +131,10 @@
     "thankYou": "Thank you for your feedback!",
     "commentPlaceholder": "Additional comments...",
     "submitButton": "Submit"
+  },
+  "404": {
+    "title": "Page Not Found",
+    "description": "The page you are looking for does not exist.",
+    "backToHome": "Back to Home"
   }
 }

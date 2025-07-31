@@ -39,4 +39,14 @@ export const seoConfig = {
       en: "Give us feedback on your experience.",
     },
   },
+  notFound: {
+    title: {
+      de: "Dineysos – Seite nicht gefunden",
+      en: "Dineysos – Page Not Found",
+    },
+    description: {
+      de: "Diese Seite konnte nicht gefunden werden.",
+      en: "The requested page could not be found.",
+    },
+  },
 };
