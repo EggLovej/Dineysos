@@ -39,10 +39,15 @@ export default function Modal({ isMobile, open, onClose, baseName }: ModalProps)
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={0.2}
+            style={{ touchAction: "pan-y pinch-zoom" }}
             onDragEnd={(e, info) => {
-              if (info.offset.x < -100 && index < totalImages - 1) {
+              const velocity = info.velocity.x;
+              const offset = info.offset.x;
+
+              // Require both sufficient offset and speed
+              if (offset < -100 && velocity < -100 && index < totalImages - 1) {
                 setIndex(index + 1);
-              } else if (info.offset.x > 100 && index > 0) {
+              } else if (offset > 100 && velocity > 100 && index > 0) {
                 setIndex(index - 1);
               }
             }}
@@ -70,12 +75,18 @@ export default function Modal({ isMobile, open, onClose, baseName }: ModalProps)
 
             {/* Navigation Arrows */}
             {index > 0 && (
-              <button className={`${styles.arrow} ${styles.left}`} onClick={() => setIndex(index - 1)}>
+              <button
+                className={`${styles.arrow} ${styles.left}`}
+                onClick={() => setIndex(index - 1)}
+              >
                 ◀
               </button>
             )}
             {index < totalImages - 1 && (
-              <button className={`${styles.arrow} ${styles.right}`} onClick={() => setIndex(index + 1)}>
+              <button
+                className={`${styles.arrow} ${styles.right}`}
+                onClick={() => setIndex(index + 1)}
+              >
                 ▶
               </button>
             )}
