@@ -73,7 +73,7 @@
 
 .imageWrapper {
   position: relative;
-  height: 80vw;
+  height: 80vh;
   aspect-ratio: 2000 / 1414;
   margin: 0 auto;
   max-width: 95vw;
@@ -127,8 +127,10 @@
   }
 
   .imageWrapper {
-    aspect-ratio: 1414 / 2000; /* Adjusted for mobile aspect ratio */
-    height: 120vw;
+    aspect-ratio: 1414 / 2000;
+    height: 60vh;
+    max-height: calc(85vw * 2000 / 1414);
+    max-width: 85vw;
   }
 
   .closeButton {
