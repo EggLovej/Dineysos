@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { FlowerSeparator } from "@/components/common/Flowers";
 import GlassesRating from "@/components/common/Glasses";
@@ -11,6 +11,22 @@ export default function Concepts() {
   const { t } = useTranslation("common");
   const [modalOpen, setModalOpen] = useState(false);
   const [modalImageBase, setModalImageBase] = useState("");
+  const [isMobile, setIsMobile] = useState(false);
+
+  const handleResize = () => {
+    setIsMobile(window.innerWidth < 768);
+  };
+
+  // Add event listener for window resize
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", handleResize);
+      handleResize(); // Initial check
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+    }
+  }, []);
 
   return (
     <section className={styles.concepts} id="concepts">
@@ -137,7 +153,7 @@ export default function Concepts() {
         </div>
       </div>
 
-      <Modal baseName={modalImageBase} open={modalOpen} onClose={() => setModalOpen(false)} />
+      <Modal isMobile={isMobile} baseName={modalImageBase} open={modalOpen} onClose={() => setModalOpen(false)} />
     </section>
   );
 }

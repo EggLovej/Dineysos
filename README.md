@@ -1,40 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Dineysos Website
 
-## Getting Started
+**Wines, games, events** — this repository contains the code behind [dineysos.com](https://dineysos.com).
+Built with Next.js and TypeScript, it powers the multi‑language website where we showcase upcoming events, share impressions and let visitors get in touch.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- 🇩🇪/🇬🇧 localization via **next-i18next** (German is the default language)
+- Event and gallery content fetched from **Sanity CMS**
+- Brochure signup & feedback forms stored in **Supabase**
+- Emails sent using **Resend**
+- Responsive gallery powered by **Splide** and **yet-another-react-lightbox**
+- Automatically generated sitemaps using **next-sitemap**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Getting started
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+1. Install dependencies
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+   ```bash
+   npm install
+   ```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+2. Create a `.env.local` file with your credentials:
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```bash
+   NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+   RESEND_API_KEY=your-resend-api-key
+   ```
 
-## Learn More
+3. Launch the dev server
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+   Visit <http://localhost:3000> and you’re ready to go.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Scripts
 
-## Deploy on Vercel
+- `npm run lint` – run ESLint
+- `npm run lint:fix` – lint and auto‑fix problems
+- `npm run build` – production build (also generates the sitemap)
+- `npm start` – start the built app
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+- `src/pages` – page routes and API endpoints
+- `src/components` – React components
+- `src/lib` – helpers for Sanity, Supabase and i18n
+- `public` – static assets, translated copy and PDF brochures
+
+Pull requests are welcome — feel free to pour yourself a glass and join the fun!
+

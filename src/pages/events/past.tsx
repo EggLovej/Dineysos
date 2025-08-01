@@ -66,7 +66,7 @@ export default function EventsPage({ events }: EventsPageProps) {
   );
 }
 
-export async function getServerSideProps({ locale }: GetStaticPropsContext) {
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
   const events = await fetchPastEvents();
 
   return {
@@ -74,5 +74,6 @@ export async function getServerSideProps({ locale }: GetStaticPropsContext) {
       ...(await serverSideTranslations(locale ?? "de", ["common"])),
       events,
     },
+    revalidate: 60,
   };
 }

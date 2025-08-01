@@ -132,5 +132,10 @@
     "thankYou": "Vielen Dank für dein Feedback!",
     "commentPlaceholder": "Zusätzliche Kommentare...",
     "submitButton": "Absenden"
+  },
+  "404": {
+    "title": "Seite nicht gefunden",
+    "description": "Die angeforderte Seite konnte nicht gefunden werden.",
+    "backToHome": "Zur Startseite"
   }
 }
