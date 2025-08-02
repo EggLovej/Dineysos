@@ -1,18 +1,19 @@
+import { GetStaticPropsContext } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
 import SeoHead from "@/components/layout/Head";
 import { seoConfig } from "@/config/seo";
 import styles from "@/styles/NotFound.module.css";
-import { useTranslation } from "next-i18next";
-import Image from "next/image";
-import Link from "next/link";
-import { GetStaticPropsContext } from "next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export default function NotFoundPage() {
   const { t } = useTranslation("common");
 
   return (
     <>
-      <SeoHead title={seoConfig.notFound.title} description={seoConfig.notFound.description} />
+      <SeoHead description={seoConfig.notFound.description} title={seoConfig.notFound.title} />
       <div className="base-container">
         <div className={styles.page}>
           <Image
@@ -24,7 +25,7 @@ export default function NotFoundPage() {
           />
           <h2>{t("404.title")}</h2>
           <p>{t("404.description")}</p>
-          <Link href="/" className={styles.homeLink}>
+          <Link className={styles.homeLink} href="/">
             {t("404.backToHome")}
           </Link>
         </div>
