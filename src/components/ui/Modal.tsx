@@ -26,7 +26,7 @@ export default function Modal({ isMobile, open, onClose, baseName }: ModalProps)
   const totalImages = 2;
   const imagePath = (i: number) =>
     isMobile
-      ? `/images/large/modal/mobile/${lang}/${baseName}${i + 1}.png`
+      ? `/images/large/modal/mobile/${lang}/${baseName}${i + 1}.webp`
       : `/images/large/modal/desktop/${lang}/${baseName}${i + 1}.webp`;
 
   return (

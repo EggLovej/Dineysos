@@ -9,7 +9,8 @@
   gap: 2rem;
 }
 
-.left .right {
+.left,
+.right {
   flex: 1 1 300px;
   max-width: 500px;
 }

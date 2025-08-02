@@ -73,10 +73,12 @@
 
 .imageWrapper {
   position: relative;
+  margin: 0 auto;
+
   height: 80vh;
   aspect-ratio: 2000 / 1414;
-  margin: 0 auto;
-  max-width: 95vw;
+  max-height: calc(90vw * 1414 / 2000);
+  max-width: 90vw;
   touch-action: pan-y;
 }
 
