@@ -7,6 +7,7 @@ import { Resend } from "resend";
 import { supabase } from "@/lib/supabaseClient";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "admin@example.com";
 
 const EMAIL_CONTENT = {
   de: {
@@ -65,6 +66,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         },
       ],
     });
+
+    try {
+      await resend.emails.send({
+        from: "Dineysos <info@dineysos.com>",
+        to: ADMIN_EMAIL,
+        subject: "Brochure downloaded",
+        html: `A user just downloaded the brochure in ${lang}.`,
+      });
+    } catch (notifyError) {
+      console.error("Failed to send admin notification:", notifyError);
+    }
 
     return res.status(200).json({ success: true });
   } catch (error) {

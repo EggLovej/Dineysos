@@ -1,7 +1,7 @@
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
 import styles from "@/styles/ui/Modal.module.css";
 
@@ -26,7 +26,7 @@ export default function Modal({ isMobile, open, onClose, baseName }: ModalProps)
   const totalImages = 2;
   const imagePath = (i: number) =>
     isMobile
-      ? `/images/large/modal/mobile/${lang}/${baseName}${i + 1}.png`
+      ? `/images/large/modal/mobile/${lang}/${baseName}${i + 1}.webp`
       : `/images/large/modal/desktop/${lang}/${baseName}${i + 1}.webp`;
 
   return (
@@ -35,11 +35,15 @@ export default function Modal({ isMobile, open, onClose, baseName }: ModalProps)
         <AnimatePresence initial={false} mode="wait">
           <motion.div
             key={index}
+            animate={{ opacity: 1, x: 0 }}
             className={styles.imageWrapper}
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={0.2}
+            exit={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: 50 }}
             style={{ touchAction: "pan-y pinch-zoom" }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
             onDragEnd={(e, info) => {
               const velocity = info.velocity.x;
               const offset = info.offset.x;
@@ -51,26 +55,22 @@ export default function Modal({ isMobile, open, onClose, baseName }: ModalProps)
                 setIndex(index - 1);
               }
             }}
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -50 }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
             <button className={styles.closeButton} onClick={onClose}>
               <Image
                 alt="Close modal"
                 height={isMobile ? 16 : 24}
-                width={isMobile ? 16 : 24}
                 src="/images/icons/orangex.webp"
+                width={isMobile ? 16 : 24}
               />
             </button>
 
             <Image
+              fill
               alt={`Modal ${baseName} ${index + 1}`}
               className={styles.image}
-              fill
-              src={imagePath(index)}
               draggable={false}
+              src={imagePath(index)}
             />
 
             {/* Navigation Arrows */}

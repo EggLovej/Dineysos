@@ -4,8 +4,8 @@
 }
 
 .glass {
-  height: clamp(16px, 2vw, 24px);
-  width: auto;
+  width: clamp(10px, 1.5vw, 16px);
+  height: auto;
   margin-left: 6px;
   vertical-align: middle;
 }
@@ -23,8 +23,8 @@
 }
 
 .flower {
-  height: clamp(16px, 2vw, 24px);
-  width: auto;
+  width: clamp(16px, 2vw, 24px);
+  height: auto;
   margin-left: 0.2rem;
   vertical-align: middle;
 }

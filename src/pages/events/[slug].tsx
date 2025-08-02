@@ -3,13 +3,13 @@ import Head from "next/head";
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useMemo } from "react";
 
 import { CalendarIcon, ClockIcon, MapPinIcon, CoinsIcon } from "@/components/common/Icons";
 import SeoHead from "@/components/layout/Head";
 import { fetchAllEventSlugs, fetchEventBySlug } from "@/lib/api";
 import styles from "@/styles/events/EventPage.module.css";
 import { Event } from "@/types/event";
-import { useMemo } from "react";
 
 type EventPageProps = {
   event: Event;

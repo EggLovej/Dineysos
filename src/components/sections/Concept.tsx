@@ -153,7 +153,12 @@ export default function Concepts() {
         </div>
       </div>
 
-      <Modal isMobile={isMobile} baseName={modalImageBase} open={modalOpen} onClose={() => setModalOpen(false)} />
+      <Modal
+        baseName={modalImageBase}
+        isMobile={isMobile}
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+      />
     </section>
   );
 }
