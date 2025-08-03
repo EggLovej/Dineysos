@@ -23,6 +23,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       ...i18nProps.props,
       images,
     },
+    revalidate: 3600,
   };
 }
 
