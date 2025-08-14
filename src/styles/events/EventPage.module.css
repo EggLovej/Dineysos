@@ -136,6 +136,15 @@
     cursor: pointer;
   }
 
+.signUpCta a {
+    color: var(--orange);
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
 .email:hover {
     text-decoration: underline;
 }

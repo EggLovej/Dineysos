@@ -14,7 +14,8 @@ const UpcomingQuery = `
     "coverImageUrl": coverImage.asset->url,
     "logoUrl": logo.asset->url,
     "description_de": descriptionParagraphs.de,
-    "description_en": descriptionParagraphs.en
+    "description_en": descriptionParagraphs.en,
+    "signUpUrl": signUpUrl
   }
 `;
 
@@ -31,7 +32,8 @@ const PastQuery = `
     "coverImageUrl": coverImage.asset->url,
     "logoUrl": logo.asset->url,
     "description_de": descriptionParagraphs.de,
-    "description_en": descriptionParagraphs.en
+    "description_en": descriptionParagraphs.en,
+    "signUpUrl": signUpUrl
   }
 `;
 
@@ -77,7 +79,8 @@ export async function fetchEventBySlug(slug: string): Promise<Event> {
     "priceInfo": priceInfo,
     "coverImageUrl": coverImage.asset->url,
     "logoUrl": logo.asset->url,
-    "descriptionParagraphs": descriptionParagraphs
+    "descriptionParagraphs": descriptionParagraphs,
+    "signUpUrl": signUpUrl
   }
 `;
   return client.fetch(query, { slug });

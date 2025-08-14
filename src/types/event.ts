@@ -1,9 +1,9 @@
 export interface Event {
   _id: string;
   name: string;
-  subtitle: {
-    de: string;
-    en: string;
+  subtitle?: {
+    de?: string;
+    en?: string;
   };
   slug: {
     current: string;
@@ -13,13 +13,13 @@ export interface Event {
   locationDetails: {
     city: string;
     street: string;
-    zip: string;
+    zip: number;
     name: string;
   };
   priceInfo: {
     price: number;
     specialPrice: boolean;
-    oldPrice: number;
+    oldPrice?: number;
   };
   coverImageUrl: string;
   logoUrl: string;
@@ -27,4 +27,5 @@ export interface Event {
     de: string[];
     en: string[];
   };
+  signUpUrl?: string;
 }
