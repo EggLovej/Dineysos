@@ -188,6 +188,20 @@ export default function EventPage({ event }: EventPageProps) {
           {event.descriptionParagraphs[locale as "de" | "en"]?.map((para, idx) => (
             <p key={idx}>{formatParagraph(para)}</p>
           ))}
+          {event.signUpUrl && (
+            <p className={styles.signUpCta}>
+              {locale === "de" ? "Sichere dir einen Platz " : "Get your ticket "}
+              <a
+                aria-label={locale === "de" ? "Ticket hier buchen" : "Get ticket here"}
+                href={event.signUpUrl}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                {locale === "de" ? "hier" : "here"}
+              </a>
+              !
+            </p>
+          )}
         </div>
       </section>
     </main>
