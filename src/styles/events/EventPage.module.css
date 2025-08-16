@@ -1,86 +1,85 @@
 .page {
-    padding-top: 80px;
+  padding-top: 80px;
 }
 
 .event_base_container {
-    max-width: 60vw;
-    margin: 0 auto;
-    padding: 3rem clamp(0.2rem, 1.5vw, 1rem) 0;
-    display: flex;
-    flex-direction: column;
+  max-width: 60vw;
+  margin: 0 auto;
+  padding: 3rem clamp(0.2rem, 1.5vw, 1rem) 0;
+  display: flex;
+  flex-direction: column;
 }
 .coverImage {
-    align-self: center;
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    display: block;
+  align-self: center;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  display: block;
 }
 
 .svg {
-    stroke: var(--orange)
+  stroke: var(--orange);
 }
 
 .priceSection {
-    display: flex;
-    margin-top: 1em;
+  display: flex;
+  margin-top: 1em;
 }
 
 .originalPrice {
-    text-decoration: line-through;
-    color: grey;
-    margin-right: 0.5rem;
+  text-decoration: line-through;
+  color: grey;
+  margin-right: 0.5rem;
 }
 
 .price {
-    font-weight: bold;
-    color: var(--blue);
-    margin-right: 0.5rem;
+  font-weight: bold;
+  color: var(--blue);
+  margin-right: 0.5rem;
 }
 
 .priceLabel {
-    background-color: var(--orange);
-    color: white;
-    font-size: clamp(0.75rem, 1.2vw, 1rem);
-    padding: 0.1rem 0.5rem;
-    border-radius: 4px;
-    font-weight: bold;
+  background-color: var(--orange);
+  color: white;
+  font-size: clamp(0.75rem, 1.2vw, 1rem);
+  padding: 0.1rem 0.5rem;
+  border-radius: 4px;
+  font-weight: bold;
 }
 
 .noWrap {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
 .dateTime {
-    display: flex;
-    align-items: flex-start;
-    text-align: left;
-    gap: 1rem;
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+  gap: 1rem;
 }
 
-
 .metaRow {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
 }
 
 .metaLocation {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
 }
 
 .metaLocationTop {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
 }
 
 .metaLocation p {
-    margin: 0;
-    line-height: 1.4;
+  margin: 0;
+  line-height: 1.4;
 }
 
 #street,
@@ -89,79 +88,77 @@
 }
 
 .metaPrice {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
 }
 
 .logos {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-  
-  .logoWrapper {
-    position: relative;
-    height: auto;
-    width: clamp(100px, 15vw, 250px);
-  }
-  
-  .logoWrapperSmall {
-    position: relative;
-    height: auto;
-    width: clamp(10px, 8vw, 40px);
-  }
-  
-  .logoImage {
-    width: 100%;
-    height: auto;
-  }
-  
-  .logoImageSmall {
-    width: 60%;
-    height: auto;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.logoWrapper {
+  position: relative;
+  height: auto;
+  width: clamp(100px, 15vw, 250px);
+}
+
+.logoWrapperSmall {
+  position: relative;
+  height: auto;
+  width: clamp(10px, 8vw, 40px);
+}
+
+.logoImage {
+  width: 100%;
+  height: auto;
+}
+
+.logoImageSmall {
+  width: 60%;
+  height: auto;
+}
 
 .description p {
-    margin: 0;
-    margin-block-end: 4.8px;
+  margin: 0;
+  margin-block-end: 4.8px;
 }
 
 .email {
-    color: var(--orange);
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
-  }
+  color: var(--orange);
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 .signUpCta a {
-    color: var(--orange);
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
+  color: var(--orange);
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
 }
-
-
 
 .email:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-@media (max-width: 768px){
-    .dateTime {
-        flex-direction: column;
-        align-items: flex-start;
-        margin-bottom: 1rem;
-    }
+@media (max-width: 768px) {
+  .dateTime {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
 
-    .dateTime p {
-        margin-block-start: 0;
-        margin-block-end: 0;
-    }
+  .dateTime p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
 
-    .priceSection {
-        flex-direction: column;
-    }
+  .priceSection {
+    flex-direction: column;
+  }
 }
