@@ -8,7 +8,7 @@ import styles from "@/styles/layout/Navbar.module.css";
 
 export default function Navbar() {
   const { t } = useTranslation("common");
-  const { locale, events } = useRouter();
+  const { locale, events, asPath } = useRouter();
 
   const langRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -17,7 +17,11 @@ export default function Navbar() {
   const [langOpen, setLangOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const [activeSection, setActiveSection] = useState<string>("");
+  const [activeSection, setActiveSection] = useState<string>(() => {
+    if (asPath.startsWith("/events")) return "events";
+    const hash = asPath.split("#")[1];
+    return hash ?? "";
+  });
 
   // Handles language switching by routing and closing menus
 
@@ -49,10 +53,7 @@ export default function Navbar() {
     //  { href: "/feedback", label: t("nav.feedback") },
   ];
 
-  // Combined useEffect to handle:
-  // 1. Outside clicks (close menu/lang selector)
-  // 2. Route change cleanup
-  // 3. Navbar shrinking on scroll
+  // Handle outside clicks, route change cleanup and navbar shrink
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Node;
@@ -60,24 +61,13 @@ export default function Navbar() {
       if (menuRef.current && !menuRef.current.contains(target)) setMenuOpen(false);
     };
 
-    const sections = document.querySelectorAll("section[id]");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.5, rootMargin: "-65px 0px 0px 0px" }
-    );
-
-    sections.forEach((section) => observer.observe(section));
-
-    const handleRouteChange = () => {
+    const handleRouteChange = (url: string) => {
       setMenuOpen(false);
       setLangOpen(false);
+      const hash = url.split("#")[1];
+      if (hash) setActiveSection(hash);
+      else if (url.startsWith("/events")) setActiveSection("events");
+      else setActiveSection("");
     };
 
     const handleScroll = () => {
@@ -94,6 +84,26 @@ export default function Navbar() {
       events.off("routeChangeStart", handleRouteChange);
     };
   }, [events]);
+
+  // Highlight sections on scroll
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id]");
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.5, rootMargin: "-65px 0px 0px 0px" }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, [asPath]);
 
   return (
     <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
@@ -119,20 +129,25 @@ export default function Navbar() {
 
         {/* Navigation Links */}
         <nav className={`${styles.menu} ${menuOpen ? styles.open : ""}`}>
-          {navItems.map(({ href, label }) => (
-            <Link
-              key={href}
-              className={`${styles.link} ${activeSection === href.slice(2) ? styles.activeLink : ""}`}
-              href={href}
-              locale={locale}
-              onClick={() => {
-                setMenuOpen(false);
-                setLangOpen(false);
-              }}
-            >
-              {label}
-            </Link>
-          ))}
+          {navItems.map(({ href, label }) => {
+            const isActive =
+              href === "/events" ? asPath.startsWith("/events") : activeSection === href.slice(2);
+
+            return (
+              <Link
+                key={href}
+                className={`${styles.link} ${isActive ? styles.activeLink : ""}`}
+                href={href}
+                locale={locale}
+                onClick={() => {
+                  setMenuOpen(false);
+                  setLangOpen(false);
+                }}
+              >
+                {label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Language Switcher */}
