@@ -238,7 +238,7 @@ export const getStaticProps: GetStaticProps = async (context: GetStaticPropsCont
       event,
       ...(await serverSideTranslations(locale ?? "de", ["common"])),
     },
-    revalidate: 3600, // Revalidate every hour
+    revalidate: 86400, // Revalidate every 24 hours
   };
 };
 
