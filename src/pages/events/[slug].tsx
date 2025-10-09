@@ -224,7 +224,7 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
 
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 };
 
@@ -238,6 +238,7 @@ export const getStaticProps: GetStaticProps = async (context: GetStaticPropsCont
       event,
       ...(await serverSideTranslations(locale ?? "de", ["common"])),
     },
+    revalidate: 86400, // Revalidate every 24 hours
   };
 };
 
