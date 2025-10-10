@@ -126,7 +126,7 @@ export default function EventPage({ event }: EventPageProps) {
               <div className={styles.metaRow}>
                 <CalendarIcon className={styles.svg} />
                 <p>
-                  <strong>{new Date(event.startDate).toLocaleDateString(locale)}</strong>
+                  <strong>{new Date(event.startDate).toLocaleDateString("de-CH")}</strong>
                 </p>
               </div>
               <div className={styles.metaRow}>
