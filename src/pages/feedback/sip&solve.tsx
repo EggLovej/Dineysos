@@ -1,10 +1,10 @@
 import { GetStaticPropsContext } from "next";
+import Image from "next/image";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useState } from "react";
 
 import SeoHead from "@/components/layout/Head";
-import { seoConfig } from "@/config/seo";
 import styles from "@/styles/Feedback.module.css";
 
 export default function SipSolveFeedbackPage() {
@@ -27,53 +27,10 @@ export default function SipSolveFeedbackPage() {
   const [learningHover, setLearningHover] = useState<number | null>(null);
   const [difficultyHover, setDifficultyHover] = useState<number | null>(null);
   const [playAgainHover, setPlayAgainHover] = useState<number | null>(null);
-  const [currentStep, setCurrentStep] = useState<number>(0);
-  const [justReachedFinalStep, setJustReachedFinalStep] = useState<boolean>(false);
-
-  const questions = [
-    { key: "overall", rating: overallRating, setRating: setOverallRating, hover: overallHover, setHover: setOverallHover },
-    { key: "instructions", rating: instructionsRating, setRating: setInstructionsRating, hover: instructionsHover, setHover: setInstructionsHover },
-    { key: "alcohol", rating: alcoholRating, setRating: setAlcoholRating, hover: alcoholHover, setHover: setAlcoholHover },
-    { key: "wineSelection", rating: wineSelectionRating, setRating: setWineSelectionRating, hover: wineSelectionHover, setHover: setWineSelectionHover },
-    { key: "learning", rating: learningRating, setRating: setLearningRating, hover: learningHover, setHover: setLearningHover },
-    { key: "difficulty", rating: difficultyRating, setRating: setDifficultyRating, hover: difficultyHover, setHover: setDifficultyHover },
-    { key: "playAgain", rating: playAgainRating, setRating: setPlayAgainRating, hover: playAgainHover, setHover: setPlayAgainHover },
-  ];
-
-  const handleNext = () => {
-    if (currentStep < questions.length) {
-      const newStep = currentStep + 1;
-      setCurrentStep(newStep);
-      
-      // If we're reaching the final step, add a safety delay
-      if (newStep === questions.length) {
-        setJustReachedFinalStep(true);
-        setTimeout(() => {
-          setJustReachedFinalStep(false);
-        }, 1000); // 1 second delay before submit button becomes active
-      }
-    }
-  };
-
-  const handleBack = () => {
-    if (currentStep > 0) {
-      setCurrentStep(currentStep - 1);
-      setJustReachedFinalStep(false); // Reset the safety delay if going back
-    }
-  };
-
-  const handleRatingAndNext = (rating: number) => {
-    const currentQuestion = questions[currentStep];
-    currentQuestion.setRating(rating);
-    // Auto-advance after a short delay to show the selection
-    setTimeout(() => {
-      handleNext();
-    }, 300);
-  };
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    
+
     const feedbackData = {
       type: "sip-solve",
       ratings: {
@@ -86,7 +43,7 @@ export default function SipSolveFeedbackPage() {
         playAgain: playAgainRating,
       },
       additionalFeedback,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     };
 
     try {
@@ -101,31 +58,39 @@ export default function SipSolveFeedbackPage() {
     }
   }
 
-  const isFormValid = overallRating > 0 || instructionsRating > 0 || alcoholRating > 0 || 
-                     wineSelectionRating > 0 || learningRating > 0 || difficultyRating > 0 || 
-                     playAgainRating > 0 || additionalFeedback.trim().length > 0;
+  const isFormValid =
+    overallRating > 0 ||
+    instructionsRating > 0 ||
+    alcoholRating > 0 ||
+    wineSelectionRating > 0 ||
+    learningRating > 0 ||
+    difficultyRating > 0 ||
+    playAgainRating > 0 ||
+    additionalFeedback.trim().length > 0;
 
   if (submitted) {
     return (
       <>
-        <SeoHead 
+        <SeoHead
           description={{
             de: "Vielen Dank für Ihr Sip & Solve Feedback!",
-            en: "Thank you for your Sip & Solve feedback!"
+            en: "Thank you for your Sip & Solve feedback!",
           }}
           title={{
             de: "Feedback gesendet - Dineysos",
-            en: "Feedback Submitted - Dineysos"
+            en: "Feedback Submitted - Dineysos",
           }}
         />
         <div className="base-container">
           <div className={styles.page}>
             <div className={styles.successCard}>
               <div className={styles.thankYouHeader}>
-                <img 
-                  src="/images/icons/Cheers.webp" 
-                  alt="Cheers" 
+                <Image
+                  alt="Cheers"
                   className={styles.cheersIcon}
+                  height={96}
+                  src="/images/icons/Cheers.webp"
+                  width={96}
                 />
                 <h2>{t("feedback.sipSolve.thankYou")}</h2>
               </div>
@@ -138,12 +103,12 @@ export default function SipSolveFeedbackPage() {
     );
   }
 
-  const RatingQuestion = ({ 
-    questionKey, 
-    rating, 
-    setRating, 
-    hover, 
-    setHover
+  const RatingQuestion = ({
+    questionKey,
+    rating,
+    setRating,
+    hover,
+    setHover,
   }: {
     questionKey: string;
     rating: number;
@@ -155,13 +120,13 @@ export default function SipSolveFeedbackPage() {
       <label className={styles.questionLabel}>
         {t(`feedback.sipSolve.questions.${questionKey}.label`)}
       </label>
-      
+
       <div className={styles.ratingContainer}>
         <div className={styles.scaleRow}>
           <div className={styles.minLabel}>
             {t(`feedback.sipSolve.questions.${questionKey}.min`)}
           </div>
-          
+
           <div className={styles.stars}>
             {[1, 2, 3, 4, 5].map((star) => (
               <button
@@ -172,15 +137,21 @@ export default function SipSolveFeedbackPage() {
                 onMouseEnter={() => setHover(star)}
                 onMouseLeave={() => setHover(null)}
               >
-                <img
-                  src={(hover ?? rating) >= star ? "/images/icons/flower.webp" : "/images/icons/flower_empty.webp"}
+                <Image
                   alt={`Rating ${star}`}
                   className={styles.flowerIcon}
+                  height={56}
+                  width={56}
+                  src={
+                    (hover ?? rating) >= star
+                      ? "/images/icons/flower_high_res.webp"
+                      : "/images/icons/flower_empty_high_res.webp"
+                  }
                 />
               </button>
             ))}
           </div>
-          
+
           <div className={styles.maxLabel}>
             {t(`feedback.sipSolve.questions.${questionKey}.max`)}
           </div>
@@ -191,14 +162,14 @@ export default function SipSolveFeedbackPage() {
 
   return (
     <>
-      <SeoHead 
+      <SeoHead
         description={{
           de: "Teilen Sie Ihre Sip & Solve Weinspiel-Erfahrung mit uns",
-          en: "Share your Sip & Solve wine game experience with us"
+          en: "Share your Sip & Solve wine game experience with us",
         }}
         title={{
           de: "Sip & Solve Feedback - Dineysos",
-          en: "Sip & Solve Feedback - Dineysos"
+          en: "Sip & Solve Feedback - Dineysos",
         }}
       />
       <div className="base-container">
@@ -209,61 +180,60 @@ export default function SipSolveFeedbackPage() {
           </div>
 
           <form className={styles.form} onSubmit={handleSubmit}>
-            
             <RatingQuestion
+              hover={overallHover}
               questionKey="overall"
               rating={overallRating}
-              setRating={setOverallRating}
-              hover={overallHover}
               setHover={setOverallHover}
+              setRating={setOverallRating}
             />
 
             <RatingQuestion
+              hover={instructionsHover}
               questionKey="instructions"
               rating={instructionsRating}
-              setRating={setInstructionsRating}
-              hover={instructionsHover}
               setHover={setInstructionsHover}
+              setRating={setInstructionsRating}
             />
 
             <RatingQuestion
+              hover={alcoholHover}
               questionKey="alcohol"
               rating={alcoholRating}
-              setRating={setAlcoholRating}
-              hover={alcoholHover}
               setHover={setAlcoholHover}
+              setRating={setAlcoholRating}
             />
 
             <RatingQuestion
+              hover={wineSelectionHover}
               questionKey="wineSelection"
               rating={wineSelectionRating}
-              setRating={setWineSelectionRating}
-              hover={wineSelectionHover}
               setHover={setWineSelectionHover}
+              setRating={setWineSelectionRating}
             />
 
             <RatingQuestion
+              hover={learningHover}
               questionKey="learning"
               rating={learningRating}
-              setRating={setLearningRating}
-              hover={learningHover}
               setHover={setLearningHover}
+              setRating={setLearningRating}
             />
 
             <RatingQuestion
+              hover={difficultyHover}
               questionKey="difficulty"
               rating={difficultyRating}
-              setRating={setDifficultyRating}
-              hover={difficultyHover}
               setHover={setDifficultyHover}
+              setRating={setDifficultyRating}
             />
 
             <RatingQuestion
+              hover={playAgainHover}
               questionKey="playAgain"
               rating={playAgainRating}
-              setRating={setPlayAgainRating}
-              hover={playAgainHover}
               setHover={setPlayAgainHover}
+              setRating={setPlayAgainRating}
             />
 
             {/* Additional Feedback */}
@@ -274,17 +244,13 @@ export default function SipSolveFeedbackPage() {
               <textarea
                 className={styles.textarea}
                 placeholder={t("feedback.sipSolve.questions.additional.placeholder")}
+                rows={4}
                 value={additionalFeedback}
                 onChange={(e) => setAdditionalFeedback(e.target.value)}
-                rows={4}
               />
             </div>
 
-            <button 
-              className={styles.submitButton} 
-              disabled={!isFormValid} 
-              type="submit"
-            >
+            <button className={styles.submitButton} disabled={!isFormValid} type="submit">
               {t("feedback.submitButton")}
             </button>
           </form>

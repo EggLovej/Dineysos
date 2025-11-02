@@ -25,19 +25,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (feedback.type !== "sip-solve") {
     return res.status(400).json({ error: "Invalid feedback type" });
   }
-  
-  const { error } = await supabase.from("sip_solve_feedback").insert([{
-    overall_rating: feedback.ratings.overall,
-    instructions_rating: feedback.ratings.instructions,
-    alcohol_rating: feedback.ratings.alcohol,
-    wine_selection_rating: feedback.ratings.wineSelection,
-    learning_rating: feedback.ratings.learning,
-    difficulty_rating: feedback.ratings.difficulty,
-    play_again_rating: feedback.ratings.playAgain,
-    additional_feedback: feedback.additionalFeedback,
-    timestamp: feedback.timestamp,
-    created_at: new Date().toISOString()
-  }]);
+
+  const { error } = await supabase.from("sip_solve_feedback").insert([
+    {
+      overall_rating: feedback.ratings.overall,
+      instructions_rating: feedback.ratings.instructions,
+      alcohol_rating: feedback.ratings.alcohol,
+      wine_selection_rating: feedback.ratings.wineSelection,
+      learning_rating: feedback.ratings.learning,
+      difficulty_rating: feedback.ratings.difficulty,
+      play_again_rating: feedback.ratings.playAgain,
+      additional_feedback: feedback.additionalFeedback,
+      timestamp: feedback.timestamp,
+      created_at: new Date().toISOString(),
+    },
+  ]);
 
   if (error) {
     console.error("Supabase insert error:", error);
