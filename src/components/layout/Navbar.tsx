@@ -44,13 +44,14 @@ export default function Navbar() {
 
   // Navigation links with i18n labels
   const navItems = [
+    { href: "/sip&solve", label: t("nav.sipAndSolve") },
     { href: "/events", label: t("nav.events") },
     { href: "/#about", label: t("nav.about") },
     { href: "/#concepts", label: t("nav.concepts") },
     { href: "/#pricing", label: t("nav.pricing") },
     { href: "/#brochure", label: t("nav.brochure") },
     { href: "/#contact", label: t("nav.contact") },
-    //  { href: "/feedback", label: t("nav.feedback") },
+    // { href: "/feedback/sip&solve", label: t("nav.feedback") },
   ];
 
   // Handle outside clicks, route change cleanup and navbar shrink

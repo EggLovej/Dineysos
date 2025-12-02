@@ -49,4 +49,14 @@ export const seoConfig = {
       en: "The requested page could not be found.",
     },
   },
+  sipAndSolve: {
+    title: {
+      de: "Sip & Solve – Dineysos",
+      en: "Sip & Solve – Dineysos",
+    },
+    description: {
+      de: "Erlebe unser einzigartiges Sip & Solve Weinspiel.",
+      en: "Experience our unique Sip & Solve wine game.",
+    },
+  },
 };

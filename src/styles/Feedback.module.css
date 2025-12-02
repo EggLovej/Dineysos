@@ -1,82 +1,517 @@
 .page {
   padding-top: 5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.page h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.page p {
+.header {
   text-align: center;
   margin-bottom: 2rem;
-  max-width: 500px;
+  max-width: 600px;
+  width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1rem;
+  color: var(--orange);
+}
+
+.header p {
+  color: var(--blue);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.6;
 }
 
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 400px;
+  width: 100%;
+  max-width: 600px;
+  gap: 2rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.progressContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.progressBar {
+  width: 100%;
+  height: 8px;
+  background: var(--cream);
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--light-blue);
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--orange), var(--blue));
+  transition: width 0.3s ease;
+  border-radius: 4px;
+}
+
+.progressText {
+  font-size: 0.9rem;
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.stepCard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-height: 400px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.navigationButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  gap: 1rem;
+  padding: 0 1.5rem;
+}
+
+.backButton,
+.skipButton {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--blue);
+  background: var(--cream);
+  color: var(--blue);
+  font-family: "Cormorant", serif;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 100px;
+}
+
+.backButton:hover:not(:disabled),
+.skipButton:hover {
+  background: var(--blue);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.backButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.backButton:disabled:hover {
+  background: var(--cream);
+  color: var(--blue);
+}
+
+.questionGroup {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem 1.5rem;
+  background: var(--dark-cream);
+  border-radius: 15px;
+  border: 2px solid var(--light-blue);
+  box-sizing: border-box;
+}
+
+.questionLabel {
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  font-weight: 600;
+  color: var(--blue);
+  text-align: center;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.ratingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 500px;
 }
 
 .stars {
-  margin-bottom: 1rem;
+  display: flex;
+  gap: 0.2rem;
+  justify-content: center;
+  margin: 0;
+  flex-shrink: 0;
+  flex: 1;
+  max-width: 60%;
+}
+
+.scaleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 0.3rem;
 }
 
 .starButton {
   background: none;
   border: none;
-  font-size: 2rem;
   cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0.3rem;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  max-width: 4rem;
 }
 
 .starButton:hover {
   transform: scale(1.2);
+  filter: drop-shadow(0 4px 8px rgba(239, 114, 21, 0.3));
+}
+
+.flowerIcon {
+  width: min(3.5rem, 100%);
+  height: min(3.5rem, 100%);
+  max-width: 100%;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.ratingLabels {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: clamp(0.85rem, 1.1vw, 1rem);
+  color: var(--blue);
+  font-style: italic;
+  line-height: 1.3;
+}
+
+.minLabel {
+  text-align: left;
+  flex: 0 0 15%;
+  max-width: 15%;
+  padding: 0.25rem;
+  font-weight: 500;
+  font-size: clamp(0.9rem, 1.3vw, 1rem);
+  color: var(--blue);
+  font-style: italic;
+  line-height: 1.2;
+}
+
+.maxLabel {
+  text-align: right;
+  flex: 0 0 15%;
+  max-width: 15%;
+  padding: 0.25rem;
+  font-weight: 500;
+  font-size: clamp(0.9rem, 1.3vw, 1rem);
+  color: var(--blue);
+  font-style: italic;
+  line-height: 1.2;
+}
+
+.ratingScale {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  color: var(--blue);
+  opacity: 0.8;
+}
+
+.difficultyOptions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.radioOption {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  background: var(--cream);
+  border: 2px solid var(--blue);
+  transition: all 0.3s ease;
+}
+
+.radioOption:hover {
+  background: var(--light-blue);
+  transform: translateY(-2px);
+}
+
+.radioOption:has(.radioInput:checked) {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: white;
+}
+
+.radioInput {
+  margin: 0;
+  accent-color: var(--orange);
+}
+
+.radioLabel {
+  font-size: 1rem;
+  font-weight: 500;
+  white-space: nowrap;
 }
 
 .textarea {
   width: 100%;
-  max-width: 500px;
-  height: 100px;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-  padding: 0.5rem;
-  border: 1px solid var(--blue);
+  max-width: 100%;
+  min-height: 120px;
+  padding: 1rem;
+  border: 2px solid var(--blue);
+  border-radius: 10px;
+  font-family: "Cormorant", serif;
+  font-size: 1rem;
+  color: var(--blue);
+  background: var(--cream);
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(239, 114, 21, 0.1);
+}
+
+.textarea::placeholder {
+  color: rgba(9, 87, 162, 0.6);
+  font-style: italic;
 }
 
 .submitButton {
   background-color: var(--orange);
   color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 2.5rem;
   font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-family: "Cormorant", serif;
+  font-weight: bold;
   border-radius: 999px;
   cursor: pointer;
-  font-weight: bold;
   margin-top: 1rem;
-  text-align: center;
-  display: block;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  min-width: 200px;
 }
 
-.submitButton:hover {
-  background: var(--orange);
+.submitButton:hover:not(:disabled) {
+  background-color: var(--blue);
   transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(9, 87, 162, 0.3);
 }
 
 .submitButton:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-    opacity: 0.6;
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}
+
+.successCard {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--dark-cream);
+  border-radius: 20px;
+  border: 3px solid var(--orange);
+  max-width: 500px;
+  margin: 2rem 0;
+}
+
+.thankYouHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.cheersIcon {
+  width: 6rem;
+  height: 6rem;
+  object-fit: contain;
+}
+
+.successCard h2 {
+  color: var(--orange);
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  margin: 0;
+}
+
+.successCard p {
+  color: var(--blue);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.thankYouNote {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: var(--cream);
+  border-radius: 10px;
+  border-left: 4px solid var(--orange);
+}
+
+.thankYouNote p {
+  margin: 0;
+  color: var(--orange);
+  font-style: italic;
 }
 
 .empty {
-  height: 500px;
+  height: 300px;
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding-top: 3rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  
+  .header {
+    padding: 0 0.5rem;
+  }
+  
+  .form {
+    padding: 0 0.5rem;
+  }
+  
+  .difficultyOptions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .radioOption {
+    width: 200px;
+    justify-content: center;
+  }
+  
+  .questionGroup {
+    padding: 1.5rem 1rem;
+    margin: 0;
+  }
+  
+  .ratingContainer {
+    max-width: 100%;
+  }
+  
+  .scaleRow {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  .ratingLabels {
+    display: none;
+  }
+  
+  .minLabel {
+    display: block;
+    max-width: 100%;
+    text-align: center;
+    margin: 0;
+    order: 1;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+  
+  .maxLabel {
+    display: block;
+    max-width: 100%;
+    text-align: center;
+    margin: 0;
+    order: 3;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+  
+  .stars {
+    gap: 0.5rem;
+    max-width: 100%;
+    order: 2;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .starButton {
+    padding: 0.3rem;
+    max-width: 4rem;
+    width: 4rem;
+    height: 4rem;
+    flex: none;
+  }
+  
+  .starButton:hover {
+    transform: scale(1.1);
+  }
+  
+  .flowerIcon {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .navigationButtons {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 0.5rem;
+    max-width: 100%;
+  }
+  
+  .backButton,
+  .skipButton {
+    width: 100%;
+    min-width: auto;
+  }
+  
+  .stepCard {
+    min-height: 350px;
+  }
+  
+  .successCard {
+    margin: 1rem 0;
+    padding: 2rem 1rem;
+  }
+  
+  .cheersIcon {
+    width: 4rem;
+    height: 4rem;
+  }
 }

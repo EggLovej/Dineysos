@@ -1,5 +1,6 @@
 {
   "nav": {
+    "sipAndSolve": "SIP & SOLVE",
     "events": "EVENTS",
     "about": "ABOUT",
     "concepts": "CONCEPTS",
@@ -130,7 +131,67 @@
     "description": "We value your feedback to improve our services. Please share your thoughts with us.",
     "thankYou": "Thank you for your feedback!",
     "commentPlaceholder": "Additional comments...",
-    "submitButton": "Submit"
+    "submitButton": "Submit",
+    "navigation": {
+      "back": "Back",
+      "skip": "Skip",
+      "loading": "Loading..."
+    },
+    "sipSolve": {
+      "title": "Sip & Solve Feedback",
+      "description": "How was your Sip & Solve experience? Your feedback helps us create even better wine experiences.",
+      "thankYou": "Thank You!",
+      "thankYouMessage": "Your feedback helps us create even better wine experiences. We hope you enjoyed your Sip & Solve adventure!",
+      "thankYouNote": "Cheers to more wine discoveries ahead!",
+      "questions": {
+        "overall": {
+          "label": "How was the overall experience?",
+          "min": "way too stressful",
+          "max": "I'm getting stomach cramps from laughing"
+        },
+        "instructions": {
+          "label": "Were the set-up and game instructions clear and straightforward?",
+          "min": "we didn't know where to start",
+          "max": "went completely smoothly"
+        },
+        "alcohol": {
+          "label": "How was the amount of alcohol?",
+          "min": "I never want to drink this much again",
+          "max": "a few more glasses would have been nice"
+        },
+        "wineSelection": {
+          "label": "How did you like the wine selection?",
+          "min": "wasn't for me",
+          "max": "exactly my taste"
+        },
+        "learning": {
+          "label": "Did you learn/discover anything during the game?",
+          "min": "nothing new",
+          "max": "gained lots of new knowledge"
+        },
+        "difficulty": {
+          "label": "How difficult was the game?",
+          "min": "way too easy",
+          "max": "way too difficult"
+        },
+        "playAgain": {
+          "label": "Would you play this game or similar concepts again?",
+          "min": "wasn't my thing",
+          "max": "yes, absolutely!"
+        },
+        "additional": {
+          "label": "Let us know how you liked it and how we can make your experience better",
+          "placeholder": "Tell us about your favorite moments, suggestions for improvement, or anything that comes to mind..."
+        }
+      }
+    }
+  },
+  "sip&solve": {
+    "title1": "Dineysos Sip & Solve Winebox",
+    "title2": "Olympics: A wine battle game",
+    "description": "Experience an exciting tasting puzzle game with your friends and family. Whether in collaborative or competitive spirit, our Sip&Solve Box turns shared enjoyment into an adventure! It will provide you with plenty of conversation starters,  playfully lead you to your wine personalities and bring the typical Dineysos charm into your home.",
+    "short": "In short: one box, six wines, one game – and lots of ‘aha’ moments, laughter and new picks for your wine cellar!",
+    "button": "Get it here!"
   },
   "404": {
     "title": "Page Not Found",
