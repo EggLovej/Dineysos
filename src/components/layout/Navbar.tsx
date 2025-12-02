@@ -44,6 +44,7 @@ export default function Navbar() {
 
   // Navigation links with i18n labels
   const navItems = [
+    { href: "/sip&solve", label: t("nav.sipAndSolve") },
     { href: "/events", label: t("nav.events") },
     { href: "/#about", label: t("nav.about") },
     { href: "/#concepts", label: t("nav.concepts") },

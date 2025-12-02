@@ -1,5 +1,6 @@
 {
   "nav": {
+    "sipAndSolve": "SIP & SOLVE",
     "events": "EVENTS",
     "about": "ABOUT",
     "concepts": "CONCEPTS",
@@ -184,6 +185,13 @@
         }
       }
     }
+  },
+  "sip&solve": {
+    "title1": "Dineysos Sip & Solve Winebox",
+    "title2": "Olympics: A wine battle game",
+    "description": "Experience an exciting tasting puzzle game with your friends and family. Whether in collaborative or competitive spirit, our Sip&Solve Box turns shared enjoyment into an adventure! It will provide you with plenty of conversation starters,  playfully lead you to your wine personalities and bring the typical Dineysos charm into your home.",
+    "short": "In short: one box, six wines, one game – and lots of ‘aha’ moments, laughter and new picks for your wine cellar!",
+    "button": "Get it here!"
   },
   "404": {
     "title": "Page Not Found",
