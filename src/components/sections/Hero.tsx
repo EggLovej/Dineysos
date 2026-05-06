@@ -1,20 +1,7 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
+import useIsMobile from "@/hooks/useIsMobile";
 import styles from "@/styles/sections/Hero.module.css";
-
-function useIsMobile(breakpoint = 768) {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth <= breakpoint);
-    check();
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
-  }, [breakpoint]);
-
-  return isMobile;
-}
 
 export default function Hero() {
   const isMobile = useIsMobile();
