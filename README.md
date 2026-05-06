@@ -7,7 +7,7 @@ The site is built as a multilingual Next.js application with CMS-backed event co
 ## Tech Stack
 
 - **Framework:** Next.js 15, React 19, TypeScript
-- **Runtime:** Node.js 20+
+- **Runtime:** Node.js 22.x on Vercel
 - **Styling:** CSS Modules, global CSS
 - **Internationalization:** next-i18next, react-i18next
 - **CMS:** Sanity CMS for events and gallery images
