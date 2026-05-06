@@ -3,10 +3,11 @@ import "@splidejs/react-splide/css";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Lightbox, SlideImage } from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
+import useIsMobile from "@/hooks/useIsMobile";
 import styles from "@/styles/sections/Gallery.module.css";
 import { GalleryImage } from "@/types/galleryImage";
 
@@ -17,19 +18,6 @@ type GalleryProps = {
 type CustomSlide = SlideImage & {
   description?: string;
 };
-
-function useIsMobile(breakpoint = 768) {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < breakpoint);
-    check();
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
-  }, [breakpoint]);
-
-  return isMobile;
-}
 
 export default function Gallery({ images }: GalleryProps) {
   const { t } = useTranslation("common");

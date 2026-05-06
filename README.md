@@ -1,54 +1,47 @@
 # Dineysos Website
 
-**Wines, games, events** — this repository contains the code behind [dineysos.com](https://dineysos.com).
-Built with Next.js and TypeScript, it powers the multi‑language website where we showcase upcoming events, share impressions and let visitors get in touch.
+Production website for [dineysos.com](https://dineysos.com), a wine games and events business.
 
-## Features
+The site is built as a multilingual Next.js application with CMS-backed event content, brochure lead capture, transactional email delivery, feedback collection, analytics, and SEO support.
 
-- 🇩🇪/🇬🇧 localization via **next-i18next** (German is the default language)
-- Event and gallery content fetched from **Sanity CMS**
-- Brochure signup & feedback forms stored in **Supabase**
-- Emails sent using **Resend**
-- Responsive gallery powered by **Splide** and **yet-another-react-lightbox**
-- Automatically generated sitemaps using **next-sitemap**
+## Tech Stack
 
-## Getting started
+- **Framework:** Next.js 15, React 19, TypeScript
+- **Runtime:** Node.js 22.x on Vercel
+- **Styling:** CSS Modules, global CSS
+- **Internationalization:** next-i18next, react-i18next
+- **CMS:** Sanity CMS for events and gallery images
+- **Database:** Supabase for brochure leads and feedback submissions
+- **Email:** Resend for brochure delivery and admin notifications
+- **Bot protection:** Cloudflare Turnstile + honeypot field
+- **UI/media:** next/image, Splide carousel, yet-another-react-lightbox, Framer Motion
+- **SEO/analytics:** custom SEO component, JSON-LD event schema, next-sitemap, Vercel Analytics, Vercel Speed Insights
+- **Tooling:** ESLint, Prettier, TypeScript
 
-1. Install dependencies
+## Architecture
 
-   ```bash
-   npm install
-   ```
+```txt
+src/pages
+  Page routes and API routes
 
-2. Create a `.env.local` file with your credentials:
+src/components
+  Shared layout, UI, and page section components
 
-   ```bash
-   NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
-   RESEND_API_KEY=your-resend-api-key
-   ```
+src/lib
+  Sanity, Supabase, and i18n helpers
 
-3. Launch the dev server
+src/styles
+  CSS Modules and global styles
 
-   ```bash
-   npm run dev
-   ```
+public
+  Static images, brochures, translations, robots.txt, and sitemap files
+```
 
-   Visit <http://localhost:3000> and you’re ready to go.
 
-## Scripts
+## License
 
-- `npm run lint` – run ESLint
-- `npm run lint:fix` – lint and auto‑fix problems
-- `npm run build` – production build (also generates the sitemap)
-- `npm start` – start the built app
+This repository is source-available for portfolio and code review purposes only.
 
-## Project structure
+The code is visible so recruiters, reviewers, and collaborators can inspect the implementation. No permission is granted to copy, redistribute, sublicense, deploy, or create derivative works from this project. All Dineysos branding, copy, images, brochures, event concepts, and other business assets are proprietary.
 
-- `src/pages` – page routes and API endpoints
-- `src/components` – React components
-- `src/lib` – helpers for Sanity, Supabase and i18n
-- `public` – static assets, translated copy and PDF brochures
-
-Pull requests are welcome — feel free to pour yourself a glass and join the fun!
-
+See [LICENSE](./LICENSE) for the full terms.

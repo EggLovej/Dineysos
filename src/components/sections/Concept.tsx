@@ -1,32 +1,18 @@
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import { FlowerSeparator } from "@/components/common/Flowers";
 import GlassesRating from "@/components/common/Glasses";
 import Modal from "@/components/ui/Modal";
+import useIsMobile from "@/hooks/useIsMobile";
 import styles from "@/styles/sections/Concept.module.css";
 
 export default function Concepts() {
   const { t } = useTranslation("common");
   const [modalOpen, setModalOpen] = useState(false);
   const [modalImageBase, setModalImageBase] = useState("");
-  const [isMobile, setIsMobile] = useState(false);
-
-  const handleResize = () => {
-    setIsMobile(window.innerWidth < 768);
-  };
-
-  // Add event listener for window resize
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.addEventListener("resize", handleResize);
-      handleResize(); // Initial check
-      return () => {
-        window.removeEventListener("resize", handleResize);
-      };
-    }
-  }, []);
+  const isMobile = useIsMobile();
 
   return (
     <section className={styles.concepts} id="concepts">
