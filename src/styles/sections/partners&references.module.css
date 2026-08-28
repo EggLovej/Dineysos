@@ -1,0 +1,42 @@
+.partnersReferences {
+  padding: 3rem 0 4rem;
+}
+
+.partnersReferences h2 {
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(0.25rem, 1vw, 0.75rem);
+  align-items: center;
+}
+
+.imageCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+}
+
+.image {
+  width: auto;
+  height: clamp(5rem, 8vw, 8rem);
+  max-width: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .imageCard {
+    padding: 0;
+  }
+
+  .image {
+    height: clamp(5rem, 18vw, 7rem);
+  }
+}

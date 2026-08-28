@@ -2,12 +2,12 @@ import { GetStaticPropsContext } from "next";
 
 import SeoHead from "@/components/layout/Head";
 import About from "@/components/sections/About";
-import Brochure from "@/components/sections/Brochure";
 import Concepts from "@/components/sections/Concept";
 import Contact from "@/components/sections/Contact";
 import Format from "@/components/sections/Format";
 import Gallery from "@/components/sections/Gallery";
 import Hero from "@/components/sections/Hero";
+import PartnersReferences from "@/components/sections/partners&references";
 import Pricing from "@/components/sections/Pricing";
 import { seoConfig } from "@/config/seo";
 import { fetchGalleryImages } from "@/lib/api";
@@ -37,8 +37,8 @@ export default function Home({ images }: { images: GalleryImage[] }) {
       <Format />
       <Pricing />
       <Gallery images={images} />
-      <Brochure />
       <Contact />
+      <PartnersReferences />
     </>
   );
 }

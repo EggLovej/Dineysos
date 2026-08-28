@@ -162,7 +162,7 @@ export default function EventPage({ event }: EventPageProps) {
                 alt="Dineysos Logo"
                 className={styles.logoImage}
                 height={179}
-                src="/images/logo/color.webp"
+                src="/images/logo/logo.webp"
                 width={500}
               />
             </div>

@@ -3,6 +3,7 @@
 module.exports = {
   siteUrl: "https://dineysos.com",
   generateRobotsTxt: true,
+  exclude: ["/404", "/*/404"],
   transform: async (config, path) => {
     let priority = 0.7;
     if (path === "/") priority = 1.0;
