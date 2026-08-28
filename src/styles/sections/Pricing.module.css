@@ -109,3 +109,29 @@
     display: block;
   }
 }
+
+@media (max-width: 320px) {
+  .accordionHeader {
+    padding-inline: 0.75rem;
+  }
+
+  .headerText {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .priceRow {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-inline: 0.5rem;
+  }
+
+  .priceValue {
+    text-align: left;
+  }
+
+  .priceAnnotation {
+    white-space: normal;
+  }
+}

@@ -79,10 +79,19 @@
 
 @media (max-width: 768px) {
   .card {
+    width: 100%;
+    min-width: 0;
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 1rem;
+  }
+
+  .image,
+  .description,
+  .classifiction {
+    min-width: 0;
+    max-width: 100%;
   }
 
   .description {
@@ -111,5 +120,22 @@
   .classifiction {
     width: 100%;
     margin-top: 1rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .card {
+    padding-inline: 0.5rem;
+  }
+
+  .row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .row span {
+    width: 100%;
+    min-width: 0;
+    text-align: center;
   }
 }

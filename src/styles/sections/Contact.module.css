@@ -112,7 +112,7 @@
 }
 
 .logoImage {
-  width: 200px;
+  width: min(200px, 100%);
   height: auto;
   margin: 2rem 0;
 }
@@ -120,11 +120,12 @@
 .qrCodes {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
 .qrCode {
-  width: 100px;
+  width: clamp(3.5rem, 25vw, 6.25rem);
   height: auto;
   transition: transform 0.3s ease;
   cursor: pointer;
@@ -153,5 +154,9 @@
 
   .card {
     width: 90%;
+  }
+
+  .flowerList {
+    margin-left: 0;
   }
 }
