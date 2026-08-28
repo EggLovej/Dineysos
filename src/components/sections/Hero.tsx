@@ -14,7 +14,7 @@ export default function Hero() {
             alt="Dineysos Logo"
             className={styles.logo}
             height={179}
-            src="/images/logo/color.webp"
+            src="/images/logo/logo.webp"
             width={500}
           />
 

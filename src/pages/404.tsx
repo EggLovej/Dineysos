@@ -20,7 +20,7 @@ export default function NotFoundPage() {
             alt="Logo"
             className={styles.image}
             height={179}
-            src="/images/logo/color.webp"
+            src="/images/logo/logo.webp"
             width={500}
           />
           <h2>{t("404.title")}</h2>

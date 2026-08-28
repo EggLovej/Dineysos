@@ -12,7 +12,7 @@
 .logo {
   width: 60vw;
   max-width: 500px;
-  min-width: 120px;
+  min-width: 0;
   height: auto;
 }
 

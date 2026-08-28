@@ -132,6 +132,42 @@
   }
 
   .legend {
+    width: 100%;
+    min-width: 0;
+    margin-inline: 0;
     margin-top: 2rem;
+  }
+
+  .legendRow {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    width: 100%;
+  }
+
+  .legendSymbol,
+  .legendText {
+    width: auto;
+    min-width: 0;
+  }
+
+  .legendSymbol {
+    flex-wrap: wrap;
+  }
+
+  .legendText {
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+
+  .accordionHeaderLeft {
+    min-width: 0;
+  }
+
+  .accordionTitle {
+    overflow-wrap: anywhere;
+  }
+
+  .accordionArrow {
+    flex: 0 0 auto;
   }
 }

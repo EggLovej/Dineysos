@@ -94,8 +94,26 @@
 }
 
 @media (max-width: 768px) {
+  .navbar {
+    padding-inline: clamp(0.75rem, 4vw, 2rem);
+  }
+
+  .logo {
+    width: clamp(4rem, 30vw, 8rem);
+  }
+
+  .rightControls {
+    gap: clamp(0.5rem, 3vw, 1.5rem);
+  }
+
   .menuToggle {
     display: block;
+    padding-inline: 0.25rem;
+    font-size: clamp(1.5rem, 8vw, 2rem);
+  }
+
+  .langToggle {
+    padding-inline: 0.25rem;
   }
 
   .menu {
@@ -115,5 +133,32 @@
 
   .menu.open {
     display: flex;
+  }
+}
+
+@media (max-width: 200px) {
+  .navbar {
+    padding-inline: 0.5rem;
+    transition: none;
+  }
+
+  .logo,
+  .navbar.scrolled .logo {
+    width: clamp(3rem, 28vw, 4rem);
+    transition: none;
+  }
+
+  .rightControls {
+    gap: 0.25rem;
+  }
+
+  .menuToggle {
+    padding-inline: 0.125rem;
+    font-size: 1.25rem;
+  }
+
+  .langToggle {
+    padding-inline: 0.125rem;
+    font-size: 0.875rem;
   }
 }

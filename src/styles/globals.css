@@ -7,12 +7,17 @@
   --light-blue: #93bbe0;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: "Cormorant", serif;
   background-color: var(--cream);
   position: relative;
-  overflow-x: hidden;
 }
 
 body p {
@@ -50,6 +55,7 @@ html {
 }
 
 .base-container {
+  width: 100%;
   max-width: 85vw;
   margin: 0 auto;
   padding: clamp(0.2rem, 1.5vw, 1rem);
@@ -80,7 +86,17 @@ body {
 
 .main-content {
   flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
+
+@media (max-width: 480px) {
+  .base-container {
+    max-width: 100%;
+    padding-inline: clamp(0.75rem, 4vw, 1rem);
+  }
+}
+
 @media (max-width: 1024px) {
   .desktop {
     display: none;
