@@ -7,7 +7,7 @@ import Contact from "@/components/sections/Contact";
 import Format from "@/components/sections/Format";
 import Gallery from "@/components/sections/Gallery";
 import Hero from "@/components/sections/Hero";
-import PartnersReferences from "@/components/sections/partners&references";
+import PartnersReferences from "@/components/sections/PartnersReferences";
 import Pricing from "@/components/sections/Pricing";
 import { seoConfig } from "@/config/seo";
 import { fetchGalleryImages } from "@/lib/api";

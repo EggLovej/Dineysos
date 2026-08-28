@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
 
-import styles from "@/styles/sections/partners&references.module.css";
+import styles from "@/styles/sections/PartnersReferences.module.css";
 
 const partners = [
   { alt: "BCG", height: 2160, src: "/images/icons/partners/bcg.webp", width: 3840 },
