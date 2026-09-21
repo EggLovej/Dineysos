@@ -1,10 +1,13 @@
 import Image from "next/image";
+import { useTranslation } from "next-i18next";
 
 import useIsMobile from "@/hooks/useIsMobile";
 import styles from "@/styles/sections/Hero.module.css";
+import buttonStyles from "@/styles/ui/SectionLink.module.css";
 
 export default function Hero() {
   const isMobile = useIsMobile();
+  const { t } = useTranslation("common");
 
   return (
     <section className={styles.hero} id="hero">
@@ -31,6 +34,9 @@ export default function Hero() {
             />
           </div>
           <h1>WINES, GAMES, EVENTS</h1>
+          <a className={buttonStyles.sectionLink} href="#concepts">
+            {t("hero.conceptsButton")}
+          </a>
         </div>
       </div>
     </section>

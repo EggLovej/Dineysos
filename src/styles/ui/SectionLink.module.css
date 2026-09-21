@@ -1,0 +1,18 @@
+.sectionLink {
+  display: inline-block;
+  border: 2px solid var(--orange);
+  border-radius: 999px;
+  padding: 0.65rem 1.5rem;
+  color: var(--orange);
+  background: transparent;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.sectionLink:hover,
+.sectionLink:focus-visible {
+  color: var(--cream);
+  background-color: var(--orange);
+}

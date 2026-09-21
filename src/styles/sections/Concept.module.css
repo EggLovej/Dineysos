@@ -1,141 +1,617 @@
 .concepts {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  padding: 3rem 0;
 }
 
 .concepts h2 {
+  margin-bottom: 1.5rem;
+}
+
+.introduction {
+  max-width: 100%;
+  margin: 0 0 2rem;
+  color: var(--blue);
+}
+
+.tableViewport {
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scrollbar-color: var(--blue) var(--dark-cream);
+}
+
+.table {
+  width: 100%;
+  min-width: 960px;
+  border-collapse: separate;
+  border-spacing: 0.35rem;
+  color: var(--blue);
+  table-layout: fixed;
+}
+
+.table th,
+.table td {
+  padding: clamp(0.85rem, 1.5vw, 1.35rem) clamp(0.65rem, 1vw, 1rem);
+  text-align: center;
+  vertical-align: middle;
+  white-space: pre-line;
+}
+
+.table th {
+  background: var(--blue);
+  color: var(--cream);
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-weight: bold;
+}
+
+.table th:nth-child(1) {
+  width: 14%;
+}
+
+.table th:nth-child(2) {
+  width: 21%;
+}
+
+.table th:nth-child(3) {
+  width: 23%;
+}
+
+.table th:nth-child(4) {
+  width: 17%;
+}
+
+.table th:nth-child(5),
+.table th:nth-child(6) {
+  width: 12.5%;
+}
+
+.table td {
+  background: #d9e8f6;
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  line-height: 1.35;
+  transition:
+    background-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.table .nameCell {
+  background: var(--light-blue);
+  font-weight: bold;
+}
+
+.interactiveRow {
+  cursor: pointer;
+  outline: none;
+}
+
+.interactiveRow:hover td {
+  background: #c7def2;
+  box-shadow: inset 0 0 0 2px rgb(9 87 162 / 25%);
+}
+
+.interactiveRow:hover .nameCell {
+  background: #7fafe0;
+}
+
+.interactiveRow:focus-visible td {
+  box-shadow: inset 0 0 0 3px var(--orange);
+}
+
+.customRow .customPrompt {
+  background: var(--blue);
+  color: var(--cream);
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+}
+
+.customRow:hover .customPrompt {
+  background: #074a89;
+}
+
+.mobileConceptList {
+  display: none;
+}
+
+.mobileConceptCard {
+  min-width: 0;
+  overflow: hidden;
+  border: 2px solid var(--blue);
+  border-radius: 1.25rem;
+  padding: 0;
+  color: var(--blue);
+  background: #d9e8f6;
+  box-shadow: 0 0.35rem 0 rgb(9 87 162 / 12%);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    box-shadow 150ms ease,
+    transform 150ms ease;
+}
+
+.mobileConceptCard:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+}
+
+.mobileCardTitle {
+  display: block;
+  padding: 0.85rem 1rem;
+  color: var(--cream);
+  background: var(--blue);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: bold;
   text-align: center;
 }
 
-.grid {
+.mobileCardBody {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.mobileCardFocus,
+.mobileCardStat,
+.mobileCardDetail {
+  display: grid;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.mobileCardFocus strong {
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  line-height: 1.25;
+}
+
+.mobileCardLabel {
+  color: var(--blue);
+  font-size: 0.9rem;
+  font-weight: bold;
+  line-height: 1.1;
+}
+
+.mobileCardStats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.mobileCardStat {
+  align-content: start;
+  border: 1px solid rgb(9 87 162 / 28%);
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  background: var(--cream);
+  text-align: center;
+}
+
+.mobileCardStat strong,
+.mobileCardDetail > span:last-child {
+  white-space: pre-line;
+}
+
+.mobileCardStat strong {
+  font-size: 1.15rem;
+  line-height: 1.15;
+}
+
+.mobileCardStatValue {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.mobileCardStatValue small {
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+.mobileCardDetails {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.mobileCardDetail {
+  grid-template-columns: minmax(6rem, 0.7fr) minmax(0, 1.3fr);
+  gap: 0.75rem;
+  border-top: 1px solid rgb(9 87 162 / 22%);
+  padding-top: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.mobileCardAction {
+  justify-self: end;
+  color: var(--blue);
+  font-size: 0.95rem;
+  font-weight: bold;
+  line-height: 1.2;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.mobileCustomCard {
+  display: grid;
+  color: var(--cream);
+  background: var(--blue);
+}
+
+.mobileCustomCard .mobileCardTitle {
+  color: var(--orange);
+}
+
+.mobileCustomContent {
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem 1rem;
+  text-align: center;
+}
+
+.mobileCustomContent strong {
+  font-size: clamp(1.25rem, 3vw, 1.6rem);
+}
+
+.mobileCustomCard .mobileCardAction {
+  justify-self: center;
+  color: var(--cream);
+}
+
+@media (hover: hover) {
+  .mobileConceptCard:hover {
+    box-shadow: 0 0.55rem 0 rgb(9 87 162 / 20%);
+    transform: translateY(-2px);
+  }
+}
+
+.contactCta {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.dialogOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 1rem;
+  background: rgb(0 0 0 / 78%);
+}
+
+.dialog {
+  position: relative;
+  width: min(920px, 96vw);
+  margin: auto 0;
+  background: transparent;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.closeButton:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+}
+
+.detailCard {
+  min-height: 380px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.9fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  border: clamp(4px, 0.6vw, 7px) solid var(--blue);
+  border-radius: clamp(2rem, 5vw, 4rem);
+  padding: clamp(2rem, 5vw, 4rem);
+  color: var(--blue);
+  background: var(--cream);
+}
+
+.detailCopy h3 {
+  margin: 0 0 1.5rem;
+  color: var(--blue);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.05;
+}
+
+.detailCopy p,
+.ratings p {
+  margin: 0;
+  color: var(--blue);
+}
+
+.detailCopy p {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  line-height: 1.45;
+}
+
+.ratings {
+  display: grid;
+  gap: 1rem;
+  align-content: center;
+}
+
+.gameType {
+  margin-bottom: 0.75rem !important;
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem) !important;
+}
+
+.ratingRow {
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
+  color: var(--blue);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+}
+
+.designCard {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  border: clamp(3px, 0.4vw, 5px) solid var(--blue);
+  border-radius: clamp(1.5rem, 3vw, 2.5rem);
+  padding: clamp(2rem, 5vw, 4rem);
+  color: var(--blue);
+  background: var(--cream);
+}
+
+.designCard h3 {
+  margin: 0;
+  padding-right: 3rem;
+  color: var(--blue);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+}
+
+.scaleArea {
+  min-width: 0;
+  overflow: visible;
+}
+
+.scaleHeader,
+.criterion {
+  display: grid;
+  grid-template-columns: clamp(6.5rem, 32%, 12rem) minmax(0, 1fr);
+  gap: clamp(0.5rem, 3vw, 4rem);
+  align-items: center;
+}
+
+.scaleLabels,
+.scaleOptions {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(0.2rem, 1vw, 1rem);
+  align-items: center;
+}
+
+.scaleLabels span {
+  color: var(--blue);
+  font-size: clamp(0.65rem, 2.8vw, 1.15rem);
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: keep-all;
+  hyphens: none;
+}
+
+.scaleLabels span:first-child {
+  grid-column: 1 / span 2;
+  justify-self: start;
+}
+
+.scaleLabels span:last-child {
+  grid-column: 4 / span 2;
+  justify-self: end;
+}
+
+.importanceScales {
+  display: grid;
+  gap: clamp(0.45rem, 2vw, 1rem);
+}
+
+.criterion,
+.preferenceGroup {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.criterionLabel,
+.preferenceGroup legend {
+  color: var(--blue);
+  font-size: clamp(0.65rem, 2.8vw, 1.2rem);
+}
+
+.criterionLabel {
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: keep-all;
+}
+
+.scaleOptions input,
+.preferenceOption input {
+  appearance: none;
+  flex: 0 0 auto;
+  border: 2px solid var(--blue);
+  border-radius: 0.15rem;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    background-color 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.scaleOptions input {
+  display: block;
+  width: clamp(0.9rem, 4.3vw, 2.35rem);
+  height: clamp(0.9rem, 4.3vw, 2.35rem);
+  justify-self: center;
+}
+
+.scaleOptions input:checked,
+.preferenceOption input:checked {
+  background: var(--blue);
+  box-shadow: inset 0 0 0 0.3rem var(--cream);
+}
+
+.scaleOptions input:focus-visible,
+.preferenceOption input:focus-visible,
+.textFields input:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+}
+
+.preferenceGroup {
+  display: grid;
   gap: 1rem;
 }
 
-.card {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  border-radius: 12px;
-}
-
-.image {
-  width: 30%;
-  display: flex;
-  justify-content: left;
-  border-radius: 8px;
-  padding: 1rem;
-  margin-right: 1rem;
-}
-
-.image img {
-  max-width: 15rem;
-  height: auto;
+.preferenceGroup legend {
   display: block;
+  margin-bottom: 1rem;
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
 }
 
-.description {
-  width: 40%;
-  text-align: left;
-  padding: 1rem;
-  border-radius: 8px;
-  margin-right: 1rem;
+.preferenceOptions {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
 }
 
-.classification {
-  width: 30%;
-}
-
-.row {
+.preferenceOption {
   display: flex;
-  flex-direction: row;
   align-items: center;
+  gap: 0.75rem;
   color: var(--blue);
-  margin-top: 0.5rem;
-}
-
-.row span {
-  display: inline-block;
-  min-width: 80px;
-  text-align: left;
-}
-
-.button {
-  background-color: var(--orange);
-  color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
-  border-radius: 999px;
   cursor: pointer;
-  font-weight: bold;
-  margin-top: 1rem;
-  text-align: center;
-  display: block;
+}
+
+.preferenceOption input {
+  width: 2rem;
+  height: 2rem;
+}
+
+.textFields {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.textFields label {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: end;
+  color: var(--blue);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+}
+
+.textFields input {
+  min-width: 0;
+  border: 0;
+  border-bottom: 2px solid var(--blue);
+  border-radius: 0;
+  padding: 0.25rem;
+  color: var(--blue);
+  background: transparent;
+  font: inherit;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 1170px) {
+  .tableViewport {
+    display: none;
+  }
+
+  .mobileConceptList {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .card {
-    width: 100%;
-    min-width: 0;
-    flex-direction: column;
-    align-items: center;
+  .concepts {
+    padding: 2rem 0;
+  }
+
+  .concepts h2 {
     text-align: center;
-    padding: 1rem;
   }
 
-  .image,
-  .description,
-  .classification {
-    min-width: 0;
-    max-width: 100%;
+  .mobileConceptList {
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .description {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  .dialog {
+    width: min(94vw, 620px);
   }
 
-  .image {
-    width: 50%;
-    justify-content: center;
+  .detailCard {
+    min-height: 0;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    border-radius: 2rem;
+    padding: 3.5rem 1.5rem 2rem;
   }
 
-  .image img {
-    max-width: 100%;
-    height: auto;
+  .detailCopy h3 {
+    padding-right: 2rem;
   }
 
-  .description {
-    width: 90%;
-    max-width: 500px;
-    margin: 0 auto;
-    text-align: justify;
+  .ratingRow {
+    grid-template-columns: 6.5rem minmax(0, 1fr);
   }
 
-  .classification {
-    width: 100%;
-    margin-top: 1rem;
+  .designCard {
+    gap: 1.5rem;
+    border-radius: 1.5rem;
+    padding: 3.5rem 1.25rem 2rem;
+  }
+
+  .designCard h3 {
+    padding-right: 2rem;
+    font-size: clamp(2rem, 9vw, 2.5rem);
+  }
+
+  .preferenceOptions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .textFields label {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
   }
 }
 
-@media (max-width: 320px) {
-  .card {
-    padding-inline: 0.5rem;
-  }
-
-  .row {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .row span {
-    width: 100%;
-    min-width: 0;
-    text-align: center;
+@media (max-width: 420px) {
+  .mobileCardDetail {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
   }
 }

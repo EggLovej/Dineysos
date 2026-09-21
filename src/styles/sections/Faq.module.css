@@ -1,0 +1,78 @@
+.faq {
+  padding: 3rem 0 1rem;
+  color: var(--blue);
+}
+
+.faq h2 {
+  margin-bottom: 2rem;
+  color: var(--blue);
+  text-align: center;
+}
+
+.list {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--blue);
+}
+
+.item {
+  border-top: 1px solid var(--blue);
+}
+
+.item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.25rem 0;
+  color: var(--blue);
+  font-size: clamp(1.1rem, 1.75vw, 1.35rem);
+  font-weight: bold;
+  cursor: pointer;
+  list-style: none;
+}
+
+.item summary::-webkit-details-marker {
+  display: none;
+}
+
+.item summary::after {
+  content: "+";
+  flex: 0 0 auto;
+  font-size: 1.5rem;
+  font-weight: normal;
+  line-height: 1;
+}
+
+.item[open] summary::after {
+  content: "−";
+}
+
+.item p {
+  max-width: 75ch;
+  margin: 0;
+  padding: 0 2.5rem 1.25rem 0;
+  color: var(--blue);
+}
+
+.item summary:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .faq {
+    padding-top: 2rem;
+  }
+
+  .item summary {
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .item p {
+    padding-right: 1.5rem;
+  }
+}

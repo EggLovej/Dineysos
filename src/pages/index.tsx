@@ -4,6 +4,7 @@ import SeoHead from "@/components/layout/Head";
 import About from "@/components/sections/About";
 import Concepts from "@/components/sections/Concept";
 import Contact from "@/components/sections/Contact";
+import Faq from "@/components/sections/Faq";
 import Format from "@/components/sections/Format";
 import Gallery from "@/components/sections/Gallery";
 import Hero from "@/components/sections/Hero";
@@ -38,6 +39,7 @@ export default function Home({ images }: { images: GalleryImage[] }) {
       <Pricing />
       <Gallery images={images} />
       <Contact />
+      <Faq />
       <PartnersReferences />
     </>
   );

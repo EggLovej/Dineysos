@@ -1,4 +1,7 @@
 {
+  "hero": {
+    "conceptsButton": "Konzepte"
+  },
   "nav": {
     "sipAndSolve": "SIP & SOLVE",
     "events": "EVENTS",
@@ -19,27 +22,90 @@
     "clint": "Ein Brunch-Liebhaber, der nie ohne Hut anzutreffen ist und eine nicht zu leugnende Leidenschaft für Wein besitzt - viel Wein."
   },
   "concept": {
-    "heading": "Unsere Konzepte",
-    "button": "Mehr erfahren",
+    "heading": "Concepts",
+    "description": "Unsere Konzepte sind immer unkompliziert und auf spassige Weise lehrreich. Sie kombinieren eine spielerische Komponente mit einem weintheoretischen Fokus. Dabei stehen immer Geselligkeit und ein niederschwelliger Einstieg im Vordergrund. Das Niveau und die Weine sind flexibel an eure Bedürfnisse anpassbar.",
+    "contactButton": "Anfrage",
     "gameType": "Spielelement:",
-    "quiz": "Quiz",
     "fun": "Spass",
     "learning": "Lernlevel",
     "exchange": "Austausch",
+    "dialog": {
+      "close": "Schliessen"
+    },
+    "table": {
+      "caption": "Vergleich der Dineysos Konzepte",
+      "openDetails": "Details zu {{concept}} öffnen",
+      "openDetailsShort": "Details öffnen",
+      "headers": {
+        "concept": "Konzept",
+        "focus": "Fokus",
+        "setup": "Set-Up",
+        "suitable": "Geeignet für",
+        "participants": "Anzahl Teilnehmer",
+        "wines": "Anzahl Weine"
+      },
+      "rows": {
+        "classroom": {
+          "focus": "Degustationstechniken & Weinstile erkennen",
+          "setup": "Parcours mit Weinstationen:\nLöse das Rätsel!",
+          "suitable": "Teamevent\nMessen\nJunggesellenabschied",
+          "participants": "6–40",
+          "wines": "5–10"
+        },
+        "trophy": {
+          "focus": "Etiketten lesen & Foodpairing",
+          "setup": "Weinbegleitung zu mehreren Gängen:\nFinde die beste Kombination!",
+          "suitable": "Wine & Dine\nPrivatevent\nKleiner Geburtstag",
+          "participants": "2–8",
+          "wines": "4–5"
+        },
+        "olympics": {
+          "focus": "Weine vergleichen & Qualitätsmerkmale",
+          "setup": "Paarweise Blinddegustation:\nErkenne den Unterschied!",
+          "suitable": "Teamevent\nGrosser Geburtstag",
+          "participants": "2–20",
+          "wines": "6–20\n(gerade Anzahl)"
+        }
+      }
+    },
     "trophy": {
       "title": "Trophy",
-      "description": "Euch erwarten mehrere Challenges über die Weinauswahl, bei denen Weinwissen eher bescheiden nützlich ist. Unterhaltsam, mehr oder weniger informativ und mit einem glorreichen Sieger (oder Siegergruppe, unsere Konzepte sind auch als Team spielbar) am Ende.",
+      "description": "Ein Weinwettbewerb direkt bei euch am Tisch – wo Kombinations- und Auffassungsgabe zum Erfolg führen.",
       "gameType": "Quiz"
     },
     "classroom": {
       "title": "Classroom",
-      "description": "Hier kommen die Teilnehmer weinbezogen schlauer nach Hause, als sie es ohnehin schon sind. Weinwissen wird nicht benötigt oder kann in den Schwierigkeits- und Informationslevel eingerechnet werden.",
+      "description": "Ein interaktiver Parcours, der sensorische Fähigkeiten, Logik und Durchhaltewillen belohnt.",
       "gameType": "Kreuzworträtsel"
     },
     "olympics": {
       "title": "Olympics",
-      "description": "Was wertet jedes Konzept auf? Richtig, mehr Wein. Olympic setzt eine Serie von Weinen in Konkurrenz zu einer zweiten Serie. Olympische Spiele mit Weinen sozusagen. Eignet sich neben den üblichen Formaten auch bestens um euer Weinsortiment gegen ein anderes antreten zu lassen.",
+      "modalTitle": "Olympics (a wine battle game)",
+      "description": "Eine Serie von Weinen wird in Konkurrenz zu einer zweiten Serie gesetzt und durch eure Urteilsfähigkeit kommt ihr zum Ziel.",
       "gameType": "Quartett"
+    },
+    "custom": {
+      "title": "Dein Konzept",
+      "prompt": "Lass uns darüber sprechen",
+      "designTitle": "Design your Event",
+      "veryImportant": "sehr wichtig",
+      "notImportant": "gar nicht wichtig",
+      "importanceChoice": "{{criterion}}: Stufe {{value}} von 5",
+      "criteria": {
+        "wineTheory": "Weintheorie",
+        "tastingTechnique": "Degustationstechnik",
+        "foodPairing": "Food Pairing",
+        "discoverPreferences": "Vorlieben entdecken"
+      },
+      "preferencesTitle": "Ich mag...",
+      "preferences": {
+        "all": "Alles",
+        "red": "Rot",
+        "white": "Weiss",
+        "bubbles": "Bubbles"
+      },
+      "favoriteRegion": "Lieblingsregion / -land:",
+      "favoriteWine": "Lieblingswein:"
     }
   },
   "format": {
@@ -95,6 +161,35 @@
   "gallery": {
     "heading": "Galerie",
     "noImages": "Keine Bilder verfügbar."
+  },
+  "faq": {
+    "heading": "FAQ",
+    "items": {
+      "audience": {
+        "question": "Für wen sind die Konzepte geeignet?",
+        "answer": "Für Unternehmen, die Teamevents als Erlebnis denken, sowie für junge und junggebliebene Privatpersonen auf der Suche nach Spiel, Wein und Spass."
+      },
+      "duration": {
+        "question": "Wie lange dauert ein Event?",
+        "answer": "Je nach Event ca. 1–2 Stunden. In Verbindung mit einem Wine&Dine entsprechend länger."
+      },
+      "location": {
+        "question": "Wo finden unsere Events statt?",
+        "answer": "Bei euch direkt vor Ort oder in einer unserer Partnerlocations."
+      },
+      "included": {
+        "question": "Was ist im Preis inbegriffen?",
+        "answer": "In der Regel fünf Weine (je 1 dl pro Wein/Person), Spielunterlagen, Moderation durch 1–2 Moderatoren sowie ein kleiner Preis für den Gewinner. Anfahrtsspesen werden separat offeriert."
+      },
+      "customization": {
+        "question": "Sind die Konzepte anpassbar?",
+        "answer": "Natürlich, wir gestalten euren Event nach euren Vorstellungen: Die Anzahl Weine, deren Preisniveau oder die Fokussierung auf mehr Education oder Entertainment können flexibel angepasst werden."
+      },
+      "alcoholFree": {
+        "question": "Ist ein alkoholfreies Format auch möglich?",
+        "answer": "Na klar."
+      }
+    }
   },
   "partnersReferences": {
     "heading": "Partner & Referenzen"

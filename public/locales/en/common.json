@@ -1,4 +1,7 @@
 {
+  "hero": {
+    "conceptsButton": "Concepts"
+  },
   "nav": {
     "sipAndSolve": "SIP & SOLVE",
     "events": "EVENTS",
@@ -19,27 +22,90 @@
     "clint": "A brunch enthusiast, who never leaves the house without a hat and has an undeniable passion for wine - lots of wine."
   },
   "concept": {
-    "heading": "Our Concepts",
-    "button": "Learn more",
+    "heading": "Concepts",
+    "description": "Our concepts are always straightforward and educational in a fun way. They combine a playful component with a focus on wine theory. Social interaction and an accessible introduction are always at the heart of the experience. The level and the wines can be flexibly adapted to your needs.",
+    "contactButton": "Inquiry",
     "gameType": "Game element:",
-    "quiz": "Quiz",
     "fun": "Fun",
     "learning": "Education",
     "exchange": "Socializing",
+    "dialog": {
+      "close": "Close"
+    },
+    "table": {
+      "caption": "Comparison of Dineysos concepts",
+      "openDetails": "Open details for {{concept}}",
+      "openDetailsShort": "Open details",
+      "headers": {
+        "concept": "Concept",
+        "focus": "Focus",
+        "setup": "Set-up",
+        "suitable": "Suitable for",
+        "participants": "Number of participants",
+        "wines": "Number of wines"
+      },
+      "rows": {
+        "classroom": {
+          "focus": "Tasting techniques & recognizing wine styles",
+          "setup": "Course with wine stations:\nSolve the puzzle!",
+          "suitable": "Team event\nTrade fairs\nBachelor or bachelorette party",
+          "participants": "6–40",
+          "wines": "5–10"
+        },
+        "trophy": {
+          "focus": "Reading labels & food pairing",
+          "setup": "Wine pairing with several courses:\nFind the best combination!",
+          "suitable": "Wine & Dine\nPrivate event\nSmall birthday celebration",
+          "participants": "2–8",
+          "wines": "4–5"
+        },
+        "olympics": {
+          "focus": "Comparing wines & quality characteristics",
+          "setup": "Paired blind tasting:\nSpot the difference!",
+          "suitable": "Team event\nLarge birthday celebration",
+          "participants": "2–20",
+          "wines": "6–20\n(even number)"
+        }
+      }
+    },
     "trophy": {
       "title": "Trophy",
-      "description": "Several wine selection challenges await you, in which wine knowledge is rather modestly useful. Very engaging, more or less informative and with a glorious winner (or winning group, our concepts can also be played in teams) at the end.",
+      "description": "A wine competition right at your table – where quick thinking and making the right connections lead to success.",
       "gameType": "Quiz"
     },
     "classroom": {
       "title": "Classroom",
-      "description": "This game sends participants home wiser (at least wine-wise) than they already are. Wine knowledge is not required, but can be included in adjustment of the level of difficulty and information.",
+      "description": "An interactive course that rewards sensory skills, logic and perseverance.",
       "gameType": "Crossword"
     },
     "olympics": {
       "title": "Olympics",
-      "description": "What enhances any concept? Exactly, more wine. Olympics sets one series of wines in competition with a second series. Olympic Games with wines, so to speak. This concept is especially ideal for highlighting the nuances that go into wine making.",
+      "modalTitle": "Olympics (a wine battle game)",
+      "description": "One series of wines competes against another, and your judgement will lead you to the finish.",
       "gameType": "Quartets"
+    },
+    "custom": {
+      "title": "Your concept",
+      "prompt": "Let's talk about it",
+      "designTitle": "Design your Event",
+      "veryImportant": "very important",
+      "notImportant": "not important",
+      "importanceChoice": "{{criterion}}: level {{value}} of 5",
+      "criteria": {
+        "wineTheory": "Wine theory",
+        "tastingTechnique": "Tasting technique",
+        "foodPairing": "Food pairing",
+        "discoverPreferences": "Discover preferences"
+      },
+      "preferencesTitle": "I like...",
+      "preferences": {
+        "all": "Everything",
+        "red": "Red",
+        "white": "White",
+        "bubbles": "Bubbles"
+      },
+      "favoriteRegion": "Favourite region / country:",
+      "favoriteWine": "Favourite wine:"
     }
   },
   "format": {
@@ -94,6 +160,35 @@
   "gallery": {
     "heading": "Gallery",
     "noImages": "No images available."
+  },
+  "faq": {
+    "heading": "FAQ",
+    "items": {
+      "audience": {
+        "question": "Who are the concepts suitable for?",
+        "answer": "For companies that see team events as an experience, as well as young and young-at-heart individuals looking for games, wine and fun."
+      },
+      "duration": {
+        "question": "How long does an event last?",
+        "answer": "Depending on the event, approximately 1–2 hours. It takes correspondingly longer when combined with a Wine&Dine."
+      },
+      "location": {
+        "question": "Where do our events take place?",
+        "answer": "Directly at your location or at one of our partner venues."
+      },
+      "included": {
+        "question": "What is included in the price?",
+        "answer": "As a rule, five wines (1 dl of each wine per person), game materials, facilitation by 1–2 hosts and a small prize for the winner are included. Travel expenses are quoted separately."
+      },
+      "customization": {
+        "question": "Can the concepts be customized?",
+        "answer": "Of course. We design your event according to your wishes: The number of wines, their price range and the focus on more education or entertainment can all be adapted flexibly."
+      },
+      "alcoholFree": {
+        "question": "Is an alcohol-free format also possible?",
+        "answer": "Absolutely."
+      }
+    }
   },
   "partnersReferences": {
     "heading": "Partners & References"
