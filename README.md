@@ -38,6 +38,18 @@ public
 ```
 
 
+## Development
+
+```bash
+npm run dev        # local dev server
+npm run typecheck  # tsc --noEmit
+npm run lint       # eslint
+npm test           # vitest (tests/, Node environment, no browser rendering)
+npm run build      # production build, also regenerates the sitemap
+```
+
+Tests live in `tests/` and cover the API routes (with Supabase, Resend, Turnstile and Sentry mocked), the pure helpers in `src/lib`, the SEO URL builder, translation parity between `de` and `en`, and the pricing data. CI (`.github/workflows/ci.yml`) runs typecheck, lint and tests on every push and pull request; the production build is verified by Vercel's preview deployment. Dependabot opens grouped monthly update PRs.
+
 ## Environment variables
 
 | Variable | Used by |

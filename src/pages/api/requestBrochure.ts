@@ -6,6 +6,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { Resend } from "resend";
 
 import { logError, logEvent } from "@/lib/log";
+import { getClientIp, normalizeEmail } from "@/lib/request";
 import { supabase } from "@/lib/supabaseClient";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -48,27 +49,6 @@ type TurnstileResponse = {
   success: boolean;
   "error-codes"?: string[];
 };
-
-function getClientIp(req: NextApiRequest) {
-  const forwardedFor = req.headers["x-forwarded-for"];
-
-  if (Array.isArray(forwardedFor)) {
-    return forwardedFor[0]?.split(",")[0]?.trim();
-  }
-
-  return forwardedFor?.split(",")[0]?.trim() ?? req.socket.remoteAddress;
-}
-
-function normalizeEmail(email: unknown) {
-  if (typeof email !== "string") return null;
-
-  const normalizedEmail = email.trim().toLowerCase();
-  const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalizedEmail);
-
-  if (!isValidEmail || normalizedEmail.length > 254) return null;
-
-  return normalizedEmail;
-}
 
 async function verifyTurnstile(token: unknown, clientIp?: string) {
   const secret = process.env.TURNSTILE_SECRET_KEY;

@@ -7,6 +7,7 @@ import { useMemo } from "react";
 import { CalendarIcon, ClockIcon, MapPinIcon, CoinsIcon } from "@/components/common/Icons";
 import SeoHead from "@/components/layout/Head";
 import { fetchAllEventSlugs, fetchEventBySlug } from "@/lib/api";
+import { formatParagraph, formatTimeRange } from "@/lib/eventFormat";
 import { getI18nStaticProps } from "@/lib/getStaticProps";
 import styles from "@/styles/events/EventPage.module.css";
 import { Event } from "@/types/event";
@@ -14,26 +15,6 @@ import { Event } from "@/types/event";
 type EventPageProps = {
   event: Event;
 };
-
-const EMAIL_PATTERN = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}";
-// Capturing group so split() keeps the matched emails; global so every email is split out.
-const EMAIL_SPLIT_REGEX = new RegExp(`(${EMAIL_PATTERN})`, "g");
-// Anchored and non-global: a global regex keeps lastIndex state between test() calls.
-const EMAIL_TEST_REGEX = new RegExp(`^${EMAIL_PATTERN}$`);
-
-function formatParagraph(text: string) {
-  const parts = text.split(EMAIL_SPLIT_REGEX);
-
-  return parts.map((part, idx) =>
-    EMAIL_TEST_REGEX.test(part) ? (
-      <a key={idx} className={styles.email} href={`mailto:${part}`}>
-        {part}
-      </a>
-    ) : (
-      part
-    )
-  );
-}
 
 export default function EventPage({ event }: EventPageProps) {
   const { t, i18n } = useTranslation("common");
@@ -251,15 +232,3 @@ export const getStaticProps: GetStaticProps = async (context: GetStaticPropsCont
     revalidate: 86400, // Revalidate every 24 hours
   };
 };
-
-function formatTimeRange(start: string, end: string) {
-  const startTime = new Date(start).toLocaleTimeString("de-CH", {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-  const endTime = new Date(end).toLocaleTimeString("de-CH", {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-  return `${startTime} – ${endTime}`;
-}

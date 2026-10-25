@@ -10,9 +10,15 @@ type SeoHeadProps = {
 const SITE_URL = "https://dineysos.com";
 
 // The default locale (de) lives at the root, every other locale under its prefix.
-function localizedUrl(locale: "de" | "en", path: string) {
+export function localizedUrl(locale: "de" | "en", path: string) {
   const cleanPath = path === "/" ? "" : path;
   return locale === "de" ? `${SITE_URL}${cleanPath || "/"}` : `${SITE_URL}/${locale}${cleanPath}`;
+}
+
+// asPath never carries the locale prefix, but it does carry query strings and
+// hashes, which must not end up in canonical or alternate URLs.
+export function cleanPath(asPath: string) {
+  return asPath.split(/[?#]/)[0] || "/";
 }
 
 export default function SeoHead({
@@ -23,9 +29,7 @@ export default function SeoHead({
   const { locale, asPath } = useRouter();
   const safeLocale = locale === "de" ? "de" : "en";
 
-  // asPath never carries the locale prefix, but it does carry query strings and
-  // hashes, which must not end up in canonical or alternate URLs.
-  const path = asPath.split(/[?#]/)[0] || "/";
+  const path = cleanPath(asPath);
   const url = localizedUrl(safeLocale, path);
 
   const localizedTitle = title[safeLocale];
