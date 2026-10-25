@@ -11,7 +11,7 @@ const compat = new FlatCompat({ baseDirectory: __dirname });
 
 export default [
   {
-    ignores: ["node_modules", ".next", "dist", "public"],
+    ignores: ["node_modules", ".next", "dist", "public", "next-env.d.ts"],
   },
 
   // Base Next.js + TS config
