@@ -1,0 +1,62 @@
+{
+  "address": [
+    "Dineysos KLG",
+    "c/o Marina Tamura",
+    "Altstetterstrasse 281",
+    "8047 Zürich",
+    "Switzerland"
+  ],
+  "contact": {
+    "phoneLabel": "Tel:",
+    "phones": ["+41 78 944 90 95", "+41 79 832 24 36"],
+    "emailLabel": "E-mail:",
+    "email": "info@dineysos.com",
+    "websiteLabel": "Website:",
+    "website": "https://www.dineysos.com"
+  },
+  "registration": {
+    "company": {
+      "label": "Company:",
+      "value": "Dineysos KLG"
+    },
+    "vat": {
+      "label": "UID:",
+      "value": "CHE-299.618.109"
+    },
+    "registerOffice": {
+      "label": "Commercial Register Office:",
+      "value": "Canton of Zurich"
+    },
+    "registerNumber": {
+      "label": "Commercial Register Number:",
+      "value": "CH-020.2.010.107-7"
+    }
+  },
+  "owners": {
+    "title": "Owners",
+    "names": ["Clint Schrader", "Marina Tamura"]
+  },
+  "sections": {
+    "disclaimer": {
+      "title": "Disclaimer",
+      "paragraphs": [
+        "The operator assumes no liability for the correctness, accuracy, timeliness, reliability, or completeness of the information published on this website.",
+        "Claims for damages against the operator—whether for tangible or intangible losses—arising from access to, use of, or failure to use the published information, from misuse of the connection, or from technical malfunctions are excluded.",
+        "All offers are non-binding. The operator expressly reserves the right to modify, supplement, or delete parts of the pages or the entire website, or to suspend publication temporarily or permanently, without prior notice."
+      ]
+    },
+    "links": {
+      "title": "Disclaimer for Links",
+      "paragraphs": [
+        "References and links to third-party websites fall outside the operator’s area of responsibility. Any liability for such third-party content is disclaimed. Access to and use of such websites are at the user’s own risk."
+      ]
+    },
+    "copyright": {
+      "title": "Copyrights",
+      "paragraphs": [
+        "The copyrights and all other rights to content, images, photos, videos, or other files on this website belong exclusively to Dineysos KLG or to the respective rights holders specifically named. Written consent from the copyright holders must be obtained in advance for the reproduction of any elements."
+      ]
+    }
+  },
+  "updated": "Last updated: October 2026"
+}

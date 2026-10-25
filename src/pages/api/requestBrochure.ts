@@ -178,7 +178,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     .insert([
       {
         email,
-        wantsUpdates: body.wantsUpdates ?? true,
+        wantsUpdates: body.wantsUpdates === true,
         sentBrochure: false,
         sentBrochureAt: null,
         language,

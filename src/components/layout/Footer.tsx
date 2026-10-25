@@ -1,8 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
+import { useTranslation } from "next-i18next";
 
 import styles from "@/styles/layout/Footer.module.css";
 
 export default function Footer() {
+  const { t } = useTranslation("common");
+
   return (
     <footer className={styles.footer}>
       <div className={styles.content}>
@@ -48,6 +52,20 @@ export default function Footer() {
             />
           </a>
         </div>
+
+        <nav aria-label={t("legal.navigation")} className={styles.legal}>
+          <ul>
+            <li>
+              <Link href="/agb">{t("legal.terms.label")}</Link>
+            </li>
+            <li>
+              <Link href="/impressum">{t("legal.imprint.label")}</Link>
+            </li>
+            <li>
+              <Link href="/datenschutz">{t("legal.privacy.label")}</Link>
+            </li>
+          </ul>
+        </nav>
       </div>
     </footer>
   );

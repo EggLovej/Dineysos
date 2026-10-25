@@ -1,0 +1,62 @@
+{
+  "address": [
+    "Dineysos KLG",
+    "c/o Marina Tamura",
+    "Altstetterstrasse 281",
+    "8047 Zürich",
+    "Schweiz"
+  ],
+  "contact": {
+    "phoneLabel": "Tel:",
+    "phones": ["+41 78 944 90 95", "+41 79 832 24 36"],
+    "emailLabel": "E-mail:",
+    "email": "info@dineysos.com",
+    "websiteLabel": "Website:",
+    "website": "https://www.dineysos.com"
+  },
+  "registration": {
+    "company": {
+      "label": "Firma:",
+      "value": "Dineysos KLG"
+    },
+    "vat": {
+      "label": "UID:",
+      "value": "CHE-299.618.109"
+    },
+    "registerOffice": {
+      "label": "Handelsregisteramt:",
+      "value": "Kanton Zürich"
+    },
+    "registerNumber": {
+      "label": "Handelsregisternummer:",
+      "value": "CH-020.2.010.107-7"
+    }
+  },
+  "owners": {
+    "title": "Inhaber",
+    "names": ["Clint Schrader", "Marina Tamura"]
+  },
+  "sections": {
+    "disclaimer": {
+      "title": "Haftungsausschluss",
+      "paragraphs": [
+        "Der Betreiber übernimmt keinerlei Gewähr für die inhaltliche Richtigkeit, Genauigkeit, Aktualität, Zuverlässigkeit und Vollständigkeit der auf dieser Website veröffentlichten Informationen.",
+        "Haftungsansprüche gegen den Betreiber wegen Schäden materieller oder immaterieller Art, welche aus dem Zugriff oder der Nutzung bzw. Nichtnutzung der veröffentlichten Informationen, durch Missbrauch der Verbindung oder durch technische Störungen entstanden sind, werden ausgeschlossen.",
+        "Alle Angebote sind unverbindlich. Der Betreiber behält es sich ausdrücklich vor, Teile der Seiten oder das gesamte Angebot ohne besondere Ankündigung zu verändern, zu ergänzen, zu löschen oder die Veröffentlichung zeitweise oder endgültig einzustellen."
+      ]
+    },
+    "links": {
+      "title": "Haftungsausschluss für Links",
+      "paragraphs": [
+        "Verweise und Links auf Websites Dritter liegen ausserhalb des Verantwortungsbereichs des Betreibers. Es wird jegliche Verantwortung für solche fremden Inhalte abgelehnt. Der Zugriff und die Nutzung solcher Websites erfolgen auf eigene Gefahr der Nutzerin oder des Nutzers."
+      ]
+    },
+    "copyright": {
+      "title": "Urheberrechte",
+      "paragraphs": [
+        "Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos, Videos oder anderen Dateien auf dieser Website gehören ausschliesslich Dineysos KLG oder den jeweils speziell genannten Rechteinhabern. Für die Reproduktion jeglicher Elemente ist die schriftliche Zustimmung der Urheberrechtsträger im Voraus einzuholen."
+      ]
+    }
+  },
+  "updated": "Letzte Aktualisierung: Oktober 2026"
+}
