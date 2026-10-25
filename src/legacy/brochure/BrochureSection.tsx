@@ -25,7 +25,7 @@ declare global {
 
 export default function Brochure() {
   const [email, setEmail] = useState("");
-  const [wantsUpdates, setWantsUpdates] = useState(true);
+  const [wantsUpdates, setWantsUpdates] = useState(false);
   const [website, setWebsite] = useState("");
   const [turnstileToken, setTurnstileToken] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");

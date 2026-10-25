@@ -1,4 +1,34 @@
 export const seoConfig = {
+  terms: {
+    title: {
+      de: "AGB – Dineysos",
+      en: "Terms & Conditions – Dineysos",
+    },
+    description: {
+      de: "Allgemeine Geschäftsbedingungen von Dineysos zu Zahlung, Stornierung, höherer Gewalt, Leistungen und Haftung.",
+      en: "Dineysos general terms and conditions covering payment, cancellation, force majeure, services and liability.",
+    },
+  },
+  imprint: {
+    title: {
+      de: "Impressum – Dineysos",
+      en: "Legal Notice – Dineysos",
+    },
+    description: {
+      de: "Impressum der Dineysos KLG mit Kontaktdaten, Handelsregisterangaben, Haftungsausschluss und Urheberrechten.",
+      en: "Dineysos KLG legal notice with contact details, commercial register information, disclaimers and copyrights.",
+    },
+  },
+  privacy: {
+    title: {
+      de: "Datenschutzerklärung – Dineysos",
+      en: "Privacy Policy – Dineysos",
+    },
+    description: {
+      de: "Datenschutzerklärung von Dineysos zur Bearbeitung von Personendaten, Cookies, Datensicherheit und Ihren Rechten.",
+      en: "Dineysos privacy policy covering personal data processing, cookies, data security and your rights.",
+    },
+  },
   home: {
     title: {
       de: "Dineysos – Wein & Spiele Events",

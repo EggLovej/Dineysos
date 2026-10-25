@@ -1,0 +1,30 @@
+{
+  "sections": {
+    "payment": {
+      "title": "Payment Terms",
+      "body": "Payment is due strictly net within 10 days of the invoice date following the event. In the event of late payment, the organizer is entitled to suspend further services or to terminate the contract; any costs already incurred will be billed to the customer in full."
+    },
+    "cancellation": {
+      "title": "Cancellation Policy and Compensation for Losses",
+      "body": "If the client withdraws from the contract through no fault of the organizer, the right to the agreed-upon fee remains in effect, less any expenses saved. For cancellations within the following periods, flat-rate cancellation fees apply:",
+      "fees": [
+        "30 to 15 days before the event: 30% of the agreed-upon total fee.",
+        "14 to 8 days before the event: 50% of the agreed-upon total fee.",
+        "7 days or less before the event or in case of no-show: 100% of the agreed-upon total fee."
+      ],
+      "after": "The customer is entitled to prove that no damage was incurred at all or that the amount of damage was significantly lower."
+    },
+    "forceMajeure": {
+      "title": "Force Majeure",
+      "body": "If the holding of the event is rendered impossible or significantly impeded by force majeure (e.g., natural disasters, strikes, government regulations, severe epidemics), both parties are entitled to withdraw from the contract without incurring any costs. Advance payments already made will be refunded, less the costs the organizer has already unavoidably incurred for the event (e.g., permits already obtained, perishable goods). Any further claims for damages are excluded."
+    },
+    "partialServices": {
+      "title": "Service Provision and Billing for Partial Services",
+      "body": "The contracting parties agree that the event services owed constitute a single, comprehensive package. Should individual partial services—which are immaterial to the overall success of the event—not be provided, be provided late, or be provided defectively, the right to the agreed-upon total fee remains unaffected. In this case, the client is not entitled to refuse payment of the total invoice. Any statutory claims for a reduction in payment by the client are limited exclusively to the demonstrably defective or omitted portion of the service."
+    },
+    "thirdParties": {
+      "title": "Disclaimer Regarding Third-Party Providers Engaged by the Client",
+      "body": "The organizer assumes no liability, warranty, or duty of supervision for services, goods, or work provided by third-party providers who were engaged or arranged by the client (e.g., caterers, decorators, performers, or technicians). Such third-party providers are not agents of the organizer. The customer shall ensure that these third-party providers comply with all legal, regulatory, and safety-related requirements at the event venue. Any damage caused by these third-party providers or their equipment to the organizer’s property, the venue, or third parties falls exclusively within the scope of liability of the customer or the respective third-party provider."
+    }
+  }
+}

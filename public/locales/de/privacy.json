@@ -1,0 +1,186 @@
+{
+  "introduction": "Diese Erklärung erläutert, wie die Dineysos KLG Personendaten beim Besuch von **dineysos.com**, bei Kontaktanfragen und bei Feedback bearbeitet. Es gilt das Schweizer Datenschutzrecht. Die EU-Datenschutz-Grundverordnung (DSGVO) gilt zusätzlich, soweit ihre gesetzlichen Voraussetzungen erfüllt sind.",
+  "sections": [
+    {
+      "title": "1. Verantwortliche Stelle",
+      "blocks": [
+        {
+          "type": "details",
+          "lines": [
+            "Dineysos KLG",
+            "c/o Marina Tamura",
+            "Altstetterstrasse 281",
+            "8047 Zürich",
+            "Schweiz",
+            "UID: CHE-299.618.109",
+            "Handelsregister: Kanton Zürich, CH-020.2.010.107-7",
+            "E-Mail: info@dineysos.com"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "2. Zwecke und Rechtsgrundlagen",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Wir bearbeiten technische Verbindungsdaten für die Bereitstellung und Sicherheit der Website, Nutzungs- und Leistungsdaten für deren Auswertung und Verbesserung sowie Ihre Angaben zur Beantwortung von Anfragen und zur Bearbeitung von Feedback. Veranstaltungsfotos dienen der Darstellung unserer Events."
+        },
+        {
+          "type": "paragraph",
+          "text": "Soweit die DSGVO gilt, richtet sich die Rechtsgrundlage nach dem Zweck: vorvertragliche Massnahmen oder Vertragserfüllung bei entsprechenden Anfragen, Einwilligung bei freiwilligen E-Mail-Updates und berechtigte Interessen am Betrieb und an der Sicherheit der Website. Gesetzlich erforderliche Einwilligungen haben Vorrang."
+        },
+        {
+          "type": "paragraph",
+          "text": "Wenn Sie die Löschung Ihrer Personendaten wünschen, schreiben Sie an info@dineysos.com. Wir bearbeiten Ihre Anfrage und senden Ihnen nach erfolgter Löschung eine Bestätigung. Falls gesetzliche Pflichten die Löschung bestimmter Daten verhindern, erläutern wir Ihnen dies."
+        }
+      ]
+    },
+    {
+      "title": "3. Hosting und technische Zugriffsdaten",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Die Website wird bei Vercel Inc. gehostet. Bei einem Seitenaufruf erhält Vercel die für die Auslieferung notwendigen technischen Informationen, beispielsweise Ihre IP-Adresse, die angefragte URL, den Anfragezeitpunkt und Browserinformationen. Je nach Anfrage können die verweisende Seite und technische Fehler hinzukommen. Vercel bearbeitet diese Daten für die Bereitstellung, den Betrieb und den Schutz seiner Infrastruktur."
+        },
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Vercel: Datenschutzinformationen",
+              "href": "https://vercel.com/legal/privacy-notice"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "4. Cookies",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Die Website selbst setzt keine Cookies. Die Sprachauswahl erfolgt über die deutschen und englischen Seitenadressen. Vercel Web Analytics verwendet anfragebasierte Erkennungsmerkmale statt Cookies; siehe Abschnitt 6."
+        }
+      ]
+    },
+    {
+      "title": "5. E-Mail, Feedback und freiwillige Updates",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Angaben, die Sie uns per E-Mail oder über unsere Feedback-Formulare übermitteln, verwenden wir zur Bearbeitung Ihrer Anfrage und zur Verbesserung unserer Events. Dazu können Ihre E-Mail-Adresse, Ihre Nachricht, Bewertungen und Freitextangaben gehören. Newsletter und andere freiwillige Updates versenden wir nur mit Ihrer ausdrücklichen Einwilligung. Diese können Sie jederzeit per E-Mail an info@dineysos.com widerrufen."
+        }
+      ]
+    },
+    {
+      "title": "6. Vercel Web Analytics und Speed Insights",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Die Website lädt Vercel Web Analytics für Seitenaufrufstatistiken. Vercel bildet dafür anfragebasierte Besucher-Hashes, verwirft Besuchersitzungen nach 24 Stunden und speichert aggregierte Daten wie Seiten-URLs, verweisende Seiten, ungefähren Standort, Browser, Betriebssystem und Gerätetyp."
+        },
+        {
+          "type": "paragraph",
+          "text": "Vercel Speed Insights misst Lade- und Interaktionsleistung sowie Seiten-, Geräte- und Browserinformationen. Laut Vercel identifizieren diese Messungen keine einzelnen Besucher. Beide Skripte werden beim Öffnen der Website geladen; derzeit gibt es keine eigene Opt-out-Einstellung für die Website-Analyse."
+        },
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Vercel Web Analytics: Daten und Datenschutz",
+              "href": "https://vercel.com/docs/analytics/privacy-policy"
+            },
+            {
+              "label": "Vercel Speed Insights: Daten und Datenschutz",
+              "href": "https://vercel.com/docs/speed-insights/privacy-policy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "7. Veranstaltungsfotos",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Fotos, die bei unseren Events aufgenommen werden, können auf dieser Website veröffentlicht werden. Wenn Sie auf einem Foto erkennbar sind und dessen Entfernung wünschen, schreiben Sie an info@dineysos.com und bezeichnen Sie das Foto; wir nehmen es dann von der Website."
+        }
+      ]
+    },
+    {
+      "title": "8. Dienstleister und internationale Bearbeitung",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Wir nutzen Vercel für Hosting, Analyse und Leistungsmessungen, Hostpoint für E-Mail, Supabase für die Speicherung von Feedback und Sanity für Eventinhalte und Bilder. Diese Anbieter erhalten die für den jeweiligen Dienst benötigten Kontakt-, Inhalts- oder technischen Daten; beim Laden von Bildern in der Galerie wird Ihre IP-Adresse an Sanity übermittelt."
+        },
+        {
+          "type": "paragraph",
+          "text": "Hostpoint hat seinen Sitz in der Schweiz; Vercel in den USA; Supabase in Singapur; Sanity in Norwegen und den USA. Daten können daher auch ausserhalb der Schweiz, einschliesslich in den USA, bearbeitet werden."
+        },
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Hostpoint: Datenschutzinformationen",
+              "href": "https://www.hostpoint.ch/en/hostpoint/contact-gtc.html"
+            },
+            {
+              "label": "Supabase: Informationen zur Auftragsbearbeitung",
+              "href": "https://supabase.com/legal/customer-resources/data-processing-addendum"
+            },
+            {
+              "label": "Sanity: Datenschutzinformationen",
+              "href": "https://www.sanity.io/legal/privacy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "9. Datensicherheit",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Die Website verwendet HTTPS zur verschlüsselten Übertragung zwischen Ihrem Browser und der Website."
+        }
+      ]
+    },
+    {
+      "title": "10. Ihre Rechte",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Nach Massgabe des anwendbaren Rechts und seiner Voraussetzungen können Sie Auskunft über Ihre Personendaten, die Berichtigung unrichtiger Daten oder eine Löschung verlangen. Je nach Recht und Bearbeitung können zusätzlich Rechte auf Einschränkung, Widerspruch, Datenherausgabe oder den Widerruf einer Einwilligung für die Zukunft bestehen."
+        },
+        {
+          "type": "paragraph",
+          "text": "Senden Sie Anfragen an info@dineysos.com. Wir bearbeiten sie manuell und können notwendige Angaben zur Identifikation und zum Auffinden Ihrer Daten verlangen. Nach Schweizer Recht werden Auskunftsanfragen grundsätzlich innert 30 Tagen beantwortet; nach der DSGVO beträgt die übliche Frist einen Monat, vorbehaltlich der jeweiligen gesetzlichen Ausnahmen und Verlängerungen."
+        },
+        {
+          "type": "paragraph",
+          "text": "Sie können sich an den Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB), www.edoeb.admin.ch, wenden. Soweit die DSGVO gilt, können Sie sich zudem bei einer zuständigen EU-/EWR-Aufsichtsbehörde beschweren."
+        }
+      ]
+    },
+    {
+      "title": "11. Änderungen dieser Erklärung",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Wir aktualisieren diese Erklärung bei Änderungen der Website oder der massgeblichen Bearbeitungen. Das Datum unten bezeichnet diese Fassung. Eine Aktualisierung ersetzt keine Einwilligung, wenn eine neue Verwendung von Personendaten eine solche voraussetzt."
+        }
+      ]
+    },
+    {
+      "title": "12. Kontakt",
+      "blocks": [
+        {
+          "type": "details",
+          "lines": ["Dineysos KLG", "Clint Schrader", "info@dineysos.com", "+41 78 944 90 95"]
+        }
+      ]
+    }
+  ],
+  "updated": "Letzte Aktualisierung: 25. Oktober 2026"
+}

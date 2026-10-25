@@ -1,0 +1,186 @@
+{
+  "introduction": "This policy explains how Dineysos KLG processes personal data when you use **dineysos.com**, contact us or submit feedback. Swiss data protection law applies. The EU General Data Protection Regulation (GDPR) also applies where its legal conditions are met.",
+  "sections": [
+    {
+      "title": "1. Data Controller",
+      "blocks": [
+        {
+          "type": "details",
+          "lines": [
+            "Dineysos KLG",
+            "c/o Marina Tamura",
+            "Altstetterstrasse 281",
+            "8047 Zürich",
+            "Switzerland",
+            "UID: CHE-299.618.109",
+            "Commercial register: Canton of Zurich, CH-020.2.010.107-7",
+            "Email: info@dineysos.com"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "2. Purposes and Legal Bases",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "We process technical connection data to deliver and secure the website, usage and performance data to understand and improve it, and information you provide to answer enquiries and handle feedback. Event photos are published to present our events."
+        },
+        {
+          "type": "paragraph",
+          "text": "Where the GDPR applies, the legal basis depends on the purpose: steps towards or performance of a contract for related enquiries, consent for optional update emails, and legitimate interests in operating and securing the website. Any applicable requirement to obtain consent takes precedence."
+        },
+        {
+          "type": "paragraph",
+          "text": "To request deletion of your personal data, email info@dineysos.com. We will handle your request and send you confirmation once deletion is complete. If legal obligations prevent us from deleting certain data, we will explain this to you."
+        }
+      ]
+    },
+    {
+      "title": "3. Hosting and Technical Access Data",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The website is hosted by Vercel Inc. When you request a page, Vercel receives the technical information needed to deliver it, such as your IP address, requested URL, request time and browser information. Depending on the request, this can also include the referring page and technical errors. Vercel processes this data to provide, operate and protect its infrastructure."
+        },
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Vercel privacy information",
+              "href": "https://vercel.com/legal/privacy-notice"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "4. Cookies",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The website itself sets no cookies. Language selection works through the German and English page addresses. Vercel Web Analytics uses request-derived identification rather than cookies; see section 6."
+        }
+      ]
+    },
+    {
+      "title": "5. Email, Feedback and Optional Updates",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "We use information you provide by email or through our feedback forms to handle your request and improve our events. This may include your email address, message, ratings and free-text comments. We send newsletters and other optional updates only with your explicit consent. You can withdraw that consent at any time by emailing info@dineysos.com."
+        }
+      ]
+    },
+    {
+      "title": "6. Vercel Web Analytics and Speed Insights",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The website loads Vercel Web Analytics for page-view statistics. Vercel derives visitor hashes from the request, discards visitor sessions after 24 hours, and stores aggregated data such as page URLs, referrers, approximate location, browser, operating system and device type."
+        },
+        {
+          "type": "paragraph",
+          "text": "Vercel Speed Insights measures loading and interaction performance, with page, device and browser information. Vercel describes these measurements as not identifying individual visitors. Both scripts load when the website is opened; there is currently no site-level analytics opt-out control."
+        },
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Vercel Web Analytics: data and privacy",
+              "href": "https://vercel.com/docs/analytics/privacy-policy"
+            },
+            {
+              "label": "Vercel Speed Insights: data and privacy",
+              "href": "https://vercel.com/docs/speed-insights/privacy-policy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "7. Event Photos",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Photos taken at our events may be published on this website. If you are recognisable in a photo and would like it removed, email info@dineysos.com and identify the photo; we will take it down."
+        }
+      ]
+    },
+    {
+      "title": "8. Service Providers and International Processing",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "We use Vercel for hosting, analytics and performance measurements, Hostpoint for email, Supabase for storing feedback, and Sanity for event content and images. These providers receive the contact, content or technical data needed for the relevant service; loading images in the gallery transmits your IP address to Sanity."
+        },
+        {
+          "type": "paragraph",
+          "text": "Hostpoint is based in Switzerland; Vercel in the United States; Supabase in Singapore; and Sanity in Norway and the United States. Data may therefore be processed outside Switzerland, including in the United States."
+        },
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Hostpoint privacy information",
+              "href": "https://www.hostpoint.ch/en/hostpoint/contact-gtc.html"
+            },
+            {
+              "label": "Supabase data processing information",
+              "href": "https://supabase.com/legal/customer-resources/data-processing-addendum"
+            },
+            {
+              "label": "Sanity privacy information",
+              "href": "https://www.sanity.io/legal/privacy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "9. Data Security",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The website uses HTTPS to encrypt data in transit between your browser and the website."
+        }
+      ]
+    },
+    {
+      "title": "10. Your Rights",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Subject to the applicable law and its conditions, you can request access to your personal data, correction of inaccurate data, or deletion. Depending on the law and processing involved, you may also have rights to restrict or object to processing, receive portable data, or withdraw consent for future processing."
+        },
+        {
+          "type": "paragraph",
+          "text": "Send requests to info@dineysos.com. We handle them manually and may ask for information necessary to identify you and locate your records. Under Swiss law, access requests are generally answered within 30 days; under the GDPR the usual period is one month, subject to the exceptions and extensions in those laws."
+        },
+        {
+          "type": "paragraph",
+          "text": "You may contact the Federal Data Protection and Information Commissioner (FDPIC), www.edoeb.admin.ch. Where the GDPR applies, you may also complain to a competent EU/EEA supervisory authority."
+        }
+      ]
+    },
+    {
+      "title": "11. Changes to This Policy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "We update this policy when the website or relevant processing changes. The date below identifies this version. A policy update does not replace consent where a new use of personal data requires it."
+        }
+      ]
+    },
+    {
+      "title": "12. Contact",
+      "blocks": [
+        {
+          "type": "details",
+          "lines": ["Dineysos KLG", "Clint Schrader", "info@dineysos.com", "+41 78 944 90 95"]
+        }
+      ]
+    }
+  ],
+  "updated": "Last updated: 25 October 2026"
+}

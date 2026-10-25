@@ -1,4 +1,21 @@
 {
+  "legal": {
+    "navigation": "Rechtliche Informationen",
+    "placeholder": "Der Inhalt dieser Seite wird in Kürze ergänzt.",
+    "backToHome": "Zurück zur Startseite",
+    "terms": {
+      "label": "AGB",
+      "title": "Allgemeine Geschäftsbedingungen (AGB)"
+    },
+    "imprint": {
+      "label": "Impressum",
+      "title": "Impressum"
+    },
+    "privacy": {
+      "label": "Datenschutzerklärung",
+      "title": "Datenschutzerklärung"
+    }
+  },
   "nav": {
     "sipAndSolve": "SIP & SOLVE",
     "events": "EVENTS",

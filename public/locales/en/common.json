@@ -1,4 +1,21 @@
 {
+  "legal": {
+    "navigation": "Legal information",
+    "placeholder": "The content of this page will be added soon.",
+    "backToHome": "Back to home",
+    "terms": {
+      "label": "Terms & Conditions",
+      "title": "General Terms and Conditions (GTC)"
+    },
+    "imprint": {
+      "label": "Legal Notice",
+      "title": "Legal Notice"
+    },
+    "privacy": {
+      "label": "Privacy Policy",
+      "title": "Privacy Policy"
+    }
+  },
   "nav": {
     "sipAndSolve": "SIP & SOLVE",
     "events": "EVENTS",

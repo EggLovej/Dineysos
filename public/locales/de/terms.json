@@ -1,0 +1,30 @@
+{
+  "sections": {
+    "payment": {
+      "title": "Zahlungsbedingungen",
+      "body": "Die Zahlung ist netto innerhalb von 10 Tagen nach Rechnungsdatum im Anschluss an die Veranstaltung fällig. Bei Zahlungsverzug ist der Veranstalter berechtigt, weitere Leistungen auszusetzen oder den Vertrag zu kündigen; bereits entstandene Kosten werden dem Kunden in voller Höhe in Rechnung gestellt."
+    },
+    "cancellation": {
+      "title": "Stornierungsbedingungen und Schadensersatz",
+      "body": "Tritt der Kunde ohne Verschulden des Veranstalters vom Vertrag zurück, bleibt der Anspruch auf das vereinbarte Honorar bestehen, abzüglich etwaiger eingesparter Aufwendungen. Für Stornierungen innerhalb der folgenden Fristen gelten pauschale Stornierungsgebühren:",
+      "fees": [
+        "30 bis 15 Tage vor der Veranstaltung: 30 % des vereinbarten Gesamthonorars.",
+        "14 bis 8 Tage vor der Veranstaltung: 50 % des vereinbarten Gesamthonorars.",
+        "7 Tage oder weniger vor der Veranstaltung oder bei Nichterscheinen: 100 % des vereinbarten Gesamthonorars."
+      ],
+      "after": "Der Kunde ist berechtigt, nachzuweisen, dass überhaupt kein Schaden entstanden ist oder dass die Höhe des Schadens wesentlich geringer war."
+    },
+    "forceMajeure": {
+      "title": "Höhere Gewalt",
+      "body": "Wird die Durchführung der Veranstaltung durch höhere Gewalt (z. B. Naturkatastrophen, Streiks, behördliche Anordnungen, schwere Epidemien) unmöglich oder erheblich erschwert, sind beide Parteien berechtigt, ohne Kosten vom Vertrag zurückzutreten. Bereits geleistete Vorauszahlungen werden zurückerstattet, abzüglich der Kosten, die dem Veranstalter für die Veranstaltung bereits unvermeidbar entstanden sind (z. B. eingeholte Genehmigungen, verderbliche Waren). Weitergehende Schadensersatzansprüche sind ausgeschlossen."
+    },
+    "partialServices": {
+      "title": "Leistungserbringung und Abrechnung von Teilleistungen",
+      "body": "Die Vertragsparteien sind sich einig, dass die geschuldeten Veranstaltungsleistungen ein einziges, umfassendes Gesamtpaket bilden. Sollten einzelne Teilleistungen – die für den Gesamterfolg der Veranstaltung unerheblich sind – nicht, verspätet oder mangelhaft erbracht werden, bleibt der Anspruch auf das vereinbarte Gesamthonorar unberührt. In diesem Fall ist der Kunde nicht berechtigt, die Zahlung des gesamten Rechnungsbetrags zu verweigern. Etwaige gesetzliche Ansprüche des Auftraggebers auf Minderung der Zahlung beschränken sich ausschliesslich auf den nachweislich mangelhaften oder unterlassenen Teil der Leistung."
+    },
+    "thirdParties": {
+      "title": "Haftungsausschluss bezüglich vom Auftraggeber beauftragter Drittanbieter",
+      "body": "Der Veranstalter übernimmt keine Haftung, Gewährleistung oder Aufsichtspflicht für Leistungen, Waren oder Arbeiten von Drittanbietern, die vom Auftraggeber beauftragt oder vermittelt wurden (z. B. Caterer, Dekorateure, Künstler oder Techniker). Diese Drittanbieter sind keine Beauftragten des Veranstalters. Der Kunde hat sicherzustellen, dass diese Drittanbieter alle gesetzlichen, behördlichen und sicherheitsrelevanten Anforderungen am Veranstaltungsort einhalten. Schäden, die durch diese Drittanbieter oder deren Ausrüstung am Eigentum des Veranstalters, am Veranstaltungsort oder an Dritten verursacht werden, fallen ausschliesslich in den Haftungsbereich des Kunden oder des jeweiligen Drittanbieters."
+    }
+  }
+}
