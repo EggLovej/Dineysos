@@ -2,12 +2,12 @@ import type { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next
 import Head from "next/head";
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useMemo } from "react";
 
 import { CalendarIcon, ClockIcon, MapPinIcon, CoinsIcon } from "@/components/common/Icons";
 import SeoHead from "@/components/layout/Head";
 import { fetchAllEventSlugs, fetchEventBySlug } from "@/lib/api";
+import { getI18nStaticProps } from "@/lib/getStaticProps";
 import styles from "@/styles/events/EventPage.module.css";
 import { Event } from "@/types/event";
 
@@ -15,13 +15,17 @@ type EventPageProps = {
   event: Event;
 };
 
-function formatParagraph(text: string) {
-  const emailRegex = /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
+const EMAIL_PATTERN = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}";
+// Capturing group so split() keeps the matched emails; global so every email is split out.
+const EMAIL_SPLIT_REGEX = new RegExp(`(${EMAIL_PATTERN})`, "g");
+// Anchored and non-global: a global regex keeps lastIndex state between test() calls.
+const EMAIL_TEST_REGEX = new RegExp(`^${EMAIL_PATTERN}$`);
 
-  const parts = text.split(emailRegex);
+function formatParagraph(text: string) {
+  const parts = text.split(EMAIL_SPLIT_REGEX);
 
   return parts.map((part, idx) =>
-    emailRegex.test(part) ? (
+    EMAIL_TEST_REGEX.test(part) ? (
       <a key={idx} className={styles.email} href={`mailto:${part}`}>
         {part}
       </a>
@@ -101,7 +105,8 @@ export default function EventPage({ event }: EventPageProps) {
 
       <Head>
         <script
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          // Escape "<" so CMS content can never close the script tag early.
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}
           type="application/ld+json"
         />
       </Head>
@@ -229,14 +234,19 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
 };
 
 export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
-  const { params, locale } = context;
+  const slug = context.params?.slug;
+  const event = typeof slug === "string" ? await fetchEventBySlug(slug) : null;
 
-  const event = await fetchEventBySlug(params?.slug as string);
+  if (!event) {
+    return { notFound: true, revalidate: 60 };
+  }
+
+  const i18nProps = await getI18nStaticProps(context);
 
   return {
     props: {
+      ...i18nProps.props,
       event,
-      ...(await serverSideTranslations(locale ?? "de", ["common"])),
     },
     revalidate: 86400, // Revalidate every 24 hours
   };

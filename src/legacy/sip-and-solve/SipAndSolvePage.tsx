@@ -1,10 +1,10 @@
-import { GetStaticPropsContext } from "next";
+import type { GetStaticPropsContext } from "next";
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import SeoHead from "@/components/layout/Head";
 import { seoConfig } from "@/config/seo";
+import { getI18nStaticProps } from "@/lib/getStaticProps";
 import styles from "@/styles/Sip&Solve.module.css";
 
 export default function SipAndSolvePage() {
@@ -68,11 +68,6 @@ export default function SipAndSolvePage() {
   );
 }
 
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale ?? "de", ["common"])),
-    },
-    revalidate: 60,
-  };
+export async function getStaticProps(context: GetStaticPropsContext) {
+  return { ...(await getI18nStaticProps(context)), revalidate: 60 };
 }

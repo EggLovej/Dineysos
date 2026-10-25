@@ -1,11 +1,11 @@
-import { GetStaticPropsContext } from "next";
+import type { GetStaticPropsContext } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import SeoHead from "@/components/layout/Head";
 import { seoConfig } from "@/config/seo";
+import { getI18nStaticProps } from "@/lib/getStaticProps";
 import styles from "@/styles/NotFound.module.css";
 
 export default function NotFoundPage() {
@@ -34,10 +34,6 @@ export default function NotFoundPage() {
   );
 }
 
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale ?? "de", ["common"])),
-    },
-  };
+export async function getStaticProps(context: GetStaticPropsContext) {
+  return getI18nStaticProps(context);
 }

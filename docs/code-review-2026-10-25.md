@@ -119,3 +119,13 @@ Recommended:
 - `package.json` has no `engines` field although README and `.node-version` pin Node 22.
 - `eslint-config-next@15.3.4` vs `next@15.3.8`; align when bumping Next.
 - 37 MB of binary assets in `public/` are tracked in git (15 MB PDFs, 22 MB images). Fine for now; consider Git LFS or hosting the PDFs on Sanity/Vercel Blob if they churn.
+
+---
+
+## Status after the fix pass (same day)
+
+Fixed in the working tree (verified with `tsc`, `eslint`, `next build` and a local `next start`): 1.3 (unknown slug → 404), 1.4 (language switch keeps the hash and scrolls), 1.7 ("from CHF" translated via `pricing.table.startingFrom`), 1.8 for the hero only (`<picture>` art direction, mobile gets the vertical image in the server HTML), 2.1 (`npm audit fix`, Next 15.5.x; only `sharp` advisories remain, which need a major bump of `next`), 2.5 (no admin-email fallback; notification is skipped and logged when unset), section 4 helper duplication (`getI18nStaticProps` used everywhere), dead code (`LanguageSwitcher.tsx`, `_document` boilerplate, `data-track`, `concept.quiz`, `pricing.mobile.*`, `typeRoots`, `eslint-plugin-unicorn`, `eslint-config-prettier`), Splide now typed via a `paths` mapping instead of an `any` shim, and generated `sitemap*.xml` / `robots.txt` are gitignored and untracked.
+
+Deferred by the owner: 1.1/2.2 (Supabase project paused on the free tier; lead capture is not live), 1.2/1.5/1.6 (feedback is being reworked in a stash), section 7 (tests), section 8 (monitoring). Open and not yet discussed: 1.9, 1.10, 1.11, 1.12, 2.3, 2.4, 2.6, 2.7, the Sanity over-fetching, the SEO/hreflang items in section 5, accessibility in section 6, and the remaining duplication in section 4.
+
+Second fix pass: 2.4 security headers (CSP, nosniff, frame denial, referrer and permissions policies in `next.config.ts`), 2.7 (`docs/privacy-policy-audit.md` ignored and untracked; it remains in git history), section 5 hreflang/canonical (`Head.tsx` builds locale-correct canonical, `de`/`en`/`x-default` alternates without query or hash; `next-sitemap` transform now emits absolute alternates), `/de/*` → `/*` redirect in `vercel.json` (not possible inside Next.js with i18n: it normalises unprefixed default-locale paths to `/de/...` before matching, so both `redirects()` and middleware loop), section 6 modal (dialog role, Escape, arrow keys, focus trap, labelled buttons, focus restore), and the `engines` field.

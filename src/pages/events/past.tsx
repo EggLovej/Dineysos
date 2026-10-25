@@ -1,13 +1,13 @@
-import { GetStaticPropsContext } from "next";
+import type { GetStaticPropsContext } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import SeoHead from "@/components/layout/Head";
 import { seoConfig } from "@/config/seo";
 import { fetchPastEvents } from "@/lib/api";
+import { getI18nStaticProps } from "@/lib/getStaticProps";
 import styles from "@/styles/events/Events.module.css";
 import { Event } from "@/types/event";
 
@@ -66,12 +66,13 @@ export default function EventsPage({ events }: EventsPageProps) {
   );
 }
 
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
+export async function getStaticProps(context: GetStaticPropsContext) {
   const events = await fetchPastEvents();
+  const i18nProps = await getI18nStaticProps(context);
 
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? "de", ["common"])),
+      ...i18nProps.props,
       events,
     },
     revalidate: 60,

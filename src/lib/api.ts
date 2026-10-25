@@ -67,7 +67,7 @@ export async function fetchAllEventSlugs(): Promise<string[]> {
   return data.map((e: { slug: string }) => e.slug);
 }
 
-export async function fetchEventBySlug(slug: string): Promise<Event> {
+export async function fetchEventBySlug(slug: string): Promise<Event | null> {
   const query = `*[_type == "event" && slug.current == $slug][0]{
     _id,
     name,

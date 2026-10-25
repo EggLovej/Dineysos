@@ -2,67 +2,58 @@ import { useTranslation } from "next-i18next";
 
 import styles from "@/styles/sections/Pricing.module.css";
 
+type Price = { kind: "onRequest" } | { kind: "amount"; amount: number; from?: boolean };
+
+const ON_REQUEST: Price = { kind: "onRequest" };
+const chf = (amount: number, from = false): Price => ({ kind: "amount", amount, from });
+
 const participants = [
-  {
-    key: "pricing.table.sGroup",
-    label: "4–7",
-    basePrice: "70",
-    perPerson: true,
-  },
-  {
-    key: "pricing.table.mGroup",
-    label: "8–15",
-    basePrice: "50",
-    perPerson: true,
-  },
-  {
-    key: "pricing.table.lGroup",
-    label: "16–30",
-    basePrice: "35",
-    perPerson: true,
-  },
-  {
-    key: "pricing.table.xlGroup",
-    label: "31+",
-    basePrice: "onRequest",
-    perPerson: false,
-  },
+  { key: "pricing.table.sGroup", label: "4–7", basePrice: chf(70) },
+  { key: "pricing.table.mGroup", label: "8–15", basePrice: chf(50) },
+  { key: "pricing.table.lGroup", label: "16–30", basePrice: chf(35) },
+  { key: "pricing.table.xlGroup", label: "31+", basePrice: ON_REQUEST },
 ];
 
-const pricingData = [
+const pricingData: {
+  labelKey: string;
+  descriptionKey?: string;
+  prices: Price[];
+  per?: string;
+}[] = [
   {
     labelKey: "pricing.table.basePrice",
     descriptionKey: "pricing.table.basePriceDescription",
-    prices: participants.map((p) =>
-      p.basePrice === "onRequest" ? "onRequest" : `CHF ${p.basePrice}.–`
-    ),
+    prices: participants.map((p) => p.basePrice),
     per: "pricing.table.perPerson",
   },
   {
     labelKey: "pricing.table.winePairing",
     descriptionKey: "pricing.table.winePairingDescription",
-    prices: ["35", "35", "35", "35"].map((p) => `ab CHF ${p}.–`),
+    prices: participants.map(() => chf(35, true)),
     per: "pricing.table.perPerson",
   },
   {
     labelKey: "pricing.table.food",
     descriptionKey: "pricing.table.foodDescription",
-    prices: ["onRequest", "onRequest", "onRequest", "onRequest"],
+    prices: participants.map(() => ON_REQUEST),
   },
   {
     labelKey: "pricing.table.venue",
-    prices: ["onRequest", "onRequest", "onRequest", "onRequest"],
+    prices: participants.map(() => ON_REQUEST),
   },
   {
     labelKey: "pricing.table.extension",
     descriptionKey: "pricing.table.extensionDescription",
-    prices: ["90", "90", "90", "90"].map((p) => `CHF ${p}.–`),
+    prices: participants.map(() => chf(90)),
     per: "pricing.table.perHour",
   },
 ];
 
 export default function Pricing() {
   const { t } = useTranslation("common");
+
+  const formatAmount = (price: Extract<Price, { kind: "amount" }>) =>
+    `${price.from ? `${t("pricing.table.startingFrom")} ` : ""}CHF ${price.amount}.–`;
 
   return (
     <section className={styles.pricing} id="pricing">
@@ -75,14 +66,14 @@ export default function Pricing() {
             <thead>
               <tr>
                 <th>{t("pricing.table.participants")}</th>
-                {participants.map((p, idx) => (
-                  <th key={idx}>{p.label}</th> // shows "4–7", "8–15", etc.
+                {participants.map((p) => (
+                  <th key={p.key}>{p.label}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
-              {pricingData.map((item, idx) => (
-                <tr key={idx}>
+              {pricingData.map((item) => (
+                <tr key={item.labelKey}>
                   <td>
                     <strong>{t(item.labelKey)}</strong>
                     <br />
@@ -90,11 +81,11 @@ export default function Pricing() {
                   </td>
                   {item.prices.map((price, i) => (
                     <td key={i}>
-                      {price === "onRequest" ? (
+                      {price.kind === "onRequest" ? (
                         t("pricing.table.onRequest")
                       ) : (
                         <>
-                          {price}
+                          {formatAmount(price)}
                           <br />
                           {item.per && <small>{t(item.per)}</small>}
                         </>
@@ -110,30 +101,33 @@ export default function Pricing() {
         <div className={styles.mobileContent}>
           <p>{t("pricing.description")}</p>
           {participants.map((p, idx) => (
-            <details key={idx} className={styles.accordionItem}>
+            <details key={p.key} className={styles.accordionItem}>
               <summary className={styles.accordionHeader}>
                 <span className={styles.headerText}>{t(p.key)}</span>
                 <span className={styles.accordionArrow}>&#9660;</span>
               </summary>
               <div className={styles.accordionContent}>
-                {pricingData.map((item, j) => (
-                  <div key={j} className={styles.priceRow}>
-                    <span className={styles.priceLabel}>{t(item.labelKey)}:</span>
-                    <span className={styles.priceDots}></span>
-                    <span className={styles.priceValue}>
-                      {item.prices[idx] === "onRequest" ? (
-                        t("pricing.table.onRequest")
-                      ) : (
-                        <p className={styles.priceBlock}>
-                          <span className={styles.priceAmount}>{item.prices[idx]}</span>
-                          {item.per && (
-                            <small className={styles.priceAnnotation}>{t(item.per)}</small>
-                          )}
-                        </p>
-                      )}
-                    </span>
-                  </div>
-                ))}
+                {pricingData.map((item) => {
+                  const price = item.prices[idx];
+                  return (
+                    <div key={item.labelKey} className={styles.priceRow}>
+                      <span className={styles.priceLabel}>{t(item.labelKey)}:</span>
+                      <span className={styles.priceDots}></span>
+                      <span className={styles.priceValue}>
+                        {price.kind === "onRequest" ? (
+                          t("pricing.table.onRequest")
+                        ) : (
+                          <p className={styles.priceBlock}>
+                            <span className={styles.priceAmount}>{formatAmount(price)}</span>
+                            {item.per && (
+                              <small className={styles.priceAnnotation}>{t(item.per)}</small>
+                            )}
+                          </p>
+                        )}
+                      </span>
+                    </div>
+                  );
+                })}
               </div>
             </details>
           ))}

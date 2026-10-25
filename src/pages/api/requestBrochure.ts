@@ -7,7 +7,7 @@ import { Resend } from "resend";
 import { supabase } from "@/lib/supabaseClient";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "admin@example.com";
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
 const TURNSTILE_VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 
 const EMAIL_CONTENT = {
@@ -126,6 +126,13 @@ async function sendBrochure(email: string, language: "de" | "en") {
 }
 
 async function notifyAdmin(language: "de" | "en") {
+  if (!ADMIN_EMAIL) {
+    // Never fall back to a placeholder address: skip the notification and make the
+    // misconfiguration visible in the logs instead.
+    console.error("ADMIN_EMAIL is not configured; skipping admin notification");
+    return;
+  }
+
   try {
     await resend.emails.send({
       from: "Dineysos <info@dineysos.com>",

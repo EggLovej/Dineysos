@@ -19,7 +19,7 @@ export default function Footer() {
             width={500}
           />
 
-          <p>© 2025 Dineysos Wine & Dine Events</p>
+          <p>© {new Date().getFullYear()} Dineysos Wine & Dine Events</p>
         </div>
 
         <div className={styles.right}>

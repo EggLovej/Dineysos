@@ -1,10 +1,10 @@
-import { GetStaticPropsContext } from "next";
+import type { GetStaticPropsContext } from "next";
 import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useState } from "react";
 
 import SeoHead from "@/components/layout/Head";
 import { seoConfig } from "@/config/seo";
+import { getI18nStaticProps } from "@/lib/getStaticProps";
 import styles from "@/styles/Feedback.module.css";
 
 export default function FeedbackPage() {
@@ -78,10 +78,6 @@ export default function FeedbackPage() {
     </>
   );
 }
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale ?? "de", ["common"])),
-    },
-  };
+export async function getStaticProps(context: GetStaticPropsContext) {
+  return getI18nStaticProps(context);
 }

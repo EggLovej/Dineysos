@@ -1,4 +1,9 @@
 {
+  "404": {
+    "title": "Seite nicht gefunden",
+    "description": "Die angeforderte Seite konnte nicht gefunden werden.",
+    "backToHome": "zur Startseite"
+  },
   "legal": {
     "navigation": "Rechtliche Informationen",
     "placeholder": "Der Inhalt dieser Seite wird in Kürze ergänzt.",
@@ -39,7 +44,6 @@
     "heading": "Unsere Konzepte",
     "button": "Mehr erfahren",
     "gameType": "Spielelement:",
-    "quiz": "Quiz",
     "fun": "Spass",
     "learning": "Lernlevel",
     "exchange": "Austausch",
@@ -90,7 +94,6 @@
       "onRequest": "auf Anfrage",
       "perHour": "pro angefangene Stunde",
       "startingFrom": "ab",
-
       "basePrice": "Basispreis",
       "basePriceDescription": "inkl. Unterlagen, Moderation, Spielkonzept (2 Stunden)",
       "winePairing": "Weinbegleitung mit 5 Weinen (5×1dl)",
@@ -100,13 +103,6 @@
       "venue": "Veranstaltungsort",
       "extension": "Verlängerung der Veranstaltung",
       "extensionDescription": "Aufgrund von Essen oder auf Kundenwunsch"
-    },
-    "mobile": {
-      "basePrice": "Basispreis:",
-      "winePairing": "Wein:",
-      "food": "Essensbegleitung:",
-      "venue": "Veranstaltungsort:",
-      "extension": "Verlängerung:"
     }
   },
   "gallery": {
@@ -213,10 +209,5 @@
     "description": "Erlebe ein spannendes Degustationsrätselspiel in geselliger Runde. Ob kollaborativ oder kompetitiv – mit der Sip&Solve Box wird das gemeinsame Geniessen zum Abenteuer! Das Spiel sorgt für Gesprächsstoff, führt euch spielerisch an unterschiedliche Weinprofile heran und bringt den typischen Dineysos-Charme zu euch nach Hause.",
     "short": "Kurz: Eine Box, sechs Weine, ein Spiel – und jede Menge Aha-Momente, Lacher und neue Lieblingsweine!",
     "button": "Hier gehts zur Box!"
-  },
-  "404": {
-    "title": "Seite nicht gefunden",
-    "description": "Die angeforderte Seite konnte nicht gefunden werden.",
-    "backToHome": "zur Startseite"
   }
 }
