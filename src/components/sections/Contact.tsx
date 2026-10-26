@@ -17,7 +17,7 @@ export default function Contact() {
               <p>{t("contact.left.message1")}</p>
               <p>{t("contact.left.message2")}</p>
               <p>
-                <a className={styles.email} data-track="email" href="mailto:info@dineysos.com">
+                <a className={styles.email} href="mailto:info@dineysos.com">
                   info@dineysos.com
                 </a>
               </p>

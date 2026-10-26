@@ -7,14 +7,30 @@ type SeoHeadProps = {
   imageUrl?: string;
 };
 
+const SITE_URL = "https://dineysos.com";
+
+// The default locale (de) lives at the root, every other locale under its prefix.
+export function localizedUrl(locale: "de" | "en", path: string) {
+  const cleanPath = path === "/" ? "" : path;
+  return locale === "de" ? `${SITE_URL}${cleanPath || "/"}` : `${SITE_URL}/${locale}${cleanPath}`;
+}
+
+// asPath never carries the locale prefix, but it does carry query strings and
+// hashes, which must not end up in canonical or alternate URLs.
+export function cleanPath(asPath: string) {
+  return asPath.split(/[?#]/)[0] || "/";
+}
+
 export default function SeoHead({
   title,
   description,
-  imageUrl = "https://dineysos.com/images/icons/og-default.png",
+  imageUrl = `${SITE_URL}/images/icons/og-default.png`,
 }: SeoHeadProps) {
   const { locale, asPath } = useRouter();
   const safeLocale = locale === "de" ? "de" : "en";
-  const url = `https://dineysos.com${asPath}`;
+
+  const path = cleanPath(asPath);
+  const url = localizedUrl(safeLocale, path);
 
   const localizedTitle = title[safeLocale];
   const localizedDescription = description[safeLocale];
@@ -25,7 +41,7 @@ export default function SeoHead({
       <meta content={localizedDescription} name="description" />
       <meta content="width=device-width, initial-scale=1" name="viewport" />
       <meta charSet="utf-8" />
-      <meta content={locale} httpEquiv="Content-Language" />
+      <meta content={safeLocale} httpEquiv="Content-Language" />
       <link href="/favicon.ico" rel="icon" />
 
       {/* SEO Indexing */}
@@ -38,6 +54,7 @@ export default function SeoHead({
       <meta content={imageUrl} property="og:image" />
       <meta content={url} property="og:url" />
       <meta content="Dineysos" property="og:site_name" />
+      <meta content={safeLocale === "de" ? "de_CH" : "en_US"} property="og:locale" />
 
       {/* Twitter */}
       <meta content="summary_large_image" name="twitter:card" />
@@ -45,12 +62,13 @@ export default function SeoHead({
       <meta content={localizedDescription} name="twitter:description" />
       <meta content={imageUrl} name="twitter:image" />
 
-      {/* Canonical */}
+      {/* Canonical: the URL of this page in the current locale */}
       <link href={url} rel="canonical" />
 
-      {/* Hreflang for i18n */}
-      <link href={`https://dineysos.com/de${asPath}`} hrefLang="de" rel="alternate" />
-      <link href={`https://dineysos.com/en${asPath}`} hrefLang="en" rel="alternate" />
+      {/* Hreflang: one entry per locale plus x-default pointing at the default locale */}
+      <link href={localizedUrl("de", path)} hrefLang="de" rel="alternate" />
+      <link href={localizedUrl("en", path)} hrefLang="en" rel="alternate" />
+      <link href={localizedUrl("de", path)} hrefLang="x-default" rel="alternate" />
     </Head>
   );
 }

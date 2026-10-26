@@ -26,20 +26,23 @@ export default function Navbar() {
   // Handles language switching by routing and closing menus
 
   function switchLocale(locale: string) {
-    const { pathname, query, asPath } = router;
+    const { pathname, query } = router;
 
-    // Extract hash manually
-    const [hash] = asPath.split("#");
+    // router.asPath does not reliably contain the hash on first load, so read it
+    // from the browser and keep it in the URL across the locale change.
+    const hash = window.location.hash.slice(1);
 
-    void router.push({ pathname, query }, asPath, { locale }).then(() => {
-      if (hash) {
-        // Timeout to allow layout/DOM to update
-        setTimeout(() => {
-          const el = document.getElementById(hash);
-          if (el) el.scrollIntoView({ behavior: "smooth" });
-        }, 50);
-      }
-    });
+    void router
+      .push({ pathname, query, hash: hash || undefined }, undefined, { locale })
+      .then(() => {
+        if (hash) {
+          // Timeout to allow layout/DOM to update
+          setTimeout(() => {
+            const el = document.getElementById(hash);
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+          }, 50);
+        }
+      });
   }
 
   // Navigation links with i18n labels

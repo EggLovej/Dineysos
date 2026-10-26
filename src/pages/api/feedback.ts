@@ -1,6 +1,10 @@
+import { wrapApiHandlerWithSentry } from "@sentry/nextjs";
 import type { NextApiRequest, NextApiResponse } from "next";
 
+import { logError, logEvent } from "@/lib/log";
 import { supabase } from "@/lib/supabaseClient";
+
+const ROUTE = "/api/feedback";
 
 interface SipSolveFeedback {
   type: "sip-solve";
@@ -17,7 +21,7 @@ interface SipSolveFeedback {
   timestamp: string;
 }
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") return res.status(405).end();
 
   const feedback = req.body as SipSolveFeedback;
@@ -42,9 +46,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   ]);
 
   if (error) {
-    console.error("Supabase insert error:", error);
+    logError(ROUTE, "supabase-insert-failed", error);
     return res.status(500).json({ error: "Failed to save feedback" });
   }
 
+  logEvent(ROUTE, "feedback-saved", { type: feedback.type });
   return res.status(200).json({ message: "Sip & Solve feedback saved" });
 }
+
+export default wrapApiHandlerWithSentry(handler, ROUTE);

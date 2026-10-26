@@ -100,7 +100,7 @@ export default function Concepts() {
 
           <div className={styles.card}>
             <div className={styles.image}>
-              <Image alt="Trophy" height={180} src="/images/icons/olympics.webp" width={240} />
+              <Image alt="Olympics" height={180} src="/images/icons/olympics.webp" width={240} />
             </div>
             <div className={styles.description}>
               <h3>{t("concept.olympics.title")}</h3>

@@ -2,34 +2,19 @@ import type { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next
 import Head from "next/head";
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useMemo } from "react";
 
 import { CalendarIcon, ClockIcon, MapPinIcon, CoinsIcon } from "@/components/common/Icons";
 import SeoHead from "@/components/layout/Head";
 import { fetchAllEventSlugs, fetchEventBySlug } from "@/lib/api";
+import { formatParagraph, formatTimeRange } from "@/lib/eventFormat";
+import { getI18nStaticProps } from "@/lib/getStaticProps";
 import styles from "@/styles/events/EventPage.module.css";
 import { Event } from "@/types/event";
 
 type EventPageProps = {
   event: Event;
 };
-
-function formatParagraph(text: string) {
-  const emailRegex = /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
-
-  const parts = text.split(emailRegex);
-
-  return parts.map((part, idx) =>
-    emailRegex.test(part) ? (
-      <a key={idx} className={styles.email} href={`mailto:${part}`}>
-        {part}
-      </a>
-    ) : (
-      part
-    )
-  );
-}
 
 export default function EventPage({ event }: EventPageProps) {
   const { t, i18n } = useTranslation("common");
@@ -101,7 +86,8 @@ export default function EventPage({ event }: EventPageProps) {
 
       <Head>
         <script
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          // Escape "<" so CMS content can never close the script tag early.
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}
           type="application/ld+json"
         />
       </Head>
@@ -229,27 +215,20 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
 };
 
 export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
-  const { params, locale } = context;
+  const slug = context.params?.slug;
+  const event = typeof slug === "string" ? await fetchEventBySlug(slug) : null;
 
-  const event = await fetchEventBySlug(params?.slug as string);
+  if (!event) {
+    return { notFound: true, revalidate: 60 };
+  }
+
+  const i18nProps = await getI18nStaticProps(context);
 
   return {
     props: {
+      ...i18nProps.props,
       event,
-      ...(await serverSideTranslations(locale ?? "de", ["common"])),
     },
     revalidate: 86400, // Revalidate every 24 hours
   };
 };
-
-function formatTimeRange(start: string, end: string) {
-  const startTime = new Date(start).toLocaleTimeString("de-CH", {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-  const endTime = new Date(end).toLocaleTimeString("de-CH", {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-  return `${startTime} – ${endTime}`;
-}

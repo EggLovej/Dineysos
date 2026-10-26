@@ -1,14 +1,18 @@
 import fs from "fs";
 import path from "path";
 
+import { wrapApiHandlerWithSentry } from "@sentry/nextjs";
 import { NextApiRequest, NextApiResponse } from "next";
 import { Resend } from "resend";
 
+import { logError, logEvent } from "@/lib/log";
+import { getClientIp, normalizeEmail } from "@/lib/request";
 import { supabase } from "@/lib/supabaseClient";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "admin@example.com";
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
 const TURNSTILE_VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
+const ROUTE = "/api/requestBrochure";
 
 const EMAIL_CONTENT = {
   de: {
@@ -45,27 +49,6 @@ type TurnstileResponse = {
   success: boolean;
   "error-codes"?: string[];
 };
-
-function getClientIp(req: NextApiRequest) {
-  const forwardedFor = req.headers["x-forwarded-for"];
-
-  if (Array.isArray(forwardedFor)) {
-    return forwardedFor[0]?.split(",")[0]?.trim();
-  }
-
-  return forwardedFor?.split(",")[0]?.trim() ?? req.socket.remoteAddress;
-}
-
-function normalizeEmail(email: unknown) {
-  if (typeof email !== "string") return null;
-
-  const normalizedEmail = email.trim().toLowerCase();
-  const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalizedEmail);
-
-  if (!isValidEmail || normalizedEmail.length > 254) return null;
-
-  return normalizedEmail;
-}
 
 async function verifyTurnstile(token: unknown, clientIp?: string) {
   const secret = process.env.TURNSTILE_SECRET_KEY;
@@ -125,34 +108,59 @@ async function sendBrochure(email: string, language: "de" | "en") {
   });
 }
 
-async function notifyAdmin(language: "de" | "en") {
+async function notifyAdmin(subject: string, html: string) {
+  if (!ADMIN_EMAIL) {
+    // Never fall back to a placeholder address: skip the notification and make the
+    // misconfiguration visible instead.
+    logError(ROUTE, "admin-email-missing", new Error("ADMIN_EMAIL is not configured"));
+    return;
+  }
+
   try {
     await resend.emails.send({
       from: "Dineysos <info@dineysos.com>",
       to: ADMIN_EMAIL,
-      subject: "Brochure downloaded",
-      html: `A user just downloaded the brochure in ${language}.`,
+      subject,
+      html,
     });
   } catch (notifyError) {
-    console.error("Failed to send admin notification:", notifyError);
+    logError(ROUTE, "admin-notification-failed", notifyError);
   }
 }
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+function notifyAdminOfSuccess(language: "de" | "en") {
+  return notifyAdmin("Brochure downloaded", `A user just downloaded the brochure in ${language}.`);
+}
+
+// The lead is already stored, so the owner can send the brochure by hand.
+function notifyAdminOfFailure(email: string, language: "de" | "en", error: unknown) {
+  const reason = error instanceof Error ? error.message : String(error);
+  return notifyAdmin(
+    "Brochure delivery FAILED",
+    `<p>The brochure (${language}) could not be sent to <strong>${email}</strong>.</p>` +
+      "<p>The request is saved in Supabase with sentBrochure = false. Please send it manually.</p>" +
+      `<p>Reason: ${reason}</p>`
+  );
+}
+
+async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") {
     return res.status(405).end();
   }
 
-  const body = req.body as RequestBrochureBody;
+  const started = Date.now();
+  const body = (req.body ?? {}) as RequestBrochureBody;
 
   // bot detection
   if (typeof body.website === "string" && body.website.trim()) {
+    logEvent(ROUTE, "honeypot-triggered");
     return res.status(200).json({ success: true });
   }
 
   const email = normalizeEmail(body.email);
 
   if (!email) {
+    logEvent(ROUTE, "invalid-email");
     return res.status(400).json({ error: "Valid email is required" });
   }
 
@@ -162,11 +170,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     turnstilePassed = await verifyTurnstile(body.turnstileToken, clientIp);
   } catch (error) {
-    console.error("Turnstile verification error:", error);
+    logError(ROUTE, "turnstile-unavailable", error);
     return res.status(500).json({ error: "Verification unavailable" });
   }
 
   if (!turnstilePassed) {
+    logEvent(ROUTE, "turnstile-failed");
     return res.status(400).json({ error: "Verification failed" });
   }
 
@@ -188,7 +197,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     .single();
 
   if (error || !data) {
-    console.error("Supabase insert error:", error);
+    logError(ROUTE, "supabase-insert-failed", error ?? new Error("Insert returned no row"), {
+      language,
+    });
     return res.status(500).json({ error: "Failed to save email" });
   }
 
@@ -204,14 +215,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       .eq("id", data.id);
 
     if (updateError) {
-      console.error("Supabase update error:", updateError);
+      logError(ROUTE, "supabase-update-failed", updateError, { language, leadId: data.id });
     }
 
-    await notifyAdmin(language);
+    await notifyAdminOfSuccess(language);
+    logEvent(ROUTE, "brochure-sent", { language, durationMs: Date.now() - started });
 
     return res.status(200).json({ success: true });
   } catch (error) {
-    console.error("Brochure request error:", error);
+    logError(ROUTE, "brochure-send-failed", error, { language, leadId: data.id });
+    await notifyAdminOfFailure(email, language, error);
     return res.status(500).json({ error: "Failed to send brochure" });
   }
 }
+
+export default wrapApiHandlerWithSentry(handler, ROUTE);
