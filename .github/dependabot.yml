@@ -4,12 +4,22 @@ updates:
     directory: /
     schedule:
       interval: monthly
+    # Grouped monthly PRs contain minor and patch updates only, so they stay
+    # mergeable. Major versions (Next, TypeScript, the i18n stack, ...) need
+    # migration work and are upgraded deliberately; they still show up as
+    # individual PRs that can be closed until that work is planned.
     groups:
       production:
         dependency-type: production
+        update-types: ["minor", "patch"]
       development:
         dependency-type: development
-    # Security updates are not limited by the schedule or grouping.
+        update-types: ["minor", "patch"]
+    ignore:
+      # Type definitions must track the Node.js runtime (22.x, see package.json engines).
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
+    # Security updates are not limited by the schedule, grouping or ignore rules.
 
   - package-ecosystem: github-actions
     directory: /
