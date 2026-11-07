@@ -26,7 +26,7 @@ describe("localizedUrl", () => {
     expect(localizedUrl("en", "/events/foo")).toBe("https://dineysos.com/en/events/foo");
   });
 
-  it("never produces a /de prefix (the duplicate URL redirected in vercel.json)", () => {
+  it("never produces a /de prefix (the duplicate URL Next.js also serves)", () => {
     expect(localizedUrl("de", "/agb")).not.toContain("/de/");
   });
 });

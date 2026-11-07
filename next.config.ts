@@ -56,11 +56,12 @@ const nextConfig: NextConfig = {
     }
     return config;
   },
-  // Note: redirecting the prefixed default locale (/de/...) to the unprefixed URL
-  // cannot be done here or in middleware: with i18n enabled Next.js normalises
-  // "/events" to "/de/events" before matching, so any "/de" rule redirects the
-  // unprefixed URL to itself. That redirect lives in vercel.json instead, which
-  // Vercel applies to the raw request path before Next.js sees it.
+  // Note: the prefixed default locale (/de/...) is intentionally NOT redirected.
+  // With i18n enabled Next.js normalises "/events" to "/de/events" before matching,
+  // so a "/de" rule here or in middleware redirects the unprefixed URL to itself,
+  // and a vercel.json redirect loops on static files for the same reason (this
+  // took production down once). Duplicate URLs are handled by the canonical and
+  // hreflang tags in src/components/layout/Head.tsx instead.
 };
 
 // Sentry error tracking. Source maps are uploaded only when SENTRY_AUTH_TOKEN,
